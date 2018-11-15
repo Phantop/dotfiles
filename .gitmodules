@@ -1,54 +1,54 @@
-[submodule ".config/nvim/plugged/ale"]
-	path = .config/nvim/plugged/ale
+[submodule ".config/nvim/bundle/ale"]
+	path = .config/nvim/bundle/ale
 	url = https://github.com/w0rp/ale.git
-[submodule ".config/nvim/plugged/ctrlp.vim"]
-	path = .config/nvim/plugged/ctrlp.vim
+[submodule ".config/nvim/bundle/ctrlp.vim"]
+	path = .config/nvim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".config/nvim/plugged/fish.vim"]
-	path = .config/nvim/plugged/fish.vim
+[submodule ".config/nvim/bundle/fish.vim"]
+	path = .config/nvim/bundle/fish.vim
 	url = https://github.com/RobertAudi/fish.vim.git
-[submodule ".config/nvim/plugged/indentLine"]
-	path = .config/nvim/plugged/indentLine
+[submodule ".config/nvim/bundle/indentLine"]
+	path = .config/nvim/bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
-[submodule ".config/nvim/plugged/nerdtree"]
-	path = .config/nvim/plugged/nerdtree
+[submodule ".config/nvim/bundle/nerdtree"]
+	path = .config/nvim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".config/nvim/plugged/tabular"]
-	path = .config/nvim/plugged/tabular
+[submodule ".config/nvim/bundle/tabular"]
+	path = .config/nvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".config/nvim/plugged/terminus"]
-	path = .config/nvim/plugged/terminus
+[submodule ".config/nvim/bundle/terminus"]
+	path = .config/nvim/bundle/terminus
 	url = https://github.com/wincent/terminus.git
-[submodule ".config/nvim/plugged/tokyo-metro.vim"]
-	path = .config/nvim/plugged/tokyo-metro.vim
+[submodule ".config/nvim/bundle/tokyo-metro.vim"]
+	path = .config/nvim/bundle/tokyo-metro.vim
 	url = https://github.com/koirand/tokyo-metro.vim.git
-[submodule ".config/nvim/plugged/vim-commentary"]
-	path = .config/nvim/plugged/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule ".config/nvim/plugged/vim-fugitive"]
-	path = .config/nvim/plugged/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".config/nvim/plugged/vim-gitgutter"]
-	path = .config/nvim/plugged/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule ".config/nvim/plugged/vim-repeat"]
-	path = .config/nvim/plugged/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
-[submodule ".config/nvim/plugged/vim-sensible"]
-	path = .config/nvim/plugged/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
-[submodule ".config/nvim/plugged/vim-startify"]
-	path = .config/nvim/plugged/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
-[submodule ".config/nvim/plugged/vim-surround"]
-	path = .config/nvim/plugged/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule ".config/nvim/plugged/vimcompletesme"]
-	path = .config/nvim/plugged/vimcompletesme
-	url = https://github.com/ajh17/vimcompletesme.git
-[submodule ".config/nvim/plugged/vim-airline"]
-	path = .config/nvim/plugged/vim-airline
+[submodule ".config/nvim/bundle/vim-vim-airline"]
+	path = .config/nvim/bundle/vim-vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule ".config/nvim/plugged/dracula"]
-	path = .config/nvim/plugged/dracula
+[submodule ".config/nvim/bundle/vim-commentary"]
+	path = .config/nvim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule ".config/nvim/bundle/vim-fugitive"]
+	path = .config/nvim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".config/nvim/bundle/vim-gitgutter"]
+	path = .config/nvim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".config/nvim/bundle/vim-repeat"]
+	path = .config/nvim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule ".config/nvim/bundle/vim-sensible"]
+	path = .config/nvim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule ".config/nvim/bundle/vim-startify"]
+	path = .config/nvim/bundle/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
+[submodule ".config/nvim/bundle/vim-surround"]
+	path = .config/nvim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".config/nvim/bundle/vimcompletesme"]
+	path = .config/nvim/bundle/vimcompletesme
+	url = https://github.com/ajh17/vimcompletesme.git
+[submodule ".config/nvim/bundle/dracula"]
+	path = .config/nvim/bundle/dracula
 	url = https://github.com/dracula/vim.git

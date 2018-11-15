@@ -1,23 +1,25 @@
-call plug#begin()
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'koirand/tokyo-metro.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'RobertAudi/fish.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mhinz/vim-startify'
-Plug 'wincent/terminus'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-commentary'
-Plug 'ajh17/vimcompletesme'
-Plug 'tpope/vim-repeat'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'godlygeek/tabular'
-Plug 'Yggdroot/indentLine'
-call plug#end()
+execute pathogen#infect()
+
+"call plug#begin()
+"Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'koirand/tokyo-metro.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'tpope/vim-surround'
+"Plug 'scrooloose/nerdtree'
+"Plug 'RobertAudi/fish.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'mhinz/vim-startify'
+"Plug 'wincent/terminus'
+"Plug 'w0rp/ale'
+"Plug 'tpope/vim-commentary'
+"Plug 'ajh17/vimcompletesme'
+"Plug 'tpope/vim-repeat'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-sensible'
+"Plug 'godlygeek/tabular'
+"Plug 'Yggdroot/indentLine'
+"call plug#end()
 
 set number
 set ruler
