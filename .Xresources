@@ -1,0 +1,49 @@
+! special
+#define dracula #282a36
+#define adapta  #222D32
+#define ubuntu  #300A24
+
+*.foreground:   #f8f8f2
+*.background:   dracula
+! black
+*.color0:       #282a36
+*.color8:       #4d4d4d
+
+! red
+*.color1:       #ff5555
+*.color9:       #ff6e67
+
+! green
+*.color2:       #50fa7b
+*.color10:      #5af78e
+
+! yellow
+*.color3:       #f1fa8c
+*.color11:      #f4f99d
+
+! blue
+*.color4:       #3c82e8
+*.color12:      #3c82e8
+
+! magenta
+*.color5:       #bd93f9
+*.color13:      #caa9fa
+
+! cyan
+*.color6:       #8be9fd
+*.color14:      #9aedfe
+
+! white
+*.color7:       #bfbfbf
+*.color15:      #e6e6e6
+
+*.color16:      #b45bcf
+*.color17:      #00f769
+*.color18:      #3a3c4e
+*.color19:      #4d4f68
+*.color20:      #62d6e8
+*.color21:      #f1f2f8
+
+st.shell:       /usr/bin/fish
+st.xfps:        600
+st.font:        Hack:pixelsize=14:antialias=true:autohint=true
