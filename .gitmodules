@@ -23,7 +23,7 @@
 	path = .config/nvim/bundle/tokyo-metro.vim
 	url = https://github.com/koirand/tokyo-metro.vim.git
 [submodule ".config/nvim/bundle/vim-vim-airline"]
-	path = .config/nvim/bundle/vim-vim-airline
+	path = .config/nvim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule ".config/nvim/bundle/vim-commentary"]
 	path = .config/nvim/bundle/vim-commentary
