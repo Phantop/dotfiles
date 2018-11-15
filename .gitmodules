@@ -52,3 +52,6 @@
 [submodule ".config/nvim/bundle/dracula"]
 	path = .config/nvim/bundle/dracula
 	url = https://github.com/dracula/vim.git
+[submodule ".config/nvim/bundle/vim-easymotion"]
+	path = .config/nvim/bundle/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git

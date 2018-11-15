@@ -12,15 +12,12 @@ set cursorline
 set clipboard=unnamedplus
 set autoread
 syntax enable
-
 filetype plugin indent on
 
 map <F7> mzgg=G`z
 
 set background=dark
 colorscheme dracula
-
-"set t_Co=256                         " Enable 256 colors
 set termguicolors                    " Enable GUI colors for the terminal to get truecolor
 
 autocmd FileType * set tw=0
