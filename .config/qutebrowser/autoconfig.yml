@@ -107,6 +107,8 @@ settings:
     global: true
   content.host_blocking.enabled:
     global: true
+  content.plugins:
+    global: false
   content.ssl_strict:
     global: ask
   content.user_stylesheets:
