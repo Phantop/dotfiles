@@ -214,7 +214,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       heb: https://translate.google.com/#en/iw/{}
-      r: https://reddit.com/r/{}
+      r: https://old.reddit.com/r/{}
       y: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global:

@@ -11,7 +11,7 @@ switch (tty)
 set -gx PLAN9 $D/Source/plan9port
 set -gx PATH $PATH $PLAN9/bin
 set -gx ANDROID_HOME $D/Source/android/sdk
-set -gx fish_user_paths $ANDROID_HOME/platform-tools /usr/local/bin /usr/sbin /sbin /usr/local/sbin
+set -gx fish_user_paths ~/.local/bin $ANDROID_HOME/platform-tools /usr/local/bin /usr/sbin /sbin /usr/local/sbin
 
 # PROGRAM SETTINGS #
 set -gx EDITOR nvim
