@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.tbkHRu/fruitdl.fish @ line 2
+# Defined in /tmp/fish.cOeTFi/fruitdl.fish @ line 2
 function fruitdl
 	set emu $argv[2]
     cd $D/Games/Emulators/$emu 
@@ -13,6 +13,4 @@ function fruitdl
         echo $file > emuver
         rm (basename $file).7z
     end
-
-    eval $emu
 end

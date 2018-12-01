@@ -1,7 +1,7 @@
-# Defined in /tmp/fish.XYALhp/build.fish @ line 2
+# Defined in /tmp/fish.g6wC1F/build.fish @ line 2
 function build
 	s printf \ 
-    g pull
+    gp
     ./autogen.sh
     ./configure --prefix=/usr
     cmake .
