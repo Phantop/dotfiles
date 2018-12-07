@@ -1,5 +1,6 @@
-# Defined in /tmp/fish.SbwYNN/rpcs3.fish @ line 1
+# Defined in /tmp/fish.pX4L2Z/rpcs3.fish @ line 2
 function rpcs3
 	cd $D/Games/Emulators/rpcs3/
-    wget -O- -o /dev/tty https://rpcs3.net/download | grep -o -m1 https://rpcs3.net/cdn/builds/rpcs3-v.\*_linux64.AppImage
+    ./rpcs3
+    rm *log*
 end
