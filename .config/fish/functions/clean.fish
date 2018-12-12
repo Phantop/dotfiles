@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.p3ZSYS/clean.fish @ line 2
+# Defined in /tmp/fish.VaFWaA/clean.fish @ line 2
 function clean
 	s printf \ 
     updatefonts
@@ -7,8 +7,8 @@ function clean
     se rmo -y
     se rdb -y
     s journalctl --vacuum-size=1K
-    bleachbit -c (bleachbit -l|grep -v system.free_disk_space | grep -v transmission)
-    s bleachbit -c (bleachbit -l|grep -v system.free_disk_space | grep -v transmission)
+    bleachbit -c (bleachbit -l|grep -Ev 'system.free_disk_space|transmission')
+    s bleachbit -c (bleachbit -l|grep -Ev 'system.free_disk_space|transmission')
     rm -r ~/.cache/*
     rm -r ~/.nv/*
     rm -r ~/.local/share/nvim/swap/
