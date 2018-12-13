@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.YaN3mS/gc.fish @ line 1
+# Defined in /tmp/fish.Q4WxYZ/gc.fish @ line 2
 function gc
-	git checkout $argv
+	g commit $argv
 end

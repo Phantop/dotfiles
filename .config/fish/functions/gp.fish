@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.XGxM7O/gp.fish @ line 1
+# Defined in /tmp/fish.nf13Gy/gp.fish @ line 2
 function gp
-	git pull $argv
+	g pull $argv
 end
