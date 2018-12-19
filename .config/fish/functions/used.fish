@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.VTW1Ge/used.fish @ line 1
+# Defined in /tmp/fish.ZNLeDW/used.fish @ line 2
 function used
-	du -h $argv
+	watch -n 0.1 du -h -BM $argv
 end

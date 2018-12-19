@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.1DIZ1f/gpu.fish @ line 1
+# Defined in /tmp/fish.kr2YnC/gpu.fish @ line 2
 function gpu
-	g push
+	g push $argv
 end
