@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.g6wC1F/build.fish @ line 2
+# Defined in /tmp/fish.kRzbVF/build.fish @ line 2
 function build
 	s printf \ 
     gp
@@ -7,4 +7,7 @@ function build
     cmake .
     make
     s make install
+    meson build
+    ninja -C build
+    sudo ninja -C build install
 end

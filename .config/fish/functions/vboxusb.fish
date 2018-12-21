@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.4rR45u/vboxusb.fish @ line 1
+# Defined in /tmp/fish.q736uF/vboxusb.fish @ line 2
 function vboxusb
-	s usermod -aG vboxusers glados
+	s usermod -aG vboxusers $USER
 end

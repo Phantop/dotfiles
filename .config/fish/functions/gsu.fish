@@ -1,4 +1,5 @@
-# Defined in /tmp/fish.ASZhcy/gsu.fish @ line 1
+# Defined in /tmp/fish.bDC1Cu/gsu.fish @ line 2
 function gsu
-	git submodule foreach --recursive git pull origin master $argv
+	g submodule foreach --recursive 
+        g pull origin master $argv
 end

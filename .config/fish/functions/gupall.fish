@@ -1,8 +1,8 @@
-# Defined in /tmp/fish.xOFV2s/gupall.fish @ line 1
+# Defined in /tmp/fish.SQEYNE/gupall.fish @ line 2
 function gupall
 	for i in *
         cd $i
-        git pull
+        g pull
         cd ..
     end
 end

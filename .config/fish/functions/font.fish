@@ -1,4 +1,4 @@
 # Defined in /tmp/fish.dvX0Rn/updatefonts.fish @ line 2
-function updatefonts
+function font
 	fc-cache -f -v
 end

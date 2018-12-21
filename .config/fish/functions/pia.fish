@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.msZ5xK/pia.fish @ line 2
+# Defined in /tmp/fish.e1WPCz/pia-manager.fish @ line 2
 function pia
-	pia-manager $argv
+	eval $D/Source/pia/pia-manager.py
 end

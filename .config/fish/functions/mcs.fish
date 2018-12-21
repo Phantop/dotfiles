@@ -1,4 +1,5 @@
-# Defined in /tmp/fish.Wai4Lr/mcs.fish @ line 1
+# Defined in /tmp/fish.iAzJE2/minecraftserver.fish @ line 2
 function mcs
-	mcserver
+	cd $D/Games/Minecraft/Server
+        java -Xmx8G -Xms128M -XX:+UseConcMarkSweepGC -jar server.jar nogui
 end

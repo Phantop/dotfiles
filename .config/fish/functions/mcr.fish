@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.VgI3wL/mcr.fish @ line 1
+# Defined in /tmp/fish.9GKs9x/mcrcon.fish @ line 2
 function mcr
-	mcrcon $argv
+	eval $D/Games/Minecraft/Server/mcrcon -t -H localhost -P 25575 -p password $argv
 end
