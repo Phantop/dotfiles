@@ -55,3 +55,9 @@
 [submodule ".config/nvim/bundle/vim-easymotion"]
 	path = .config/nvim/bundle/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
+[submodule ".config/nvim/bundle/denite.nvim"]
+	path = .config/nvim/bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule ".config/nvim/bundle/hexmode"]
+	path = .config/nvim/bundle/hexmode
+	url = https://github.com/fidian/hexmode.git
