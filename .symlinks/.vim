@@ -1,0 +1,1 @@
+/home/glados/.config/nvim
