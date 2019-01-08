@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.fhflGN/ta.fish @ line 1
+# Defined in /tmp/fish.FDoq61/ta.fish @ line 2
 function ta
-	tmux attach $argv
+	tmux attach -t (math 0 + "0$argv[1]") $argv[2..-1]
 end

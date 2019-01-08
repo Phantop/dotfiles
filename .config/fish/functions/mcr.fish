@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.SCEnNd/mcr.fish @ line 2
+# Defined in /home/glados/.config/fish/functions/mcr.fish @ line 2
 function mcr
-	eval $D/Games/Minecraft/Server/mcrcon localhost 25575 password $argv
+	eval $D/Games/Minecraft/Server/mcrcon localhost password
 end
