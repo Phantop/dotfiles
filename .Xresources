@@ -44,6 +44,8 @@
 *.color20:      #62d6e8
 *.color21:      #f1f2f8
 
+#define hack Hack:pixelsize=14:antialias=true:autohint=true
+#define ubuntumono Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
 st.shell:       /usr/bin/fish
 st.xfps:        600
-st.font:        Hack:pixelsize=14:antialias=true:autohint=true
+st.font:        ubuntumono

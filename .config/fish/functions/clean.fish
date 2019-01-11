@@ -1,7 +1,7 @@
-# Defined in /tmp/fish.VaFWaA/clean.fish @ line 2
+# Defined in /tmp/fish.XLdbAh/clean.fish @ line 2
 function clean
 	s printf \ 
-    updatefonts
+    font
     se clean -y
     se dc -y
     se rmo -y
@@ -12,4 +12,5 @@ function clean
     rm -r ~/.cache/*
     rm -r ~/.nv/*
     rm -r ~/.local/share/nvim/swap/
+    rm -r $D/Games/Emulators/*/canary
 end
