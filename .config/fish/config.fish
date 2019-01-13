@@ -1,7 +1,6 @@
 # PATHS #
 set -gx D /mnt/LocalDiskD
-set -gx ANDROID_HOME $D/Source/android/sdk
-set -gx fish_user_paths ~/.local/bin $ANDROID_HOME/platform-tools /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin
+set -gx fish_user_paths ~/.local/bin /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin
 set -gx ENV .profile
 
 # PROGRAM SETTINGS #

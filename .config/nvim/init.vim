@@ -1,26 +1,27 @@
-set number
-set ruler
-set nowrap
-set textwidth=0 wrapmargin=0 tw=0
-set mouse=a
-set autoindent
-set smartindent
-set expandtab
-set shiftwidth=4
-set formatoptions+=j
-set cursorline
-set clipboard=unnamedplus
-set autoread
+se number
+se ruler
+se nowrap
+se textwidth=0 wrapmargin=0 tw=0
+se lbr
+se mouse=a
+se autoindent
+se smartindent
+se expandtab
+se shiftwidth=4
+se formatoptions+=j
+se cursorline
+se clipboard=unnamedplus
+se autoread
 syntax enable
 filetype plugin indent on
 
 map <F7> mzgg=G`z
 
-set background=dark
+se background=dark
 colorscheme dracula
-set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+se termguicolors                    " Enable GUI colors for the terminal to get truecolor
 
-autocmd FileType * set tw=0
+autocmd FileType * se tw=0
 
-set ignorecase
-set smartcase
+se ignorecase
+se smartcase
