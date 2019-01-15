@@ -2,9 +2,11 @@
 #define dracula #282a36
 #define adapta  #222D32
 #define ubuntu  #300A24
+#define deepb   #042947
+#define deepp   #141127
 
 *.foreground:   #f8f8f2
-*.background:   dracula
+*.background:   deepp
 ! black
 *.color0:       #282a36
 *.color8:       #4d4d4d
