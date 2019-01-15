@@ -1,5 +1,6 @@
-# Defined in /tmp/fish.zzZ7OS/deb.fish @ line 1
+# Defined in /tmp/fish.mcutOu/deb.fish @ line 2
 function deb
 	ar -x $argv
-zcat data.tar.gz | s tar xv
+    tar Jxv data.tar.*
+    echo "You can install the deb with 'sudo cp -r'. Won't kill your system."
 end
