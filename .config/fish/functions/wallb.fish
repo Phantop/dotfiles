@@ -1,5 +1,4 @@
-# Defined in /tmp/fish.T58iWy/wallb.fish @ line 1
+# Defined in /tmp/fish.JSfXfr/wallb.fish @ line 2
 function wallb
-	rm ~/.config/wall0
-        convert $argv -blur 0x8 ~/.config/wall0
+	wallo $argv -blur 0x8
 end

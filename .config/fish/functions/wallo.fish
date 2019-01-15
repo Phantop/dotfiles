@@ -1,5 +1,4 @@
-# Defined in /tmp/fish.4xdCgs/wallo.fish @ line 2
+# Defined in /tmp/fish.IgbeJ9/wallo.fish @ line 2
 function wallo
-	rm ~/.config/wall0
-	cp $argv ~/.config/wall0
+	convert $argv -resize 1920x1080 ~/.config/wall0
 end
