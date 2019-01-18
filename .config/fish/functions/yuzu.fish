@@ -1,6 +1,6 @@
-# Defined in /tmp/fish.9pLxA4/yuzu.fish @ line 2
+# Defined in /tmp/fish.pZtHjZ/yuzu.fish @ line 2
 function yuzu
 	cd $D/Games/Emulators/yuzu
-        rm -r log
-./yuzu
+    ./yuzu
+    rm -r log
 end
