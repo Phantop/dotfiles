@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.MagfLI/ydl.fish @ line 1
+# Defined in /tmp/fish.sml9kE/ydl.fish @ line 2
 function ydl
-	youtube-dl $argv
+	youtube-dl --continue --ignore-errors --no-overwrites $argv
 end
