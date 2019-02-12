@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.mvX1Q0/minecraft.fish @ line 2
+# Defined in /tmp/fish.PwHe8w/minecraft.fish @ line 2
 function minecraft
-	cd ~/.minecraft; ./MultiMC
+	cd ~/.minecraft; rm *.log; ./MultiMC
 end
