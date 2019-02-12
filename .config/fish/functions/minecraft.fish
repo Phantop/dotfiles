@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.Y3P4Il/minecraft.fish @ line 1
+# Defined in /tmp/fish.mvX1Q0/minecraft.fish @ line 2
 function minecraft
-	cd ~/.minecraft; java -jar launcher.jar
+	cd ~/.minecraft; ./MultiMC
 end
