@@ -64,3 +64,9 @@
 [submodule ".local/share/qutebrowser/greasemonkey/Iridium"]
 	path = .local/share/qutebrowser/greasemonkey/Iridium
 	url = https://github.com/ParticleCore/Iridium.git
+[submodule ".config/nvim/bundle/vim-notes"]
+	path = .config/nvim/bundle/vim-notes
+	url = https://github.com/pedrosans/vim-notes.git
+[submodule ".config/nvim/bundle/vim-misc"]
+	path = .config/nvim/bundle/vim-misc
+	url = https://github.com/pedrosans/vim-misc.git
