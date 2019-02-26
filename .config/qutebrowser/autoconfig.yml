@@ -103,6 +103,13 @@ settings:
     global: black
   colors.webpage.bg:
     global: white
+  completion.open_categories:
+    global:
+    - quickmarks
+    - bookmarks
+    - history
+  completion.quick:
+    global: true
   content.headers.do_not_track:
     global: true
   content.host_blocking.enabled:
@@ -187,7 +194,7 @@ settings:
   qt.highdpi:
     global: false
   scrolling.bar:
-    global: false
+    global: when-searching
   scrolling.smooth:
     global: false
   statusbar.hide:
