@@ -16,3 +16,10 @@ source /usr/share/autojump/autojump.fish
 
 # LOAD XRESOURCES #
 xrdb ~/.Xresources
+
+# QUTEBROWSER QUICKMARKS #
+for i in (cat ~/.config/qutebrowser/quickmarks)
+    function (echo $i| awk '{print $1;}') -V i
+        qb (echo $i| awk '{print $2;}')
+    end
+end
