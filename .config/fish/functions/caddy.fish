@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.elkQYO/caddy.fish @ line 1
+# Defined in /tmp/fish.NJgkDd/caddy.fish @ line 2
 function caddy
-	$D/Tools/caddy -host 10.0.0.14 $argv
+	$D/Tools/caddy -host 10.0.0.14 $argv browse gzip
 end
