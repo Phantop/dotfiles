@@ -58,9 +58,6 @@
 [submodule ".config/nvim/bundle/hexmode"]
 	path = .config/nvim/bundle/hexmode
 	url = https://github.com/fidian/hexmode.git
-[submodule ".local/share/qutebrowser/greasemonkey/Iridium"]
-	path = .local/share/qutebrowser/greasemonkey/Iridium
-	url = https://github.com/ParticleCore/Iridium.git
 [submodule ".config/nvim/bundle/vim-notes"]
 	path = .config/nvim/bundle/vim-notes
 	url = https://github.com/pedrosans/vim-notes.git
