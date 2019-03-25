@@ -13,7 +13,7 @@ settings:
   bindings.commands:
     global:
       normal:
-        <Ctrl+Shift+m>: spawn fish -c 'cd Downloads; youtube-dl "{url}"'
+        <Ctrl+Shift+m>: spawn fish -c 'cd Downloads; ydl "{url}"'
         <Ctrl+m>: spawn mpv {url}
         <Ctrl+q>: close
         <Ctrl+w>: tab-close
