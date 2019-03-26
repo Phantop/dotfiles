@@ -23,3 +23,6 @@ for i in (cat ~/.config/qutebrowser/quickmarks)
         qb (echo $i| awk '{print $2;}')
     end
 end
+
+# THE FUCK #
+thefuck --alias | source
