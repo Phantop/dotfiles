@@ -3,7 +3,7 @@ if test (hostname) = aperture
     set -Ux D /mnt/LocalDiskD
 end
 set -gx ANDROID_HOME $D/Installs/Android/sdk
-set -gx fish_user_paths ~/.local/bin /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin $ANDROID_HOME/platform-tools
+set -gx fish_user_paths $D/Tools ~/.local/bin /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin $ANDROID_HOME/platform-tools
 set -gx ENV .profile
 set -gx FFF_CD_FILE ~/.fff_d
 
