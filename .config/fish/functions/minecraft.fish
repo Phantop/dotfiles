@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.HFRAAc/minecraft.fish @ line 2
+# Defined in /tmp/fish.y65rtl/minecraft.fish @ line 2
 function minecraft
-	cd $D/Games/Minecraft/Game; rm (ff -e log); bin/MultiMC -d .
+	cd $D/Games/Minecraft/Game; rm (ff -e log); bin/MultiMC -d . $argv
 end
