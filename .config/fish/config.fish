@@ -24,9 +24,6 @@ for i in (cat ~/.config/qutebrowser/quickmarks)
     end
 end
 
-# THE FUCK #
-thefuck --alias | source
-
 # MULTIMC INSTANCES #
 for i in (ls $D/Games/Minecraft/Game/instances/)
     function (basename $i | tr '[:upper:]' '[:lower:]') -V i
