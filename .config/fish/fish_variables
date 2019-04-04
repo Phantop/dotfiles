@@ -1,8 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export D:/mnt/LocalDiskD
-SETUVAR ZO_CMD:zo
-SETUVAR Z_CMD:z
+SETUVAR ZO_CMD:jo
+SETUVAR Z_CMD:j
 SETUVAR Z_DATA:/home/glados/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/glados/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:/home/glados

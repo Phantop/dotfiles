@@ -2,17 +2,23 @@
 if test (hostname) = aperture
     set -Ux D /mnt/LocalDiskD
 end
+
 set -gx ANDROID_HOME $D/Installs/Android/sdk
 set -gx fish_user_paths $D/Tools ~/.local/bin /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin $ANDROID_HOME/platform-tools
 set -gx ENV .profile
 set -gx FFF_CD_FILE ~/.fff_d
 
+set -g fisher_path ~/.config/fish/fisher
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
+for file in $fisher_path/conf.d/*.fish
+    builtin source $file 2> /dev/null
+end
+
 # PROGRAM SETTINGS #
 set -gx EDITOR nvim
 set -gx PAGER "nvim -c 'set ft=man' -"
-
-# AUTOJUMP #
-alias j=z
+set -U Z_CMD "j"
 
 # LOAD XRESOURCES #
 xrdb ~/.Xresources
