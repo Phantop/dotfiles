@@ -17,16 +17,9 @@ source /usr/share/autojump/autojump.fish
 # LOAD XRESOURCES #
 xrdb ~/.Xresources
 
-# QUTEBROWSER QUICKMARKS #
-for i in (cat ~/.config/qutebrowser/quickmarks)
-    function (echo $i| awk '{print $1;}') -V i
-        qb (echo $i| awk '{print $2;}')
-    end
-end
-
 # MULTIMC INSTANCES #
-for i in (ls $D/Games/Minecraft/Game/instances/)
-    function (basename $i | tr '[:upper:]' '[:lower:]') -V i
+for i in $D/Games/Minecraft/Game/instances/*
+    function (basename $i) -V i
         minecraft -l (basename $i)
     end
 end
