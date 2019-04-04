@@ -1,7 +1,7 @@
 # Defined in /tmp/fish.32qN0Q/clean.fish @ line 2
 function clean
-	s printf \ 
-    font
+    s printf \ 
+    fc-cache -f -v
     se clean -y
     se dc -y
     se rmo -y

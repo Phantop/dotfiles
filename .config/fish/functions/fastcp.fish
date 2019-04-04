@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.wuzN87/fastcp.fish @ line 1
+# Defined in /tmp/fish.j8Cyly/fastcopy.fish @ line 2
 function fastcp
-	fastcopy $argv
+	rsync -avhcP --no-compress $argv
 end

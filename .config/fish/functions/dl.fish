@@ -1,7 +1,7 @@
-# Defined in /tmp/fish.0D6Y21/dl.fish @ line 2
+# Defined in /tmp/fish.BCfXZv/dl.fish @ line 2
 function dl
 	if test $argv
-        wget $argv
+        aria2c --file-allocation=none -c -x 16 -s 16 $argv
     else
 	cd ~/Downloads/
     end
