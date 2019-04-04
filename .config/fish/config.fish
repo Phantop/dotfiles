@@ -12,14 +12,13 @@ set -gx EDITOR nvim
 set -gx PAGER "nvim -c 'set ft=man' -"
 
 # AUTOJUMP #
-source /usr/share/autojump/autojump.fish
+alias j=z
 
 # LOAD XRESOURCES #
 xrdb ~/.Xresources
 
 # MULTIMC INSTANCES #
 for i in $D/Games/Minecraft/Game/instances/*
-    function (basename $i) -V i
-        minecraft -l (basename $i)
-    end
+    set i (basename $i)
+    alias $i="minecraft -l $i"
 end
