@@ -1,0 +1,5 @@
+#!/usr/bin/fish
+for i in Downloads Music Pictures Videos
+    rm ~/$i
+    ln -s $D/$i ~/$i
+end
