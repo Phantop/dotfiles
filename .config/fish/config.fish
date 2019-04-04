@@ -11,8 +11,8 @@ set -gx FFF_CD_FILE ~/.fff_d
 set -g fisher_path ~/.config/fish/fisher
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
 set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
-for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2> /dev/null
+for i in $fisher_path/conf.d/*
+    builtin source $i
 end
 
 # PROGRAM SETTINGS #
@@ -24,7 +24,6 @@ set -U Z_CMD "j"
 xrdb ~/.Xresources
 
 # MULTIMC INSTANCES #
-for i in $D/Games/Minecraft/Game/instances/*
-    set i (basename $i)
+for i in (ls $D/Games/Minecraft/Game/instances)
     alias $i="minecraft -l $i"
 end
