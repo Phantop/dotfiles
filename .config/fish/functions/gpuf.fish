@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function gpuf --description 'alias gpuf git push -f'
+function gpuf 
 	git push -f $argv;
 end

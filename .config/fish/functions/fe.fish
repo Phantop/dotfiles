@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function fe --description 'alias fe funced'
+function fe 
 	funced  $argv;
 end

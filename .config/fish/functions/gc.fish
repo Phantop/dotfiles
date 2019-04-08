@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function gc --description 'alias gc git commit'
+function gc 
 	git commit $argv;
 end

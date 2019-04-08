@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function vi --description 'alias vi nvim'
+function vi 
 	nvim  $argv;
 end

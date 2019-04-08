@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.mndBU3/cpugov.fish @ line 2
 function cpugov
 	echo -e "The current state is "(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
     if [ (cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) != "performance" ] 

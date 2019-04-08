@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function fs --description 'alias fs funcsave'
+function fs 
 	funcsave  $argv;
 end

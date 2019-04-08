@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.i459zw/build.fish @ line 2
 function build
 	s printf \ 
     gp

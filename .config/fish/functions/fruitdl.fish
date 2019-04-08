@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.VXbo9N/fruitdl.fish @ line 2
 function fruitdl
     cd $D/Games/Emulators/$argv[2] 
     rm -r $argv[1]

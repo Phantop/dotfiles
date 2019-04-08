@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function gl --description 'alias gl git log'
+function gl 
 	git log $argv;
 end

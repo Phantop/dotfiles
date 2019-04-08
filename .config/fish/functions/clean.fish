@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.32qN0Q/clean.fish @ line 2
 function clean
     s printf \ 
     fc-cache -f -v

@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function gp --description 'alias gp git pull'
+function gp 
 	git pull $argv;
 end
