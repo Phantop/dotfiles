@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.yaEzA7/l.fish @ line 1
-function l
-	ls $argv
+# Defined in - @ line 1
+function l --description 'alias l ls'
+	ls  $argv;
 end

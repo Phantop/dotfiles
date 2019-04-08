@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.zTiFlh/dot.fish @ line 1
-function dot
-	cd ~/.dotfiles
+# Defined in - @ line 1
+function dot --description 'alias dot cd ~/.dotfiles'
+	cd ~/.dotfiles $argv;
 end

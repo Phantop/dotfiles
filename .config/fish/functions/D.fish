@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.XATzCf/D.fish @ line 2
-function D
-	cd $D
+# Defined in - @ line 1
+function D --description 'alias D cd $D'
+	cd $D $argv;
 end

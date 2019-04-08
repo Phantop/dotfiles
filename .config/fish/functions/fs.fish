@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.bDHEx5/fs.fish @ line 1
-function fs
-	funcsave $argv
+# Defined in - @ line 1
+function fs --description 'alias fs funcsave'
+	funcsave  $argv;
 end

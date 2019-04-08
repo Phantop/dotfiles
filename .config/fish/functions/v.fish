@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.pOtuGw/v.fish @ line 1
-function v
-	vi $argv
+# Defined in - @ line 1
+function v --description 'alias v nvim'
+	nvim  $argv;
 end

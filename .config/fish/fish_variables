@@ -2,26 +2,13 @@
 # VERSION: 3.0
 SETUVAR --export D:/mnt/LocalDiskD
 SETUVAR ZO_CMD:jo
-SETUVAR Z_CMD:j
+SETUVAR --export Z_CMD:j
 SETUVAR Z_DATA:/home/glados/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/glados/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:/home/glados
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR _fish_abbr_g:git
-SETUVAR _fish_abbr_ga:git\x20commit\x20\x2da
-SETUVAR _fish_abbr_gad:git\x20add
-SETUVAR _fish_abbr_gb:git\x20branch
-SETUVAR _fish_abbr_gc:git\x20commit
-SETUVAR _fish_abbr_gca:git\x20commit\x20\x2d\x2damend
-SETUVAR _fish_abbr_gch:git\x20checkout
-SETUVAR _fish_abbr_gg:git\x20clone
-SETUVAR _fish_abbr_gl:git\x20log
-SETUVAR _fish_abbr_gp:git\x20pull
-SETUVAR _fish_abbr_gpu:git\x20push
-SETUVAR _fish_abbr_gpuf:git\x20push\x20\x2df
-SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x2d\x2dbold

@@ -17,7 +17,7 @@ end
 # PROGRAM SETTINGS #
 set -gx EDITOR nvim
 set -gx PAGER "nvim -c 'set ft=man' -"
-set -U Z_CMD "j"
+set -Ux Z_CMD "j"
 
 # LOAD XRESOURCES #
 xrdb ~/.Xresources
@@ -26,18 +26,3 @@ xrdb ~/.Xresources
 for i in (ls $D/Games/Minecraft/Game/instances)
     alias $i "minecraft -l $i"
 end
-
-# GIT ABBREVIATIONS #
-abbr -a g 'git'
-abbr -a gg 'git clone'
-abbr -a ga 'git commit -a'
-abbr -a gc 'git commit'
-abbr -a gs 'git status'
-abbr -a gpu 'git push'
-abbr -a gp 'git pull'
-abbr -a gch 'git checkout'
-abbr -a gad 'git add'
-abbr -a gb 'git branch'
-abbr -a gl 'git log'
-abbr -a gca 'git commit --amend'
-abbr -a gpuf 'git push -f'

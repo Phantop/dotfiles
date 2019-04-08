@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.ON24BK/sou.fish @ line 1
-function sou
-	cd $D/Source
+# Defined in - @ line 1
+function sou --description 'alias sou cd $D/Source'
+	cd $D/Source $argv;
 end
