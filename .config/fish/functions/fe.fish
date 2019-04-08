@@ -1,3 +1,3 @@
 function fe 
-	funced  $argv;
+	funced $argv
 end

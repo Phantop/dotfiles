@@ -1,3 +1,3 @@
 function gpuf 
-	git push -f $argv;
+	git push -f $argv
 end

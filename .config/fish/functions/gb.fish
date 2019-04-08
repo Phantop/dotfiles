@@ -1,3 +1,3 @@
 function gb 
-	git branch $argv;
+	git branch $argv
 end

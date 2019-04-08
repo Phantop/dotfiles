@@ -1,3 +1,3 @@
 function gp 
-	git pull $argv;
+	git pull $argv
 end

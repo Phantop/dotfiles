@@ -1,3 +1,3 @@
 function D 
-	cd $D $argv;
+	cd $D $argv
 end

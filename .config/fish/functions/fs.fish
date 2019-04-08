@@ -1,3 +1,3 @@
 function fs 
-	funcsave  $argv;
+	funcsave $argv
 end

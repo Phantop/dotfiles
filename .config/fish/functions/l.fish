@@ -1,3 +1,3 @@
 function l 
-	ls  $argv;
+	ls $argv
 end

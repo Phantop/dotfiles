@@ -1,3 +1,3 @@
 function gad 
-	git add $argv;
+	git add $argv
 end

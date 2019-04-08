@@ -1,3 +1,3 @@
 function ga 
-	git commit -a $argv;
+	git commit -a $argv
 end
