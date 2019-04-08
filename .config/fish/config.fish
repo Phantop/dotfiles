@@ -5,9 +5,8 @@ end
 
 set -gx ANDROID_HOME $D/Installs/Android/sdk
 set -gx fish_user_paths $D/Tools ~/.local/bin /usr/bin /usr/local/bin /bin /usr/sbin /usr/local/sbin /sbin $PLAN9/bin $ANDROID_HOME/platform-tools
-set -gx ENV .profile
-set -gx FFF_CD_FILE ~/.fff_d
 
+# FISHER #
 set -g fisher_path ~/.config/fish/fisher
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
 set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
@@ -25,5 +24,20 @@ xrdb ~/.Xresources
 
 # MULTIMC INSTANCES #
 for i in (ls $D/Games/Minecraft/Game/instances)
-    alias $i="minecraft -l $i"
+    alias $i "minecraft -l $i"
 end
+
+# GIT ABBREVIATIONS #
+abbr -a g 'git'
+abbr -a gg 'git clone'
+abbr -a ga 'git commit -a'
+abbr -a gc 'git commit'
+abbr -a gs 'git status'
+abbr -a gpu 'git push'
+abbr -a gp 'git pull'
+abbr -a gch 'git checkout'
+abbr -a gad 'git add'
+abbr -a gb 'git branch'
+abbr -a gl 'git log'
+abbr -a gca 'git commit --amend'
+abbr -a gpuf 'git push -f'

@@ -2,7 +2,7 @@
 function gupall
 	for i in *
         cd $i
-        g pull
+        git pull
         cd ..
     end
 end
