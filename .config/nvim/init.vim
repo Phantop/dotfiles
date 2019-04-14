@@ -50,3 +50,5 @@ autocmd FileType * se tw=0
 
 se ignorecase
 se smartcase
+
+command Q q!
