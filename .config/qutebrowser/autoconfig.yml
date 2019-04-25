@@ -200,7 +200,7 @@ settings:
   scrolling.bar:
     global: when-searching
   scrolling.smooth:
-    global: false
+    global: true
   statusbar.hide:
     global: false
   statusbar.padding:
