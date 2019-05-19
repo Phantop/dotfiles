@@ -118,6 +118,17 @@ settings:
     global: null
   content.host_blocking.enabled:
     global: true
+  content.javascript.can_open_tabs_automatically:
+    global: false
+  content.javascript.enabled:
+    '*://*.discordapp.com/*': true
+    '*://*.duckduckgo.com/*': true
+    '*://*.github.com/*': true
+    '*://*.mangadex.org/*': true
+    '*://*.nyaa.si/*': true
+    '*://*.old.reddit.com/*': true
+    '*://*.www.youtube.com/*': true
+    global: false
   content.plugins:
     global: false
   content.ssl_strict:
