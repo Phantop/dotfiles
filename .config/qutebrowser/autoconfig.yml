@@ -118,16 +118,33 @@ settings:
     global: null
   content.host_blocking.enabled:
     global: true
+  content.host_blocking.whitelist:
+    global: null
+  content.hyperlink_auditing:
+    global: false
+  content.images:
+    global: true
+  content.javascript.alert:
+    global: true
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.enabled:
+    '*://*.classroom.google.com/*': true
     '*://*.discordapp.com/*': true
+    '*://*.docs.google.com/*': true
     '*://*.duckduckgo.com/*': true
     '*://*.github.com/*': true
+    '*://*.horriblesubs.info/*': true
+    '*://*.keep.google.com/*': true
+    '*://*.mail.tutanota.com/*': true
     '*://*.mangadex.org/*': true
     '*://*.nyaa.si/*': true
     '*://*.old.reddit.com/*': true
+    '*://*.www.twitch.tv/*': true
     '*://*.www.youtube.com/*': true
+    '*://docs.google.com/*': false
+    '*://drive.google.com/*': true
+    '*://photos.google.com/*': true
     global: false
   content.plugins:
     global: false
