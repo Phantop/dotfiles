@@ -129,6 +129,7 @@ settings:
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.enabled:
+    '*://*.accounts.google.com/*': true
     '*://*.classroom.google.com/*': true
     '*://*.discordapp.com/*': true
     '*://*.docs.google.com/*': true
@@ -138,8 +139,11 @@ settings:
     '*://*.keep.google.com/*': true
     '*://*.mail.tutanota.com/*': true
     '*://*.mangadex.org/*': true
+    '*://*.mega.nz/*': true
     '*://*.nyaa.si/*': true
     '*://*.old.reddit.com/*': true
+    '*://*.www.kanzenshuu.com/*': true
+    '*://*.www.turnitin.com/*': true
     '*://*.www.twitch.tv/*': true
     '*://*.www.youtube.com/*': true
     '*://docs.google.com/*': false
