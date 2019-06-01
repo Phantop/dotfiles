@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ajh17/vimcompletesme'
+Plug 'christoomey/vim-titlecase'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
