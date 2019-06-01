@@ -42,6 +42,7 @@ syntax enable
 filetype plugin indent on
 
 map <F7> mzgg=G`z
+map r "_d
 
 se background=dark
 colorscheme dracula
