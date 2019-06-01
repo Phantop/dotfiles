@@ -141,7 +141,7 @@ settings:
     '*://*.mangadex.org/*': true
     '*://*.mega.nz/*': true
     '*://*.nyaa.si/*': true
-    '*://*.old.reddit.com/*': true
+    '*://*.reddit.com/*': true
     '*://*.www.kanzenshuu.com/*': true
     '*://*.www.turnitin.com/*': true
     '*://*.www.twitch.tv/*': true
