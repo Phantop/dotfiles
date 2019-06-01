@@ -142,10 +142,10 @@ settings:
     '*://*.mega.nz/*': true
     '*://*.nyaa.si/*': true
     '*://*.reddit.com/*': true
-    '*://*.www.kanzenshuu.com/*': true
-    '*://*.www.turnitin.com/*': true
-    '*://*.www.twitch.tv/*': true
-    '*://*.www.youtube.com/*': true
+    '*://*.kanzenshuu.com/*': true
+    '*://*.turnitin.com/*': true
+    '*://*.twitch.tv/*': true
+    '*://*.youtube.com/*': true
     '*://docs.google.com/*': false
     '*://drive.google.com/*': true
     '*://photos.google.com/*': true
