@@ -136,13 +136,13 @@ settings:
     '*://*.duckduckgo.com/*': true
     '*://*.github.com/*': true
     '*://*.horriblesubs.info/*': true
+    '*://*.kanzenshuu.com/*': true
     '*://*.keep.google.com/*': true
     '*://*.mail.tutanota.com/*': true
     '*://*.mangadex.org/*': true
     '*://*.mega.nz/*': true
     '*://*.nyaa.si/*': true
     '*://*.reddit.com/*': true
-    '*://*.kanzenshuu.com/*': true
     '*://*.turnitin.com/*': true
     '*://*.twitch.tv/*': true
     '*://*.youtube.com/*': true
@@ -253,10 +253,11 @@ settings:
     global:
     - path
     - query
+  url.open_base_url:
+    global: false
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
-      heb: https://translate.google.com/#en/iw/{}
       r: https://old.reddit.com/r/{}
       y: https://www.youtube.com/results?search_query={}
   url.start_pages:
