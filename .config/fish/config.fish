@@ -1,7 +1,7 @@
 # PATHS #
 set -gx ANDROID_HOME $D/Installs/Android/sdk
 set  fish_user_paths $D/Tools/bin $ANDROID_HOME/platform-tools /sbin /bin /usr/sbin /usr/bin
-set  fish_function_path $D/Games/Minecraft/Game/functions $fish_function_path
+set  fish_function_path $fish_function_path $D/Games/Minecraft/Game/functions
 
 # PROGRAM SETTINGS #
 set -gx EDITOR nvim
