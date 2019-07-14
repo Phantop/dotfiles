@@ -129,10 +129,10 @@ settings:
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.enabled:
-    '*://*.google.com/*': true
     '*://*.discordapp.com/*': true
     '*://*.duckduckgo.com/*': true
     '*://*.github.com/*': true
+    '*://*.google.com/*': true
     '*://*.horriblesubs.info/*': true
     '*://*.imgur.com/*': true
     '*://*.kanzenshuu.com/*': true
@@ -147,6 +147,12 @@ settings:
     global: false
   content.plugins:
     global: false
+  content.print_element_backgrounds:
+    global: true
+  content.private_browsing:
+    global: false
+  content.proxy:
+    global: system
   content.ssl_strict:
     global: ask
   content.user_stylesheets:
