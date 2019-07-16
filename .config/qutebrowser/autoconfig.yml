@@ -126,6 +126,8 @@ settings:
     global: true
   content.javascript.alert:
     global: true
+  content.javascript.can_access_clipboard:
+    global: false
   content.javascript.can_open_tabs_automatically:
     global: false
   content.javascript.enabled:
@@ -144,7 +146,7 @@ settings:
     '*://*.turnitin.com/*': true
     '*://*.twitch.tv/*': true
     '*://*.youtube.com/*': true
-    global: false
+    global: true
   content.plugins:
     global: false
   content.print_element_backgrounds:
