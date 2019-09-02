@@ -118,6 +118,10 @@ settings:
     global: null
   content.host_blocking.enabled:
     global: true
+  content.host_blocking.lists:
+    global:
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    - https://raw.githubusercontent.com/EnergizedProtection/block/master/spark/formats/hosts
   content.host_blocking.whitelist:
     global: null
   content.hyperlink_auditing:
@@ -266,7 +270,6 @@ settings:
   url.start_pages:
     global:
     - https://mangadex.org/follows
-    - https://duckduckgo.com/?q=20+min+timer&ia=answer
   url.yank_ignored_parameters:
     global:
     - ref
