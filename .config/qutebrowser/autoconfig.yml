@@ -159,6 +159,8 @@ settings:
     global: false
   content.proxy:
     global: system
+  content.register_protocol_handler:
+    https://mail.tutanota.com#url=%25s: true
   content.ssl_strict:
     global: ask
   content.user_stylesheets:
