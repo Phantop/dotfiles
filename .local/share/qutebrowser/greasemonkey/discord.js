@@ -14,7 +14,7 @@
 (function() {var css = [
 	"/* ------BACKGROUND------ */",
 	"body {",
-	"    background: url(\"https://cdn.discordapp.com/attachments/588527493242421269/588527615242010652/moon.png\");",
+	"    background: url(\"https://cdn.discordapp.com/attachments/610991459323084801/625107142092783616/moon3.png\");",
 	"    background-size: cover;",
 	"}",
 	".appMount-3lHmkl {",
