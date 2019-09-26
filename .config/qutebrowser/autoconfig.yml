@@ -134,23 +134,6 @@ settings:
     global: false
   content.javascript.can_open_tabs_automatically:
     global: false
-  content.javascript.enabled:
-    '*://*.discordapp.com/*': true
-    '*://*.duckduckgo.com/*': true
-    '*://*.github.com/*': true
-    '*://*.google.com/*': true
-    '*://*.horriblesubs.info/*': true
-    '*://*.imgur.com/*': true
-    '*://*.kanzenshuu.com/*': true
-    '*://*.mail.tutanota.com/*': true
-    '*://*.mangadex.org/*': true
-    '*://*.mega.nz/*': true
-    '*://*.nyaa.si/*': true
-    '*://*.reddit.com/*': true
-    '*://*.turnitin.com/*': true
-    '*://*.twitch.tv/*': true
-    '*://*.youtube.com/*': true
-    global: true
   content.plugins:
     global: false
   content.print_element_backgrounds:
