@@ -112,6 +112,8 @@ settings:
     global: true
   content.cookies.accept:
     global: no-3rdparty
+  content.dns_prefetch:
+    global: true
   content.headers.do_not_track:
     global: true
   content.headers.referer:
