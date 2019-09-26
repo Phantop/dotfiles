@@ -110,6 +110,8 @@ settings:
     - history
   completion.quick:
     global: true
+  content.cookies.accept:
+    global: no-3rdparty
   content.headers.do_not_track:
     global: true
   content.headers.referer:
