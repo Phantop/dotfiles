@@ -268,10 +268,9 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       r: https://old.reddit.com/r/{}
-      y: https://www.youtube.com/results?search_query={}
+      y: https://invidio.us/search?q={}
   url.start_pages:
-    global:
-    - https://mangadex.org/follows
+    global: https://mangadex.org/follows
   url.yank_ignored_parameters:
     global:
     - ref
