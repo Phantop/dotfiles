@@ -155,6 +155,10 @@ settings:
     global: false
   content.javascript.can_open_tabs_automatically:
     global: false
+  content.media_capture:
+    https://discordapp.com: true
+  content.pdfjs:
+    global: true
   content.plugins:
     global: false
   content.print_element_backgrounds:
@@ -262,6 +266,8 @@ settings:
     global: next
   tabs.show:
     global: multiple
+  url.auto_search:
+    global: naive
   url.default_page:
     global: https://mangadex.org/follows
   url.incdec_segments:
@@ -274,7 +280,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       r: https://old.reddit.com/r/{}
-      y: https://invidio.us/search?q={}
+      y: https://invidious.snopyta.org/search?q={}
   url.start_pages:
     global: https://mangadex.org/follows
   url.yank_ignored_parameters:
