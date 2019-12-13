@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.TC8Xka/caddy.fish @ line 2
+# Defined in /tmp/fish.cSMIil/caddy.fish @ line 2
 function caddy
-	command caddy -host '*' $argv browse gzip
+	python3 -m http.server $argv
 end
