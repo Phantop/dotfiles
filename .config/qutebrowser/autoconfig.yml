@@ -16,6 +16,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        <Alt+t>: tab-prev
         <Ctrl+Shift+m>: spawn fish -c 'cd Downloads; ydl "{url}"'
         <Ctrl+m>: spawn mpv {url}
         <Ctrl+q>: close
@@ -280,7 +281,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       r: https://old.reddit.com/r/{}
-      y: https://invidiou.sh/search?q={}
+      y: https://invidious.snopyta.org/search?q={}
   url.start_pages:
     global: https://mangadex.org/follows
   url.yank_ignored_parameters:
