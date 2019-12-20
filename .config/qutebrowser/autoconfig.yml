@@ -18,9 +18,15 @@ settings:
       normal:
         <Alt+t>: tab-prev
         <Ctrl+Shift+m>: spawn fish -c 'cd Downloads; ydl "{url}"'
-        <Ctrl+m>: spawn mpv {url}
+        <Ctrl+k>: spawn -u qute-keepass -p ~/.keepass
+        <Ctrl+m>: spawn -d mpv {url}
         <Ctrl+q>: close
+        <Ctrl+r>: spawn --userscript readability
         <Ctrl+w>: tab-close
+        sd: spawn -u open_download
+      passthrough:
+        <Ctrl+Shift+Escape>exit: leave-mode
+        <Shift+Escape>: null
   colors.completion.category.bg:
     global: '#222D32'
   colors.completion.category.border.bottom:
