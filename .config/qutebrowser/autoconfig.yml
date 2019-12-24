@@ -287,7 +287,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       r: https://old.reddit.com/r/{}
-      y: https://invidious.snopyta.org/search?q={}
+      y: https://invidio.us/search?q={}
   url.start_pages:
     global: https://mangadex.org/follows
   url.yank_ignored_parameters:
