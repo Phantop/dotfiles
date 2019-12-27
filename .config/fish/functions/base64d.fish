@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.EaCb2O/base64d.fish @ line 1
+# Defined in /tmp/fish.JliNyj/base64d.fish @ line 2
 function base64d
-	echo $argv | base64 -d
+	echo $argv | base64 -d 2>/dev/null
 end
