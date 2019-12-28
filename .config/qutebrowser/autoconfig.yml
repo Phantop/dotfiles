@@ -24,6 +24,7 @@ settings:
         <Ctrl+r>: spawn --userscript readability
         <Ctrl+w>: tab-close
         sd: spawn -u open_download
+        st: spawn -u switchtor
       passthrough:
         <Ctrl+Shift+Escape>exit: leave-mode
         <Shift+Escape>: null
@@ -166,6 +167,8 @@ settings:
     https://discordapp.com: true
   content.pdfjs:
     global: true
+  content.persistent_storage:
+    global: ask
   content.plugins:
     global: false
   content.print_element_backgrounds:
