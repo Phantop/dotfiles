@@ -279,7 +279,7 @@ settings:
   url.auto_search:
     global: naive
   url.default_page:
-    global: https://mangadex.org/follows
+    global: https://mangadex.cc/follows
   url.incdec_segments:
     global:
     - path
@@ -292,7 +292,7 @@ settings:
       r: https://old.reddit.com/r/{}
       y: https://invidio.us/search?q={}
   url.start_pages:
-    global: https://mangadex.org/follows
+    global: https://mangadex.cc/follows
   url.yank_ignored_parameters:
     global:
     - ref
