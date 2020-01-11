@@ -1,5 +1,5 @@
 # PATHS #
-set  fish_user_paths $D/Tools/bin $ANDROID_HOME/platform-tools /sbin /bin /usr/sbin /usr/bin
+set  fish_user_paths $D/Tools/bin $ANDROID_HOME/platform-tools /sbin /bin /usr/sbin /usr/bin /run/media/$USER/disk/jdk/bin
 set  fish_function_path $fish_function_path $D/Games/Minecraft/Game/functions
 
 # PROGRAM SETTINGS #
