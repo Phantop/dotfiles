@@ -137,6 +137,8 @@ settings:
     global: true
   content.cookies.accept:
     global: no-3rdparty
+  content.desktop_capture:
+    https://discordapp.com: true
   content.dns_prefetch:
     global: true
   content.headers.do_not_track:
@@ -283,7 +285,7 @@ settings:
   url.auto_search:
     global: naive
   url.default_page:
-    global: https://mangadex.cc/follows
+    global: https://mangadex.org/follows
   url.incdec_segments:
     global:
     - path
@@ -296,7 +298,7 @@ settings:
       r: https://old.reddit.com/r/{}
       y: https://invidio.us/search?q={}
   url.start_pages:
-    global: https://mangadex.cc/follows
+    global: https://mangadex.org/follows
   url.yank_ignored_parameters:
     global:
     - ref
