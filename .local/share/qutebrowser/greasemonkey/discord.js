@@ -9,12 +9,12 @@
 // @include       http://*.discordapp.com/*
 // @include       https://*.discordapp.com/*
 // @run-at        document-start
-// @version       0.20190921052211
+// @version       0.20200125081942
 // ==/UserScript==
 (function() {var css = [
 	"/* ------BACKGROUND------ */",
 	"body {",
-	"    background: url(\"https://cdn.discordapp.com/attachments/610991459323084801/625107142092783616/moon3.png\");",
+    	"    background: url(\"https://cdn.discordapp.com/attachments/610991459323084801/625107142092783616/moon3.png\");",
 	"    background-size: cover;",
 	"}",
 	".appMount-3lHmkl {",
@@ -36,23 +36,29 @@
 	"    --background-primary: transparent;",
 	"    --background-secondary: transparent;",
 	"    --background-tertiary: transparent;",
-	"    --background-accent: transparent;",
 	"    --background-floating: rgba(0, 0, 0, .8);",
 	"    --channeltextarea-background: transparent;",
-	"    --activity-card-background: transparent;",
 	"    --deprecated-panel-background: transparent;",
+	"    --background-modifier-hover: rgba(0, 0, 0, .42);",
+	"    --background-modifier-selected: rgba(0, 0, 0, .45);",
 	"}",
 	"",
+	"/* ------POP-UP------ */",
+	".modal-yWgWj-,",
+	".footer-3rDWdC {",
+	"    background: rgba(0, 0, 0, .5) !important;",
+	"}",
+	"",
+	"",
 	"/*remove borders*/",
-	".container-1r6BKw,",
 	".header-2o-2hj,",
-	".searchBar-6Kv8R2 {",
+	".searchBar-6Kv8R2,",
+	".content-yTz4x3::before {",
 	"    box-shadow: none !important;",
 	"}",
 	"",
 	"/*misc*/",
-	".container-3gCOGc,  /*friends list*/",
-	".wrapper-3WhCwL,    /*mentions*/",
+	".container-1D34oG,  /*friends list*/",
 	".scrollbar-2rkZSL,  /*scrollbar*/",
 	".pad-29zQak,",
 	".track-1JN30G {",
@@ -78,12 +84,6 @@
 	".embedAuthorName-3mnTWj,",
 	".embedFooterText-28V_Wb {",
 	"    color: #f2f2f2 !important;",
-	"}",
-	"",
-	"/* ------POP-UP------ */",
-	".modal-yWgWj-,",
-	".footer-3rDWdC {",
-	"    background: rgba(0, 0, 0, .5) !important;",
 	"}"
 ].join("\n");
 if (typeof GM_addStyle != "undefined") {
