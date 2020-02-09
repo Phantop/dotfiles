@@ -26,6 +26,7 @@ settings:
         sa: spawn -u archive
         sd: spawn -u open_download
         st: spawn -u switchtor
+        sx: spawn -u nitterize
       passthrough:
         <Ctrl+Shift+Escape>exit: leave-mode
         <Shift+Escape>: null
