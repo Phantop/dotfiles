@@ -23,6 +23,7 @@ settings:
         <Ctrl+q>: close
         <Ctrl+r>: spawn --userscript readability
         <Ctrl+w>: tab-close
+        sa: spawn -u archive
         sd: spawn -u open_download
         st: spawn -u switchtor
       passthrough:
