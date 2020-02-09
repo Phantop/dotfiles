@@ -9,7 +9,7 @@
 // @include       http://*.discordapp.com/*
 // @include       https://*.discordapp.com/*
 // @run-at        document-start
-// @version       0.20200125081942
+// @version       0.20200206055911
 // ==/UserScript==
 (function() {var css = [
 	"/* ------BACKGROUND------ */",
@@ -35,6 +35,7 @@
 	"    --interactive-muted: #4f545c;",
 	"    --background-primary: transparent;",
 	"    --background-secondary: transparent;",
+	"    --background-secondary-alt: transparent;",
 	"    --background-tertiary: transparent;",
 	"    --background-floating: rgba(0, 0, 0, .8);",
 	"    --channeltextarea-background: transparent;",
