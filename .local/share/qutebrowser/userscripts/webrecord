@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "open -t https://webrecorder.io/record/$QUTE_URL" >> "$QUTE_FIFO"
