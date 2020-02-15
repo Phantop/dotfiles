@@ -1,3 +1,4 @@
+# Defined in /tmp/fish.QXVsWf/re.fish @ line 2
 function re
-	systemctl reboot -i
+	sync; systemctl reboot -i
 end
