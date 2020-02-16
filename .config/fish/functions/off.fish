@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.oNKIX3/off.fish @ line 2
+# Defined in /tmp/fish.Qwgrvr/off.fish @ line 2
 function off
-	snyc; shutdown $argv; exit
+	sync; shutdown $argv; exit
 end
