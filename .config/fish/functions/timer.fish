@@ -1,6 +1,6 @@
-# Defined in /tmp/fish.dHrfIi/timer.fish @ line 2
+# Defined in /tmp/fish.E3u1iE/timer.fish @ line 2
 function timer
-	tmux new-session -d 'while true
+	tmux new -s 0 -d 'while true
         countdown 20m
         notify-send Time
         zenity --info --text=Time & mpv ~/Music/.break
