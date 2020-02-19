@@ -196,6 +196,8 @@ settings:
     global: true
   content.webrtc_ip_handling_policy:
     global: default-public-interface-only
+  content.windowed_fullscreen:
+    global: true
   content.xss_auditing:
     global: false
   editor.command:
