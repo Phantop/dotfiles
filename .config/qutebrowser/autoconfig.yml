@@ -171,7 +171,9 @@ settings:
   content.javascript.can_access_clipboard:
     global: false
   content.javascript.can_open_tabs_automatically:
-    global: false
+    global: true
+  content.javascript.modal_dialog:
+    global: true
   content.media_capture:
     https://discordapp.com: true
   content.pdfjs:
