@@ -1,8 +1,9 @@
-# Defined in /tmp/fish.ESAzKX/clean.fish @ line 2
+# Defined in /tmp/fish.Ww3XEw/clean.fish @ line 2
 function clean
+    up
+    fc-cache -f -v
     s sync
     j -c
-    fc-cache -f -v
     se clean -y
     se dc -y
     se rmo -y
