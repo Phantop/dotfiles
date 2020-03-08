@@ -1,0 +1,92 @@
+; Copyright © Microsoft Corp.
+
+[Theme]
+BrandImage=tpenguinltg.png
+; Windows Classic - IDS_THEME_DISPLAYNAME_CLASSIC
+DisplayName=FxDev
+
+; Computer - SHIDI_SERVER
+[CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-109
+
+; UsersFiles - SHIDI_USERFILES
+[CLSID\{59031A47-3F72-44A7-89C5-5595FE6B30EE}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-123
+
+; Network - SHIDI_MYNETWORK
+[CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-25
+
+; Recycle Bin - SHIDI_RECYCLERFULL SHIDI_RECYCLER
+[CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\DefaultIcon]
+Full=%SystemRoot%\System32\imageres.dll,-54
+Empty=%SystemRoot%\System32\imageres.dll,-55
+
+[Control Panel\Cursors]
+DefaultValue=Windows default
+
+[Control Panel\Desktop]
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[Control Panel\Desktop\WindowMetrics]
+
+[Metrics]
+NonclientMetrics=88 1 0 0 1 0 0 0 16 0 0 0 16 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 0 0 0 15 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    
+LangID=1033
+IconMetrics=76 0 0 0 75 0 0 0 75 0 0 0 1 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    
+
+[VisualStyles]
+Path=
+ColorStyle=@themeui.dll,-854
+Size=@themeui.dll,-2019
+Transparency=0
+ColorizationColor=0XD91A4666
+Composition=0
+VisualStyleVersion=10
+
+[boot]
+SCRNSAVE.EXE=
+
+[MasterThemeSelector]
+MTSM=DABJDKT
+
+[Sounds]
+; IDS_SCHEME_DEFAULT
+SchemeName=@mmres.dll,-800
+[Control Panel\Colors]
+Scrollbar=148 160 175
+Background=26 58 99
+ActiveTitle=26 70 102
+InactiveTitle=28 33 38
+Menu=57 66 77
+Window=23 27 31
+WindowFrame=0 0 0
+MenuText=255 255 255
+WindowText=245 247 250
+TitleText=245 247 250
+ActiveBorder=57 66 77
+InactiveBorder=57 66 77
+AppWorkspace=28 33 38
+Hilight=7 77 117
+HilightText=255 255 255
+ButtonFace=57 66 77
+;ButtonShadow=38 44 51
+ButtonShadow=27 33 39
+GrayText=133 136 140
+ButtonText=255 255 255
+InactiveTitleText=245 247 250
+;ButtonHilight=148 160 175
+ButtonHilight=107 113 122
+;ButtonDkShadow=64 64 64
+ButtonDkShadow=7 9 10
+ButtonLight=57 66 77
+InfoText=0 0 0
+InfoWindow=243 242 219
+ButtonAlternateFace=181 181 181
+HotTrackingColor=47 138 202
+GradientActiveTitle=26 70 102
+GradientInactiveTitle=28 33 38
+MenuHilight=7 77 117
+MenuBar=57 66 77
