@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.Yuay2h/minecraft.fish @ line 2
+# Defined in /tmp/fish.5P1uxK/minecraft.fish @ line 2
 function minecraft
     cd $D/Games/Minecraft/Game
     rm (ff -e log)
@@ -9,6 +9,7 @@ function minecraft
             kj
         end
     end
+    set -x PATH /run/media/$USER/disk/jdk/bin $PATH
     bin/MultiMC -d . $argv
     rm functions/*
     for i in (ls -d instances/*/ | grep -v _MMC_TEMP | xargs -n1 basename)
