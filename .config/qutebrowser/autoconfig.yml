@@ -25,9 +25,11 @@ settings:
         <Ctrl+w>: tab-close
         sa: spawn -u archive
         sd: spawn -u open_download
+        sq: session-load acnh
         st: spawn -u switchtor
-        sw: spawn -u webrecord
+        sw: open https://webrecorder.io/record/{url}
         sx: spawn -u nitterize
+        ws: open shorten {url}
       passthrough:
         <Ctrl+Shift+Escape>exit: leave-mode
         <Shift+Escape>: null
