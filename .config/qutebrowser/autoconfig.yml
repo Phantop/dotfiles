@@ -307,7 +307,10 @@ settings:
       r: https://old.reddit.com/r/{}
       y: https://invidio.us/search?q={}
   url.start_pages:
-    global: https://mangadex.org/follows
+    global:
+    - https://mangadex.org/follows
+    - https://classroom.google.com/u/1/h
+    - https://piazza.com/class/k03sfh8l68a4hw
   url.yank_ignored_parameters:
     global:
     - ref
