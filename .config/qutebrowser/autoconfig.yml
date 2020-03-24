@@ -132,6 +132,8 @@ settings:
     global: black
   colors.webpage.bg:
     global: white
+  colors.webpage.prefers_color_scheme_dark:
+    global: true
   completion.open_categories:
     global:
     - quickmarks
@@ -211,29 +213,29 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: bold 9pt monospace
+    global: bold 9pt default_family
   fonts.completion.entry:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.debug_console:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.downloads:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.hints:
-    global: bold 9pt monospace
+    global: bold 9pt default_family
   fonts.keyhint:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.messages.error:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.messages.info:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.messages.warning:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.prompts:
     global: 9pt sans-serif
   fonts.statusbar:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.tabs:
-    global: 9pt monospace
+    global: 9pt default_family
   fonts.web.family.fantasy:
     global: null
   fonts.web.size.default_fixed:
