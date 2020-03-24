@@ -25,11 +25,10 @@ settings:
         <Ctrl+w>: tab-close
         sa: spawn -u archive
         sd: spawn -u open_download
-        sq: session-load acnh
         st: spawn -u switchtor
         sw: open https://webrecorder.io/record/{url}
         sx: spawn -u nitterize
-        ws: open shorten {url}
+        wq: open qr {url}
       passthrough:
         <Ctrl+Shift+Escape>exit: leave-mode
         <Shift+Escape>: null
@@ -150,8 +149,6 @@ settings:
     global: true
   content.headers.referer:
     global: same-domain
-  content.headers.user_agent:
-    global: null
   content.host_blocking.enabled:
     global: true
   content.host_blocking.lists:
