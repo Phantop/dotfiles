@@ -19,16 +19,21 @@ settings:
         <Alt+t>: tab-prev
         <Ctrl+Shift+m>: spawn fish -c 'cd Downloads; ydl "{url}"'
         <Ctrl+k>: spawn -u qute-keepass -p ~/.keepass
-        <Ctrl+m>: spawn -d mpv {url}
+        <Ctrl+m>: spawn -m -d -v mpv {url}
         <Ctrl+q>: close
         <Ctrl+r>: spawn --userscript readability
         <Ctrl+w>: tab-close
+        gy: spawn -u ydl
         sa: spawn -u archive
+        sca: spawn -u switchadapta
+        scd: spawn -u switchdark
         sd: spawn -u open_download
+        sq: open qr {url}
         st: spawn -u switchtor
         sw: open https://webrecorder.io/record/{url}
         sx: spawn -u nitterize
-        wq: open qr {url}
+        sz: spawn -u focusmode
+        xs: spawn -u unitter
       passthrough:
         <Ctrl+Shift+Escape>exit: leave-mode
         <Shift+Escape>: null
@@ -177,6 +182,8 @@ settings:
     global: true
   content.media_capture:
     https://discordapp.com: true
+  content.notifications:
+    https://web.whatsapp.com: true
   content.pdfjs:
     global: true
   content.persistent_storage:
@@ -190,11 +197,13 @@ settings:
   content.proxy:
     global: system
   content.register_protocol_handler:
+    global: ask
     https://mail.tutanota.com#url=%25s: true
   content.ssl_strict:
     global: ask
   content.user_stylesheets:
-    global: /home/glados/.local/share/qutebrowser/normalize.css
+    global:
+    - /home/glados/.local/share/qutebrowser/normalize.css
   content.webgl:
     global: true
   content.webrtc_ip_handling_policy:
@@ -237,6 +246,8 @@ settings:
   fonts.tabs:
     global: 9pt default_family
   fonts.web.family.fantasy:
+    global: null
+  fonts.web.family.standard:
     global: null
   fonts.web.size.default_fixed:
     global: 13
