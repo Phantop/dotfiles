@@ -1,4 +1,3 @@
 #!/bin/bash
-mv $QUTE_CONFIG_DIR/blocked-hosts $QUTE_CONFIG_DIR/blocked-hosts.bak && exit
-mv $QUTE_CONFIG_DIR/blocked-hosts.bak $QUTE_CONFIG_DIR/blocked-hosts
+mv $QUTE_CONFIG_DIR/blocked-hosts $QUTE_CONFIG_DIR/blocked-hosts.bak || mv $QUTE_CONFIG_DIR/blocked-hosts.bak $QUTE_CONFIG_DIR/blocked-hosts
 echo "adblock-update" > $QUTE_FIFO
