@@ -8,5 +8,3 @@ set -gx PAGER "nvim -c 'set ft=man' -"
 set -U Z_CMD "j"
 
 set -x QT_QPA_PLATFORMTHEME gtk2
-
-tty -s && covid us
