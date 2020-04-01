@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Simple Terminal
+GenericName=Terminal
+Comment=Use the command line
+Keywords=shell;prompt;command;commandline;cmd;
+TryExec=st
+Exec=st
+Icon=utilities-terminal
+Terminal=false
+Encoding=UTF-8
+Type=Application
+Categories=System;TerminalEmulator;
+StartupNotify=false
+StartupWMClass=st-256color
