@@ -4,7 +4,7 @@ set recolor-keephue
 set recolor-reverse-video
 set recolor-darkcolor '#FFFFFF'
 set highlight-active-color '#FF79C6'
-set recolor
+#set recolor
 
 map <C-I> set recolor-reverse-video
 map <C-i> recolor

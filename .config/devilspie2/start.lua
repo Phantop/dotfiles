@@ -5,6 +5,7 @@ end
 
 if (get_application_name()=="Steam") then
     set_window_workspace(2)
+    minimize()
 end
 
 if (get_window_name()=="Information") then
