@@ -19,3 +19,12 @@
     insteadOf = "aur:" 
 [url "ssh://aur@aur.archlinux.org/"] 
     pushInsteadOf = "aur:"
+[url "http://dev.getsol.us/source/"]
+    insteadOf = "solus:"
+    insteadOf = "sol:"
+[url "https://github.com/"]
+    insteadOf = "github:"
+    insteadOf = "gh:"
+[url "https://gitlab.com/"]
+    insteadOf = "gitlab:"
+    insteadOf = "gl:"
