@@ -1,15 +1,15 @@
-# Defined in /tmp/fish.5P1uxK/minecraft.fish @ line 2
+# Defined in /tmp/fish.STnBun/minecraft.fish @ line 2
 function minecraft
     cd $D/Games/Minecraft/Game
     rm (ff -e log)
-    if not test -e /run/media/glados/disk/jdk/bin/java
+    if not which java
         gnome-disk-image-mounter $D/Installs/squash/java
         if not pgrep caja
             caja & sleep 1
             kj
         end
     end
-    set -x PATH /run/media/$USER/disk/jdk/bin $PATH
+    set -x PATH /run/media/$USER/disk*/bin $PATH
     bin/MultiMC -d . $argv
     rm functions/*
     for i in (ls -d instances/*/ | grep -v _MMC_TEMP | xargs -n1 basename)
