@@ -1,5 +1,4 @@
+# Defined in /tmp/fish.zBYqg4/giveme.fish @ line 2
 function giveme
-	for i in (ff)
-       s chown $USER $i
-   end
+       s chown $USER $argv
 end
