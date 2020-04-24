@@ -152,6 +152,8 @@ settings:
     https://discordapp.com: true
   content.dns_prefetch:
     global: true
+  content.fullscreen.window:
+    global: true
   content.headers.do_not_track:
     global: true
   content.headers.referer:
@@ -183,6 +185,7 @@ settings:
   content.media_capture:
     https://discordapp.com: true
   content.notifications:
+    https://play.pokemonshowdown.com: true
     https://web.whatsapp.com: true
   content.pdfjs:
     global: true
@@ -208,8 +211,6 @@ settings:
     global: true
   content.webrtc_ip_handling_policy:
     global: default-public-interface-only
-  content.windowed_fullscreen:
-    global: true
   content.xss_auditing:
     global: false
   editor.command:
