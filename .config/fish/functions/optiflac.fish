@@ -1,8 +1,8 @@
-# Defined in /tmp/fish.Ws9y7c/optiflac.fish @ line 2
+# Defined in /tmp/fish.yFtyWn/optiflac.fish @ line 2
 function optiflac
     mkdir out
     for i in *.flac
-        ffmpeg -i $i -c:v copy -c:a flac -compression_level 12 -af aformat=s16:44100 -resampler soxr out/$i
+        ffmpeg -i $i -c:v copy -c:a flac -compression_level 12 -af aresample=resampler=soxr:precision=32:dither_method=triangular -sample_fmt s16 $argv out/$i
     end
     cd out
     for i in *
