@@ -1,9 +1,9 @@
-# Defined in /tmp/fish.RFrpYE/xcompress.fish @ line 2
+# Defined in /tmp/fish.83qvw2/xcompress.fish @ line 2
 function xcompress
-	if test -d $argv
-        zip -0r $argv.zip $argv
-        xz -efvk9T 0 $argv.zip
-        rm $argv.zip
+    if test -d $argv
+        tar -cf $argv.tar $argv
+        xz -efvk9T 0 $argv.tar
+        rm $argv.tar
     else
         xz -efvk9T 0 $argv
     end
