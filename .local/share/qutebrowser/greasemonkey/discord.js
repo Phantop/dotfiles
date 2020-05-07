@@ -8,6 +8,10 @@
 // @include       https://discordapp.com/*
 // @include       http://*.discordapp.com/*
 // @include       https://*.discordapp.com/*
+// @include       http://discord.com/*
+// @include       https://discord.com/*
+// @include       http://*.discord.com/*
+// @include       https://*.discord.com/*
 // @run-at        document-start
 // @version       0.20200206055911
 // ==/UserScript==
