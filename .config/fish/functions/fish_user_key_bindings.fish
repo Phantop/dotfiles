@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.W4jWuS/fish_user_key_bindings.fish @ line 2
+# Defined in /tmp/fish.tZFnQI/fish_user_key_bindings.fish @ line 2
 function fish_user_key_bindings
 	bind \eo 'f'
    bind \ed 'ncdu'
