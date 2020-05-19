@@ -171,7 +171,8 @@ settings:
     - https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/microsoft/all
     - https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt
   content.host_blocking.whitelist:
-    global: null
+    global:
+    - web.whatsapp.com
   content.hyperlink_auditing:
     global: false
   content.images:
