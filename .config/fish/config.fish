@@ -9,4 +9,4 @@ set -U Z_CMD "j"
 
 set -x QT_QPA_PLATFORMTHEME gtk2
 
-bax . ~/.nix-profile/etc/profile.d/nix.sh
+bax . ~/.nix-profile/etc/profile.d/nix.sh 2> /dev/null

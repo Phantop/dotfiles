@@ -1,8 +1,8 @@
-# Defined in /tmp/fish.7e0fck/build.fish @ line 2
+# Defined in /tmp/fish.3ztUnh/build.fish @ line 2
 function build
     s printf ''
     gp
-    ./autogen.sh
+    ./autogen.sh --prefix=/usr
     ./configure --prefix=/usr
     cmake -DCMAKE_INSTALL_PREFIX=/usr .
     s printf ''
