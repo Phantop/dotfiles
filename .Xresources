@@ -48,6 +48,7 @@
 
 #define hack Hack:pixelsize=14:antialias=true:autohint=true
 #define ubuntumono Ubuntu Mono:pixelsize=16:antialias=true:autohint=true
+#define dundertale Determination Mono:pixelsize=14:antialias=true:autohint=true
 st.shell:       /usr/bin/fish
 st.xfps:        600
 st.font:        ubuntumono

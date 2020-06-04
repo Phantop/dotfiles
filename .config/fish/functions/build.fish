@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.3ztUnh/build.fish @ line 2
+# Defined in /tmp/fish.0UAkY8/build.fish @ line 2
 function build
     s printf ''
     gp
@@ -6,7 +6,7 @@ function build
     ./configure --prefix=/usr
     cmake -DCMAKE_INSTALL_PREFIX=/usr .
     s printf ''
-    make
+    make -j8
     s make install
     meson --prefix=/usr build
     s printf ''
