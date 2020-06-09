@@ -326,9 +326,6 @@ settings:
   url.start_pages:
     global:
     - https://mangadex.org/follows
-    - https://classroom.google.com/u/1/h
-    - https://piazza.com/class/k03sfh8l68a4hw
-    - https://duckduckgo.com/?q=20%20min%20timer
   url.yank_ignored_parameters:
     global:
     - ref
