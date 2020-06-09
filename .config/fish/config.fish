@@ -1,5 +1,5 @@
 # PATHS #
-set  fish_user_paths /usr/lib/ccache/bin $D/Tools/bin $D/Installs/appimage $ANDROID_HOME/platform-tools /sbin /bin /usr/sbin /usr/bin /run/media/$USER/disk*/bin 
+set  fish_user_paths /usr/lib/ccache/bin $D/Tools/bin $D/Installs/appimage /sbin /bin /usr/sbin /usr/bin
 set  fish_function_path $fish_function_path $D/Games/Minecraft/Game/functions
 
 # PROGRAM SETTINGS #
