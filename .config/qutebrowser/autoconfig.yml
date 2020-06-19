@@ -188,15 +188,18 @@ settings:
   content.javascript.modal_dialog:
     global: true
   content.media_capture:
+    https://app.resemble.ai: true
     https://discord.com: true
     https://discordapp.com: true
   content.notifications:
     https://play.pokemonshowdown.com: true
     https://web.whatsapp.com: true
+    https://www.smashladder.com: true
   content.pdfjs:
     global: true
   content.persistent_storage:
     global: ask
+    https://mega.nz: true
   content.plugins:
     global: false
   content.print_element_backgrounds:
@@ -320,6 +323,7 @@ settings:
     global: false
   url.searchengines:
     global:
+      '!yt': https://invidio.us/search?q={}
       DEFAULT: https://duckduckgo.com/?q={}
       r: https://old.reddit.com/r/{}
       y: https://invidio.us/search?q={}

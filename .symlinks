@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 for i in Downloads Music Pictures Videos
-    rm ~/$i
+    rmdir ~/$i
     ln -s $D/$i ~/$i
 end
 
@@ -19,6 +19,6 @@ for i in '# This file is written by xdg-user-dirs-update
     XDG_VIDEOS_DIR="/mnt/LocalDiskD/Videos"
     XDG_TEMPLATES_DIR="$HOME/"
     XDG_PUBLICSHARE_DIR="$HOME/"'
-    echo $i > ~.config/user-dirs.dir
+    echo $i > ~/.config/user-dirs.dir
 end
 
