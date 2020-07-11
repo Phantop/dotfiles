@@ -323,9 +323,7 @@ settings:
     global: false
   url.searchengines:
     global:
-      '!yt': https://invidio.us/search?q={}
       DEFAULT: https://duckduckgo.com/?q={}
-      r: https://old.reddit.com/r/{}
       y: https://invidio.us/search?q={}
   url.start_pages:
     global:
