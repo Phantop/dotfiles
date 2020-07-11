@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.BH5XNP/clean.fish @ line 2
+# Defined in /tmp/fish.n1quHQ/clean.fish @ line 2
 function clean
     up
     fc-cache -f -v
@@ -16,5 +16,6 @@ function clean
     rm -r ~/.local/share/nvim/swap/
     rm -r $D/Games/Emulators/*/canary
     rm -r $D/Games/Emulators/*/*og*
+    s solbuild delete-cache
     s sync
 end
