@@ -30,3 +30,20 @@
     insteadOf = "gl:"
 [color]
 	ui = auto
+[alias]
+    a = commit -a
+    ad = add
+    b = branch
+    c = commit
+    ca = commit --amend
+    ch = checkout
+    cl = gc --aggressive --prune=now
+    g = clone
+    l = log
+    p = pull
+    pu = push
+    puf = push -f
+    r = reset --hard
+    s = status
+    su = submodule update --init --recursive
+    w = clean -fdx
