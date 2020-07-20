@@ -1,6 +1,10 @@
 #!/usr/bin/fish
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim +PlugUpdate +q +q
+
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+fish -c fisher
 
 cd ~/.dotfiles
 for i in (fd -t d)
