@@ -1,5 +1,0 @@
-#!/usr/bin/fish
-cd ~/.dotfiles
-for i in (fd -t d)
-    mkdir -p ~/$i
-end
