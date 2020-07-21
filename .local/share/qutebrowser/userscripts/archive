@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "open https://archive.is/?run=1&url=$QUTE_URL" >> "$QUTE_FIFO"
