@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.yHuNyE/dirdl.fish @ line 2
-function dirdl
+function dirdl -w wget
 	wget -r -k -p --no-parent --no-clobber -e robots=off $argv
 end

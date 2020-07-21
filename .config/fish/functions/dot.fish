@@ -1,3 +1,3 @@
-function dot 
+function dot -w cd
 	cd ~/.dotfiles $argv
 end

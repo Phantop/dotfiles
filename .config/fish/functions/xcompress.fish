@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.83qvw2/xcompress.fish @ line 2
 function xcompress
     if test -d $argv
         tar -cf $argv.tar $argv

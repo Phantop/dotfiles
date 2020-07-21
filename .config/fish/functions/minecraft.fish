@@ -1,4 +1,3 @@
-# Defined in /home/glados/.config/fish/functions/minecraft.fish @ line 2
 function minecraft
     cd $D/Games/Minecraft/Game
     rm (ff -e log)

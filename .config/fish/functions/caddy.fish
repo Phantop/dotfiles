@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.cSMIil/caddy.fish @ line 2
-function caddy
+function caddy -w python3
 	python3 -m http.server $argv
 end

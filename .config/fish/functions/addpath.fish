@@ -1,5 +1,5 @@
 # Defined in /tmp/fish.kGwYO8/addpath.fish @ line 1
-function addpath
+function addpath -w set
     if test $argv
         set PATH $argv $PATH
     else

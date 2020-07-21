@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.Qwgrvr/off.fish @ line 2
-function off
+function off -w shutdown
 	sync; shutdown $argv; exit
 end

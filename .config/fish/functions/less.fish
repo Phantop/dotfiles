@@ -1,3 +1,3 @@
-function less
+function less -w eval
 	eval $PAGER $argv
 end

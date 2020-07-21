@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.pIfWy2/mpva.fish @ line 2
-function mpva
+function mpva -w mpv
 	mpv --no-video $argv
 end

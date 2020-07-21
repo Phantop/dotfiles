@@ -1,4 +1,4 @@
-function dl
+function dl -w aria2c
 	if test $argv
        aria2c --file-allocation=none -c -x 16 -s 16 $argv
    else

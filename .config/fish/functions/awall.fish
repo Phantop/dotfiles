@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.JkZKD9/awall.fish @ line 2
 function awall
     if test $argv
         rm ~/Videos/.wallp

@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.gMuQkV/ao3dl.fish @ line 2
 function ao3dl
     set dir (sed (math (grep -n '<title>' $argv | cut -d: -f1) + 1)!d $argv | sed -e 's/^[ \t]*//')
     mkdir $dir; cd $dir

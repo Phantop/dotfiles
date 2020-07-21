@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.7kzeFd/supath.fish @ line 1
-function supath
+function supath -w env
 	sudo env "PATH=$PATH" $argv
 end

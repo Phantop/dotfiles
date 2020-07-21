@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.Og3Yo4/podsync.fish @ line 2
 function podsync
     cd $D/Videos/YouTube/
     ./clean

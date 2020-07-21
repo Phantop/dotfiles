@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.QZ1PN5/pagedl.fish @ line 2
-function pagedl
+function pagedl -w wget
 	wget -H -k -p --no-clobber -e robots=off $argv
 end

@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.aALkPB/qb.fish @ line 2
-function qb
+function qb -w qutebrowser
 	qutebrowser $argv --target auto & disown
 end
