@@ -1,4 +1,7 @@
 #!/usr/bin/fish
+sudo eopkg it -c system.devel
+sudo eopkg it stow
+
 cd ~/.dotfiles
 for i in (fd -t d)
     mkdir -p ~/$i
