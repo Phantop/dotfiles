@@ -1,25 +1,26 @@
-#!/usr/bin/fish
+#!/bin/bash
 sudo eopkg it -c system.devel
-sudo eopkg it stow
+sudo eopkg it fish neovim qutebrowser stow
 
 cd ~/.dotfiles
-for i in (fd -t d)
+for i in `fd -t d -H`
+do
     mkdir -p ~/$i
-end
+done
 
 stow .
 
-
 cd .config/mpv/scripts
 for i in */
+do
     cd $i
     make
     cd ..
-end
+done
 
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugUpdate +q +q
 
-getfisher
+fish -c getfisher
