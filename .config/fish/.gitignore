@@ -8,5 +8,4 @@ functions/fish_greeting.fish
 functions/fish_mode_prompt.fish
 functions/fish_prompt.fish
 functions/fish_title.fish
-functions/fisher.fish
 functions/humanize_duration.fish

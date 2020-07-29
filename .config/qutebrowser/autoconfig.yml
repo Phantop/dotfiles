@@ -195,7 +195,7 @@ settings:
     https://web.whatsapp.com: true
     https://www.smashladder.com: true
   content.pdfjs:
-    global: true
+    global: false
   content.persistent_storage:
     global: ask
     https://mega.nz: true
@@ -221,6 +221,12 @@ settings:
     global: default-public-interface-only
   content.xss_auditing:
     global: false
+  downloads.location.prompt:
+    global: false
+  downloads.position:
+    global: top
+  downloads.remove_finished:
+    global: -1
   editor.command:
     global:
     - nvim
