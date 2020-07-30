@@ -7,3 +7,9 @@
 [submodule ".config/fish/fisher"]
 	path = .config/fish/fisher
 	url = https://github.com/jorgebucaran/fisher
+[submodule ".local/share/qutebrowser/normalize"]
+	path = .local/share/qutebrowser/normalize
+	url = https://github.com/necolas/normalize.css
+[submodule ".config/nvim/autoload/vim-plug"]
+	path = .config/nvim/autoload/vim-plug
+	url = https://github.com/junegunn/vim-plug
