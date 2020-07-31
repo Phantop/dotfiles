@@ -3,3 +3,9 @@ add_newline = false
 
 [git_branch]
 symbol = ""
+
+[character]
+style_success = "bright-purple"
+
+[directory]
+style = "bold blue"
