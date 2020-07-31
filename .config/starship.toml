@@ -9,3 +9,5 @@ style_success = "bright-purple"
 
 [directory]
 style = "bold blue"
+truncation_length = 0
+truncate_to_repo = false
