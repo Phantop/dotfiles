@@ -8,3 +8,5 @@ set -gx PAGER nvimpager
 set -U Z_CMD "j"
 
 set -x QT_QPA_PLATFORMTHEME gtk2
+
+starship init fish | source
