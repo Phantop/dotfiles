@@ -11,3 +11,8 @@ style_success = "bright-purple"
 style = "bold blue"
 truncation_length = 0
 truncate_to_repo = false
+
+
+[cmd_duration]
+min_time = 500
+prefix = ""
