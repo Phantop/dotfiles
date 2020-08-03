@@ -1,3 +1,3 @@
 #!/usr/bin/fish
 
-echo open (echo $QUTE_URL | sed  's/invidio.us/www.youtube.com./; s/nitter.snopyta.org/twitter.com/; s/bibliogram.art/www.instagram.com/') >> "$QUTE_FIFO"
+echo open (echo $QUTE_URL | sed  's/invidious.snopyta.org/www.youtube.com./; s/nitter.snopyta.org/twitter.com/; s/bibliogram.art/www.instagram.com/') >> "$QUTE_FIFO"
