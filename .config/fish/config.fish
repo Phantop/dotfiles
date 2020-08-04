@@ -1,5 +1,5 @@
 # PATHS #
-set fish_user_paths /usr/lib/ccache/bin $D/Installs/bin /sbin /bin /usr/sbin /usr/bin
+set fish_user_paths ~/.local/bin $D/Installs/bin /usr/lib/ccache/bin /usr/bin /usr/sbin /sbin /bin 
 set fish_function_path $fish_function_path $D/Games/Minecraft/Game/functions
 
 # PROGRAM SETTINGS #
