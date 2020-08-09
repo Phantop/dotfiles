@@ -1,6 +1,6 @@
 #!/bin/bash
 cd $D/Games/Minecraft/Game
-rm `ff -e log`
+rm `fd -e log`
 bin/MultiMC -d . $@
 rm functions/*
 for i in `ls -d instances/*/ | grep -v _MMC_TEMP | xargs -n1 basename`

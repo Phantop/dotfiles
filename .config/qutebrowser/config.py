@@ -38,7 +38,7 @@ config.bind('st', 'spawn -u switchtor')
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://mangadex.org/follows"
 c.url.start_pages  = ["https://mangadex.org/follows"]
-c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.snopyta.org/search?q={}"}
+c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.13ad.de/search?q={}"}
 
 c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize.css"]
 
