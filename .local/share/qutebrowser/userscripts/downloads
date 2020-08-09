@@ -80,7 +80,7 @@ ls-files() {
         | grep '^[-]' \
         | cut -d' ' -f3- \
         | sed 's,^\(.*[^\]\) \(.*\)$,\2\t\1,' \
-        | sed 's,\\\(.\),\1,g'
+        | sed 's,\\\(.\),\1,g' | sort
 }
 
 mapfile -t entries < <(ls-files)
