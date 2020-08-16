@@ -1,5 +1,3 @@
-# PATHS #
 set fish_function_path $fish_function_path $D/Games/Minecraft/Game/functions
-
-# FOR INTERACTIVE TERMINAL #
+test (hostname) = "aperture" && set -gx D /mnt/LocalDiskD
 tty -s && starship init fish | source

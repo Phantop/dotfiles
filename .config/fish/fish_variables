@@ -1,7 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ARCH:x86_64
-SETUVAR --export D:/mnt/LocalDiskD
 SETUVAR --export EDITOR:nvim
 SETUVAR --export PAGER:nvimpager
 SETUVAR ZO_CMD:jo
