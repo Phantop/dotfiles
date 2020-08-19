@@ -1,8 +1,9 @@
 #!/bin/bash
 sudo eopkg it -c system.devel
 sudo eopkg rm gnome-terminal libreoffice-common mate-terminal nautilus
-sudo eopkg it fish kitty mpv-libs-devel neovim qutebrowser stow
+sudo eopkg it fd fish kitty mpv-libs-devel neovim qutebrowser stow
 
+rm ~/.bashrc
 cd ~/.dotfiles
 for i in `fd -t d -H`
 do
