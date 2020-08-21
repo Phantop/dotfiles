@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in $(lynx -dump -hiddenlinks=listonly $@ | grep '\.epub' | awk 'FNR > 2 {print$2}' | grep http)
+do
+    aria2c $i
+done
