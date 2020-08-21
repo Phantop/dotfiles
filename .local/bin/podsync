@@ -1,0 +1,8 @@
+#!/bin/bash
+cd $D/Videos/YouTube/
+
+for f in */*.mp4; do
+    grep -q "$f" *.xml || rm "$f"
+done
+
+tmux new -s 1 -d "podsync-bin -c $D/Videos/YouTube/config.toml"
