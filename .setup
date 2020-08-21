@@ -21,3 +21,4 @@ do
 done
 
 fish -c fisher
+chsh -s /usr/bin/fish
