@@ -1,1 +1,0 @@
-mpv_thumbnail_script/mpv_thumbnail_script_client_osc.lua

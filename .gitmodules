@@ -1,9 +1,3 @@
-[submodule ".config/mpv/scripts/mpv_thumbnail_script"]
-	path = .config/mpv/scripts/mpv_thumbnail_script
-	url = https://github.com/TheAMM/mpv_thumbnail_script
-[submodule ".config/mpv/scripts/mpv-mpris"]
-	path = .config/mpv/scripts/mpv-mpris
-	url = https://github.com/hoyon/mpv-mpris
 [submodule ".config/fish/fisher"]
 	path = .config/fish/fisher
 	url = https://github.com/jorgebucaran/fisher

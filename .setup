@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo eopkg it -c system.devel
 sudo eopkg rm gnome-terminal libreoffice-common mate-terminal nautilus
-sudo eopkg it fd fish kitty mpv-libs-devel neovim qutebrowser stow
+sudo eopkg it aria2c fd fish kitty mpv neovim qutebrowser stow
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -12,13 +12,7 @@ done
 
 stow .
 
-cd .config/mpv/scripts
-for i in */
-do
-    cd $i
-    make
-    cd ..
-done
+nvim +PlugUpdate +q +q
 
 fish -c fisher
 chsh -s /usr/bin/fish
