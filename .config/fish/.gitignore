@@ -4,7 +4,3 @@ fishd.*
 
 functions/_*.fish
 functions/bax.fish
-functions/fish_mode_prompt.fish
-functions/fish_prompt.fish
-functions/fish_title.fish
-functions/humanize_duration.fish
