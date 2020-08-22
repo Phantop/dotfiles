@@ -16,3 +16,6 @@ truncate_to_repo = false
 [cmd_duration]
 min_time = 500
 prefix = ""
+
+[jobs]
+disabled = true
