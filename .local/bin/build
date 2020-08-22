@@ -1,0 +1,13 @@
+#!/bin/bash
+sudo printf ''
+git pull
+./autogen.sh --prefix=/usr
+./configure --prefix=/usr
+cmake -DCMAKE_INSTALL_PREFIX=/usr .
+sudo printf ''
+make -j8
+sudo make install
+meson --prefix=/usr build
+sudo printf ''
+ninja -C build
+sudo ninja -C build install
