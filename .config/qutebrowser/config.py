@@ -47,6 +47,9 @@ c.colors.webpage.prefers_color_scheme_dark = True
 c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.content.cookies.accept = "no-3rdparty"
 c.input.insert_mode.auto_leave = False
+c.content.dns_prefetch = True
+c.downloads.location.prompt = False
+c.url.open_base_url = True
 
 c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize.css"]
 
