@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo eopkg it -c system.devel
 sudo eopkg rm gnome-terminal libreoffice-common mate-terminal nautilus
-sudo eopkg it aria2 busybox fd fish jq kitty mpv neovim qutebrowser stow
+sudo eopkg it aria2 autojump busybox fd fish jq kitty mpv neovim qutebrowser stow
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -12,10 +12,9 @@ done
 
 stow .
 
-cd .config/mpv/shaders
+cd ~/.config/mpv/shaders
 curl -fsSL $(curl -fsSL https://api.github.com/repos/bloc97/Anime4K/releases/latest | jq .assets[].browser_download_url | sed 's/"//g') | busybox unzip -
 
 nvim +PlugUpdate +q +q
 
-fish -c fisher
 chsh -s /usr/bin/fish

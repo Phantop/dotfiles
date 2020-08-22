@@ -3,11 +3,7 @@
 SETUVAR --export ARCH:x86_64
 SETUVAR --export EDITOR:nvim
 SETUVAR --export PAGER:nvimpager
-SETUVAR ZO_CMD:jo
-SETUVAR Z_CMD:j
-SETUVAR Z_DATA:/home/glados/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/glados/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:/home/glados
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
