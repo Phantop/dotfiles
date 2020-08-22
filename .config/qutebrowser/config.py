@@ -21,7 +21,6 @@ config.bind('sa', 'open https://archive.is/?run=1&url={url}')
 config.bind('sq', 'open qr {url}')
 config.bind('sw', 'open https://conifer.rhizome.org/record/{url}')
 config.bind('sx', 'spawn -u nitterize')
-config.bind('xd', 'spawn -u unitter')
 config.bind('sz', 'spawn -u focusmode')
 
 c.aliases['dotepub'] = "open javascript:(function()%7Btry%7Bvar%20d=document,w=window;if(!d.body%7C%7Cd.body.innerHTML=='')throw(0);var%20s=d.createElement('link'),h=d.getElementsByTagName('head')[0],i=d.createElement('div'),j=d.createElement('script');s.rel='stylesheet';s.href='//dotepub.com/s/dotEPUB-favlet.css';s.type='text/css';s.media='screen';h.appendChild(s);i.setAttribute('id','dotepub');i.innerHTML='%3Cdiv%20id=%22status%22%3E%3Cp%3EConversion%20in%20progress...%3C/p%3E%3C/div%3E';d.body.appendChild(i);j.type='text/javascript';j.charset='utf-8';j.src='//dotepub.com/j/dotepub.js?v=1.2&s=ask&t=epub&g=en';h.appendChild(j);%7Dcatch(e)%7Bw.alert('The%20page%20has%20no%20content%20or%20it%20is%20not%20fully%20loaded.%20Please,%20wait%20till%20the%20page%20is%20loaded.');%7D%7D)();"
@@ -39,12 +38,15 @@ config.bind('st', 'spawn -u switchtor')
 c.url.default_page = "https://mangadex.org/follows"
 c.url.start_pages  = ["https://mangadex.org/follows"]
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.13ad.de/search?q={}"}
+
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
-c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.tabs.show = "multiple"
-c.input.insert_mode.auto_leave = False
 c.fonts.default_size = "9pt"
+c.colors.webpage.prefers_color_scheme_dark = True
+
+c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.content.cookies.accept = "no-3rdparty"
+c.input.insert_mode.auto_leave = False
 
 c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize.css"]
 
@@ -93,3 +95,23 @@ c.colors.completion.scrollbar.fg                = accent
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.persistent_storage', True, 'https://mega.nz')
+
+# redirects
+import operator, typing
+REDIRECT_MAP = {
+	"www.reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
+	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"mobile.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
+	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
+}
+def int_fn(info: interceptor.Request):
+	"""Block the given request if necessary."""
+	if (info.resource_type != interceptor.ResourceType.main_frame or
+			info.request_url.scheme() in {"data", "blob"}):
+		return
+	url = info.request_url
+	redir = REDIRECT_MAP.get(url.host())
+	if redir is not None and redir(url) is not False:
+		info.redirect(url)
+interceptor.register(int_fn)
