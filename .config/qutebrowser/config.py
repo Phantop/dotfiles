@@ -1,4 +1,4 @@
-config.load_autoconfig()
+#config.load_autoconfig()
 
 # Youtube adblock
 from qutebrowser.api import interceptor
@@ -39,6 +39,12 @@ config.bind('st', 'spawn -u switchtor')
 c.url.default_page = "https://mangadex.org/follows"
 c.url.start_pages  = ["https://mangadex.org/follows"]
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.13ad.de/search?q={}"}
+c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
+c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+c.tabs.show = "multiple"
+c.input.insert_mode.auto_leave = False
+c.fonts.default_size = "9pt"
+c.content.cookies.accept = "no-3rdparty"
 
 c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize.css"]
 
@@ -64,13 +70,26 @@ c.colors.tabs.even.bg                           = guicol
 c.colors.tabs.odd.bg                            = guicol
 c.colors.tabs.pinned.even.bg                    = guicol
 c.colors.tabs.pinned.odd.bg                     = guicol
+c.colors.tabs.selected.even.fg                  = 'black'
+c.colors.tabs.selected.odd.fg                   = 'black'
+c.colors.tabs.pinned.selected.even.fg           = 'black'
+c.colors.tabs.pinned.selected.odd.fg            = 'black'
+
+c.colors.hints.bg                               = 'rgba(0, 226, 255, 0.8)'
+c.hints.border                                  = '1px solid #00A5BA'
 
 c.colors.tabs.selected.even.bg                  = accent
 c.colors.tabs.selected.odd.bg                   = accent
 c.colors.tabs.pinned.selected.even.bg           = accent
 c.colors.tabs.pinned.selected.odd.bg            = accent
+c.colors.completion.even.bg                     = '#29353B'
+c.colors.completion.odd.bg                      = '#243035'
 c.colors.completion.item.selected.bg            = accent
 c.colors.completion.item.selected.border.top    = accent
 c.colors.completion.item.selected.border.bottom = accent
 c.colors.completion.match.fg                    = accent
 c.colors.completion.scrollbar.fg                = accent
+
+config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
+config.set('content.desktop_capture', True, 'https://discord.com')
+config.set('content.persistent_storage', True, 'https://mega.nz')
