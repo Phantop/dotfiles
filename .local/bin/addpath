@@ -1,0 +1,2 @@
+#!/bin/bash
+[[ "$#" -ge 1 ]] && export PATH=$@:$PATH || export PATH=$@:$PWD
