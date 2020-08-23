@@ -36,7 +36,7 @@ config.bind('st', 'spawn -u switchtor')
 
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://mangadex.org/follows"
-c.url.start_pages  = ["https://mangadex.org/follows"]
+c.url.start_pages  = ["https://duckduckgo.com/?q=20m+timer"]
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.13ad.de/search?q={}"}
 
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
@@ -51,7 +51,7 @@ c.content.dns_prefetch = True
 c.downloads.location.prompt = False
 c.url.open_base_url = True
 
-c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize.css"]
+c.content.user_stylesheets = ["/home/glados/.local/share/qutebrowser/normalize/normalize.css"]
 
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
 c.content.host_blocking.lists.append("https://github.com/adversarialtools/apple-telemetry/raw/master/blacklist")
