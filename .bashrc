@@ -1,4 +1,5 @@
 eval "$(starship init bash)"
+source /usr/share/autojump/autojump.bash
 
 # Sensible Bash - An attempt at saner Bash defaults
 # Maintainer: mrzool <http://mrzool.cc>
@@ -93,3 +94,6 @@ shopt -s cdable_vars
 
 
 alias cd='cd -P'
+alias s=sudo
+alias vi=nvim
+alias v=vi
