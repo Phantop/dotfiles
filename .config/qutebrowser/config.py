@@ -1,4 +1,4 @@
-#config.load_autoconfig()
+config.load_autoconfig()
 
 # Youtube adblock
 from qutebrowser.api import interceptor
@@ -49,6 +49,7 @@ c.input.insert_mode.auto_leave = False
 c.content.dns_prefetch = True
 c.downloads.location.prompt = False
 c.url.open_base_url = True
+c.tabs.background = True
 
 c.content.user_stylesheets = ["/home/glados/.config/qutebrowser/normalize/normalize.css"]
 
