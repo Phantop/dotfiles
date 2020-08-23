@@ -97,12 +97,17 @@ c.colors.completion.scrollbar.fg                = accent
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.persistent_storage', True, 'https://mega.nz')
+config.set('content.javascript.enabled', False, 'https://twitter.com')
 
 # redirects
 import operator, typing
 REDIRECT_MAP = {
 	"www.reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
 	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"api.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"www.platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"t.co": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"mobile.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
 	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
