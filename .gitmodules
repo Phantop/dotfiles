@@ -4,6 +4,3 @@
 [submodule ".config/nvim/autoload/vim-plug"]
 	path = .config/nvim/autoload/vim-plug
 	url = https://github.com/junegunn/vim-plug
-[submodule ".local/share/qutebrowser/greasemonkey/musescore-downloader"]
-	path = .local/share/qutebrowser/greasemonkey/musescore-downloader
-	url = https://github.com/Xmader/musescore-downloader

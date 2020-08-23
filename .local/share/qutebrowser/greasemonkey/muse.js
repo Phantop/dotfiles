@@ -1,1 +1,0 @@
-musescore-downloader/dist/main.js
