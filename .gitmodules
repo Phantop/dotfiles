@@ -1,4 +1,4 @@
-[submodule ".local/share/qutebrowser/normalize"]
+[submodule ".config/qutebrowser/normalize"]
 	path = .config/qutebrowser/normalize
 	url = https://github.com/necolas/normalize.css
 [submodule ".config/nvim/autoload/vim-plug"]
