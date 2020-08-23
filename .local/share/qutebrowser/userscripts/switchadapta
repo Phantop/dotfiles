@@ -1,8 +1,0 @@
-#!/usr/bin/fish
-if test -e $QUTE_DATA_DIR/userscripts/adapta
-    echo 'set content.user_stylesheets \'["/home/glados/.local/share/qutebrowser/normalize/normalize.css"]\'' >> "$QUTE_FIFO"
-    rm $QUTE_DATA_DIR/userscripts/adapta
-else
-    echo 'set content.user_stylesheets \'["/home/glados/.local/share/qutebrowser/normalize/normalize.css", "/home/glados/.local/share/qutebrowser/adapta.css"]\'' >> "$QUTE_FIFO"
-    touch $QUTE_DATA_DIR/userscripts/adapta
-end
