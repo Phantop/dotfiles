@@ -1,7 +1,10 @@
 #!/bin/bash
 sudo eopkg it -c system.devel
 sudo eopkg rm gnome-terminal libreoffice-common mate-terminal nautilus
-sudo eopkg it aria2 autojump busybox fd fish jq keepassx kitty mpv ncdu neovim qutebrowser stow
+
+desktop  = "keepassx kitty mpv qutebrowser rofi zathura"
+terminal = "aria2 autojump busybox fd fish jq ncdu neovim stow"
+sudo eopkg it $desktop $terminal
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -9,7 +12,7 @@ for i in `fd -t d -H`
 do
     mkdir -p ~/$i
 done
-
+git submodule update --init
 stow .
 
 cd ~/.config/mpv/shaders
