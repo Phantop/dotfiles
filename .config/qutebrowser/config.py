@@ -1,16 +1,3 @@
-config.load_autoconfig()
-
-# Youtube adblock
-from qutebrowser.api import interceptor
-def filter_yt(info: interceptor.Request):
-    """Block the given request if necessary."""
-    url = info.request_url
-    if (url.host() == 'www.youtube.com' and
-        url.path() == '/get_video_info' and
-            '&adformat=' in url.query()):
-        info.block()
-interceptor.register(filter_yt)
-
 # bindings
 config.bind('<Ctrl-m>', 'spawn -m -d -v mpv {url}')
 config.bind('<Ctrl-q>', 'close')
@@ -20,7 +7,6 @@ config.bind('<Ctrl-r>', 'spawn -u readability')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
 config.bind('sq', 'open qr {url}')
 config.bind('sw', 'open https://conifer.rhizome.org/record/{url}')
-config.bind('sx', 'spawn -u nitterize')
 
 c.aliases['dotepub'] = "open javascript:(function()%7Btry%7Bvar%20d=document,w=window;if(!d.body%7C%7Cd.body.innerHTML=='')throw(0);var%20s=d.createElement('link'),h=d.getElementsByTagName('head')[0],i=d.createElement('div'),j=d.createElement('script');s.rel='stylesheet';s.href='//dotepub.com/s/dotEPUB-favlet.css';s.type='text/css';s.media='screen';h.appendChild(s);i.setAttribute('id','dotepub');i.innerHTML='%3Cdiv%20id=%22status%22%3E%3Cp%3EConversion%20in%20progress...%3C/p%3E%3C/div%3E';d.body.appendChild(i);j.type='text/javascript';j.charset='utf-8';j.src='//dotepub.com/j/dotepub.js?v=1.2&s=ask&t=epub&g=en';h.appendChild(j);%7Dcatch(e)%7Bw.alert('The%20page%20has%20no%20content%20or%20it%20is%20not%20fully%20loaded.%20Please,%20wait%20till%20the%20page%20is%20loaded.');%7D%7D)();"
 config.bind('se', "dotepub")
@@ -49,6 +35,7 @@ c.input.insert_mode.auto_leave = False
 c.downloads.location.prompt = False
 c.url.open_base_url = True
 c.tabs.background = True
+c.content.dns_prefetch = True
 
 c.content.user_stylesheets = ["/home/glados/.config/qutebrowser/normalize/normalize.css"]
 
@@ -100,6 +87,7 @@ config.set('content.persistent_storage', True, 'https://mega.nz')
 config.set('content.javascript.enabled', False, 'https://twitter.com')
 
 # redirects
+from qutebrowser.api import interceptor
 import operator, typing
 REDIRECT_MAP = {
 	"www.reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
@@ -108,6 +96,7 @@ REDIRECT_MAP = {
 	"platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"t.co": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"www.youtube.com": operator.methodcaller('setHost', 'invidious.13ad.de'),
 	"mobile.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
 	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
