@@ -2,8 +2,8 @@
 sudo eopkg it -c system.devel
 sudo eopkg rm gnome-terminal libreoffice-common mate-terminal nautilus
 
-desktop  = "keepassx kitty mpv qutebrowser rofi zathura"
-terminal = "aria2 autojump busybox fd fish jq ncdu neovim stow"
+desktop="keepassx kitty mpv qutebrowser rofi zathura"
+terminal="aria2 autojump busybox fd fish jq ncdu neovim stow"
 sudo eopkg it $desktop $terminal
 
 rm ~/.bashrc

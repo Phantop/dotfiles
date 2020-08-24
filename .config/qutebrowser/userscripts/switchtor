@@ -1,8 +1,0 @@
-#!/usr/bin/fish
-if test -e $QUTE_DATA_DIR/userscripts/tor
-    echo "set content.proxy system" >> "$QUTE_FIFO"
-    rm $QUTE_DATA_DIR/userscripts/tor
-else
-    echo "set content.proxy socks://localhost:9050/" >> "$QUTE_FIFO"
-    touch $QUTE_DATA_DIR/userscripts/tor
-end
