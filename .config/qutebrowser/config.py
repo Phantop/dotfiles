@@ -97,6 +97,8 @@ REDIRECT_MAP = {
 	"www.platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"t.co": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.youtube.com": operator.methodcaller('setHost', 'invidious.13ad.de'),
+	"youtube.com": operator.methodcaller('setHost', 'invidious.13ad.de'),
+	"youtu.be": operator.methodcaller('setHost', 'invidious.13ad.de'),
 	"mobile.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
 	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
