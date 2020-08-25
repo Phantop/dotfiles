@@ -11,7 +11,5 @@ sudo journalctl --vacuum-size=1K
 bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.memory|firefox'`
 sudo bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.memory|firefox'`
 rm -r ~/.cache/*
-rm -r ~/.local/share/nvim/swap/
-rm `fd -H -L -i . $D -e log`
 sudo solbuild delete-cache
 sudo sync

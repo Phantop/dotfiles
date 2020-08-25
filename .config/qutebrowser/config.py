@@ -27,6 +27,7 @@ c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
 c.tabs.show = "multiple"
 c.fonts.default_size = "9pt"
 c.colors.webpage.prefers_color_scheme_dark = True
+c.content.fullscreen.window = True
 
 c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.content.cookies.accept = "no-3rdparty"
