@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export ARCH:x86_64
 SETUVAR --export EDITOR:nvim
-SETUVAR --export PAGER:nvimpager
+SETUVAR --export PAGER:most
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
