@@ -92,8 +92,45 @@ shopt -s cdable_vars
 # export documents="$HOME/Documents"
 # export dropbox="$HOME/Dropbox"
 
-
+#aliases
 alias cd='cd -P'
+alias caddy='python3 -m http.server'
+alias cpugov='sudo cpupower frequency-set -g performance > /dev/null && echo Now in performance mode'
+alias dirdl='wget -r -k -p --no-parent --no-clobber -e robots=off'
+alias dot='cd ~/.dotfiles'
+alias D='cd $D'
+alias ff='fd -E sys -E caches -E cache -E .cache -E graphicPacks -E proc -E dosdevices -E .git -H -d 5 -L -i'
+alias ffd='ff -t d'
+alias flacc='flac -f -8 -V'
+alias g=git
+alias giveme='s chown $USER'
+alias hardinfo='inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
+alias kj='kill -9 $(jobs -p | grep -v Process)'
+alias l=ls
+alias launcher='rofi -combi-modi "drun,run" -show combi -modi "combi,window" -drun-icon-theme Papirus'
+alias la='l -a'
+alias mpva='mpv --no-video'
+alias murder='killall -s SIGKILL'
+alias off=shutdown
+alias pagedl='wget -H -k -p --no-clobber -e robots=off'
+alias re='systemctl reboot -i'
 alias s=sudo
+alias sumurder='s killall -s SIGKILL'
+alias supath='s env "PATH=$PATH"'
+alias se='s eopkg'
+alias seh='se history'
+alias ta='tmux attach -t'
+alias up='se up --y'
 alias vi=nvim
 alias v=vi
+alias ydl="youtube-dl --continue --ignore-errors --no-overwrites --write-sub --embed-subs -o '%(title)s.%(ext)s'"
+alias ydl4='ydl --format mp4'
+
+#functions
+dl(){
+    [[ "$#" -ge 1 ]] && aria2c --file-allocation=none -c -x 16 -s 16 $argv || cd ~/Downloads/
+}
+qb(){
+    qutebrowser $@ --target auto & disown
+    rm -r VideoDecodeStats
+}
