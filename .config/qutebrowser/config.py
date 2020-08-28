@@ -15,8 +15,8 @@ config.bind('se', "dotepub")
 c.aliases['remove-sticky'] = "open javascript:(function()%7B%20let%20i%2C%20elements%20%3D%20document.querySelectorAll('body%20*')%3B%20for%20(i%20%3D%200%3B%20i%20%3C%20elements.length%3B%20i%2B%2B)%20%7B%20if(getComputedStyle(elements%5Bi%5D).position%20%3D%3D%3D%20'fixed'%20%7C%7C%20getComputedStyle(elements%5Bi%5D).position%20%3D%3D%3D%20'sticky')%7B%20elements%5Bi%5D.parentNode.removeChild(elements%5Bi%5D)%3B%20%7D%20%7D%20%7D)()"
 config.bind('sr', "remove-sticky")
 
-config.bind('st', 'config-cycle -t content.proxy system socks://localhost:9050/')
-config.bind('sca', 'config-cycle -t content.user_stylesheets normalize/normalize.css "[normalize/normalize.css, adapta.css]"')
+config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
+config.bind('sca', 'config-cycle -t content.user_stylesheets "[normalize/normalize.css, adapta.css]" normalize/normalize.css')
 
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://mangadex.org/follows"
@@ -28,6 +28,7 @@ c.tabs.show = "multiple"
 c.fonts.default_size = "9pt"
 c.colors.webpage.prefers_color_scheme_dark = True
 c.content.fullscreen.window = True
+c.qt.force_platformtheme = "gtk2"
 
 c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.content.cookies.accept = "no-3rdparty"
