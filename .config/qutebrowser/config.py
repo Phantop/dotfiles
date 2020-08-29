@@ -4,7 +4,8 @@ config.bind('<Ctrl-w>', 'tab-close')
 
 config.bind('sd', 'spawn -u downloads')
 config.bind('<Ctrl-r>', 'spawn -u readability')
-config.bind('<Ctrl-m>', 'spawn -m -d -v mpv {url}')
+config.bind('<Ctrl-m>', 'spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}')
+config.bind('<Ctrl-Shift-M>', 'spawn -m -d -v mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}')
 
 config.bind('sq', 'open qr {url}')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
