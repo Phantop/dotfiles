@@ -1,11 +1,16 @@
+invid = 'invidious.13ad.de'
+nittr = 'nitter.snopyta.org'
+
 # bindings
 config.bind('<Ctrl-q>', 'close')
 config.bind('<Ctrl-w>', 'tab-close')
 
 config.bind('sd', 'spawn -u downloads')
 config.bind('<Ctrl-r>', 'spawn -u readability')
-config.bind('<Ctrl-m>', 'spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}')
-config.bind('<Ctrl-Shift-M>', 'spawn -m -d -v mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}')
+
+c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}"
+config.bind('<Ctrl-m>', 'mpv')
+config.bind('<Ctrl-Shift-M>', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio')
 
 config.bind('sq', 'open qr {url}')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
@@ -22,7 +27,7 @@ config.bind('sca', 'config-cycle -t content.user_stylesheets "[normalize/normali
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://mangadex.org/follows"
 c.url.start_pages  = ["https://duckduckgo.com/?q=20m+timer"]
-c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "y": "https://invidious.13ad.de/search?q={}"}
+c.url.searchengines = {"DEFAULT": "duckduckgo.com/?q={}", "y": invid + "/search?q={}"}
 
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
 c.tabs.show = "multiple"
@@ -93,16 +98,17 @@ config.set('content.javascript.enabled', False, 'https://twitter.com')
 from qutebrowser.api import interceptor
 import operator, typing
 REDIRECT_MAP = {
+	"reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
 	"www.reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
-	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
-	"api.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
-	"platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
-	"www.platform.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
-	"t.co": operator.methodcaller('setHost', 'nitter.snopyta.org'),
-	"www.youtube.com": operator.methodcaller('setHost', 'invidious.13ad.de'),
-	"youtube.com": operator.methodcaller('setHost', 'invidious.13ad.de'),
-	"youtu.be": operator.methodcaller('setHost', 'invidious.13ad.de'),
-	"mobile.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
+	"twitter.com": operator.methodcaller('setHost', nittr),
+	"api.twitter.com": operator.methodcaller('setHost', nittr),
+	"platform.twitter.com": operator.methodcaller('setHost', nittr),
+	"www.platform.twitter.com": operator.methodcaller('setHost', nittr),
+	"t.co": operator.methodcaller('setHost', nittr),
+	"mobile.twitter.com": operator.methodcaller('setHost', nittr),
+	"www.youtube.com": operator.methodcaller('setHost', invid),
+	"youtube.com": operator.methodcaller('setHost', invid),
+	"youtu.be": operator.methodcaller('setHost', invid),
 	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
 	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
 }
