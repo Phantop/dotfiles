@@ -2,7 +2,7 @@
 sudo eopkg up --y
 fc-cache -f -v
 sudo sync
-fish -c "j -c"
+fish -c "j --purge"
 sudo eopkg clean -y
 sudo eopkg dc -y
 sudo eopkg rmo -y
