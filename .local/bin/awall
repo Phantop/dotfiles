@@ -8,7 +8,7 @@ mpv --profile=wallpaper ~/Pictures/.wallp & disown
 if [[ "$#" -ge 1 ]]; then
     ffmpeg -i ~/Pictures/Awall/$@* -vframes 1 -y ~/Pictures/Awall/wall.png
     wallp ~/Pictures/Awall/wall.png
-    gsettings set org.gnome.desktop.background picture-uri "file://~/Pictures/Awall/wall.png"
+    gsettings set org.gnome.desktop.background picture-uri "file://$HOME/Pictures/Awall/wall.png"
 else
     sleep 5
 fi
