@@ -21,4 +21,6 @@ curl -fsSL $(curl -fsSL https://api.github.com/repos/bloc97/Anime4K/releases/lat
 
 nvim +PlugUpdate +q +q
 
+curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
+
 chsh -s /usr/bin/fish
