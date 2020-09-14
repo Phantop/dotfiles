@@ -1,0 +1,33 @@
+#!/usr/bin/fish
+cd ~/Music/ACMUS
+
+#set rofi rofi -sort -
+
+if test "$argv"
+    if test -d "$argv"
+        cd "$argv"
+    else
+        set num (ls -d */ | sed -n 's/\(.\)[^ ]* */\L\1/g;/'"$argv"'/=')
+        set dir (ls -d */)
+        cd ./$dir[$num]
+    end
+else
+    cd (ls -d */ |cut -f1 -d/ | eval "$rofi"dmenu -i)
+end
+
+xargs kill (pgrep (basename (status -f)) | grep -v $fish_pid) < ../.p
+
+if not test (dirname $PWD) = (dirname (realpath (status -f)))
+    exit
+end
+
+if test (basename $PWD) = Kill
+    exit
+end
+
+while echo
+    mpv --no-video --loop (date +%H)* &\
+    jobs -p > ../.p &\
+    sleep (math 3600 - (date +%s) % 3600)
+    xargs kill < ../.p
+end
