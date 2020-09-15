@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Usage: file scale noise
+waifu2x-ncnn-vulkan -i $1 -o "${1%.*}"[x$2][L$3].png -s $2 -n $3
