@@ -2,8 +2,8 @@
 sudo eopkg it -c system.devel
 sudo eopkg rm celluloid gnome-mpv gnome-terminal libreoffice-common mate-terminal nautilus rhythmbox
 
-desktop="audacity caja gmic-gimp keepassx kitty mpv quodlibet qutebrowser rofi zathura"
-terminal="aria2 autojump busybox fd fish git-extras innoextract jq libva-tools most ncdu neovim pip ripgrep solbuild-config-local-unstable stow"
+desktop="audacity caja gmic-gimp keepassx kitty mpv quodlibet qutebrowser rofi transmission zathura"
+terminal="aria2 autojump busybox fd fish git-extras innoextract jq libva-utils most ncdu neovim pip ripgrep solbuild-config-local-unstable speedtest-cli stow"
 sudo eopkg it $desktop $terminal
 sudo pip3 install --upgrade qutebrowser
 
