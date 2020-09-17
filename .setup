@@ -2,8 +2,8 @@
 sudo eopkg it -c system.devel
 sudo eopkg rm celluloid gnome-mpv gnome-terminal libreoffice-common mate-terminal nautilus rhythmbox
 
-desktop="audacity caja gmic-gimp keepassx kitty mpv qbittorrent quodlibet qutebrowser rofi spek zathura"
-terminal="aria2 autojump busybox fd fish git-extras innoextract jq libva-utils most ncdu neovim pip ripgrep solbuild-config-local-unstable speedtest-cli stow"
+desktop="audacity caja feh gmic-gimp keepassx kitty mpv qbittorrent quodlibet qutebrowser rofi spek viewnior zathura"
+terminal="advancecomp aria2 autojump busybox fd fish git-extras innoextract jq libva-utils most ncdu neovim pip ripgrep solbuild-config-local-unstable speedtest-cli stow"
 sudo eopkg it $desktop $terminal
 sudo pip3 install --upgrade qutebrowser
 
@@ -24,3 +24,6 @@ nvim +PlugUpdate +q +q
 curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
 
 chsh -s /usr/bin/fish
+
+systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
+tracker reset --hard
