@@ -25,7 +25,7 @@ config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system'
 config.bind('sca', 'config-cycle -t content.user_stylesheets "[normalize/normalize.css, adapta.css]" normalize/normalize.css')
 
 # BEGIN MAIN CONFIGURATION #
-c.url.default_page = "https://mangadex.org/follows"
+c.url.default_page = "https://news.ycombinator.com"
 c.url.start_pages  = ["https://duckduckgo.com/?q=20m+timer"]
 c.url.searchengines = {"DEFAULT": "duckduckgo.com/?q={}", "y": invid + "/search?q={}"}
 
@@ -110,7 +110,6 @@ REDIRECT_MAP = {
 	"youtube.com": operator.methodcaller('setHost', invid),
 	"youtu.be": operator.methodcaller('setHost', invid),
 	"www.instagram.com": operator.methodcaller('setHost', 'bibliogram.snopyta.org'),
-	"hn.algolia.com": operator.methodcaller('setHost', 'news.ycombinator.com'),
 }
 def int_fn(info: interceptor.Request):
 	"""Block the given request if necessary."""
