@@ -112,6 +112,7 @@ alias la='l -a'
 alias mpva='mpv --no-video'
 alias murder='killall -s SIGKILL'
 alias off=shutdown
+alias open=xdg-open
 alias pagedl='wget -H -k -p --no-clobber -e robots=off'
 alias re='systemctl reboot -i'
 alias s=sudo
