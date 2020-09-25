@@ -93,6 +93,7 @@ config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.persistent_storage', True, 'https://mega.nz')
 config.set('content.javascript.enabled', False, 'https://twitter.com')
+config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
 
 # redirects
 from qutebrowser.api import interceptor
