@@ -8,9 +8,9 @@ config.bind('<Ctrl-w>', 'tab-close')
 config.bind('sd', 'spawn -u downloads')
 config.bind('<Ctrl-r>', 'spawn -u readability')
 
-c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en {url}"
-config.bind('<Ctrl-m>', 'mpv')
-config.bind('<Ctrl-Shift-M>', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio')
+c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en}"
+config.bind('<Ctrl-m>', 'mpv {url}')
+config.bind('<Ctrl-Shift-M>', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio {url}')
 
 config.bind('sq', 'open qr {url}')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
