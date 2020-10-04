@@ -1,4 +1,4 @@
-invid = 'invidious.fdn.fr'
+invid = 'invidious.tube'
 nittr = 'nitter.snopyta.org'
 
 # bindings
@@ -11,6 +11,7 @@ config.bind('<Ctrl-r>', 'spawn -u readability')
 c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en}"
 config.bind('<Ctrl-m>', 'mpv {url}')
 config.bind('<Ctrl-Shift-M>', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio {url}')
+config.bind('<,>', 'hint links run mpv {hint-url}')
 
 config.bind('sq', 'open qr {url}')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
@@ -27,7 +28,7 @@ config.bind('sca', 'config-cycle -t content.user_stylesheets "[normalize/normali
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://feedly.com/i/my"
 c.url.start_pages  = ["https://duckduckgo.com/?q=20m+timer"]
-c.url.searchengines = {"DEFAULT": "duckduckgo.com/?q={}", "y": invid + "/search?q={}"}
+c.url.searchengines = {"DEFAULT": "duckduckgo.com/?q={}", "y": "localhost:3000" + "/search?q={}"}
 
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
 c.tabs.show = "multiple"
