@@ -40,6 +40,7 @@
     cl = gc --aggressive --prune=now
     g = clone
     l = log
+    open = browse
     p = pull
     pu = push
     puf = push -f

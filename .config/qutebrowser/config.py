@@ -49,7 +49,6 @@ c.confirm_quit = ["downloads"]
 c.content.user_stylesheets = ["normalize/normalize.css"]
 
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
-c.content.host_blocking.lists.append("https://github.com/adversarialtools/apple-telemetry/raw/master/blacklist")
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/facebook/all")
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/microsoft/all")
 c.content.host_blocking.lists.append("https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt")
