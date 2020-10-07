@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $D/Games/Minecraft/Game
+cd $D/Games/Minecraft
 rm `fd -e log`
 bin/MultiMC -d . $@
 rm functions/*
