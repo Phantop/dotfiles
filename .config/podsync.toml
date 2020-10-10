@@ -1,6 +1,5 @@
 [server]
 port = 2020
-hostname = "aperture.local:2020"
 data_dir = "/home/glados/Videos/YouTube"
 
 [tokens]
@@ -9,28 +8,28 @@ youtube = ""
 [feeds]
   [feeds.Fullsauce]
   url = "https://www.youtube.com/channel/UC2_IYqb1Tc_8Azh7rByedPA"
-  page_size = 8 # The number of episodes to query each update (keep in mind, that this might drain API token)
-  update_period = "10m" # How often query for updates, examples: "60m", "4h", "2h45m"
-  quality = "high" # or "low"
-  format = "video" # or "audio"
+  page_size = 8
+  update_period = "10m"
+  quality = "high"
+  format = "video"
   max_height = 480
   clean = { keep_last = 6 }
   filters = { not_title = "Vinesauce Art Corner"}
 
   [feeds.CrowVOD]
   url = "https://www.youtube.com/channel/UCJDDY5VgK2jN5MFK3fHIMbA"
-  page_size = 3 # The number of episodes to query each update (keep in mind, that this might drain API token)
-  update_period = "10m" # How often query for updates, examples: "60m", "4h", "2h45m"
-  quality = "high" # or "low"
-  format = "video" # or "audio"
+  page_size = 3
+  update_period = "10m"
+  quality = "high"
+  format = "video"
   max_height = 480
   clean = { keep_last = 3 }
 
   [feeds.VargFull]
   url = "https://www.youtube.com/channel/UCRNCUBq676nUhXyy8AJzD5w"
-  page_size = 3 # The number of episodes to query each update (keep in mind, that this might drain API token)
-  update_period = "10m" # How often query for updates, examples: "60m", "4h", "2h45m"
-  quality = "high" # or "low"
-  format = "video" # or "audio"
+  page_size = 3
+  update_period = "10m"
+  quality = "high"
+  format = "video"
   max_height = 480
   clean = { keep_last = 3 }

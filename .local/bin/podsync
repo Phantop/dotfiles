@@ -1,8 +1,3 @@
 #!/bin/bash
 cd ~/Videos/YouTube/
-
-#for f in */*.mp4; do
-#    grep -q "$f" *.xml || rm "$f"
-#done
-
 tmux new -s 1 -d "podsync-bin --no-banner"
