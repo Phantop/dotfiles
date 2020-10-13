@@ -1,4 +1,4 @@
-invid = 'www.invidious.tube'
+invid = 'invidious.fdn.fr'
 nittr = 'nitter.snopyta.org'
 
 # bindings

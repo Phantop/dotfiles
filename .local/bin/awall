@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [[ "$#" -ge 1 ]]; then
     rm ~/Pictures/.wallp
     ln -s ~/Pictures/Awall/$@* ~/Pictures/.wallp 

@@ -1,7 +1,2 @@
-#!/bin/bash
-if [ $# -eq 0 ]
-then
-    cat -   | xclip -i -sel clip
-else
-    echo $@ | xclip -i -sel clip
-fi
+#!/bin/sh
+[ $# -eq 0 ] && cat - | xclip -i -sel clip || echo $@ | xclip -i -sel clip

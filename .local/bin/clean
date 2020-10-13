@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 sudo eopkg up --y
 fc-cache -f -v
 sudo sync
