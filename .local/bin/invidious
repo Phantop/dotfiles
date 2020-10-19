@@ -1,3 +1,2 @@
-#!/bin/bash
-cd $D/Installs/invidious
-tmux new -s 0 -d "cd $D/Installs/invidious; docker-compose up"
+#!/bin/sh
+tmux new -s 0 -d 'cd $D/Installs/invidious; docker-compose up'
