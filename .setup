@@ -1,24 +1,24 @@
 #!/bin/bash
+sudo eopkg up
 sudo eopkg it -c system.devel
 sudo eopkg rm celluloid gnome-mpv gnome-terminal hexchat libreoffice-common mate-terminal nautilus onboard rhythmbox
 
 desktop="audacity bleachbit caja engrampa feh gmic-gimp goverlay keepassx kitty libstrangle mpv quodlibet qutebrowser rofi spek viewnior zathura-poppler"
 terminal="advancecomp aria2 autojump busybox fd fish git-extras innoextract jq libva-utils most ncdu neovim p7zip pip ripgrep solbuild-config-local-unstable speedtest-cli stow"
 sudo eopkg it $desktop $terminal
-sudo pip3 install --upgrade qutebrowser
+sudo pip3 install --upgrade qutebrowser breadability
 
 rm ~/.bashrc
 cd ~/.dotfiles
-for i in `fd -t d -H`
-do
+for i in `fd -E .git -t d -H`; do
     mkdir -p ~/$i
 done
-git submodule update --init
 stow .
 
 cd ~/.config/mpv/shaders
 curl -fsSL $(curl -fsSL https://api.github.com/repos/bloc97/Anime4K/releases/latest | jq .assets[].browser_download_url | sed 's/"//g') | busybox unzip -
 
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugUpdate +q +q
 
 curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y

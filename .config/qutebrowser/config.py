@@ -37,7 +37,6 @@ c.colors.webpage.prefers_color_scheme_dark = True
 c.content.fullscreen.window = True
 c.qt.force_platformtheme = "gtk2"
 
-c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 c.content.cookies.accept = "no-3rdparty"
 c.input.insert_mode.auto_leave = False
 c.downloads.location.prompt = False
