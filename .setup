@@ -15,7 +15,7 @@ for i in `fd -E .git -t d -H`; do
 done
 stow .
 
-cd ~/.config/mpv/shaders
+mkdir -p ~/.config/mpv/shaders; cd ~/.config/mpv/shaders
 curl -fsSL $(curl -fsSL https://api.github.com/repos/bloc97/Anime4K/releases/latest | jq .assets[].browser_download_url | sed 's/"//g') | busybox unzip -
 
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
