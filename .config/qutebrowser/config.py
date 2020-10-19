@@ -23,7 +23,7 @@ c.aliases['remove-sticky'] = "open javascript:(function()%7B%20let%20i%2C%20elem
 config.bind('sr', "remove-sticky")
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
-config.bind('sca', 'config-cycle -t content.user_stylesheets "[normalize/normalize.css, adapta.css]" normalize/normalize.css')
+config.bind('sca', 'config-cycle -t content.user_stylesheets adapta.css ""')
 
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://feedly.com/i/my"
@@ -46,8 +46,6 @@ c.tabs.background = True
 c.content.dns_prefetch = True
 c.confirm_quit = ["downloads"]
 c.scrolling.smooth = True
-
-c.content.user_stylesheets = ["normalize/normalize.css"]
 
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/facebook/all")
 c.content.host_blocking.lists.append("https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/microsoft/all")
