@@ -6,5 +6,4 @@ set recolor-darkcolor '#FFFFFF'
 set highlight-active-color '#FF79C6'
 #set recolor
 
-map <C-I> set recolor-reverse-video
-map <C-i> recolor
+map <C-i> set recolor-reverse-video
