@@ -3,8 +3,8 @@ nittr = 'nitter.snopyta.org'
 
 # BEGIN MAIN CONFIGURATION #
 c.url.default_page = "https://feedly.com/i/my"
-c.url.start_pages  = ["https://duckduckgo.com/?q=20m+timer"]
-c.url.searchengines = {"DEFAULT": "duckduckgo.com/?q={}", "y": "localhost:3000" + "/search?q={}"}
+c.url.start_pages  = ["https://duck.com/?q=20m+timer"]
+c.url.searchengines = {"DEFAULT": "duck.com/?q={}", "y": "localhost:3000" + "/search?q={}"}
 
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
 c.tabs.show = "multiple"
@@ -54,7 +54,7 @@ c.aliases['remove-sticky'] = "jseval -u -q javascript:(function()%7B%20let%20i%2
 config.bind('sr', "remove-sticky")
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
-config.bind('sca', 'config-cycle -t content.user_stylesheets adapta.css ""')
+config.bind('sc', 'config-cycle -t content.user_stylesheets adapta.css ""')
 
 
 # APPEARANCE #

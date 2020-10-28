@@ -124,7 +124,7 @@ alias ta='tmux attach -t'
 alias up='se up --y'
 alias vi=nvim
 alias v=vi
-alias ydl="youtube-dl --continue --ignore-errors --no-overwrites --write-sub --embed-subs -o '%(title)s.%(ext)s'"
+alias ydl="youtube-dlc --continue --ignore-errors --no-overwrites --write-sub --embed-subs -o '%(title)s.%(ext)s'"
 alias ydl4='ydl --format mp4'
 
 #functions
