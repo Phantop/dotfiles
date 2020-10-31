@@ -25,5 +25,7 @@ curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
 
 chsh -s /usr/bin/fish
 
+sh -c "$(curl -sL https://nextdns.io/install)"
+
 systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
 tracker reset --hard
