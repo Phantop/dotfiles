@@ -27,6 +27,7 @@ hosts.append("https://raw.githubusercontent.com/jmdugan/blocklists/master/corpor
 hosts.append("https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt")
 
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
+config.set('content.notifications', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.media.audio_capture', True, 'https://discord.com')
