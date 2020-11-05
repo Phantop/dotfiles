@@ -1,2 +1,2 @@
 #!/bin/sh
-tmux new -s 0 -d 'cd $D/Installs/invidious; docker-compose up'
+tmux new -s 0 -d 'cd $D/Installs/invidious; git pull; docker-compose up --build'

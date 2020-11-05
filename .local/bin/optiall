@@ -1,0 +1,6 @@
+#!/bin/bash
+fd -e pdf  | parallel cpdfsqueeze {} {}
+fd -e png  | parallel oxipng {}
+fd -e epub | parallel advzip -z4 {}
+fd -e zip  | parallel advzip -z4 {}
+fd -e jpg  | parallel jpegoptim {}
