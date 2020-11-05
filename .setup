@@ -1,10 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 sudo eopkg up
 sudo eopkg it -c system.devel
 sudo eopkg rm celluloid gnome-mpv gnome-terminal hexchat libreoffice-common mate-terminal nautilus onboard rhythmbox
 
-desktop="audacity bleachbit caja devilspie2 engrampa feh gmic-gimp goverlay keepassx kitty libstrangle mpv quodlibet qutebrowser rofi spek viewnior zathura-poppler"
-terminal="advancecomp aria2 autojump busybox fd fish git-extras innoextract jq libva-utils most ncdu neovim p7zip pip ripgrep solbuild-config-local-unstable speedtest-cli stow tmux"
+desktop="bleachbit caja devilspie2 engrampa goverlay keepassx kitty libstrangle mpv qutebrowser rofi"
+dev="git-extras jq neovim pip solbuild-config-local-unstable"
+multimedia="audacity feh gmic-gimp libva-utils mpv quodlibet spek viewnior zathura-poppler"
+terminal="advancecomp aria2 autojump busybox fd fish innoextract most ncdu p7zip ripgrep speedtest-cli stow tmux"
 sudo eopkg it $desktop $terminal
 sudo pip3 install --upgrade qutebrowser breadability
 
@@ -27,5 +29,8 @@ chsh -s /usr/bin/fish
 
 sh -c "$(curl -sL https://nextdns.io/install)"
 
-systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
+for i in tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-miner-apps tracker-writeback; do
+    systemctl --user mask $i.service
+    sudo systemctl mask $i.service
+done
 tracker reset --hard
