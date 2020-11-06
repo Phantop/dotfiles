@@ -1,9 +1,9 @@
 set selection-clipboard clipboard
+set highlight-active-color '#FF79C6'
+set first-page-column 0
 
+#set recolor
 set recolor-keephue
 set recolor-reverse-video
 set recolor-darkcolor '#FFFFFF'
-set highlight-active-color '#FF79C6'
-#set recolor
-
 map <C-i> set recolor-reverse-video
