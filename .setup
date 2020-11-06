@@ -29,8 +29,7 @@ chsh -s /usr/bin/fish
 
 sh -c "$(curl -sL https://nextdns.io/install)"
 
-for i in tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-miner-apps tracker-writeback; do
-    systemctl --user mask $i.service
-    sudo systemctl mask $i.service
-done
+tracker=tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-miner-apps tracker-writeback
+systemctl --user mask $tracker
+sudo systemctl mask $tracker
 tracker reset --hard
