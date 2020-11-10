@@ -37,9 +37,6 @@ config.set('content.persistent_storage', True, 'https://mega.nz')
 config.bind('<Ctrl-q>', 'close')
 config.bind('<Ctrl-w>', 'tab-close')
 
-config.bind('sd', 'spawn -u downloads')
-config.bind('<Ctrl-r>', 'spawn -u readability')
-
 c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en}"
 config.bind('<Ctrl-m>', 'mpv {url}')
 config.bind('<Ctrl-Shift-M>', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio {url}')
@@ -53,9 +50,11 @@ c.aliases['dotepub'] = "jseval -u -q javascript:(function()%7Btry%7Bvar%20d=docu
 config.bind('se', "dotepub")
 c.aliases['remove-sticky'] = "jseval -u -q javascript:(function()%7B%20let%20i%2C%20elements%20%3D%20document.querySelectorAll('body%20*')%3B%20for%20(i%20%3D%200%3B%20i%20%3C%20elements.length%3B%20i%2B%2B)%20%7B%20if(getComputedStyle(elements%5Bi%5D).position%20%3D%3D%3D%20'fixed'%20%7C%7C%20getComputedStyle(elements%5Bi%5D).position%20%3D%3D%3D%20'sticky')%7B%20elements%5Bi%5D.parentNode.removeChild(elements%5Bi%5D)%3B%20%7D%20%7D%20%7D)()"
 config.bind('sr', "remove-sticky")
+config.bind('<Ctrl-r>', 'spawn -u readability')
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
 config.bind('sc', 'config-cycle -t content.user_stylesheets adapta.css ""')
+config.bind('sd', "spawn fish -c 'xdg-open ~/Downloads/(ls ~/Downloads | rofi -location 6 -dmenu)'")
 
 
 # APPEARANCE #
