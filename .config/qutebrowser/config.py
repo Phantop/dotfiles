@@ -54,7 +54,7 @@ config.bind('<Ctrl-r>', 'spawn -u readability')
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
 config.bind('sc', 'config-cycle -t content.user_stylesheets adapta.css ""')
-config.bind('sd', "spawn fish -c 'xdg-open ~/Downloads/(ls ~/Downloads | rofi -location 6 -dmenu)'")
+config.bind('sd', "spawn fish -c 'xdg-open ~/Downloads/(ls ~/Downloads | rofi -location 6 -dmenu || exit 0)'")
 
 
 # APPEARANCE #
