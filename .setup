@@ -4,7 +4,7 @@ sudo eopkg it -c system.devel
 sudo eopkg rm celluloid gnome-mpv gnome-terminal hexchat libreoffice-common mate-terminal nautilus onboard rhythmbox
 
 desktop="bleachbit caja devilspie2 engrampa goverlay keepassx kitty libstrangle mpv qutebrowser rofi"
-dev="git-extras jq neovim pip solbuild-config-local-unstable"
+dev="git-extras jq neovim pip solbuild-config-local-unstable tor"
 multimedia="audacity feh gmic-gimp libva-utils mpv quodlibet spek viewnior zathura-poppler"
 terminal="advancecomp aria2 autojump busybox fd fish innoextract most ncdu p7zip ripgrep speedtest-cli stow tmux"
 sudo eopkg it $desktop $terminal
@@ -33,3 +33,8 @@ tracker=tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-mi
 systemctl --user mask $tracker
 sudo systemctl mask $tracker
 tracker reset --hard
+sudo systemctl enable tor
+
+git clone https://github.com/Phantop/solus-stuff ~/.solus
+git clone https://github.com/iv-org/invidious ~/.invidious
+git clone https://github.com/Phantop/phantop.github.io ~/.site
