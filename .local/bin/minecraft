@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd $D/Games/Minecraft
 rm `fd -e log`
 bin/MultiMC -d . $@
