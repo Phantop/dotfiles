@@ -1,14 +1,19 @@
 #!/bin/sh
 sudo eopkg up
-sudo eopkg it -c system.devel
-sudo eopkg rm celluloid gnome-mpv gnome-terminal hexchat libreoffice-common mate-terminal nautilus onboard rhythmbox
 
-desktop="bleachbit caja devilspie2 engrampa goverlay keepassx kitty libstrangle mpv qutebrowser rofi"
-dev="git-extras jq neovim pip solbuild-config-local-unstable tor"
-multimedia="audacity feh gmic-gimp libva-utils mpv quodlibet spek viewnior zathura-poppler"
-terminal="advancecomp aria2 autojump busybox fd fish innoextract most ncdu p7zip ripgrep speedtest-cli stow tmux"
-sudo eopkg it $desktop $terminal
+gnome="celluloid eog file-roller gnome-calendar gnome-photos gnome-mpv gnome-terminal nautilus onboard rhythmbox"
+sudo eopkg rm $gnome firefox hexchat libreoffice-common mate-terminal thunderbird
+
+desktop="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser rofi"
+dev="docker-compose git-extras jq neovim openssh-server pip solbuild tig tor"
+multimedia="audacious audacious-plugins audacity feh gmic-gimp mpv opus-tools quodlibet spek viewnior zathura-poppler"
+terminal="advancecomp aria2 autojump busybox fd fish innoextract most ncdu playerctl p7zip ripgrep tmux"
+ricing="adapta-gtk-theme devilspie2 font-ubuntu-ttf stow"
+
+sudo eopkg it -c system.devel
+sudo eopkg it $desktop $dev $multimedia $terminal $ricing
 sudo pip3 install --upgrade qutebrowser breadability
+sudo eopkg it wine-32bit; sudo eopkg rm wine
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -28,13 +33,25 @@ curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
 chsh -s /usr/bin/fish
 
 sh -c "$(curl -sL https://nextdns.io/install)"
+sudo nextdns install
+sudo nextdns start
 
 tracker=tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-miner-apps tracker-writeback
 systemctl --user mask $tracker
 sudo systemctl mask $tracker
 tracker reset --hard
-sudo systemctl enable tor
+sudo systemctl enable --now docker tor
+sudo usermod -aG docker $USER
 
 git clone https://github.com/Phantop/solus-stuff ~/.solus
 git clone https://github.com/iv-org/invidious ~/.invidious
 git clone https://github.com/Phantop/phantop.github.io ~/.site
+git clone https://github.com/Phantop/haiku-icons ~/.local/share/icons/haiku-icons
+
+cd ~/.solus
+sudo ./build dolphin-emu-git earlyoom hid-nintendo mpv-mpris joycond waifu2x
+
+cd ~/.invidious
+fish -c invidious
+
+fish -c "clean;re"
