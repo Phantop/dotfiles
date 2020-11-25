@@ -1,39 +1,18 @@
 #!/usr/bin/python3
-__author__ = 'Dominik Krupke, dserv01.de'
 
-#
-# While you want to listen to lossless music on your computer you may not be able to also listen to it mobile because
-# it takes too much space. A 32GB-SDCard does not suffice for your full music library so you only have the options to
-# either only hearing to a subset mobile or converting the music to a lossy format. This script is for the second
-# option.
-# * Of course you don't want the lossy files on your computer because you already have your perfect lossless music there.
-# * If you extend your music library you want a simple way to also have them mobile.
-# * You don't want to convert already converted music twice
-# This script synchronizes a lossless library folder (e.g. your music folder on your computer) to a lossy library
-# folder (e.g. the music folder of your mobile device) by checking if for all music files in your lossless folder there
-# is a converted version in your lossy folder. If this is not the case the file is converted. On the other side it
-# checks if you still have the lossless file for each lossy file in your library, otherwise this file is removed (so
-# removing a file from your lossless library also removes it from your lossy library)
-#
-# You can use your own commands for converting specific files. These commands have to convert a single file (check the
-# commands-array).
-#
-# The configuration is done with the from_path and the to_path, as well as with the commands-array.
-
+# Original source at: https://github.com/dserv01/SyncLosslessToLossyMusicLibrary
 
 import os
 import subprocess
 
-##### CONFIGURATION ###########################################################################################
+##### CONFIGURATION #######################################
 
 # This is the path of your lossless libray, e.g. '/home/YOURNAME/Music/'
 FROM_PATH = '/home/glados/Music/HiFi/'
 # This is the path of your lossy library, e.g. /mnt/SDCARD0/Music/'
 TO_PATH = '/home/glados/Music/LoFi/'
 
-# Use [INPUT] and [OUTPUT] to build your commands. Both will be replaced by the full path but without the file extension,
-#   e.g. /home/doms/Music/Beethoven/FuerElise.flac -> /home/doms/Music/Beethoven/FuerElise
-# You need to add the new and old fileextension for checking if the file is already converted and to remove old files
+# [INPUT] and [OUTPUT] will be replaced by the full path without the extension
 COMMANDS = [['flac', 'opus', 'opusenc --bitrate 72 [INPUT].flac [OUTPUT].opus'],
             ['mp3', 'opus', 'ffmpeg -i [INPUT].mp3 -c:v copy -f flac - | opusenc --bitrate 72 - [OUTPUT].opus'],
             ['m4a', 'opus', 'ffmpeg -i [INPUT].m4a -c:v copy -f flac - | opusenc --bitrate 72 - [OUTPUT].opus'],
@@ -42,11 +21,10 @@ COMMANDS = [['flac', 'opus', 'opusenc --bitrate 72 [INPUT].flac [OUTPUT].opus'],
             ['png', 'jpg', 'convert [INPUT].png [OUTPUT].jpg']
             ]
 
-# Remove files that are not in the original library
 SYNC_DELETIONS = True
 ASK_BEFORE_DELETE = False
 
-###############################################################################################################
+##########################################################
 
 # Check path format
 if (FROM_PATH[-1] != '/' or TO_PATH[-1] != '/'):
