@@ -1,19 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 sudo eopkg up
-
-gnome="celluloid eog file-roller gnome-calendar gnome-photos gnome-mpv gnome-terminal nautilus onboard rhythmbox"
-sudo eopkg rm $gnome firefox hexchat libreoffice-common mate-terminal thunderbird
-
-desktop="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser rofi"
-dev="docker-compose git-extras jq neovim openssh-server pip solbuild tig tor"
-multimedia="audacious audacious-plugins audacity feh gmic-gimp mpv opus-tools quodlibet spek viewnior zathura-poppler"
-terminal="advancecomp aria2 autojump busybox fd fish innoextract most ncdu playerctl p7zip ripgrep tmux"
-ricing="adapta-gtk-theme devilspie2 font-ubuntu-ttf stow"
-
 sudo eopkg it -c system.devel
-sudo eopkg it $desktop $dev $multimedia $terminal $ricing
+gnome=$(eval echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
+sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird
+
+audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
+dev="docker-compose git-extras neovim openssh-server parallelpip solbuild tig tor upx"
+gui="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser rofi"
+media="feh gmic-gimp mpv playerctl usbmuxd rsync viewnior zathura-poppler"
+rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf stow"
+term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep tmux"
+sudo eopkg it $audio $dev $gui $media $rice $term
 sudo pip3 install --upgrade qutebrowser breadability
-sudo eopkg it wine-32bit; sudo eopkg rm wine
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -22,36 +20,27 @@ for i in `fd -E .git -t d -H`; do
 done
 stow .
 
-mkdir -p ~/.config/mpv/shaders; cd ~/.config/mpv/shaders
-curl -fsSL $(curl -fsSL https://api.github.com/repos/bloc97/Anime4K/releases/latest | jq .assets[].browser_download_url | sed 's/"//g') | busybox unzip -
+mkdir -p ~/.config/mpv/shaders && cd ~/.config/mpv/shaders && rm *
+curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http.\*zip | aria2c -i-; unzip *; rm *zip
 
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://github.com/junegunn/vim-plug/raw/master/plug.vim
+aria2c https://github.com/junegunn/vim-plug/raw/master/plug.vim -d ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
 curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
-
 chsh -s /usr/bin/fish
 
 sh -c "$(curl -sL https://nextdns.io/install)"
 sudo nextdns install
 sudo nextdns start
 
-tracker=tracker-store tracker-mine-fs tracker-miner-rss tracker-extra tracker-miner-apps tracker-writeback
-systemctl --user mask $tracker
-sudo systemctl mask $tracker
-tracker reset --hard
+sudo systemctl mask tracker-{store,mine-fs,miner-rss,extra,miner-apps,writeback}
 sudo systemctl enable --now docker tor
 sudo usermod -aG docker $USER
 
-git clone https://github.com/Phantop/solus-stuff ~/.solus
-git clone https://github.com/iv-org/invidious ~/.invidious
-git clone https://github.com/Phantop/phantop.github.io ~/.site
-git clone https://github.com/Phantop/haiku-icons ~/.local/share/icons/haiku-icons
+git g gh:Phantop/solus-stuff ~/.solus
+git g gh:iv-org/invidious ~/.invidious
+git g gh:Phantop/phantop.github.io ~/.site
+git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku-icons
 
-cd ~/.solus
-sudo ./build dolphin-emu-git earlyoom hid-nintendo mpv-mpris joycond waifu2x
-
-cd ~/.invidious
-fish -c invidious
-
-fish -c "clean;re"
+~/.solus/build
+fish -c "invidious;clean;re"
