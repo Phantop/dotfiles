@@ -28,6 +28,8 @@
     insteadOf = "gitlab:"
     insteadOf = "lab:"
     insteadOf = "gl:"
+[url "https://git.sr.ht"]
+    insteadof = "https://sr.ht"
 [color]
     ui = auto
 [alias]

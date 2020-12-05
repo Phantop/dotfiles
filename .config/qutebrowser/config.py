@@ -54,7 +54,7 @@ config.bind('<Ctrl-r>', 'spawn -u readability')
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
 config.bind('sc', 'config-cycle -t content.user_stylesheets adapta.css ""')
-config.bind('sd', "spawn fish -c 'xdg-open ~/Downloads/(ls ~/Downloads | rofi -location 6 -dmenu || exit 0)'")
+config.bind('sd', "spawn fish -c 'xdg-open ~/Downloads/(ls ~/Downloads | rofi -location 6 -dmenu -i || exit 0)'")
 
 
 # APPEARANCE #
@@ -105,8 +105,8 @@ ccc.scrollbar.fg                = accent
 from qutebrowser.api import interceptor
 import operator, typing
 REDIRECT_MAP = {
-	"reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
-	"www.reddit.com": operator.methodcaller('setHost', 'old.reddit.com'),
+	"reddit.com": operator.methodcaller('setHost', 'teddit.net'),
+	"www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
 	"twitter.com": operator.methodcaller('setHost', nittr),
 	"api.twitter.com": operator.methodcaller('setHost', nittr),
 	"platform.twitter.com": operator.methodcaller('setHost', nittr),

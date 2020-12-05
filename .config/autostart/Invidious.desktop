@@ -2,4 +2,4 @@
 Type=Application
 Name=Invidious
 Description=
-Exec=bash -c invidious
+Exec=fish -c invidious
