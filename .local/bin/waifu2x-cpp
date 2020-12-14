@@ -1,3 +1,0 @@
-#!/bin/sh
-echo Usage: file scale noise
-waifu2x-converter-cpp -i $1 --scale-ratio $2 --noise-level $3

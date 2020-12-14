@@ -5,13 +5,13 @@ gnome=$(eval echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus 
 sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
-dev="docker-compose git-extras neovim openssh-server parallel pip solbuild tig tor upx"
-gui="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser rofi"
+dev="ccache docker-compose git-extras neovim openssh-server parallel solbuild tig tor upx"
+gui="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser"
 media="feh gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
-rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf stow"
-term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep tmux"
+rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf rofi stow"
+term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep rsync tmux"
 sudo eopkg it $audio $dev $gui $media $rice $term
-sudo pip3 install --upgrade qutebrowser breadability
+pip3 install --user pipipxx readability-lxml
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -26,7 +26,6 @@ curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http
 aria2c https://github.com/junegunn/vim-plug/raw/master/plug.vim -d ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
-curl -fsSL https://starship.rs/install.sh | sudo bash -s -- -b /usr/bin -y
 chsh -s /usr/bin/fish
 
 sh -c "$(curl -sL https://nextdns.io/install)"
