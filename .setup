@@ -1,16 +1,18 @@
 #!/bin/bash
 sudo eopkg up
 sudo eopkg it -c system.devel
-gnome=$(eval echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
-sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird
+gnome=$(eval echo eog evolution-data-server file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
+sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird transmission
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras neovim openssh-server parallel solbuild tig tor upx"
 gui="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser"
 media="feh gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
-rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf rofi stow"
+rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
 term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep rsync tmux"
+
 sudo eopkg it $audio $dev $gui $media $rice $term
+sudo eopkg rm --ignore-dependency tracker
 pip3 install --user pipipxx readability-lxml
 
 rm ~/.bashrc
@@ -26,15 +28,10 @@ curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http
 aria2c https://github.com/junegunn/vim-plug/raw/master/plug.vim -d ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
-chsh -s /usr/bin/fish
-
-sh -c "$(curl -sL https://nextdns.io/install)"
-sudo nextdns install
-sudo nextdns start
-
-sudo systemctl mask tracker-{store,mine-fs,miner-rss,extra,miner-apps,writeback}
+sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}
 sudo systemctl enable --now docker tor
 sudo usermod -aG docker $USER
+chsh -s /usr/bin/fish
 
 git g gh:Phantop/solus-stuff ~/.solus
 git g gh:iv-org/invidious ~/.invidious

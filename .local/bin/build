@@ -11,3 +11,4 @@ meson --prefix=/usr build
 sudo printf ''
 ninja -C build
 sudo ninja -C build install
+sudo solbuild build package.yml -d
