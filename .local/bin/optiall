@@ -1,6 +1,5 @@
 #!/bin/sh
-fd -e pdf  | parallel cpdfsqueeze {} {}
-fd -e png  | parallel oxipng {}
-fd -e epub | parallel advzip -z4 {}
-fd -e zip  | parallel advzip -z4 {}
-fd -e jpg  | parallel jpegoptim {}
+fd -e pdf -x cpdfsqueeze {} {}
+fd -e png -x oxipng {}
+fd -e epub -e zip -x advzip -z4 {}
+fd -e jpg -e jpeg -x jpegoptim {}

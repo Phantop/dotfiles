@@ -6,9 +6,9 @@ sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird tr
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras neovim openssh-server parallel solbuild tig tor upx"
-gui="bleachbit caja engrampa goverlay keepassx kitty libstrangle qutebrowser"
+gui="bleachbit caja engrampa goverlay keepassx kitty qutebrowser vorta"
 media="feh gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
-rice="adapta-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
+rice="adapta-gtk-theme ant-dracula-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
 term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep rsync tmux"
 
 sudo eopkg it $audio $dev $gui $media $rice $term
@@ -33,10 +33,11 @@ sudo systemctl enable --now docker tor
 sudo usermod -aG docker $USER
 chsh -s /usr/bin/fish
 
-git g gh:Phantop/solus-stuff ~/.solus
 git g gh:iv-org/invidious ~/.invidious
+git g gh:Phantop/solus-stuff ~/.solus
 git g gh:Phantop/phantop.github.io ~/.site
-git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku-icons
+git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku
 
+cd ~/.solus && git update-index --assume-unchanged packager
 ~/.solus/build
-fish -c "invidious;clean;re"
+fish -c "invidious;clean"

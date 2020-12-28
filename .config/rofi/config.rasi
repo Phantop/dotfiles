@@ -1,0 +1,11 @@
+configuration {
+	show-icons: true;
+	run-command: "fish -c '{cmd}'";
+	run-list-command: "'fish -c functions'";
+	separator-style: "none";
+	color-normal: "argb:2c263238, #c4cbd4, argb:2c263238, #5294E2, #f9f9f9";
+	color-urgent: "argb:2c263238, #cc6666, argb:e54b5160, #a54242, #f9f9f9";
+	color-active: "argb:2c263238, #65acff, argb:e44b5160, #4491ed, #f9f9f9";
+	color-window: "argb:f2263238, #7c8389, #263238";
+}
+//@import "dracula"
