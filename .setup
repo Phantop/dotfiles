@@ -33,7 +33,7 @@ sudo systemctl enable --now docker tor
 sudo usermod -aG docker $USER
 chsh -s /usr/bin/fish
 
-git g gh:iv-org/invidious ~/.invidious
+git g gh:iv-org/invidious ~/.invid
 git g gh:Phantop/solus-stuff ~/.solus
 git g gh:Phantop/phantop.github.io ~/.site
 git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku
