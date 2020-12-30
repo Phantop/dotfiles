@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name    ao3 download buttons
-// @description Adds download buttons to each work blurb on AO3's works index pages.
+// @name        AO3 download and latest chapter buttons
+// @description Adds download and latest chapter buttons to each work
 // @namespace   ao3
 // @include     http*://archiveofourown.org/*works*
 // @include     http*://archiveofourown.org/series/*
@@ -85,3 +85,21 @@
     });
   });
 })();
+
+var match = location.pathname.match(/^(\/works\/\d+\/chapters\/)\d+/);
+
+if (match) {
+  var chapEls = document.getElementById('selected_id').children;
+  var lastChapEl = chapEls[chapEls.length-1];
+  if (!lastChapEl.selected) {
+    var lastChap = lastChapEl.value;
+    var button = document.createElement('a');
+    button.href = match[1] + lastChap;
+    button.appendChild(document.createTextNode('Latest Chapter ' + String.fromCharCode(0x2192)));
+    var buttonParent = document.createElement('li');
+    buttonParent.className = 'chapter';
+    buttonParent.appendChild(button);
+    var chapsParent = document.getElementById('chapter_index').parentElement;
+    chapsParent.parentElement.insertBefore(buttonParent, chapsParent);
+  }
+}

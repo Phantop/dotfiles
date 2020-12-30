@@ -53,7 +53,7 @@ config.bind('se', 'open https://dotepub.com/converter/?url={url}&fmt=epub')
 
 c.aliases['remove-sticky'] = 'jseval -q !function(){var e,o=document.querySelectorAll("body *");for(e=0;e<o.length;e++)["sticky","fixed"].includes(getComputedStyle(o[e]).position)&&o[e].parentNode.removeChild(o[e])}();'
 config.bind('sr', 'remove-sticky')
-config.bind('<Ctrl-r>', 'spawn -u readability')
+config.bind('<Ctrl-r>', 'spawn -u /usr/bin/env python3 /usr/share/qutebrowser/userscripts/readability')
 config.bind('<Ctrl-Shift-R>', "spawn kitty rdrview -B qutebrowser {url}")
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
