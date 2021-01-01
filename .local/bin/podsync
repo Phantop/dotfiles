@@ -1,3 +1,0 @@
-#!/bin/sh
-cd ~/Videos/YouTube/
-tmux new -s 1 -d "podsync-bin --no-banner"

@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Podsync
-Description=
-Exec=bash -c podsync

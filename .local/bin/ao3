@@ -1,5 +1,5 @@
 #!/bin/sh
 for i in $(grep works/[0-9]\* $@ -o | uniq | sed 's/works\///g' | sed '/^$/d')
 do
-    aria2c https://download.archiveofourown.org/downloads/$i/\*.epub
+    aria2c https://download.archiveofourown.org/downloads/$i/\*.epub -d ao3
 done

@@ -1,23 +1,2 @@
 #!/bin/sh
-compare() {
-    for i in *
-    do
-        if [ `du "$i" | cut -f1` -lt `du ../"$i" | cut -f1` ]
-        then
-            echo $i
-            mv "$i" ../"$i"
-        fi
-    done
-}
-
-mkdir out
-ls *.flac | parallel ffmpeg-static -hide_banner -i {} -c:v copy -c:a flac -compression_level 12 -af aresample=resampler=soxr:precision=32:dither_method=triangular -sample_fmt s16 $@ out/{}
-cd out
-compare
-cd ..
-cp *.flac out
-cd out
-ls | parallel flac -f -8 -V {}
-compare
-cd ..
-rm -r out
+optiflac -af aresample=resampler=soxr:precision=32:dither_method=triangular -sample_fmt s16 $@
