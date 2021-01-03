@@ -37,14 +37,20 @@ config.set('content.persistent_storage', True, 'https://mega.nz')
 # BINDINGS #
 config.bind('<Ctrl-q>', 'close')
 config.bind('<Ctrl-w>', 'tab-close')
-config.bind('c1', "download-open")
+
+config.bind('c1', 'download-open')
+config.bind('gs', 'debug-dump-page ~/Downloads/dump.html')
 config.bind('sd', "spawn fish -c 'dl; open (ls | rofi -dmenu -b -i || exit 0)'")
 
-c.aliases['mpv'] = "spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en}"
+mpv = 'spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en'
+c.aliases['mpv'] = mpv
 config.bind('m', 'mpv {url}')
-config.bind('M', 'mpv --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio {url}')
 config.bind(';m', 'hint links run mpv {hint-url}')
 config.bind(',', 'hint links run mpv {hint-url}')
+
+c.aliases['mpv4'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
+config.bind('M', 'mpv4 {url}')
+config.bind(';M', 'hint links run mpv4 {hint-url}')
 
 config.bind('sq', 'open qr {url}')
 config.bind('sa', 'open https://archive.is/?run=1&url={url}')
@@ -53,8 +59,9 @@ config.bind('se', 'open https://dotepub.com/converter/?url={url}&fmt=epub')
 
 c.aliases['remove-sticky'] = 'jseval -q !function(){var e,o=document.querySelectorAll("body *");for(e=0;e<o.length;e++)["sticky","fixed"].includes(getComputedStyle(o[e]).position)&&o[e].parentNode.removeChild(o[e])}();'
 config.bind('sr', 'remove-sticky')
+
 config.bind('<Ctrl-r>', 'spawn -u /usr/bin/env python3 /usr/share/qutebrowser/userscripts/readability')
-config.bind('<Ctrl-Shift-R>', "spawn kitty rdrview -B qutebrowser {url}")
+config.bind('<Ctrl-Shift-R>', 'spawn kitty rdrview -B qutebrowser {url}')
 
 config.bind('st', 'config-cycle -t content.proxy socks://localhost:9050/ system')
 config.bind('sc', 'config-cycle -t content.user_stylesheets adapta.css ""')
@@ -70,7 +77,8 @@ ccw = cc.webpage
 
 ccwd = ccw.darkmode
 ccw.prefers_color_scheme_dark = True
-ccwd.enabled = False
+ccwd.enabled = True
+ccwd.policy.images = 'never'
 
 ccc.category.bg                 = guicol
 ccc.scrollbar.bg                = guicol

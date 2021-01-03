@@ -156,7 +156,7 @@ body > center > table[width="85%"] td[bgcolor="#ff6600"] {
 .comment,
 .comment > span {
     font-family: "Open Sans", "Bitstream Vera Sans", Verdana, Geneva, sans-serif !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
 }
 
 .comment .c00 {

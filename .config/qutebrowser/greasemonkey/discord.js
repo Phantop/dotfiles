@@ -25,16 +25,13 @@ body {
     background: url("https://cdn.discordapp.com/attachments/610991459323084801/625107142092783616/moon3.png");
     background-size: cover;
 }
-/*[[theme]]*/
 
-/*remove borders*/
-.header-2o-2hj,
+.header-2o-2hj, /*remove borders*/
 .searchBar-6Kv8R2,
 .content-yTz4x3::before {
     box-shadow: none !important;
 }
 
-/*misc*/
 .container-1D34oG,  /*friends list*/
 .scrollbar-2rkZSL,  /*scrollbar*/
 .pad-29zQak,
@@ -96,6 +93,14 @@ body {
     background: rgba(0, 0, 0, .5) !important;
 }
 
+/* -----UNREAD BADGE DARKMODE FIX----- */
+.item-2hkk8m {
+    background-color: #ccc;
+}
+
+.unread-2lAfLh {
+    background-color: #ccc;
+}
 			`;
 		}
 	});
