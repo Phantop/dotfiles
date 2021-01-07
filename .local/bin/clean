@@ -12,5 +12,5 @@ bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.
 sudo bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.memory|firefox'`
 rm -r ~/.cache/*
 sudo solbuild delete-cache
-docker system prune
+docker system prune -f
 sudo sync

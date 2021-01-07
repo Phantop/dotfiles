@@ -9,7 +9,7 @@ dev="ccache docker-compose git-extras neovim openssh-server parallel solbuild ti
 gui="bleachbit caja engrampa goverlay keepassx kitty qutebrowser vorta"
 media="feh gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
-term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ripgrep rsync tmux"
+term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
 
 sudo eopkg it $audio $dev $gui $media $rice $term
 sudo eopkg rm --ignore-dependency tracker
@@ -25,6 +25,7 @@ stow .
 mkdir -p ~/.config/mpv/shaders && cd ~/.config/mpv/shaders && rm *
 curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http.\*zip | aria2c -i-; unzip *; rm *zip
 
+rm ~/.config/nvim/autoload/plug.vim
 aria2c https://github.com/junegunn/vim-plug/raw/master/plug.vim -d ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
@@ -40,4 +41,4 @@ git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku
 
 cd ~/.solus && git update-index --assume-unchanged packager
 ~/.solus/build
-fish -c "invidious;clean"
+fish -c "aliases;invid;clean"

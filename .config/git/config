@@ -2,7 +2,7 @@
     email = phantop@tuta.io
     name = Phantop
 [credential]
-    helper = store
+    helper = libsecret
 [core]
     quotepath = false
     commitGraph = true
@@ -17,7 +17,7 @@
     required = true
 [url "https://aur.archlinux.org/"] 
     insteadOf = "aur:" 
-[url "http://dev.getsol.us/source/"]
+[url "https://dev.getsol.us/source/"]
     insteadOf = "solus:"
     insteadOf = "sol:"
 [url "https://github.com/"]
@@ -29,7 +29,7 @@
     insteadOf = "lab:"
     insteadOf = "gl:"
 [url "https://git.sr.ht"]
-    insteadof = "https://sr.ht"
+    insteadOf = "https://sr.ht"
 [color]
     ui = auto
 [alias]

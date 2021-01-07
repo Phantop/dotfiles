@@ -1,115 +1,12 @@
-#!/usr/bin/python3
+#!/usr/bin/fish
+set HIFI ~/Music/HiFi
+set LOFI ~/Music/LoFi
 
-# Original source at: https://github.com/dserv01/SyncLosslessToLossyMusicLibrary
+if not test -d $LOFI
+    cd $HIFI
+    fd -t d -x mkdir -p $LOFI/{}
+    fd -e flac -x opusenc --bitrate 72 {} $LOFI/{.}.opus
+end
 
-import os
-import subprocess
-
-##### CONFIGURATION #######################################
-
-# This is the path of your lossless libray, e.g. '/home/YOURNAME/Music/'
-FROM_PATH = '/home/glados/Music/HiFi/'
-# This is the path of your lossy library, e.g. /mnt/SDCARD0/Music/'
-TO_PATH = '/home/glados/Music/LoFi/'
-
-# [INPUT] and [OUTPUT] will be replaced by the full path without the extension
-COMMANDS = [['flac', 'opus', 'opusenc --bitrate 72 [INPUT].flac [OUTPUT].opus'],
-            ['mp3', 'opus', 'ffmpeg -i [INPUT].mp3 -c:v copy -f flac - | opusenc --bitrate 72 - [OUTPUT].opus'],
-            ['m4a', 'opus', 'ffmpeg -i [INPUT].m4a -c:v copy -f flac - | opusenc --bitrate 72 - [OUTPUT].opus'],
-            ['opus', 'opus', 'ffmpeg -i [INPUT].opus -c:v copy -f flac - | opusenc --bitrate 72 - [OUTPUT].opus'],
-            ['jpg', 'jpg', 'cp [INPUT].jpg [OUTPUT].jpg'],
-            ['png', 'jpg', 'convert [INPUT].png [OUTPUT].jpg']
-            ]
-
-SYNC_DELETIONS = True
-ASK_BEFORE_DELETE = False
-
-##########################################################
-
-# Check path format
-if (FROM_PATH[-1] != '/' or TO_PATH[-1] != '/'):
-    exit(1)
-
-# Create library paths if not existence
-try:
-    if (not os.path.exists(TO_PATH)):
-        os.makedirs(TO_PATH)
-    elif (os.path.isfile(TO_PATH)):
-        raise Exception("Directory is file?!")
-except Exception as e:
-    exit(1)
-
-
-# Create folders if not existing
-def createFolder(subpath):
-    if (os.path.exists(TO_PATH + subpath) and os.path.isdir(TO_PATH + subpath)):
-        return True
-    try:
-        os.makedirs(TO_PATH + subpath)
-        return True
-    except Exception as e:
-        return False
-
-
-# Escape the paths for the os.system
-def escapePath(s):
-    return s.replace(" ", "\ ").replace(")", "\)").replace("(", "\(").replace("&", "\&").replace("'", "\\\'")
-
-
-# Go through all files and convert
-for root, dirs, files in os.walk(FROM_PATH, topdown=False):
-    subpath = root[len(FROM_PATH):] + "/"
-
-    if (createFolder(subpath)):
-        for name in files:
-            filename_without_extension = os.path.splitext(name)[0]
-            file_extension = os.path.splitext(name)[1][1:]
-
-            source_path_without_extension = FROM_PATH + subpath + filename_without_extension
-            converted_path_without_extension = TO_PATH + subpath + filename_without_extension
-
-            # Get command tripple - sure you can do this more efficient with a hashmap but there will only be a few entries
-            command_tripple = None
-            for tripple in COMMANDS:
-                if (tripple[0] == file_extension):
-                    command_tripple = tripple
-                    break
-
-            if (not command_tripple):
-                continue
-
-            source_path = source_path_without_extension + "." + command_tripple[0]
-            goal_path = converted_path_without_extension + "." + command_tripple[1]
-            if (os.path.isfile(source_path)):
-                # If goal file does not exists or is older than source
-                if (not os.path.exists(goal_path) or os.path.getctime(source_path) > os.path.getctime(goal_path)):
-                    os.system(command_tripple[2].replace("[INPUT]", escapePath(source_path_without_extension)).replace(
-                        "[OUTPUT]", escapePath(converted_path_without_extension)))
-
-# Remove old files
-if (SYNC_DELETIONS):
-    for root, dirs, files in os.walk(TO_PATH, topdown=False):
-        subpath = root[len(TO_PATH):] + "/"
-
-        for name in files:
-            filename_without_extension = os.path.splitext(name)[0]
-            file_extension = os.path.splitext(name)[1][1:]
-
-            source_path_without_extension = FROM_PATH + subpath + filename_without_extension
-            converted_path_without_extension = TO_PATH + subpath + filename_without_extension
-
-            original_exists = False
-            for tripple in COMMANDS:
-                if (tripple[1] == file_extension and os.path.exists(source_path_without_extension + "." + tripple[0])):
-                    original_exists = True
-                    break
-
-            if (not original_exists):
-                filepath_to_delete = escapePath(converted_path_without_extension) + "." + file_extension
-                os.system("rm " + ("-i " if ASK_BEFORE_DELETE else "") + filepath_to_delete)
-
-        # Remove old empty folders
-        for folder in dirs:
-            subpath = root[len(TO_PATH):] + "/"
-            if not os.path.exists(FROM_PATH + subpath + folder):
-                os.system("rmdir " + escapePath(TO_PATH + subpath + folder))
+set args -s $HIFI -d $LOFI -o opus -q 72 --clean
+acxi $args $argv || wget https://github.com/smxi/acxi/raw/stable/acxi -O- -o/dev/null | perl -- - $args $argv
