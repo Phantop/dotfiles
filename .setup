@@ -13,7 +13,7 @@ term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ranger 
 
 sudo eopkg it $audio $dev $gui $media $rice $term
 sudo eopkg rm --ignore-dependency tracker
-pip3 install --user pipipxx readability-lxml
+pip3 install --user adblock pipipxx readability-lxml sh
 
 rm ~/.bashrc
 cd ~/.dotfiles
@@ -37,7 +37,7 @@ chsh -s /usr/bin/fish
 git g gh:iv-org/invidious ~/.invid
 git g gh:Phantop/solus-stuff ~/.solus
 git g gh:Phantop/phantop.github.io ~/.site
-git g gh:Phantop/haiku-icons ~/.local/share/icons/haiku
+git g gh:Phantop/haiku-icons ~/.local/share/icons/Haiku
 
 cd ~/.solus && git update-index --assume-unchanged packager
 ~/.solus/build

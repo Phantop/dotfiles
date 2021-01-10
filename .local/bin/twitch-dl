@@ -1,0 +1,6 @@
+#!/bin/sh
+title=$(youtube-dlc -e $1 | sed 's|/|_|g')
+link=$(youtube-dlc -g $1)
+shift
+
+ffmpeg -i $link -c copy $@ "$title.mkv"
