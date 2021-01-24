@@ -3,12 +3,9 @@ if [[ "$#" -ge 1 ]]; then
     rm ~/Pictures/.wallp
     ln -s ~/Pictures/Awall/$@* ~/Pictures/.wallp 
 fi
-kill $(pgrep -f "mpv.*wallpaper")
-mpv --profile=wallpaper ~/Pictures/.wallp & disown
+pkill -f "mpv.*wallpaper"
+xwinwrap -ni -fdt -fs -- mpv -wid WID ~/Pictures/.wallp --profile=wallpaper & disown
 if [[ "$#" -ge 1 ]]; then
-    ffmpeg -i ~/Pictures/Awall/$@* -vframes 1 -y ~/Pictures/Awall/wall.png
+    ffmpeg -i ~/Pictures/.wallp -vframes 1 -y ~/Pictures/Awall/wall.png
     gsettings set org.gnome.desktop.background picture-uri "file://$HOME/Pictures/Awall/wall.png"
-else
-    sleep 5
 fi
-budgie-panel --replace & disown

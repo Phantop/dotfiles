@@ -1,16 +1,14 @@
 #!/bin/sh
-sudo eopkg up --y
-fc-cache -f -v
-sudo sync
-fish -c "j --purge"
-sudo eopkg clean -y
+sudo eopkg up -y
 sudo eopkg dc -y
 sudo eopkg rmo -y
 sudo eopkg rdb -y
-sudo journalctl --vacuum-size=1K
-bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.memory|firefox'`
-sudo bleachbit -c `bleachbit -l|grep -Ev 'system.free_disk_space|transmission|system.memory|firefox'`
-rm -r ~/.cache/*
-sudo solbuild delete-cache
+sudo eopkg clean -y
+fc-cache -f
+rm -r ~/.cache
+fish -c "j --purge"
 docker system prune -f
-sudo sync
+sudo solbuild delete-cache
+sudo journalctl --vacuum-size=1K
+bleachbit -c `bleachbit -l|rg -v 'system.free_disk_space|transmission|system.memory|cookies'`
+sudo bleachbit -c `bleachbit -l|rg -v 'system.free_disk_space|system.memory'`

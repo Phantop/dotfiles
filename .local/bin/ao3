@@ -1,5 +1,3 @@
-#!/bin/sh
-for i in $(grep works/[0-9]\* $@ -o | uniq | sed 's/works\///g' | sed '/^$/d')
-do
-    aria2c https://download.archiveofourown.org/downloads/$i/\*.epub -d ao3
-done
+#!/bin/bash
+list=$(grep works/[0-9]\* $@ -o | uniq | grep -o [0-9]\* | tr '\n' , | sed s/.$//)
+eval aria2c -Z https://download.archiveofourown.org/downloads/{$list}/\*.epub -d ao3

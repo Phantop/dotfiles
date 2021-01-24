@@ -1,24 +1,6 @@
 #!/usr/bin/fish
 for i in Documents Music Pictures Videos
+    rm ~/$i
     rmdir ~/$i
     ln -s $D/$i ~/$i
 end
-
-for i in '# This file is written by xdg-user-dirs-update
-# If you want to change or add directories, just edit the line youre
-# interested in. All local changes will be retained on the next run.
-# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
-# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
-# absolute path. No other format is supported.
-# 
-XDG_DESKTOP_DIR="$HOME/"
-XDG_DOWNLOAD_DIR="$HOME/Downloads"
-XDG_DOCUMENTS_DIR="/mnt/LocalDiskD/Documents"
-XDG_MUSIC_DIR="/mnt/LocalDiskD/Music"
-XDG_PICTURES_DIR="/mnt/LocalDiskD/Pictures"
-XDG_VIDEOS_DIR="/mnt/LocalDiskD/Videos"
-XDG_TEMPLATES_DIR="$HOME/"
-XDG_PUBLICSHARE_DIR="$HOME/"'
-echo $i > ~/.config/user-dirs.dir
-end
-

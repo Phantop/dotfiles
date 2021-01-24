@@ -47,7 +47,7 @@ map r "_d
 
 se background=dark
 colorscheme dracula
-se termguicolors                    " Enable GUI colors for the terminal to get truecolor
+se termguicolors
 
 autocmd FileType * se tw=0
 

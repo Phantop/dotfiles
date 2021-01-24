@@ -1,10 +1,8 @@
 eval "$(starship init bash)"
 source /usr/share/autojump/autojump.bash
+source /usr/share/defaults/etc/profile
 
-# Sensible Bash - An attempt at saner Bash defaults
-# Maintainer: mrzool <http://mrzool.cc>
-# Repository: https://github.com/mrzool/bash-sensible
-# Version: 0.2.2
+# Sensible Bash: https://github.com/mrzool/bash-sensible
 
 ## GENERAL OPTIONS ##
 
@@ -64,6 +62,7 @@ export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 # %F equivalent to %Y-%m-%d
 # %T equivalent to %H:%M:%S (24-hours format)
 HISTTIMEFORMAT='%F %T '
+# Version: 0.2.2
 
 # Enable incremental history search with up/down arrows (also Readline goodness)
 # Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
@@ -87,23 +86,17 @@ shopt -s cdable_vars
 
 #aliases
 alias cd='cd -P'
-alias caddy='python3 -m http.server'
-alias cpugov='sudo cpupower frequency-set -g performance > /dev/null && echo Now in performance mode'
+alias cpugov='sudo cpupower frequency-set -g performance'
 alias dirdl='wget -r -k -p --no-parent --no-clobber -e robots=off'
 alias dot='cd ~/.dotfiles'
 alias D='cd $D'
-alias ff='fd -E sys -E caches -E cache -E .cache -E graphicPacks -E proc -E dosdevices -E .git -H -d 5 -L -i'
-alias ffd='ff -t d'
-alias flacc='flac -f -8 -V'
+alias ff='fd -HILi -Edosdevices -E.git'
 alias g=git
 alias giveme='s chown $USER'
 alias hardinfo='inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
-alias kj='kill -9 $(jobs -p | grep -v Process)'
 alias l=ls
-alias launcher='rofi -combi-modi "drun,run" -show combi -modi "combi,window" -drun-icon-theme Papirus'
+alias launcher='rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 alias la='l -a'
-alias mpva='mpv --no-video'
-alias murder='killall -s SIGKILL'
 alias off=shutdown
 alias open=xdg-open
 alias pagedl='wget -H -k -p --no-clobber -e robots=off'
@@ -117,12 +110,11 @@ alias ta='tmux attach -t'
 alias up='se up --y'
 alias vi=nvim
 alias v=vi
-alias ydl="youtube-dlc --continue --ignore-errors --no-overwrites --write-sub --embed-subs -o '%(title)s.%(ext)s'"
-alias ydl4='ydl --format mp4'
+alias ydl="youtube-dlc -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
 
 #functions
 dl(){
-    [[ "$#" -ge 1 ]] && aria2c --file-allocation=none -c -x 16 -s 16 $argv || cd ~/Downloads/
+    [[ "$#" -ge 1 ]] && aria2c -c -x16 -s16 $argv || cd ~/Downloads/
 }
 qb(){
     qutebrowser $@ --target auto & disown

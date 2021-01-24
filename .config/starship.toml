@@ -1,4 +1,3 @@
-# Don't print a new line at the start of the prompt
 add_newline = false
 
 [git_branch]
@@ -9,7 +8,7 @@ success_symbol = "[❯](bright-purple)"
 
 [directory]
 style = "bold blue"
-truncation_length = 0
+fish_style_pwd_dir_length = 3
 truncate_to_repo = false
 
 [cmd_duration]

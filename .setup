@@ -1,25 +1,26 @@
 #!/bin/bash
-sudo eopkg up
-sudo eopkg it -c system.devel
 gnome=$(eval echo eog evolution-data-server file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
 sudo eopkg rm celluloid firefox $gnome hexchat libreoffice-common thunderbird transmission
 
-audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
-dev="ccache docker-compose git-extras neovim openssh-server parallel solbuild tig tor upx"
-gui="bleachbit caja engrampa goverlay keepassx kitty qutebrowser vorta"
-media="feh gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
-rice="adapta-gtk-theme ant-dracula-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
-term="advancecomp aria2 autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
+sudo eopkg up
+sudo eopkg it -c system.devel
 
-sudo eopkg it $audio $dev $gui $media $rice $term
+audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
+dev="ccache docker-compose git-extras neovim parallel solbuild tig tor upx"
+gui="bleachbit caja engrampa goverlay keepassx kitty vorta"
+media="feh gaupol gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
+rice="adapta-gtk-theme ant-dracula-gtk-theme devilspie2 font-ubuntu-ttf rofi starship stow"
+term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
+web="arcanist aria2 deluge qutebrowser openssh-server speedtest-cli subliminal"
+
+sudo eopkg it $audio $dev $gui $media $rice $term $web
 sudo eopkg rm --ignore-dependency tracker
 pip3 install --user adblock pipipxx readability-lxml sh
+parallel pipx install ::: deemix soundscrape tldr
 
 rm ~/.bashrc
 cd ~/.dotfiles
-for i in `fd -E .git -t d -H`; do
-    mkdir -p ~/$i
-done
+fd -E .git -t d -H -x mkdir -p ~/{}
 stow .
 
 mkdir -p ~/.config/mpv/shaders && cd ~/.config/mpv/shaders && rm *

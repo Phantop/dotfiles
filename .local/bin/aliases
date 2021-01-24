@@ -2,19 +2,20 @@
 alias a 'alias -s'
 
 a D 'cd $D'
-a aliases 'v (which aliases)'
+a aliases 'v (which aliases); command aliases'
 a bax 'source (which bax) && bax'
 a compress '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on (realpath $argv).7z'
-a cpugov 's cpupower frequency-set -g performance > /dev/null && echo Now in performance mode'
+a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off'
 a dot 'cd ~/.dotfiles'
-a ff 'fd -E sys -E caches -E cache -E .cache -E graphicPacks -E proc -E dosdevices -E .git -H -d 5 -L -i'
+a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
+a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a l ls
 a la 'l -a'
-a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window" -drun-icon-theme Papirus'
+a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a less 'eval $PAGER'
 a off shutdown
 a open xdg-open
@@ -23,17 +24,17 @@ a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
 a s sudo
 a se 's eopkg'
-a squash 'mksquashfs . (realpath .).squashfs -comp zstd -b 1M -Xcompression-level 22'
+a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a supath 's env "PATH=$PATH"'
 a up 'se up --y'
 a v vi
 a vi nvim
-a ydl "youtube-dlc --continue --ignore-errors --no-overwrites --write-auto-sub --write-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
+a ydl "youtube-dlc -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qb / \":quickmark-load $i\""
 end
 
-for i in mcross soundscrape speedtest-cli thonny
+for i in mcross thonny
     a $i "pipx run $i"
 end
