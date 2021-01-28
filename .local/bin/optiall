@@ -1,5 +1,5 @@
 #!/bin/sh
 fd -e pdf -x cpdfsqueeze {} {}
 fd -e png -x oxipng
-fd -e epub -e zip -x advzip -z4
+fd -e epub -e zip -e cbz -x advzip -z4
 fd -e jpg -e jpeg -x jpegoptim

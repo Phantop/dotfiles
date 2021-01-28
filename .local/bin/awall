@@ -1,11 +1,13 @@
 #!/bin/sh
 if [[ "$#" -ge 1 ]]; then
     rm ~/Pictures/.wallp
-    ln -s ~/Pictures/Awall/$@* ~/Pictures/.wallp 
+    echo ~/Pictures/Awall/$@* > ~/Pictures/.wallp
 fi
 pkill -f "mpv.*wallpaper"
-xwinwrap -ni -fdt -fs -- mpv -wid WID ~/Pictures/.wallp --profile=wallpaper & disown
+xwinwrap -ni -fdt -fs -- mpv -wid WID $(cat ~/Pictures/.wallp) --profile=wallpaper & disown
 if [[ "$#" -ge 1 ]]; then
-    ffmpeg -i ~/Pictures/.wallp -vframes 1 -y ~/Pictures/Awall/wall.png
-    gsettings set org.gnome.desktop.background picture-uri "file://$HOME/Pictures/Awall/wall.png"
+    ffmpeg -i $(cat ~/Pictures/.wallp) -vframes 1 -y ~/Pictures/Awall/wall.png
+    convert ~/Pictures/Awall/wall.png -interpolate Integer -filter point -resize 1920x1080 -gravity center -background black -extent 1920x1080 ~/Pictures/Awall/wall.png
+    gsettings set org.gnome.desktop.background picture-uri file://$HOME/.config/kitty/wall.png
+    gsettings set org.gnome.desktop.background picture-uri file://$HOME/Pictures/Awall/wall.png
 fi
