@@ -33,11 +33,11 @@ c.aliases['mpv4'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
 c.aliases['remove-sticky'] = 'jseval -q !function(){var e,o=document.querySelectorAll("body *");for(e=0;e<o.length;e++)["sticky","fixed"].includes(getComputedStyle(o[e]).position)&&o[e].parentNode.removeChild(o[e])}();'
 
 c.content.blocking.method = "both"
-hosts = c.content.blocking.hosts.lists
-hosts.append("https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt")
-hosts.append("https://github.com/jmdugan/blocklists/raw/master/corporations/twitter/all")
-hosts.append("https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all")
-hosts.append("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all-but-whatsapp")
+host = c.content.blocking.hosts.lists.append
+host("https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt")
+host("https://github.com/jmdugan/blocklists/raw/master/corporations/twitter/all")
+host("https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all")
+host("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all-but-whatsapp")
 
 config.set('content.persistent_storage', True, 'https://mega.nz')
 config.set('content.desktop_capture', True, 'https://discord.com')

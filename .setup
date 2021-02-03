@@ -15,7 +15,7 @@ web="arcanist aria2 deluge qutebrowser openssh-server speedtest-cli subliminal"
 
 sudo eopkg it $audio $dev $gui $media $rice $term $web
 sudo eopkg rm --ignore-dependency tracker
-pip3 install --user adblock pipipxx readability-lxml sh
+parallel pip3 install --user --upgrade ::: adblock pipipxx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr
 
 rm ~/.bashrc

@@ -11,13 +11,13 @@ bind = {
     ';M': 'hint links run mpv4 {hint-url}',
 
     's1': 'download-open',
-    'sa': 'open https://archive.is/?run=1&url={url}',
-    'sc': 'config-cycle -t content.user_stylesheets adapta.css ""',
+    'sa': 'open -t archive.is/?run=1&url={url}',
+    'sc': 'config-cycle content.user_stylesheets adapta.css ""',
     'sd': "spawn fish -c 'dl; open (ls | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
-    'st': 'config-cycle -t content.proxy socks://localhost:9050/ system',
+    'st': 'config-cycle content.proxy socks://localhost:9050/ system',
 }
 for a, b in bind.items():
     config.bind(a, b)

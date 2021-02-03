@@ -29,15 +29,15 @@ cct.pinned.selected.odd.bg      = accent
 cct.selected.even.bg            = accent
 cct.selected.odd.bg             = accent
 
-cct.selected.even.fg            = 'black'
-cct.selected.odd.fg             = 'black'
+cc.messages.warning.fg          = 'white'
 cct.pinned.selected.even.fg     = 'black'
 cct.pinned.selected.odd.fg      = 'black'
-cc.messages.warning.fg          = 'white'
+cct.selected.even.fg            = 'black'
+cct.selected.odd.fg             = 'black'
 
+cc.messages.warning.bg          = 'red'
+cc.messages.warning.border      = 'red'
 ccc.even.bg                     = '#29353B'
 ccc.odd.bg                      = '#243035'
 c.hints.border                  = '1px solid #00A5BA'
 cc.hints.bg                     = 'rgba(0, 226, 255, 0.8)'
-cc.messages.warning.bg          = 'red'
-cc.messages.warning.border      = 'red'
