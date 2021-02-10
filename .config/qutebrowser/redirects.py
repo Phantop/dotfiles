@@ -1,11 +1,14 @@
+from qutebrowser.api import interceptor
+import operator, typing
+
 invid = 'invidiou.site'
 nitter = 'nitter.snopyta.org'
 reddit = 'teddit.net'
 
-from qutebrowser.api import interceptor
-import operator, typing
 o = operator.methodcaller
 s = 'setHost'
+i = interceptor
+
 MAP = {
 	"reddit.com": o(s, reddit),
 	"www.reddit.com": o(s, reddit),
@@ -24,12 +27,12 @@ MAP = {
 	"www.instagram.com": o(s, 'bibliogram.art'),
         "www.amazon.com": o(s, 'smile.amazon.com'),
 }
-def int_fn(info: interceptor.Request):
-	if (info.resource_type != interceptor.ResourceType.main_frame or
+def f(info: i.Request):
+	if (info.resource_type != i.ResourceType.main_frame or
 			info.request_url.scheme() in {"data", "blob"}):
 		return
 	url = info.request_url
 	redir = MAP.get(url.host())
 	if redir is not None and redir(url) is not False:
 		info.redirect(url)
-interceptor.register(int_fn)
+i.register(f)

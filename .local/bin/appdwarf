@@ -1,0 +1,24 @@
+#!/bin/sh
+mkdir appdir
+if not mkdwarfs -i $@ -o appdir/root.dwarfs; then
+    mkdwarfs -i $@ -o appdir/temp.dwarfs -l0
+    mkdwarfs --recompress -i appdir/temp.dwarfs -o appdir/root.dwarfs
+    rm appdir/temp.dwarfs
+fi
+
+cat >> appdir/AppRun <<'EOF'
+#!/bin/sh
+HERE=$(dirname $(readlink -f "${0}"))
+DIR=/tmp/.dwarf_$RANDOM
+mkdir $DIR 2> /dev/null
+dwarfs $HERE/root.dwarfs $DIR 2> /dev/null
+$DIR/AppRun $@
+fusermount -uz $DIR 2> /dev/null
+rmdir $DIR 2> /dev/null
+EOF
+
+chmod +x appdir/AppRun
+mksquashfs appdir app.sfs -noD
+cat $(which appimageruntime) app.sfs > $(basename $@).sh
+chmod +x $(basename $@).sh
+rm -r appdir app.sfs
