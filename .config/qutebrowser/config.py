@@ -39,6 +39,11 @@ host("https://github.com/jmdugan/blocklists/raw/master/corporations/twitter/all"
 host("https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all")
 host("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all-but-whatsapp")
 
+abp = c.content.blocking.adblock.lists.append
+abp("https://fanboy.co.nz/r/fanboy-ultimate.txt")
+abp("https://fanboy.co.nz/fanboy-antifacebook.txt")
+abp("https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt")
+
 config.set('content.persistent_storage', True, 'https://mega.nz')
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.media.audio_capture', True, 'https://discord.com')

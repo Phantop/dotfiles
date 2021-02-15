@@ -22,6 +22,7 @@ a open xdg-open
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
+a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a s sudo
 a se 's eopkg'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'

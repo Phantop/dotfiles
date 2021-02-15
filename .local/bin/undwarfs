@@ -1,0 +1,7 @@
+#!/bin/sh
+DIR=/tmp/.dwarf_$(basename $@ .dwarfs)$RANDOM
+mkdir $DIR
+dwarfs $@ $DIR
+rsync -ahP $DIR/ dwarfs-root
+fusermount -uz $DIR
+rmdir $DIR

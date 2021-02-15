@@ -1,10 +1,8 @@
 #!/bin/sh
 mkdir appdir
-if not mkdwarfs -i $@ -o appdir/root.dwarfs; then
-    mkdwarfs -i $@ -o appdir/temp.dwarfs -l0
-    mkdwarfs --recompress -i appdir/temp.dwarfs -o appdir/root.dwarfs
-    rm appdir/temp.dwarfs
-fi
+mkdwarfs -i $@ -o appdir/root.dwarfs ||\
+    mkdwarfs -i $@ -o appdir/root.dwarfs -N4 -L256m ||\
+    ( mkdwarfs -i $@ -o appdir/temp.dwarfs -l0 -S24 && mkdwarfs -i appdir/temp.dwarfs --recompress -o appdir/root.dwarfs && rm appdir/temp.dwarfs )
 
 cat >> appdir/AppRun <<'EOF'
 #!/bin/sh
