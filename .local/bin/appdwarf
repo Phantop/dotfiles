@@ -1,10 +1,8 @@
 #!/bin/sh
 mkdir appdir
-mkdwarfs -i $@ -o appdir/root.dwarfs ||\
-    mkdwarfs -i $@ -o appdir/root.dwarfs -N4 -L256m ||\
-    ( mkdwarfs -i $@ -o appdir/temp.dwarfs -l0 -S24 && mkdwarfs -i appdir/temp.dwarfs --recompress -o appdir/root.dwarfs && rm appdir/temp.dwarfs )
+mkdwarfs -i $@ -o appdir/root.dwarfs
 
-cat >> appdir/AppRun <<'EOF'
+cat > appdir/AppRun <<'EOF'
 #!/bin/sh
 HERE=$(dirname $(readlink -f "${0}"))
 DIR=/tmp/.dwarf_$RANDOM

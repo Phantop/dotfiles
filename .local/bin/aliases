@@ -4,11 +4,9 @@ alias a 'alias -s'
 a D 'cd $D'
 a aliases 'v (which aliases); command aliases'
 a bax 'source (which bax) && bax'
-a compress '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on (realpath $argv).7z'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off'
 a dot 'cd ~/.dotfiles'
-a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
@@ -22,15 +20,19 @@ a open xdg-open
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
-a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a s sudo
 a se 's eopkg'
-a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a supath 's env "PATH=$PATH"'
 a up 'se up --y'
 a v vi
 a vi nvim
-a ydl "youtube-dlc -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
+a ydl "youtube-dl -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
+
+a compress '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on (realpath $argv).7z'
+a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
+a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
+a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
+a undwarfs 'mkdir dwarfs-root; dwarfsexract -o dwarfs-root -i'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qb / \":quickmark-load $i\""

@@ -9,6 +9,7 @@ rm -r ~/.cache
 fish -c "j --purge"
 docker system prune -f
 sudo solbuild delete-cache
+sudo rm -rf /var/lib/solbuild/packages /var/lib/solbuild/sources
 sudo journalctl --vacuum-size=1K
 bleachbit -c `bleachbit -l|rg -v 'system.free_disk_space|transmission|system.memory|cookies'`
 sudo bleachbit -c `bleachbit -l|rg -v 'system.free_disk_space|system.memory'`

@@ -1,8 +1,8 @@
 from qutebrowser.api import interceptor
 import operator, typing
 
-invid = 'invidiou.site'
-nitter = 'nitter.snopyta.org'
+invid = 'invidious.tube'
+nitter = 'tweet.lambda.dance'
 reddit = 'teddit.net'
 
 o = operator.methodcaller

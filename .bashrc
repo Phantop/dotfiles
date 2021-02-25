@@ -85,38 +85,9 @@ shopt -s cdspell 2> /dev/null
 shopt -s cdable_vars
 
 #aliases
-alias cd='cd -P'
-alias cpugov='sudo cpupower frequency-set -g performance'
-alias dirdl='wget -r -k -p --no-parent --no-clobber -e robots=off'
-alias dot='cd ~/.dotfiles'
-alias D='cd $D'
-alias ff='fd -HILi -Edosdevices -E.git'
-alias g=git
-alias giveme='s chown $USER'
-alias hardinfo='inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
-alias l=ls
-alias launcher='rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
-alias la='l -a'
-alias off=shutdown
-alias open=xdg-open
-alias pagedl='wget -H -k -p --no-clobber -e robots=off'
-alias re='systemctl reboot -i'
-alias s=sudo
-alias sumurder='s killall -s SIGKILL'
-alias supath='s env "PATH=$PATH"'
-alias se='s eopkg'
-alias seh='se history'
-alias ta='tmux attach -t'
-alias up='se up --y'
-alias vi=nvim
-alias v=vi
-alias ydl="youtube-dlc -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o '%(title)s.%(ext)s'"
+eval alias $(fish -c alias | cut -d' ' -f2- | sed 's/ /=/')
 
 #functions
 dl(){
     [[ "$#" -ge 1 ]] && aria2c -c -x16 -s16 $argv || cd ~/Downloads/
-}
-qb(){
-    qutebrowser $@ --target auto & disown
-    rm -r VideoDecodeStats
 }

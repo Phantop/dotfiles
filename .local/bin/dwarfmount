@@ -1,5 +1,5 @@
 #!/bin/sh
 DIR=/tmp/.dwarf_$(basename $@ .dwarfs)$RANDOM
 mkdir $DIR
-dwarfs -f $@ $DIR
 echo $DIR
+dwarfs -f $@ $DIR 2> /dev/null
