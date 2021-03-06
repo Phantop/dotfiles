@@ -1,0 +1,24 @@
+#!/bin/sh
+a=../appdir
+mkdir $a
+mkdwarfs -i . -o $a/root.dwarfs
+
+echo '#!/bin/sh' > $a/AppRun
+echo D=$@ >> $a/AppRun
+cat >> $a/AppRun <<'EOF'
+H=$(dirname $(readlink -f "${0}"))
+
+if [ ! -d $D ]; then
+    mkdir $D
+    dwarfs2 $H/root.dwarfs $D
+else
+    fusermount -u $D
+    rmdir $D
+fi
+EOF
+
+chmod +x $a/AppRun
+mksquashfs $a ../app.sfs -noD
+cat $(which appimageruntime) ../app.sfs > $PWD.sh
+chmod +x "$PWD.sh"
+rm -r $a ../app.sfs
