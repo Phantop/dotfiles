@@ -25,7 +25,7 @@ ccw = c.colors.webpage
 ccwd = ccw.darkmode
 ccwd.enabled = True
 ccwd.policy.images = 'never'
-ccw.prefers_color_scheme_dark = True
+ccw.preferred_color_scheme = 'dark'
 
 mpv = 'spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-subs=,sub-lang=en'
 c.aliases['mpv'] = mpv

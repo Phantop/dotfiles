@@ -16,13 +16,12 @@ a la 'l -a'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a less 'eval $PAGER'
 a off shutdown
-a open xdg-open
+a open rifle
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
-a s sudo
+a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
-a supath 's env "PATH=$PATH"'
 a up 'se up --y'
 a v vi
 a vi nvim

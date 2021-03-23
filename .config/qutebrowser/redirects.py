@@ -2,7 +2,7 @@ from qutebrowser.api import interceptor
 import operator, typing
 
 invid = 'invidious.tube'
-nitter = 'tweet.lambda.dance'
+nitter = 'nitter.snopyta.org'
 reddit = 'teddit.net'
 
 o = operator.methodcaller

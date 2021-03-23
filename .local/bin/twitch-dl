@@ -3,4 +3,4 @@ title=$(youtube-dl -e $1 | sed 's|/|_|g')
 link=$(youtube-dl -g $1)
 shift
 
-ffmpeg -i $link -c copy $@ "$title.mkv"
+ffmpeg -i $link -c copy $@ "file:$title.mkv"
