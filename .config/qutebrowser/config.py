@@ -4,7 +4,7 @@ config.source('bindings.py')
 config.source('redirects.py')
 
 c.url.default_page = "feedly.com/i/my"
-c.url.start_pages  = ["duck.com/?q=20m timer"]
+c.url.start_pages  = ["duck.com/?q=20m timer", "localhost"]
 c.url.searchengines['y'] = "localhost/search?q={}"
 
 c.content.fullscreen.window = True
