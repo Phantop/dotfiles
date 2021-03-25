@@ -8,7 +8,7 @@ sudo eopkg it -c system.devel
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="docker-compose git-extras llvm-clang neovim parallel solbuild tig tor upx"
 gui="bleachbit caja engrampa keepassx kitty lutris vorta"
-media="feh gaupol gmic-gimp jpegoptim mpv playerctl usbmuxd rsync viewnior zathura-poppler"
+media="gaupol gmic-gimp jpegoptim mpv playerctl qview rsync usbmuxd zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
 web="arcanist aria2 deluge qutebrowser openssh-server speedtest-cli subliminal"
