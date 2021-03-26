@@ -14,7 +14,7 @@ bind = {
     'sa': 'open -t archive.is/?run=1&url={url}',
     'sc': 'config-cycle content.user_stylesheets adapta.css ""',
     'sd': "spawn fish -c 'dl; open (ls | rofi -dmenu -b -i || exit 0)'",
-    'sg': 'debug-dump-page ~/Downloads/dump.html',
+    'gs': 'debug-dump-page ~/Downloads/dump.html',
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
     'st': 'config-cycle content.proxy socks://localhost:9050/ system',
