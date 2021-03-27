@@ -1,7 +1,11 @@
 #!/usr/bin/fish
 set HIFI ~/Music/HiFi
-set LOFI ~/Music/LoFi
+set LOFI /tmp/vox/LoFi
+test $argv && set LOFI $argv
 test -f /usr/share/man/man3/Parallel::ForkManager.3 || sudo eopkg it perl-parallel-forkmanager
+
+mkdir /tmp/vox
+ifuse --documents com.coppertino.VoxMobile /tmp/vox
 
 if not test -d $LOFI
     cd $HIFI
@@ -10,4 +14,7 @@ if not test -d $LOFI
 end
 
 set args -s $HIFI -d $LOFI -o opus -q 72 --clean sync -F 8 -a mp3,m4a,opus
-acxi $args $argv || wget https://github.com/smxi/acxi/raw/stable/acxi -O- -o/dev/null | perl -- - $args $argv
+acxi $args || wget https://github.com/smxi/acxi/raw/stable/acxi -O- -o/dev/null | perl -- - $args 
+
+fusermount -u /tmp/vox
+rmdir /tmp/vox
