@@ -2,5 +2,5 @@
 DIR=/tmp/.dwarf_$(basename $@ .dwarfs)$RANDOM
 mkdir $DIR
 echo $DIR
-dwarfs -f $@ $DIR 2> /dev/null
+dwarfs -o offset=auto -f $@ $DIR 2> /dev/null
 rmdir $DIR

@@ -1,24 +1,18 @@
 #!/bin/sh
-a=../appdir
-mkdir $a
-mkdwarfs -i . -o $a/root.dwarfs
-
-echo '#!/bin/sh' > $a/AppRun
-echo D=$@ >> $a/AppRun
-cat >> $a/AppRun <<'EOF'
-H=$(dirname $(readlink -f "${0}"))
-
+H=/tmp/folheader
+echo '#!/bin/sh' > $H
+echo D=$@ >> $H
+cat >> $H <<'EOF'
 if [ ! -d $D ]; then
     mkdir $D
-    dwarfs2 $H/root.dwarfs $D
+    dwarfs -o offset=auto "$0" $D
 else
     fusermount -u $D
     rmdir $D
 fi
+exit
 EOF
 
-chmod +x $a/AppRun
-mksquashfs $a ../app.sfs -noD
-cat $(which appimageruntime) ../app.sfs > $PWD.sh
+mkdwarfs -i . -o "$PWD.sh" --header $H
 chmod +x "$PWD.sh"
-rm -r $a ../app.sfs
+rm $H
