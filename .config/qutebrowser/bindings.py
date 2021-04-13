@@ -18,6 +18,7 @@ bind = {
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
     'st': 'config-cycle content.proxy socks://localhost:9050/ system',
+    'T' : 'tab-next'
 }
 for a, b in bind.items():
     config.bind(a, b)

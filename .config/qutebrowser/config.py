@@ -47,7 +47,7 @@ abp("https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt")
 config.set('content.persistent_storage', True, 'https://mega.nz')
 config.set('content.desktop_capture', True, 'https://discord.com')
 config.set('content.media.audio_capture', True, 'https://discord.com')
-config.set('content.notifications', True, 'https://mail.tutanota.com')
+config.set('content.notifications.enabled', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
 
