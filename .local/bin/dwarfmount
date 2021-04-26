@@ -1,6 +1,6 @@
 #!/bin/sh
-DIR=/tmp/.dwarf_$(basename $@ .dwarfs)$RANDOM
-mkdir $DIR
+DIR=~/dwarf/$(basename $@ .dwarfs)$RANDOM
+mkdir -p $DIR
 echo $DIR
 dwarfs -o offset=auto -f $@ $DIR 2> /dev/null
-rmdir $DIR
+rmdir $DIR ~/dwarf 2> /dev/null

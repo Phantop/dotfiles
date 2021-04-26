@@ -8,7 +8,6 @@ a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off'
 a dot 'cd ~/.dotfiles'
 a ex exit
-a feh qview
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
