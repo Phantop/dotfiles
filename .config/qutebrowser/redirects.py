@@ -1,7 +1,7 @@
 from qutebrowser.api import interceptor
 import operator, typing
 
-invid = 'invidious.himiko.cloud'
+invid = 'vid.puffyan.us'
 nitter = 'nitter.database.red'
 reddit = 'teddit.net'
 

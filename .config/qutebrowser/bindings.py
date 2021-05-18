@@ -3,6 +3,7 @@ bind = {
     '<Ctrl-r>': 'spawn -u readability',
     '<Ctrl-w>': 'tab-close',
     '<Ctrl-Shift-R>': 'spawn kitty rdrview -B qutebrowser {url}',
+    '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
 
     'm': 'mpv {url}',
     'M': 'mpv4 {url}',
