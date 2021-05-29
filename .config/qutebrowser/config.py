@@ -24,7 +24,7 @@ c.tabs.show = "multiple"
 
 ccw = c.colors.webpage
 ccwd = ccw.darkmode
-ccwd.enabled = True
+#ccwd.enabled = True
 ccwd.policy.images = 'never'
 ccw.preferred_color_scheme = 'dark'
 
