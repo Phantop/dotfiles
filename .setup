@@ -26,7 +26,7 @@ stow .
 mkdir -p ~/.config/mpv/shaders && cd ~/.config/mpv/shaders && rm *
 curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http.\*zip | aria2c -i-; unzip *; rm *zip
 
-mkdir -p ~/.local/share/qutebrowser/pdfjs && cd ~/.config/mpv/shaders && rm *
+mkdir -p ~/.local/share/qutebrowser/pdfjs && cd ~/.local/share/qutebrowser/pdfjs && rm -r *
 curl https://api.github.com/repos/mozilla/pdf.js/releases/latest | grep -wo http.\*zip | grep -v es5 | aria2c -i-; unzip *; rm *zip
 
 rm ~/.config/nvim/autoload/plug.vim
