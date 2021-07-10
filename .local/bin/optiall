@@ -3,3 +3,4 @@ fd -e pdf -x cpdfsqueeze {} {}
 fd -e png -x oxipng
 fd -e{epub,zip,cbz,jar} -x advzip -z4
 fd -ejp{e,}g -x jpegoptim
+fd -e webp -x cwebp -z 9 -mt {} -o {}

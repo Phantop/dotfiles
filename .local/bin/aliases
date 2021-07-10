@@ -12,6 +12,7 @@ a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
+a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -a'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
@@ -19,10 +20,13 @@ a less 'eval $PAGER'
 a off shutdown
 a open rifle
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
+a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp && fd -e png -x rm'
+a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
+a spleet 'spleeter && command spleeter separate -o . -c flac'
 a up 'se up --y'
 a v vi
 a vi nvim
@@ -38,6 +42,6 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qb / \":quickmark-load $i\""
 end
 
-for i in mcross thonny
+for i in getnative mcross spleeter thonny
     a $i "pipx run $i"
 end
