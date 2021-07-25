@@ -38,9 +38,11 @@
     b = branch
     c = commit
     ca = commit --amend
+    caa = commit --amend -a
     ch = checkout
     cl = gc --aggressive --prune=now
     g = clone
+    gr = clone --recursive
     l = log
     open = browse
     p = pull

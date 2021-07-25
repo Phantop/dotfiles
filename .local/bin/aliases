@@ -32,7 +32,7 @@ a v vi
 a vi nvim
 a ydl 'youtube-dl -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
 
-a compress '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on (realpath $argv).7z'
+a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
