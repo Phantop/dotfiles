@@ -1,6 +1,0 @@
-#!/usr/bin/fish
-for i in Documents Music Pictures Videos
-    rm ~/$i
-    rmdir ~/$i
-    ln -s $D/$i ~/$i
-end

@@ -23,14 +23,11 @@ cd ~/.dotfiles
 fd -E .git -t d -H -x mkdir -p ~/{}
 stow .
 
-mkdir -p ~/.config/mpv/shaders && cd ~/.config/mpv/shaders && rm *
-curl https://api.github.com/repos/bloc97/Anime4K/releases/latest | grep -wo http.\*zip | aria2c -i-; unzip *; rm *zip
+mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.config/nvim/autoload/
+fish -c 'function un; unzip -o (curl https://api.github.com/repos/$argv[1]/releases | grep -om1 http.\*zip | wget -i- -O- | psub) -d $argv[2]; end
+un bloc97/Anime4k ~/.config/mpv/shaders; un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs'
 
-mkdir -p ~/.local/share/qutebrowser/pdfjs && cd ~/.local/share/qutebrowser/pdfjs && rm -r *
-curl https://api.github.com/repos/mozilla/pdf.js/releases/latest | grep -wo http.\*zip | grep -v es5 | aria2c -i-; unzip *; rm *zip
-
-rm ~/.config/nvim/autoload/plug.vim
-aria2c https://github.com/junegunn/vim-plug/raw/master/plug.vim -d ~/.config/nvim/autoload
+wget https://github.com/junegunn/vim-plug/raw/master/plug.vim -o ~/.config/nvim/autoload/plug.vim
 nvim +PlugUpdate +q +q
 
 sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}

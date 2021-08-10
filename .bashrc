@@ -86,8 +86,3 @@ shopt -s cdable_vars
 
 #aliases
 eval alias $(fish -c alias | cut -d' ' -f2- | sed 's/ /=/')
-
-#functions
-dl(){
-    [[ "$#" -ge 1 ]] && aria2c -c -x16 -s16 $argv || cd ~/Downloads/
-}

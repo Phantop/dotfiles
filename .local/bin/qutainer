@@ -1,2 +1,0 @@
-#!/bin/sh
-[ $# -eq 0 ] && qutebrowser -B /tmp || qutebrowser -B ~/.local/share/qutebrowser/containers/$@

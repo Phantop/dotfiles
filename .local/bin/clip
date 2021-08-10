@@ -1,2 +1,0 @@
-#!/bin/sh
-[ $# -eq 0 ] && cat - | xclip -i -sel clip || echo $@ | xclip -i -sel clip

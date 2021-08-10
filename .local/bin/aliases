@@ -4,10 +4,11 @@ alias a 'alias -s'
 a D 'cd $D'
 a aliases 'v (which aliases); command aliases'
 a bax 'source (which bax) && bax'
+a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off'
+a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -x16 -s16'
 a dot 'cd ~/.dotfiles'
-a ex exit
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
@@ -15,21 +16,28 @@ a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -a'
-a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a less 'eval $PAGER'
 a off shutdown
 a open rifle
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp && fd -e png -x rm'
+a qutainer 'qutebrowser -B /tmp'
 a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
-a spleet 'spleeter && command spleeter separate -o . -c flac'
+a spleet 'spleeter separate -o . -c flac'
 a up 'se up --y'
 a v vi
 a vi nvim
+a wm 'startx (which $argv[1] && set -e argv[1])'
+
+a ao3 'egrep works/[0-9]+ $argv -o | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
+a invid 'tmux new -s 0 -d "cd ~/.invid; git pull; docker-compose up --build"'
+a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
+a listen 'pactl list short modules | grep loopback && pactl unload-module module-loopback || pactl load-module module-loopback'
+a symlinks 'fd -td -d1 . $D -x  sh -c "rm ~/{/}; rmdir ~/{/}; ln -s {} ~/{/}"'
 a ydl 'youtube-dl -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
 
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
@@ -42,6 +50,6 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qb / \":quickmark-load $i\""
 end
 
-for i in getnative mcross spleeter thonny
+for i in getnative mcross nsz scdl spleeter thonny
     a $i "pipx run $i"
 end

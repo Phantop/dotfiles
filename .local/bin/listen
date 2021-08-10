@@ -1,2 +1,0 @@
-#!/bin/sh
-pactl list short modules | grep loopback && pactl unload-module module-loopback || pactl load-module module-loopback
