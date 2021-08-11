@@ -1,5 +1,5 @@
 #!/bin/sh
-title=$(youtube-dl -e $1 | sed 's|/|_|g')
+title=$(youtube-dl -e $1 | sed 'tr / _')
 link=$(youtube-dl -g $1)
 shift
 

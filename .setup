@@ -24,10 +24,10 @@ fd -E .git -t d -H -x mkdir -p ~/{}
 stow .
 
 mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.config/nvim/autoload/
-fish -c 'function un; unzip -o (curl https://api.github.com/repos/$argv[1]/releases | grep -om1 http.\*zip | wget -i- -O- | psub) -d $argv[2]; end
-un bloc97/Anime4k ~/.config/mpv/shaders; un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs'
+un(){ F=$(mktemp); curl https://api.github.com/repos/$1/releases | grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
+un bloc97/Anime4k ~/.config/mpv/shaders; un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 
-wget https://github.com/junegunn/vim-plug/raw/master/plug.vim -o ~/.config/nvim/autoload/plug.vim
+wget https://github.com/junegunn/vim-plug/raw/master/plug.vim -O ~/.config/nvim/autoload/plug.vim
 nvim +PlugUpdate +q +q
 
 sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}
