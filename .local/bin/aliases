@@ -41,7 +41,7 @@ a wm 'startx (which $argv[1]; set -e argv[1])'
 a ao3 'egrep works/[0-9]+ $argv -o | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
 a invid 'tmux new -s 0 -d "cd ~/.invid; git pull; docker-compose up --build"'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
-a listen 'pactl list short modules | grep loopback && pactl unload-module module-loopback || pactl load-module module-loopback'
+a listen 'pactl list | grep loop && pactl unload-module module-loopback || pactl load-module module-loopback'
 a symlinks 'fd -td -d1 . $D -x  sh -c "rm ~/{/}; rmdir ~/{/}; ln -s {} ~/{/}"'
 a ydl 'youtube-dl -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
 

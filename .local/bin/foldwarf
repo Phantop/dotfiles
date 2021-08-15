@@ -1,18 +1,19 @@
 #!/bin/sh
 H=/tmp/folheader
 echo '#!/bin/sh' > $H
-echo D=$@ >> $H
+echo D=\"$1\" >> $H
 cat >> $H <<'EOF'
-if [ ! -d $D ]; then
-    mkdir $D
-    dwarfs -o offset=auto "$0" $D
+if [ ! -d "$D" ]; then
+    mkdir "$D"
+    dwarfs -o offset=auto "$0" "$D"
 else
-    fusermount -u $D
-    rmdir $D
+    fusermount -u "$D"
+    rmdir "$D"
 fi
 exit
 EOF
 
-mkdwarfs -i . -o "$PWD.sh" --header $H
+shift
+mkdwarfs -i . -o "$PWD.sh" --header $H $@
 chmod +x "$PWD.sh"
 rm $H
