@@ -15,7 +15,7 @@ web="arcanist aria2 deluge qutebrowser openssh-server speedtest-cli subliminal"
 
 sudo eopkg it -y $audio $dev $gui $media $rice $term $web
 sudo eopkg rm -y --ignore-dependency tracker
-parallel pip3 install --user --upgrade ::: adblock pipipxx readability-lxml sh
+parallel pip3 install -U ::: adblock pipipxx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr
 
 rm ~/.bashrc
@@ -31,8 +31,8 @@ wget https://github.com/junegunn/vim-plug/raw/master/plug.vim -O ~/.config/nvim/
 nvim +PlugUpdate +q +q
 
 sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}
-sudo systemctl enable --now docker tor
 sudo usermod -aG docker $USER
+sudo systemctl enable --now docker tor
 chsh -s /usr/bin/fish
 
 git g gh:iv-org/invidious ~/.invid
