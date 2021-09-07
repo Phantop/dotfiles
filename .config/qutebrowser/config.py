@@ -32,6 +32,7 @@ mpv = 'spawn -m -d -v mpv --ytdl-raw-options=write-sub=,write-auto-sub=,embed-su
 c.aliases['mpv'] = mpv
 c.aliases['mpv4'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
 c.aliases['remove-sticky'] = 'jseval -q !function(){var e,o=document.querySelectorAll("body *");for(e=0;e<o.length;e++)["sticky","fixed"].includes(getComputedStyle(o[e]).position)&&o[e].parentNode.removeChild(o[e])}();'
+c.aliases['re'] = 'restart'
 
 c.content.blocking.method = "both"
 host = c.content.blocking.hosts.lists.append
@@ -54,3 +55,12 @@ config.set('content.register_protocol_handler', False, 'https://mail.google.com?
 
 #import dracula.draw
 #dracula.draw.blood(c, {'spacing': {'vertical': 1,'horizontal': 0}})
+
+import socket
+if socket.gethostname() == "wheatley":
+    c.qt.highdpi = True
+    c.zoom.default = 125
+    c.url.start_pages = "covid19.rpi.edu/dailycheckin"
+    c.url.searchengines['y'] = "vid.puffyan.us/search?q={}"
+    c.fonts.default_size = "11pt"
+    c.aliases['mpv'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'

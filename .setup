@@ -7,13 +7,14 @@ sudo eopkg it -y -c system.devel
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig tor upx"
-gui="bleachbit caja gmic-gimp engrampa ifuse keepassx kitty lutris vorta"
+gui="abiword bleachbit caja gmic-gimp engrampa ifuse keepassx kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl rsync usbmuxd viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
-web="arcanist aria2 deluge qutebrowser openssh-server speedtest-cli subliminal"
+sys="linux-tools-cpupower tlp"
+web="arcanist aria2 deluge nicotine-plus qutebrowser openssh-server speedtest-cli subliminal"
 
-sudo eopkg it -y $audio $dev $gui $media $rice $term $web
+sudo eopkg it -y $audio $dev $gui $media $rice $sys $term $web
 sudo eopkg rm -y --ignore-dependency tracker
 parallel pip3 install -U ::: adblock pipipxx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr

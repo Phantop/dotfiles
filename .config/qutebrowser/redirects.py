@@ -2,7 +2,7 @@ from qutebrowser.api import interceptor
 import operator, typing
 
 invid = 'vid.puffyan.us'
-nitter = 'nitter.database.red'
+nitter = 'nitter.snopyta.org'
 reddit = 'teddit.net'
 
 o = operator.methodcaller
