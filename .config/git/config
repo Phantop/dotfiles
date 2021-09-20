@@ -54,3 +54,5 @@
     w = clean -fdx
 [pull]
     rebase = false
+[init]
+	defaultBranch = main

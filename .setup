@@ -6,7 +6,7 @@ sudo eopkg up -y
 sudo eopkg it -y -c system.devel
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
-dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig tor upx"
+dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="abiword bleachbit caja gmic-gimp engrampa ifuse keepassx kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl rsync usbmuxd viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
