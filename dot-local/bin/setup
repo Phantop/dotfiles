@@ -15,8 +15,7 @@ sudo eopkg up -y
 sudo eopkg it -y -c system.devel $audio $dev $gui $media $rice $sys $term $web
 
 echo 'source ~/.config/bashrc' > .bashrc
-fd -E .git -t d -H -x mkdir -p ~/{}
-stow -d ~/.dotfiles -t ~ .
+parallel stow --no-folding -d ~/.dotfiles/dot-{} -t ~/.{} . ::: config local
 
 mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.parallel/will-cite
 un(){ F=$(mktemp); curl https://api.github.com/repos/$1/releases | grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
