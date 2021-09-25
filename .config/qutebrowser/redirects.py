@@ -1,9 +1,12 @@
 from qutebrowser.api import interceptor
-import operator, typing
+import operator, typing, socket
 
 invid = 'vid.puffyan.us'
 nitter = 'nitter.snopyta.org'
 reddit = 'teddit.net'
+
+if socket.gethostname() == "aperture":
+    invid = 'localhost'
 
 o = operator.methodcaller
 s = 'setHost'

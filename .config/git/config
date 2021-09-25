@@ -17,17 +17,23 @@
     required = true
 [url "https://aur.archlinux.org/"] 
     insteadOf = "aur:" 
+    insteadOf = "a:" 
 [url "https://dev.getsol.us/source/"]
     insteadOf = "solus:"
     insteadOf = "sol:"
+    insteadOf = "s:"
 [url "https://github.com/"]
     insteadOf = "github:"
     insteadOf = "hub:"
     insteadOf = "gh:"
+    insteadOf = "h:"
+[url "https://github.com/Phantop/"]
+    insteadOf = "p:"
 [url "https://gitlab.com/"]
     insteadOf = "gitlab:"
     insteadOf = "lab:"
     insteadOf = "gl:"
+    insteadOf = "l:"
 [url "https://git.sr.ht"]
     insteadOf = "https://sr.ht"
 [color]
@@ -38,7 +44,7 @@
     b = branch
     c = commit
     ca = commit --amend
-    caa = commit --amend -a
+    caa = ca -a
     ch = checkout
     cl = gc --aggressive --prune=now
     g = clone

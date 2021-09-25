@@ -1,0 +1,45 @@
+#!/bin/bash
+gnome=$(eval echo eog evolution-data-server file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
+sudo eopkg rm -y celluloid firefox $gnome hexchat libreoffice-common thunderbird transmission
+
+audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
+dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
+gui="abiword bleachbit caja gmic-gimp engrampa keepassx kitty lutris vorta"
+media="avidemux gaupol jpegoptim mpv playerctl rsync usbmuxd viewnior zathura-poppler"
+rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
+term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
+sys="corectrl ifuse linux-tools-cpupower tlp"
+web="arcanist aria2 deluge nicotine-plus qutebrowser openssh-server subliminal"
+
+sudo eopkg up -y
+sudo eopkg it -y -c system.devel $audio $dev $gui $media $rice $sys $term $web
+
+echo 'source ~/.config/bashrc' > .bashrc
+fd -E .git -t d -H -x mkdir -p ~/{}
+stow -d ~/.dotfiles -t ~ .
+
+mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.parallel/will-cite
+un(){ F=$(mktemp); curl https://api.github.com/repos/$1/releases | grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
+
+un bloc97/Anime4k ~/.config/mpv/shaders
+un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
+
+git g gh:junegunn/vim-plug ~/.config/nvim/autoload
+nvim +PlugUpdate +q +q
+
+parallel pip3 install -U ::: adblock pipipxx readability-lxml sh
+parallel pipx install ::: deemix soundscrape tldr
+
+sudo eopkg rm -y --ignore-dependency tracker
+sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}
+
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+
+git g p:appdwarf ~/.appdwarf
+git g p:haiku-icons ~/.local/share/icons/Haiku
+git g p:phantop.github.io ~/.site
+git g p:solus-stuff ~/.solus
+
+chsh -s /usr/bin/fish
+fish -c "aliases;clean"
