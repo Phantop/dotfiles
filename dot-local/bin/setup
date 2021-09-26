@@ -1,15 +1,15 @@
 #!/bin/bash
-gnome=$(eval echo eog evolution-data-server file-roller gnome-{calendar,photos,mpv,terminal} nautilus onboard rhythmbox)
-sudo eopkg rm -y celluloid firefox $gnome hexchat libreoffice-common thunderbird transmission
+gnome="$(echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus rhythmbox)"
+sudo eopkg rm -y firefox $gnome hexchat onboard thunderbird
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="abiword bleachbit caja gmic-gimp engrampa keepassx kitty lutris vorta"
-media="avidemux gaupol jpegoptim mpv playerctl rsync usbmuxd viewnior zathura-poppler"
+media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
-term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep rsync tmux"
-sys="corectrl ifuse linux-tools-cpupower tlp"
-web="arcanist aria2 deluge nicotine-plus qutebrowser openssh-server subliminal"
+term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
+sys="corectrl ifuse linux-tools-cpupower rsync tlp"
+web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal"
 
 sudo eopkg up -y
 sudo eopkg it -y -c system.devel $audio $dev $gui $media $rice $sys $term $web
@@ -30,7 +30,7 @@ parallel pip3 install -U ::: adblock pipipxx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr
 
 sudo eopkg rm -y --ignore-dependency tracker
-sudo systemctl mask tracker-{store,miner-fs,miner-rss,extra,miner-apps,writeback}
+sudo systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
 
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER

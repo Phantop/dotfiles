@@ -1,4 +1,0 @@
-#!/bin/sh
-fd -e webp -x dwebp {} -o {.}.png && \
-fd -e png -e jpg -x cjxl -e 8 -q 100 {} {.}.jxl && \
-fd -e png -e jpg -e webp -x rm
