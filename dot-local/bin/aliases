@@ -3,7 +3,7 @@ alias a 'alias -s'
 
 a D 'cd $D'
 a aliases 'v (which aliases); command aliases'
-a all2jxl 'fd -e{png.jpg} -x cjxl -e 8 -q 100 {} {.}.jxl && fd -e{png,jpg} -x rm'
+a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -q 100 {} {.}.jxl && fd -e{png,jpg} -x rm'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null);:'
 a bax 'source (which bax) && bax'
 a cd 'cd (realpath $argv 2> /dev/null);:'

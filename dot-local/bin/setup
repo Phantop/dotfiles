@@ -4,17 +4,17 @@ sudo eopkg rm -y firefox $gnome hexchat onboard thunderbird
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
-gui="abiword bleachbit caja gmic-gimp engrampa keepassx kitty lutris vorta"
+gui="abiword bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
-sys="corectrl ifuse linux-tools-cpupower rsync tlp"
-web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal"
+sys="corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
+web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
 
 sudo eopkg up -y
 sudo eopkg it -y -c system.devel $audio $dev $gui $media $rice $sys $term $web
 
-echo 'source ~/.config/bashrc' > .bashrc
+echo 'source ~/.config/bashrc' > ~/.bashrc
 parallel stow --no-folding -d ~/.dotfiles/dot-{} -t ~/.{} . ::: config local
 
 mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.parallel/will-cite
@@ -26,8 +26,8 @@ un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 git g gh:junegunn/vim-plug ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
-parallel pip3 install -U ::: adblock pipipxx readability-lxml sh
-parallel pipx install ::: deemix soundscrape tldr
+pip3 install adblock pipx-in-pipx readability-lxml sh
+parallel pipx install ::: deemix soundscrape tldr yt-dlp
 
 sudo eopkg rm -y --ignore-dependency tracker
 sudo systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
