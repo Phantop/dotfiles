@@ -4,7 +4,7 @@ sudo eopkg rm -y firefox $gnome hexchat onboard thunderbird
 
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
-gui="abiword bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
+gui="bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
 rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"

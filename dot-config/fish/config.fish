@@ -1,6 +1,7 @@
 set -x EDITOR nvim
 set -x PAGER most
 set -x MANPAGER "nvim -c 'set ft=man' -"
+set D ~
 
 test (hostname) = aperture && set D /mnt/LocalDiskD/
 

@@ -3,7 +3,7 @@ alias a 'alias -s'
 
 a D 'cd $D'
 a aliases 'v (which aliases); command aliases'
-a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -q 100 {} {.}.jxl && fd -e{png,jpg} -x rm'
+a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null);:'
 a bax 'source (which bax) && bax'
 a cd 'cd (realpath $argv 2> /dev/null);:'
@@ -22,7 +22,7 @@ a la 'l -a'
 a less 'eval $PAGER'
 a off shutdown
 a offh 'off (math "60*"$argv);:'
-a open rifle
+a open xdg-open
 a pagedl 'wget -H -k -p --no-clobber -e robots=off'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp && fd -e png -x rm'
 a qutainer 'qutebrowser -B /tmp'
@@ -34,6 +34,7 @@ a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
 a spleet 'spleeter separate -o . -c flac'
 a ta 'tmux a -t (math 0 + "0$argv");:'
+a tar bsdtar
 a up 'se up --y'
 a v vi
 a vi nvim

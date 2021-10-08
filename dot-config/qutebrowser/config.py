@@ -34,12 +34,11 @@ c.aliases['mpv4'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
 c.aliases['remove-sticky'] = 'jseval -q !function(){var e,o=document.querySelectorAll("body *");for(e=0;e<o.length;e++)["sticky","fixed"].includes(getComputedStyle(o[e]).position)&&o[e].parentNode.removeChild(o[e])}();'
 c.aliases['re'] = 'restart'
 
-c.content.blocking.method = "both"
 host = c.content.blocking.hosts.lists.append
 host("https://github.com/Perflyst/PiHoleBlocklist/raw/master/AmazonFireTV.txt")
 host("https://github.com/jmdugan/blocklists/raw/master/corporations/twitter/all")
 host("https://github.com/jmdugan/blocklists/raw/master/corporations/microsoft/all")
-host("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all-but-whatsapp")
+host("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all")
 
 abp = c.content.blocking.adblock.lists.append
 abp("https://fanboy.co.nz/r/fanboy-ultimate.txt")
