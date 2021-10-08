@@ -43,6 +43,9 @@ host("https://github.com/jmdugan/blocklists/raw/master/corporations/facebook/all
 abp = c.content.blocking.adblock.lists.append
 abp("https://fanboy.co.nz/r/fanboy-ultimate.txt")
 abp("https://fanboy.co.nz/fanboy-antifacebook.txt")
+abp("https://secure.fanboy.co.nz/fanboy-annoyance.txt")
+abp("https://secure.fanboy.co.nz/fanboy-cookiemonster.txt")
+abp("https://easylist-downloads.adblockplus.org/antiadblockfilters.txt")
 abp("https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt")
 
 config.set('content.persistent_storage', True, 'https://mega.nz')
