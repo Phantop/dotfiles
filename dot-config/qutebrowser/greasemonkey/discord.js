@@ -22,7 +22,7 @@
 			style.innerHTML = `
 
 body {
-    background: url("https://cdn.discordapp.com/attachments/610991459323084801/625107142092783616/moon3.png");
+    background: url("https://cdn.discordapp.com/attachments/773556458234052608/897350003280990208/outerwildseote.webp");
     background-size: cover;
 }
 
