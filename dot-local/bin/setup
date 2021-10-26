@@ -1,44 +1,42 @@
 #!/bin/bash
-gnome="$(echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus rhythmbox)"
-sudo eopkg rm -y firefox $gnome hexchat onboard thunderbird
+alias s=sudo se="sudo eopkg -y" g=git
 
+gnome="$(echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus rhythmbox)"
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
-rice="adapta-gtk-theme ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
+rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
 sys="corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
 web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
 
-sudo eopkg up -y
-sudo eopkg it -y -c system.devel $audio $dev $gui $media $rice $sys $term $web
+se up 
+se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
+se rm $gnome firefox hexchat onboard thunderbird
+se rm --ignore-dependency plata-theme tracker
 
-echo 'source ~/.config/bashrc' > ~/.bashrc
 parallel stow --no-folding -d ~/.dotfiles/dot-{} -t ~/.{} . ::: config local
+echo 'source ~/.config/bashrc' > ~/.parallel/will-cite > ~/.bashrc
 
-mkdir -p ~/.config/mpv/shaders ~/.local/share/qutebrowser/pdfjs ~/.parallel/will-cite
-un(){ F=$(mktemp); curl https://api.github.com/repos/$1/releases | grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
-
+un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
+      grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
 un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
-
-git g gh:junegunn/vim-plug ~/.config/nvim/autoload
-nvim +PlugUpdate +q +q
 
 pip3 install adblock pipx-in-pipx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr yt-dlp
 
-sudo eopkg rm -y --ignore-dependency tracker
-sudo systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
+s usermod -aG docker $USER
+s systemctl enable --now docker
+s systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
 
-sudo systemctl enable --now docker
-sudo usermod -aG docker $USER
+g g p:appdwarf ~/.appdwarf
+g g p:solus-stuff ~/.solus
+g g p:phantop.github.io ~/.site
+g g p:haiku-icons ~/.local/share/icons/Haiku
+g g h:junegunn/vim-plug ~/.config/nvim/autoload
+nvim +PlugUpdate +q +q
 
-git g p:appdwarf ~/.appdwarf
-git g p:haiku-icons ~/.local/share/icons/Haiku
-git g p:phantop.github.io ~/.site
-git g p:solus-stuff ~/.solus
-
-chsh -s /usr/bin/fish
+chsh -s $(which fish)
 fish -c "aliases;clean"

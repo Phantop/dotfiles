@@ -46,7 +46,7 @@ a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a listen 'pactl list | grep loop && pactl unload-module module-loopback || pactl load-module module-loopback'
 a symlinks 'fd -td -d1 . $D -x  sh -c "rm ~/{/}; rmdir ~/{/}; ln -s {} ~/{/}"'
-a ydl 'youtube-dl -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
+a ydl 'yt-dlp -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
 
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'

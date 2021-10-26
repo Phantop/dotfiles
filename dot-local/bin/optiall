@@ -1,6 +1,14 @@
 #!/bin/bash
 fd -e pdf -x cpdfsqueeze {} {}
+fd -e pdf -x qpdf --stream-data=compress --replace-input --compress-streams=y --recompress-flate --compression-level=9 --optimize-images {}
+
 fd -e png -x oxipng
-fd -e{epub,zip,cbz,jar,docx,odt,apk} -x advzip -z4
+fd -e png -X pinga pingo -s9
 fd -ejp{e,}g -x jpegoptim
 fd -e webp -x cwebp -z 9 -mt {} -o {}
+
+fd -e{epub,zip,cbz,jar,docx,odt,apk} -x advzip -z4
+fd -t f -x advdef -z4
+
+fd -e mp3 -x mp3packer
+fd -e mp3 -x rename -- -vbr ''
