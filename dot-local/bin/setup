@@ -16,8 +16,11 @@ se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
 se rm $gnome firefox hexchat onboard thunderbird
 se rm --ignore-dependency plata-theme tracker
 
+echo source ~/.config/bashrc > ~/.bashrc
+install -D <(echo set -g mouse on) ~/.config/tmux/tmux.conf
+
+mkdir -p ~/.parallel/will-cite
 parallel stow --no-folding -d ~/.dotfiles/dot-{} -t ~/.{} . ::: config local
-echo 'source ~/.config/bashrc' > ~/.parallel/will-cite > ~/.bashrc
 
 un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
       grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
