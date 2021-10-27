@@ -55,9 +55,6 @@ config.set('content.notifications.enabled', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
 
-#import dracula.draw
-#dracula.draw.blood(c, {'spacing': {'vertical': 1,'horizontal': 0}})
-
 import socket
 if socket.gethostname() == "wheatley":
     c.qt.highdpi = True
@@ -66,3 +63,6 @@ if socket.gethostname() == "wheatley":
     c.url.searchengines['y'] = "vid.puffyan.us/search?q={}"
     c.fonts.default_size = "11pt"
     c.aliases['mpv'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
+
+#import dracula.draw
+#dracula.draw.blood(c, {'spacing': {'vertical': 1,'horizontal': 0}})

@@ -1,7 +1,7 @@
 #!/bin/bash
 alias s=sudo se="sudo eopkg -y" g=git
 
-gnome="$(echo eog file-roller gnome-{calendar,photos,mpv,terminal} nautilus rhythmbox)"
+gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
