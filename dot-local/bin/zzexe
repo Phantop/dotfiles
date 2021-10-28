@@ -132,7 +132,7 @@ else
   (exit 127); res=127
 fi; exit $res
 EOF
-    zstd -cv19 "$file") > "$tmp" || {
+    zstd -cv22 --ultra "$file") > "$tmp" || {
       res=$?
       printf >&2 '%s\n' "$0: compression not possible for $i, file unchanged."
       continue

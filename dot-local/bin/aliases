@@ -20,6 +20,7 @@ a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -a'
 a less 'eval $PAGER'
+a nix 'bax . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
 a off shutdown
 a offh 'off (math "60*"$argv);:'
 a open xdg-open
