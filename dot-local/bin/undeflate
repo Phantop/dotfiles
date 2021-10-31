@@ -2,4 +2,4 @@
 fd -e pdf -x qpdf --stream-data=uncompress --replace-input --compress-streams=n --recompress-flate --compression-level=0 --optimize-images {}
 fd -e{epub,zip,cbz,jar,docx,odt,apk} -x advzip -z0
 fd -e png -x advpng -z0
-fd -t f -x advdef -z
+fd -t f -x advdef -z0
