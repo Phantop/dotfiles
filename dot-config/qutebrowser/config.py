@@ -62,7 +62,6 @@ if socket.gethostname() == "wheatley":
     c.url.start_pages = "covid19.rpi.edu/dailycheckin"
     c.url.searchengines['y'] = "vid.puffyan.us/search?q={}"
     c.fonts.default_size = "11pt"
-    c.aliases['mpv'] = mpv + ' --ytdl-format=bestvideo[vcodec^=avc1]+bestaudio'
 
 #import dracula.draw
 #dracula.draw.blood(c, {'spacing': {'vertical': 1,'horizontal': 0}})

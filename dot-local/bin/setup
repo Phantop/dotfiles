@@ -4,16 +4,16 @@ alias s=sudo se="sudo eopkg -y" g=git
 gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
-gui="bleachbit caja gmic-gimp engrampa keepassxc kitty lutris vorta"
+gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris vorta"
 media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
 rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
-sys="corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
+sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
 web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
 
 se up 
 se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
-se rm $gnome firefox hexchat onboard thunderbird
+se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 se rm --ignore-dependency plata-theme tracker
 
 echo source ~/.config/bashrc > ~/.bashrc

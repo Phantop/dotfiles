@@ -5,7 +5,7 @@ echo D=\"$1\" >> $H
 cat >> $H <<'EOF'
 if [ ! -d "$D" ]; then
     mkdir "$D"
-    dwarfs -o offset=auto "$0" "$D"
+    dwarfs -o offset=auto -o tidy_strategy=swap "$0" "$D"
 else
     fusermount -u "$D"
     rmdir "$D"
@@ -14,6 +14,6 @@ exit
 EOF
 
 shift
-mkdwarfs -i . -o "$PWD.sh" --header $H $@
+mkdwarfs -i . -o "$PWD.sh" -B3 --header $H $@
 chmod +x "$PWD.sh"
 rm $H

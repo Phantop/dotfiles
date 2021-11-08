@@ -41,7 +41,7 @@ a up 'se up --y'
 a v vi
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
-a wm 'startx (which $argv[1]; argv[2..-1])'
+a wm 'startx (which $argv[1]) $argv[2..-1]'
 
 a ao3 'egrep works/[0-9]+ $argv -o | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
 a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
