@@ -1,0 +1,4 @@
+#!/bin/bash
+ID="$(echo $1 | sed -n 's#.*\https\:\/\/drive\.google\.com/file/d/\([^.]*\)\/view.*#\1#;p')";
+CODE=$(wget -q --show-progress --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=$ID" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')
+aria2c --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$CODE&id=$ID" -c -x16 -s 16
