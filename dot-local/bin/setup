@@ -5,7 +5,7 @@ gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
 audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris vorta"
-media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior zathura-poppler"
+media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior yt-dlp zathura-poppler"
 rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
 term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
 sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
@@ -28,7 +28,7 @@ un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 
 pip3 install adblock pipx-in-pipx readability-lxml sh
-parallel pipx install ::: deemix soundscrape tldr yt-dlp
+parallel pipx install ::: deemix soundscrape tldr
 
 s usermod -aG docker $USER
 s systemctl enable --now docker

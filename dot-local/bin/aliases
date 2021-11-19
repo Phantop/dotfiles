@@ -49,7 +49,8 @@ a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a listen 'pactl list | grep loop && pactl unload-module module-loopback || pactl load-module module-loopback'
 a symlinks 'fd -td -d1 . $D -x  sh -c "rm ~/{/}; rmdir ~/{/}; ln -s {} ~/{/}"'
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
-a ydl 'yt-dlp -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en -o "%(title)s.%(ext)s"'
+a ydl 'yt-dlp -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en --compat-options no-keep-subs \
+        -S lang,quality,res,fps,hdr:12,acodec,size,br,vcodec,asr,proto,ext,hasaud,source,id -o "%(title)s.%(ext)s"'
 
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'

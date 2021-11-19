@@ -3,7 +3,7 @@ fd -e pdf -x cpdfsqueeze {} {}
 fd -e pdf -x qpdf --stream-data=compress --replace-input --compress-streams=y --recompress-flate --compression-level=9 --optimize-images {}
 
 fd -e png -x oxipng
-fd -e png -ejp{e,}g -X pinga pingo -s9
+fd -e png -ejp{e,}g -X pingo -s9
 fd -ejp{e,}g -x jpegoptim
 fd -e webp -x cwebp -z 9 -mt {} -o {}
 
