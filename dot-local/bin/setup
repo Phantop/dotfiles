@@ -14,7 +14,6 @@ web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal s
 se up 
 se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
 se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
-se rm --ignore-dependency plata-theme tracker
 
 echo source ~/.config/bashrc > ~/.bashrc
 install -D <(echo set -g mouse on) ~/.config/tmux/tmux.conf

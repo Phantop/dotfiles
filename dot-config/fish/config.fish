@@ -1,6 +1,7 @@
 set -x EDITOR nvim
 set -x PAGER most
 set -x MANPAGER 'nvim +Man!'
+set -x USE_CCACHE 1
 set D ~
 
 test (hostname) = aperture && set D /mnt/LocalDiskD/
