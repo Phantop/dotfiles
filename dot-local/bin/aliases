@@ -6,6 +6,7 @@ a aliases 'v (which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null);:'
 a bax 'source (which bax) && bax'
+a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
 a cd 'cd (realpath $argv 2> /dev/null);:'
 a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
@@ -36,12 +37,15 @@ a se 's eopkg'
 a spleet 'spleeter separate -o . -c flac'
 a ta 'tmux a -t (math 0 + "0$argv");:'
 a tar bsdtar
+a temp 'curl temp.sh -T'
+a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a twitch-dl 'ffmpeg -i (ydl -e $argv[1]|tr / _) -c copy $argv[2..-1] "file:(ydl -g $argv[1]).mkv"'
 a up 'se up --y'
 a v vi
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a wm 'startx (which $argv[1]) $argv[2..-1]'
+a ydl yt-dlp
 
 a ao3 'egrep works/[0-9]+ $argv -o | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
 a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
@@ -49,9 +53,8 @@ a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a listen 'pactl list | grep loop && pactl unload-module module-loopback || pactl load-module module-loopback'
 a symlinks 'fd -td -d1 . $D -x  sh -c "rm ~/{/}; rmdir ~/{/}; ln -s {} ~/{/}"'
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
-a ydl 'yt-dlp -ciw --write-sub --write-auto-sub --embed-subs --sub-lang=en --compat-options no-keep-subs \
-        -S lang,quality,res,fps,hdr:12,acodec,size,br,vcodec,asr,proto,ext,hasaud,source,id -o "%(title)s.%(ext)s"'
 
+a 7zstd '7z a -m0=zstd -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
