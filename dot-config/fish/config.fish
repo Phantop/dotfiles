@@ -1,17 +1,17 @@
-set -x EDITOR nvim
-set -x PAGER most
-set -x MANPAGER 'nvim +Man!'
-set -x USE_CCACHE 1
-set D ~
+fish_add_path -g ~/.local/bin ~/Games /usr/lib64/ccache/bin
 
-test (hostname) = aperture && set D /mnt/LocalDiskD/
+if tty -s
+    set -x EDITOR nvim
+    set -x PAGER most
+    set -x MANPAGER 'nvim +Man!'
+    set -x USE_CCACHE 1
 
-bind \eo 'ranger'
-bind \ed 'ncdu'
-bind \et 'tmux'
-bind \ef 'fzf | xclip -selection clipboard'
+    bind \eo 'nnn'
+    bind \ed 'ncdu'
+    bind \et 'tmux'
+    bind \ef 'fzf | xclip -selection clipboard'
 
-fish_add_path -g ~/.local/bin $D/Games /usr/lib64/ccache/bin
 
-starship init fish --print-full-init | source
-source /usr/share/autojump/autojump.fish
+    starship init fish --print-full-init | source
+    source /usr/share/autojump/autojump.fish
+end

@@ -7,8 +7,8 @@ fd -ejp{e,}g -x jpegoptim
 fd -e png -ejp{e,}g -X pingo -s9
 fd -e webp -x cwebp -z 9 -mt {} -o {}
 
-fd -e{epub,zip,cbz,jar,docx,odt,apk} -x advzip -z4
-fd -t f -x advdef -z4
+fd -e{epub,zip,cbz,jar,docx,odt,apk} -x advzip -z2
+fd -t f -x advdef -z2
 
 fd -e mp3 -x mp3packer
 fd -e mp3 -x rename -- -vbr ''

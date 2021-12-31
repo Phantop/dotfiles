@@ -2,12 +2,12 @@
 alias s=sudo se="sudo eopkg -y" g=git
 
 gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
-audio="audacious audacious-plugins audacity opus-tools quodlibet spek"
+audio="audacious audacious-plugins audacity opus-tools spek"
 dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
 gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris"
 media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior yt-dlp zathura-poppler"
 rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
-term="advancecomp autojump fd fish fzf innoextract most ncdu p7zip ranger ripgrep tmux"
+term="advancecomp autojump fd fish fzf innoextract most ncdu nnn p7zip ripgrep tmux"
 sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
 web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
 
