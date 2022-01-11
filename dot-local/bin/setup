@@ -3,12 +3,12 @@ alias s=sudo se="sudo eopkg -y" g=git
 
 gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
 audio="audacious audacious-plugins audacity opus-tools spek"
-dev="ccache docker-compose git-extras llvm-clang neovim parallel solbuild tig upx"
+dev="ccache docker-compose git-extras llvm-clang neovim parallel qt-creator solbuild tig upx"
 gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris"
-media="avidemux gaupol jpegoptim mpv playerctl usbmuxd viewnior yt-dlp zathura-poppler"
+media="avidemux gaupol jpegoptim mkvtoolnix mpv playerctl usbmuxd viewnior yt-dlp zathura-poppler"
 rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
-term="advancecomp autojump fd fish fzf innoextract most ncdu nnn p7zip ripgrep tmux"
-sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync tlp"
+term="advancecomp autojump fd fish fzf innoextract micro most ncdu nnn p7zip ripgrep tmux"
+sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync screen tlp"
 web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
 
 se up 
@@ -26,6 +26,7 @@ un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
       grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
 un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
+wget https://adsbypasser.github.io/releases/adsbypasser.full.es7.user.js -P ~/.config/qutebrowser/greasemonkey/
 
 pip3 install adblock pipx-in-pipx readability-lxml sh
 parallel pipx install ::: deemix soundscrape tldr

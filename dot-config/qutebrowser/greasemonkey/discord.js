@@ -22,7 +22,7 @@
 			style.innerHTML = `
 
 body {
-    background: url("https://cdn.discordapp.com/attachments/773556458234052608/897350003280990208/outerwildseote.webp");
+    background: url("https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp");
     background-size: cover;
 }
 
@@ -32,7 +32,7 @@ body {
     box-shadow: none !important;
 }
 
-.container-1D34oG,  /*friends list*/
+.container-2cd8Mz,  /*friends list*/
 .scrollbar-2rkZSL,  /*scrollbar*/
 .pad-29zQak,
 .track-1JN30G {
@@ -60,7 +60,7 @@ body {
     color: #f2f2f2 !important;
 }
 
-.appMount-3lHmkl {
+.appMount-2yBXZL {
     background: rgba(0, 0, 0, .6);
 }
 

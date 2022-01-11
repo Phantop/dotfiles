@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ajh17/vimcompletesme'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
@@ -10,37 +11,31 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
-se number
-se ruler
-se nowrap
-se textwidth=0 wrapmargin=0 tw=0
+se background=dark
+se clipboard=unnamedplus
+se colorcolumn=85
+se cursorline
+se expandtab
+se formatoptions+=j
+se ignorecase
 se lbr
 se mouse=a
-se autoindent
-se smartindent
-se expandtab
+se nowrap
+se number
 se shiftwidth=4
-se formatoptions+=j
-se cursorline
-se clipboard=unnamedplus
-se autoread
-syntax enable
-filetype plugin indent on
-
-map <F7> mzgg=G`z
-map r "_d
-
-se background=dark
-colorscheme dracula
+se smartcase
+se smartindent
 se termguicolors
+se textwidth=0
+se wrapmargin=0
 
 autocmd FileType * se tw=0
-
-se ignorecase
-se smartcase
-
+colorscheme dracula
 command Q q!
+filetype plugin indent on
+syntax enable
+map <F7> mzgg=G`z
+map r "_d
