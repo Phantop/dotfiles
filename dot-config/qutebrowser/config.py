@@ -18,7 +18,6 @@ c.confirm_quit = ["downloads"]
 c.content.cookies.accept = "no-3rdparty"
 #c.content.pdfjs = True
 c.fonts.default_size = "9pt"
-c.qt.args += ["enable-gpu-rasterization"]
 c.qt.force_platformtheme = "gtk2"
 c.tabs.show = "multiple"
 
@@ -62,6 +61,7 @@ if socket.gethostname() == "wheatley":
     c.url.start_pages = "covid19.rpi.edu/dailycheckin"
     c.url.searchengines['y'] = "vid.puffyan.us/search?q={}"
     c.fonts.default_size = "11pt"
+    c.qt.force_software_rendering = "chromium"
 
 #import dracula.draw
 #dracula.draw.blood(c, {'spacing': {'vertical': 1,'horizontal': 0}})
