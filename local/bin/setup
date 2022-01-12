@@ -20,7 +20,7 @@ ln -s ~/.config/gtkrc ~/.gtkrc-2.0
 install -D <(echo set -g mouse on) ~/.config/tmux/tmux.conf
 
 mkdir -p ~/.parallel/will-cite
-parallel stow --no-folding -d ~/.dotfiles/dot-{} -t ~/.{} . ::: config local
+parallel stow --no-folding -d ~/.dotfiles/{} -t ~/.{} . ::: config local
 
 un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
       grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
