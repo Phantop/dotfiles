@@ -1,12 +1,9 @@
 from qutebrowser.api import interceptor
-import operator, typing, socket
+import operator
 
 invid = 'vid.puffyan.us'
 nitter = 'nitter.snopyta.org'
 reddit = 'teddit.net'
-
-if socket.gethostname() == "aperture":
-    invid = 'localhost'
 
 o = operator.methodcaller
 s = 'setHost'
@@ -18,10 +15,7 @@ MAP = {
         "old.reddit.com": o(s, reddit),
 
         "twitter.com": o(s, nitter),
-        "api.twitter.com": o(s, nitter),
         "mobile.twitter.com": o(s, nitter),
-        "platform.twitter.com": o(s, nitter),
-        "www.platform.twitter.com": o(s, nitter),
 
         "youtu.be": o(s, invid),
         "youtube.com": o(s, invid),

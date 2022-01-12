@@ -3,6 +3,7 @@ alias a 'alias -s'
 
 a aliases 'v (which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
+a ao3 'grep epub $argv | cut -d\" -f2 | parallel aria2c "https://ao3.org{}" -dao3;rm'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null);:'
 a bax 'source (which bax) && bax'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
@@ -17,9 +18,12 @@ a g git
 a giveme 's chown $USER'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
+a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
 a l ls
 a la 'l -A'
+a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a less 'eval $PAGER'
+a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a musikcube 'screen -R -s musikcube'
 a nix 'bax . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
 a off shutdown
@@ -37,6 +41,7 @@ a se 's eopkg'
 a spleet 'spleeter separate -o . -c flac'
 a ta 'tmux a -t (math 0 + "0$argv");:'
 a tar bsdtar
+a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
 a temp 'curl temp.sh -T'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a twitch-dl 'ffmpeg -i (yt-dlp -e $argv[1]|tr / _) -c copy $argv[2..-1] "file:(yt-dlp -g $argv[1]).mkv"'
@@ -47,11 +52,6 @@ a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath
 a wm 'startx (which $argv[1]) $argv[2..-1]'
 a ydl 'while not yt-dlp $argv; end;:'
 
-a ao3 'grep epub $argv | cut -d/ -f2-3 | parallel aria2c "https://ao3.org/{}/\*.epub" -dao3;rm'
-a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
-a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
-a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
-a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
