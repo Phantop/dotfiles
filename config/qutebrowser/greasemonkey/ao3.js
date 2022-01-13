@@ -12,6 +12,5 @@ document.querySelectorAll('li.blurb').forEach(b=>{
 b=document.createElement('a')
 c=document.getElementsByTagName('option')
 i=document.getElementsByClassName('chapter')[2]
-b.innerText = 'Latest Chapter →'
 b.href = c[c.length-1].value
-i.parentElement.insertBefore(b, i)
+i.parentElement.insertBefore(b, i).innerText = 'Latest Chapter →'

@@ -3,9 +3,8 @@
 // @homepage      https://github.com/birb-naise/discord-simple-clear
 // @include       https://*.discord.com/*
 // ==/UserScript==
-const style = document.createElement('style')
-document.head.appendChild(style)
-style.innerHTML = `.theme-dark, .theme-light {
+document.head.appendChild(document.createElement('style')).innerHTML=`
+.theme-dark, .theme-light {
     --background-primary: transparent;
     --background-secondary: transparent;
     --background-secondary-alt: transparent;

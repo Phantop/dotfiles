@@ -10,12 +10,14 @@ c.url.searchengines['y'] = "vid.puffyan.us/search?q={}"
 
 c.url.open_base_url = True
 c.content.fullscreen.window = True
+c.colors.webpage.darkmode.enabled = True
 
 c.tabs.show = "multiple"
 c.confirm_quit = ["downloads"]
 c.qt.force_platformtheme = "gtk2"
 c.content.cookies.accept = "no-3rdparty"
 c.colors.webpage.preferred_color_scheme = 'dark'
+c.colors.webpage.darkmode.policy.images = 'never'
 
 c.aliases['re'] = 'restart'
 c.aliases['mpv'] = 'spawn -mdv mpv --ytdl-raw-options=sub-lang=en'
