@@ -16,11 +16,13 @@ se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
 se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 
 echo source ~/.config/bashrc > ~/.bashrc
-ln -s ~/.config/gtkrc ~/.gtkrc-2.0
+ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 install -D <(echo set -g mouse on) ~/.config/tmux/tmux.conf
 
 mkdir -p ~/.parallel/will-cite
-parallel stow --no-folding -d ~/.dotfiles/{} -t ~/.{} . ::: config local
+stow --no-folding -d ~/.dotfiles -t ~/.config .
+stow --no-folding -d ~/.dotfiles -t ~/.local/bin bin
+
 
 un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
       grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}

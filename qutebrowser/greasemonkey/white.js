@@ -1,10 +1,10 @@
 // ==UserScript==
 // @match 
-// @match https://*.discord.com/*
+// @match https://archiveofourown.org/*
+// @match https://canary.discord.com/*
+// @match https://drop.lol/*
 // @match https://mail.tutanota.com/*
 // @match https://teddit.net/*
-// @match https://archiveofourown.org/*
-// @match https://drop.lol/*
 // ==/UserScript==
 const meta = document.createElement('meta');
 meta.name = "color-scheme";

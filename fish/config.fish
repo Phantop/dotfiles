@@ -11,7 +11,6 @@ if tty -s
     bind \et 'tmux'
     bind \ef 'fzf | xclip -selection clipboard'
 
-
     starship init fish --print-full-init | source
     source /usr/share/autojump/autojump.fish
 end

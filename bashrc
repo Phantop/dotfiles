@@ -85,4 +85,5 @@ shopt -s cdspell 2> /dev/null
 shopt -s cdable_vars
 
 #aliases
-eval alias $(fish -c alias | cut -d' ' -f2- | sed 's/ /=/')
+eval alias $(fish -c alias | cut -d' ' -f2- | sed 's/ /=/' | sed 's/(/$(/g' | sed 's/argv/@/g')
+alias cd=cd

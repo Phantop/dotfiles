@@ -1,0 +1,34 @@
+[VisualStyles]
+ColorizationColor=0XD91A4666
+[Control Panel\Colors]
+Scrollbar=148 160 175
+Background=26 58 99
+ActiveTitle=26 70 102
+InactiveTitle=28 33 38
+Menu=57 66 77
+Window=23 27 31
+WindowFrame=0 0 0
+MenuText=255 255 255
+WindowText=245 247 250
+TitleText=245 247 250
+ActiveBorder=57 66 77
+InactiveBorder=57 66 77
+AppWorkspace=28 33 38
+Hilight=7 77 117
+HilightText=255 255 255
+ButtonFace=57 66 77
+ButtonShadow=27 33 39
+GrayText=133 136 140
+ButtonText=255 255 255
+InactiveTitleText=245 247 250
+ButtonHilight=107 113 122
+ButtonDkShadow=7 9 10
+ButtonLight=57 66 77
+InfoText=0 0 0
+InfoWindow=243 242 219
+ButtonAlternateFace=181 181 181
+HotTrackingColor=47 138 202
+GradientActiveTitle=26 70 102
+GradientInactiveTitle=28 33 38
+MenuHilight=7 77 117
+MenuBar=57 66 77
