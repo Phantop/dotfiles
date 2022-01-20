@@ -10,22 +10,23 @@ else
         prefix="$1 "
         shift
     fi
-    cat > "$1"~ << 'EOF'
-#!/bin/sh
+
+echo '#!/bin/sh' > "$1"~
+echo out=\`mktemp -t .zzXXXX."${1##*.}"\` >> "$1"~
+    cat >> "$1"~ << 'EOF'
 dir=`dirname "$0"`
-out=`mktemp -t .zzXXXX`
 tail -n +11 "$0" | zstd -cd > "$out"
 chmod +x "$out"
 ln -s "$out" "$dir"
 trap "res=$?" 0 1 2 3 5 10 13 15
 EOF
-    echo $prefix'$dir/`basename $out` $@' >> "$1"~
+    echo "$prefix"'$dir/`basename $out` $@' >> "$1"~
 cat >> "$1"~ << 'EOF'
 rm "$out" "$dir"/`basename $out`
 exit $res
 EOF
-    zstd --ultra -22 "$1"
-    rm "$1"
+
+    zstd --ultra -22 "$1" &&
     cat "$1"~ "$1".zst > "$1"
     rm "$1".zst "$1~"
     chmod +x "$1"
