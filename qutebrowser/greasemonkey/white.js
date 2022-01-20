@@ -1,5 +1,5 @@
 // ==UserScript==
-// @match 
+// @name  WhiteList
 // @match https://archiveofourown.org/*
 // @match https://canary.discord.com/*
 // @match https://drop.lol/*

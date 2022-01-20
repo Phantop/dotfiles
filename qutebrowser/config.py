@@ -22,6 +22,7 @@ c.colors.webpage.darkmode.policy.images = 'never'
 c.aliases['re'] = 'restart'
 c.aliases['mpv'] = 'spawn -mdv mpv --ytdl-raw-options=sub-lang=en'
 c.aliases['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'
+c.aliases['toggle-dark'] = 'reload;; jseval -qf ~/.config/qutebrowser/greasemonkey/white.js;; stop'
 
 config.set('content.notifications.enabled', True, 'https://mail.tutanota.com')
 config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com')
