@@ -3,4 +3,4 @@ DIR=~/dwarf/$(basename "$@" .dwarfs)$RANDOM
 mkdir -p "$DIR"
 echo "$DIR"
 dwarfs -o offset=auto -o tidy_strategy=swap -f "$@" "$DIR" 2> /dev/null
-rmdir "$DIR" ~/dwarf 2> /dev/null
+rmdir -p "$DIR" 2> /dev/null

@@ -2,7 +2,6 @@
 // @name  WhiteList
 // @match https://archiveofourown.org/*
 // @match https://canary.discord.com/*
-// @match https://drop.lol/*
 // @match https://mail.tutanota.com/*
 // @match https://teddit.net/*
 // ==/UserScript==
