@@ -21,7 +21,7 @@ se cursorline
 se expandtab
 se formatoptions+=j
 se ignorecase
-se lbr
+se linebreak
 se mouse=a
 se nowrap
 se number

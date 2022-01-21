@@ -1,0 +1,6 @@
+#!/bin/bash
+data=$(curl -l "$1" | grep /d/)
+base=$(echo "$1" | sed s/v/d/ | cut -d/ -f1-5)
+num=$(echo "$data" | cut -d\( -f3 | cut -d\) -f1 | bc)
+name=$(echo "$data" | cut -d/ -f5)
+aria2c "$base/$num/$name"
