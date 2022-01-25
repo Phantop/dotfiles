@@ -26,7 +26,6 @@ if tty -s
 
     bind \eo 'nnn'
     bind \ed 'ncdu'
-    bind \et 'tmux'
     bind \ef 'fzf | xclip -selection clipboard'
 
     starship init fish --print-full-init | source

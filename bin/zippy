@@ -1,6 +1,6 @@
 #!/bin/bash
 data=$(curl -l "$1" | grep /d/)
-base=$(echo "$1" | sed s/v/d/ | cut -d/ -f1-5)
-num=$(echo "$data" | cut -d\( -f3 | cut -d\) -f1 | bc)
-name=$(echo "$data" | cut -d/ -f5)
+base=$(cut -d/ -f1-5 <<< "${1/v/d}")
+num=$(awk -F'[()]' '{print $4}' <<< "$data" | bc)
+name=$(cut -d/ -f5 <<< "$data")
 aria2c "$base/$num/$name"

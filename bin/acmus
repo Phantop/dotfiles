@@ -1,7 +1,0 @@
-#!/bin/bash
-source=https://d17orwheorv96d.cloudfront.net
-hour=$(date +%-I%p|tr APM apm)
-curl $source/$1/$hour.ogg -so/tmp/ac
-
-loops=$(bc <<< "(3600 - $(date +%s) % 3600)/$(soxi -D /tmp/ac)")
-mpv --vid=no --no-resume-playback --loop=$loops /tmp/ac

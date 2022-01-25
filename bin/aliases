@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 alias a 'alias -s'
 
+a acmus 'timeout --foreground (math 3600 - (date +%s) % 3600) mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%p|tr APM apm).ogg'
 a aliases 'v (env which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
 a ao3 'grep epub $argv | cut -d\" -f4 | parallel aria2c "https://ao3.org{}" -dao3;rm'
@@ -17,7 +18,6 @@ a g git
 a giveme 's chown $USER'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
-a invid 'tmux new -s 0 -d "docker-compose -f ~/.config/invid.yml up --build"'
 a l ls
 a la 'l -A'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
@@ -38,7 +38,6 @@ a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
 a spleet 'spleeter separate -o . -c flac'
-a ta 'tmux a -t (math 0 + "0$argv");:'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
 a temp 'curl temp.sh -T'
@@ -54,6 +53,7 @@ a ydl 'while not yt-dlp $argv; end;:'
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
+a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty);:'
 a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap'
 a foldwarf 'appdwarf -f $argv .;:'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
