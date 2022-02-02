@@ -7,8 +7,6 @@ if tty -s
     set -x USE_CCACHE 1
 
     set fish_greeting
-    set -U fish_features 3.0
-
     set fish_color_command --bold
     set fish_color_comment red
     set fish_color_end brmagenta
@@ -26,7 +24,7 @@ if tty -s
 
     bind \eo 'nnn'
     bind \ed 'ncdu'
-    bind \ef 'fzf | xclip -selection clipboard'
+    bind \ef 'fzf | clip'
 
     starship init fish --print-full-init | source
     source /usr/share/autojump/autojump.fish

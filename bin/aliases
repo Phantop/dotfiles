@@ -1,11 +1,12 @@
 #!/usr/bin/fish
 alias a 'alias -s'
+set -U fish_features 3.0
 
 a acmus 'timeout --foreground (math 3600 - (date +%s) % 3600) mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%p|tr APM apm).ogg'
 a aliases 'v (env which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
 a ao3 'grep epub $argv | cut -d\" -f4 | parallel aria2c "https://ao3.org{}" -dao3;rm'
-a base64d 'echo (echo $argv | base64 -d 2>/dev/null);:'
+a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a bax 'source (which bax) && bax'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
 a clip 'xclip -sel clip'
@@ -16,6 +17,7 @@ a dot 'cd ~/.dotfiles'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
+a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} && fd -e pdf -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
@@ -53,7 +55,7 @@ a ydl 'while not yt-dlp $argv; end;:'
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
-a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty);:'
+a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap'
 a foldwarf 'appdwarf -f $argv .;:'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
