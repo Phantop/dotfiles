@@ -12,3 +12,5 @@ fd -t f -x advdef -z2
 
 fd -e mp3 -x mp3packer
 fd -e mp3 -x rename -- -vbr ''
+
+fd -e so -x strip

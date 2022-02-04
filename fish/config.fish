@@ -22,7 +22,6 @@ if tty -s
     set fish_color_valid_path --underline
     set fish_pager_color_prefix 'white'  '--bold'  '--underline'
 
-    bind \eo 'nnn'
     bind \ed 'ncdu'
     bind \ef 'fzf | clip'
 

@@ -1,38 +1,34 @@
 #!/bin/bash
-alias s=sudo se="sudo eopkg -y" g=git
+alias s=sudo se="s eopkg -y" g=git
 
 gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
-audio="audacious audacious-plugins audacity opus-tools spek"
-dev="ccache docker-compose git-extras llvm-clang neovim parallel qt-creator solbuild tig upx"
-gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris"
-media="avidemux gaupol jpegoptim mkvtoolnix mpv playerctl usbmuxd viewnior yt-dlp zathura-poppler"
-rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
-term="advancecomp autojump fd fish fzf innoextract micro most ncdu nnn p7zip ripgrep tmux"
-sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync screen tlp"
-web="arcanist aria2 nicotine-plus qutebrowser openssh-server rclone subliminal syncthing-gtk"
-
-se up 
-se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
 se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 
-echo source ~/.config/bashrc > ~/.bashrc
-ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
-install -D <(echo set -g mouse on) ~/.config/tmux/tmux.conf
+audio="audacious audacious-plugins audacity opus-tools spek"
+dev="ccache docker-compose git-extras llvm-clang neovim parallel qt-creator solbuild"
+gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris zathura-poppler"
+media="avidemux gaupol jpegoptim mkvtoolnix mpv playerctl usbmuxd viewnior yt-dlp"
+rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
+term="advancecomp autojump fd fish fzf innoextract micro most ncdu p7zip ripgrep tig"
+sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync screen tlp upx"
+web="arcanist aria2 nicotine-plus qutebrowser openssh-server subliminal syncthing-gtk"
+se up; se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
 
-mkdir -p ~/.parallel/will-cite
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 stow --no-folding -d ~/.dotfiles -t ~/.local/bin bin
-
+mkdir -p ~/.parallel/will-cite
+echo source ~/.config/bashrc > ~/.bashrc
+ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 
 un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
       grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
 un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 wget https://adsbypasser.github.io/releases/adsbypasser.full.es7.user.js -P ~/.config/qutebrowser/greasemonkey/
+pip3 install adblock pipx-in-pipx readability-lxml
 
-pip3 install adblock pipx-in-pipx readability-lxml sh
-parallel pipx install ::: deemix soundscrape tldr
-
+chsh -s "$(which fish)"
+fish -c "aliases;clean"
 s usermod -aG docker $USER
 s systemctl enable --now docker
 s systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
@@ -43,9 +39,6 @@ g g p:phantop.github.io ~/.site
 g g p:haiku-icons ~/.local/share/icons/Haiku
 g g h:junegunn/vim-plug ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
-
-chsh -s $(which fish)
-fish -c "aliases;clean"
 
 gsettings set org.gnome.desktop.interface cursor-theme Haiku
 gsettings set org.gnome.desktop.interface icon-theme Haiku

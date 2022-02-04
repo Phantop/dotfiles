@@ -1,0 +1,23 @@
+#hnmain { background: #212121; zoom: 120%; }
+#hnmain td[bgcolor="#ff6600"] { background: #4b5762; }
+
+#app-mount {
+    --background-primary: transparent;
+    --background-secondary: transparent;
+    --background-secondary-alt: transparent;
+    --background-tertiary: transparent;
+    --background-floating: rgba(0, 0, 0, .6);
+    --channeltextarea-background: transparent;
+    font-family: "Ubuntu Mono";
+    background: url(
+    "https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp"
+);}
+
+#app-mount [aria-label="Channels"] div [class^="unread"] { background-color: #cfcdcf; }
+#app-mount [class^="container"] { background-color: transparent; }
+
+#app-mount [aria-label$="sidebar"], #app-mount [aria-label="Inbox"],
+#app-mount [class^="privateChannels"] [class^="searchBar"], #app-mount [href="/store"],
+#app-mount [aria-label$="gift"], #app-mount [aria-label="Help"] { display: none }
+
+.app-container .doc-container .doc div { max-width: 666pt !important; margin: auto; }

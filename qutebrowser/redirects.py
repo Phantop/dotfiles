@@ -24,7 +24,9 @@ MAP = {
         "www.instagram.com": o(s, 'bibliogram.art'),
         "www.amazon.com": o(s, 'smile.amazon.com'),
         "imgur.com" : o(s, 'imgin.voidnet.tech'),
-        "medium.com" : o(s, 'scribe.rip')
+        "medium.com" : o(s, 'scribe.rip'),
+        "www.twitch.tv" : o(s, 'm.twitch.tv'),
+        "discord.com" : o(s, 'canary.discord.com')
     }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

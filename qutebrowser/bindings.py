@@ -4,6 +4,7 @@ bind = {
     '<Ctrl-w>': 'tab-close',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
     ',': 'hint links run mpv {hint-url}',
+    'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'm': 'mpv {url}',
     's1': 'download-open',
     'sa': 'open -t archive.is/?run=1&url={url}',
@@ -13,7 +14,8 @@ bind = {
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
     'st': 'config-cycle content.proxy socks://localhost:9050/ system',
-    'T' : 'tab-next'
+    'T' : 'tab-next',
+    'td': 'config-unset -u {url:host} content.headers.user_agent',
 }
 for a, b in bind.items():
     config.bind(a, b)

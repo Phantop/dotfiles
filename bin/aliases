@@ -5,7 +5,7 @@ set -U fish_features 3.0
 a acmus 'timeout --foreground (math 3600 - (date +%s) % 3600) mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%p|tr APM apm).ogg'
 a aliases 'v (env which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e{png,jpg} -x rm'
-a ao3 'grep epub $argv | cut -d\" -f4 | parallel aria2c "https://ao3.org{}" -dao3;rm'
+a ao3 'grep -Eo works/[0-9]+ $argv | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a bax 'source (which bax) && bax'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
@@ -26,6 +26,7 @@ a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a less 'eval $PAGER'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a musikcube 'screen -R -s musikcube'
+a ncdu 'ncdu --color off'
 a nix 'bax . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
 a off shutdown
 a offh 'off (math "60*"$argv);:'
@@ -43,6 +44,7 @@ a spleet 'spleeter separate -o . -c flac'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
 a temp 'curl temp.sh -T'
+a tldrl 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/master/pages/{common,linux}/$argv.md;:'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a twitch-dl 'ffmpeg -i (yt-dlp -e $argv[1]|tr / _) -c copy $argv[2..-1] "file:(yt-dlp -g $argv[1]).mkv"'
 a up 'se up --y'
@@ -66,6 +68,6 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qb \":open -t $i\""
 end
 
-for i in getnative mcross nsz scdl spleeter thonny
+for i in deemix nsz scdl soundscrape spleeter
     a $i "pipx run $i"
 end
