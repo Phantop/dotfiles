@@ -32,4 +32,3 @@ config.set('content.register_protocol_handler', True, 'https://mail.tutanota.com
 import socket
 if socket.gethostname() == 'wheatley':
     c.zoom.default = 125
-    c.qt.force_software_rendering = 'chromium'

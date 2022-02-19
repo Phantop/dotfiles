@@ -1,11 +1,9 @@
 c.content.javascript.enabled = False
 sites = [
         'canary.discord.com',
-        'drive.google.com',
         'duckduckgo.com',
         'feedly.com',
         'mail.tutanota.com',
-
         '*.rpi.edu',
         'api-3e0243bb.duosecurity.com',
         ]

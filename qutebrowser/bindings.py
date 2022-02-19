@@ -5,6 +5,7 @@ bind = {
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
     ',': 'hint links run mpv {hint-url}',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
+    'E': 'config-cycle -p content.javascript.enabled ;; reload',
     'm': 'mpv {url}',
     's1': 'download-open',
     'sa': 'open -t archive.is/?run=1&url={url}',
@@ -13,7 +14,7 @@ bind = {
     'sg': 'debug-dump-page ~/Downloads/dump.html',
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
-    'st': 'config-cycle content.proxy socks://localhost:9050/ system',
+    'st': 'config-cycle -p content.proxy socks://localhost:9050/ system',
     'T' : 'tab-next',
     'td': 'config-unset -u {url:host} content.headers.user_agent',
 }

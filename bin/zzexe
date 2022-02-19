@@ -4,16 +4,16 @@ if [ "$1" = "-d" ]; then
     tail -n +11 "$1" | zstd -do "$1"~ &&
     mv "$1"~ "$1"
     chmod +x "$1"
+    exit
 else
     if [ "$1" = "-p" ]; then
         shift
         prefix="$1 "
         shift
-    fi
+fi
 
-echo '#!/bin/sh' > "$1"~
-echo out=\`mktemp -t .zzXXXX."${1##*.}"\` >> "$1"~
-    cat >> "$1"~ << 'EOF'
+{ echo '#!/bin/sh'; echo out=\`mktemp -t .zzXXXX."${1##*.}"\`; } >> "$1"~
+cat >> "$1"~ << 'EOF'
 dir=`dirname "$0"`
 tail -n +11 "$0" | zstd -cd > "$out"
 chmod +x "$out"

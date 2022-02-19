@@ -1,18 +1,16 @@
 #!/bin/bash
 alias s=sudo se="s eopkg -y" g=git
 
-gnome="$(echo eog file-roller gnome-{photos,mpv,terminal} nautilus rhythmbox)"
+gnome="$(echo eog gnome-{photos,mpv,terminal} nautilus rhythmbox)"
 se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 
-audio="audacious audacious-plugins audacity opus-tools spek"
-dev="ccache docker-compose git-extras llvm-clang neovim parallel qt-creator solbuild"
-gui="abiword caja gmic-gimp engrampa keepassxc kitty lutris zathura-poppler"
-media="avidemux gaupol jpegoptim mkvtoolnix mpv playerctl usbmuxd viewnior yt-dlp"
-rice="ant-dracula-gtk-theme font-ubuntu-ttf rofi starship stow"
-term="advancecomp autojump fd fish fzf innoextract micro most ncdu p7zip ripgrep tig"
-sys="bleachbit corectrl ifuse linux-tools-cpupower python-wheel rsync screen tlp upx"
-web="arcanist aria2 nicotine-plus qutebrowser openssh-server subliminal syncthing-gtk"
-se up; se it -c system.devel $audio $dev $gui $media $rice $sys $term $web
+dev="arcanist ccache git-extras llvm-clang neovim parallel qt-creator solbuild"
+gui="caja gimp keepassxc kitty nicotine-plus qutebrowser syncthing zathura-mupdf"
+med="audaci{ty,ous{,-plugins}} avidemux mkvtoolnix mpv opus-tools spek yt-dlp"
+ric="ant-dracula-gtk-theme autojump font-ubuntu-ttf rofi starship stow"
+tui="advancecomp aria2 fd fish fzf innoextract jpegoptim most ncdu ripgrep tig"
+sys="bleachbit corectrl ifuse linux-tools-cpupower p7zip screen tlp usbmuxd upx"
+se up; se it -c system.devel $dev $gui $med $ric $sys $tui
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 stow --no-folding -d ~/.dotfiles -t ~/.local/bin bin
@@ -20,8 +18,8 @@ mkdir -p ~/.parallel/will-cite
 echo source ~/.config/bashrc > ~/.bashrc
 ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 
-un(){ F=$(mktemp); mkdir -p $2; curl https://api.github.com/repos/$1/releases |\
-      grep -om1 http.\*zip | wget -i- -O$F; unzip $F -d $2;}
+un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
+      grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 wget https://adsbypasser.github.io/releases/adsbypasser.full.es7.user.js -P ~/.config/qutebrowser/greasemonkey/
@@ -29,8 +27,7 @@ pip3 install adblock pipx-in-pipx readability-lxml
 
 chsh -s "$(which fish)"
 fish -c "aliases;clean"
-s usermod -aG docker $USER
-s systemctl enable --now docker
+s usermod -aG docker "$USER"
 s systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
 
 g g p:appdwarf ~/.appdwarf
@@ -40,6 +37,5 @@ g g p:haiku-icons ~/.local/share/icons/Haiku
 g g h:junegunn/vim-plug ~/.config/nvim/autoload
 nvim +PlugUpdate +q +q
 
-gsettings set org.gnome.desktop.interface cursor-theme Haiku
-gsettings set org.gnome.desktop.interface icon-theme Haiku
+parallel gsettings set org.gnome.desktop.interface {}-theme Haiku ::: cursor icon
 gsettings set org.gnome.desktop.interface gtk-theme Ant-Dracula

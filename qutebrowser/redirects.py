@@ -3,7 +3,7 @@ import operator
 
 invid = 'vid.puffyan.us'
 nitter = 'nitter.snopyta.org'
-reddit = 'teddit.net'
+reddit = 'libreddit.pussthecat.org'
 
 o = operator.methodcaller
 s = 'setHost'

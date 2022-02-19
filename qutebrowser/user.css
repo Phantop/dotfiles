@@ -16,8 +16,11 @@
 #app-mount [aria-label="Channels"] div [class^="unread"] { background-color: #cfcdcf; }
 #app-mount [class^="container"] { background-color: transparent; }
 
-#app-mount [aria-label$="sidebar"], #app-mount [aria-label="Inbox"],
+#app-mount [aria-label$="sidebar"], #app-mount [aria-label="Inbox"], p#javascript-warning,
 #app-mount [class^="privateChannels"] [class^="searchBar"], #app-mount [href="/store"],
 #app-mount [aria-label$="gift"], #app-mount [aria-label="Help"] { display: none }
 
 .app-container .doc-container .doc div { max-width: 666pt !important; margin: auto; }
+body.dracula { max-width: 777pt; } body > nav { position: absolute; }
+
+body>table>tbody>tr[bgcolor="#66FFFF"]>[bgcolor="#CCCCCC"] { background: #000000 }
