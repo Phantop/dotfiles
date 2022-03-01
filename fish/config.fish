@@ -1,4 +1,4 @@
-fish_add_path -g ~/.local/bin ~/Games /usr/lib64/ccache/bin
+fish_add_path -g ~/{.local,Games}/bin /usr/lib64/ccache/bin
 
 if tty -s
     set -x EDITOR nvim
