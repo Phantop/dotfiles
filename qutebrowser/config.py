@@ -1,9 +1,12 @@
 config.load_autoconfig(False)
-config.source('color.py')
 config.source('adblock.py')
+config.source('color.py')
 config.source('bindings.py')
 config.source('javascript.py')
 config.source('redirects.py')
+
+import subprocess
+subprocess.run(["sassc", config.configdir / 'user.scss', config.configdir / 'user.css'])
 
 c.url.default_page = 'feedly.com/i/my'
 c.url.start_pages = 'covid19.rpi.edu/dailycheckin'

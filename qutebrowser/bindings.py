@@ -4,6 +4,8 @@ bind = {
     '<Ctrl-w>': 'tab-close',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
     ',': 'hint links run mpv {hint-url}',
+    'aa': 'spawn kitty fish -c "dl && dl {url}"',
+    'as': 'spawn kitty fish -c "dl && ydl {url}"',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
     'm': 'mpv {url}',

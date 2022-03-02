@@ -16,11 +16,16 @@
 #app-mount [aria-label="Channels"] div [class^="unread"] { background-color: #cfcdcf; }
 #app-mount [class^="container"] { background-color: transparent; }
 
-#app-mount [aria-label$="sidebar"], #app-mount [aria-label="Inbox"], p#javascript-warning,
 #app-mount [class^="privateChannels"] [class^="searchBar"], #app-mount [href="/store"],
-#app-mount [aria-label$="gift"], #app-mount [aria-label="Help"] { display: none }
+#app-mount [aria-label$="sidebar"], #app-mount [aria-label="Inbox"],
+#app-mount [aria-label$="gift"], #app-mount [aria-label="Help"],
+p#javascript-warning, ul.work > li.download > ul > li { display: none }
 
 .app-container .doc-container .doc div { max-width: 666pt !important; margin: auto; }
 body.dracula { max-width: 777pt; } body > nav { position: absolute; }
 
 body>table>tbody>tr[bgcolor="#66FFFF"]>[bgcolor="#CCCCCC"] { background: #000000 }
+
+ul.work > li.download { font-size: 0}
+ul.work > li.download > ul { position: unset; border: none; display: inline}
+ul.work > li.download > ul > li:nth-child(2) { display: inline; font-size: small }

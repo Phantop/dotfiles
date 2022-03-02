@@ -1,0 +1,40 @@
+#hnmain {
+    zoom: 120%;
+    background: #212121;
+    td[bgcolor="#ff6600"] { background: #4b5762; }
+}
+
+#app-mount {
+    $back: primary, secondary, secondary-alt, tertiary;
+    @each $i in $back { --background-#{$i}: transparent; }
+
+    --background-floating: rgba(0, 0, 0, .6);
+    --channeltextarea-background: transparent;
+    [class^="container"] { background-color: transparent; }
+    [aria-label="Channels"] div [class^="unread"] { background: #cfcdcf; }
+
+    $aria: gift, Help, Inbox, sidebar;
+    @each $i in $aria { [aria-label$="#{$i}"] { display: none; } }
+    [class^="privateChannels"] [class^="searchBar"], [href="/store"] { display: none; }
+
+    font-family: "Ubuntu Mono";
+    background: url(
+    "https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp"
+);}
+
+
+body.dracula { max-width: 777pt; }
+body > nav { position: absolute; }
+tbody>tr>[bgcolor="#CCCCCC"] { background: #000000; }
+div.doc-container div.doc div { max-width: 666pt !important; margin: auto; }
+
+p#javascript-warning { display: none; }
+ul.work > li.download {
+    font-size: 0;
+    > ul {
+        position: unset;
+        border: none;
+        > li { font-size: small; }
+        > li:not(:nth-child(2)) { display: none; }
+    }
+}

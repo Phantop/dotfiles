@@ -27,7 +27,8 @@ MAP = {
         "medium.com" : o(s, 'scribe.rip'),
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
         "discord.com" : o(s, 'canary.discord.com'),
-        "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com')
+        "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
+        "en.wikipedia.org" : o(s, 'wikiless.org')
     }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or
