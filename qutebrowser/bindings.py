@@ -1,11 +1,14 @@
+kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
     '<Ctrl-q>': 'close',
     '<Ctrl-r>': 'spawn -u readability',
     '<Ctrl-w>': 'tab-close',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
     ',': 'hint links run mpv {hint-url}',
-    'aa': 'spawn kitty fish -c "dl && dl {url}"',
-    'as': 'spawn kitty fish -c "dl && ydl {url}"',
+    ';a': 'hint links run ' + kitdl + ' dl {hint-url}"',
+    ';v': 'hint links run ' + kitdl + ' ydl {hint-url}"',
+    'aa': kitdl + ' dl {url}"',
+    'av': kitdl + ' ydl {url}"',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
     'm': 'mpv {url}',

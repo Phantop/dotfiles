@@ -36,6 +36,7 @@ a qutainer 'qutebrowser -B /tmp'
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
+a qbm 'qb (md2html $argv | psub -s .html);:'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
@@ -51,6 +52,7 @@ a up 'se up --y'
 a v vi
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
+a warcdl 'pagedl --warc-file=(basename $argv)'
 a wm 'startx (which $argv[1]) $argv[2..-1]'
 a ydl 'while not yt-dlp $argv; end;:'
 
@@ -73,3 +75,12 @@ end
 for i in deemix nsz scdl soundscrape spleeter
     a $i "pipx run $i"
 end
+
+function alpine
+    set url https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64
+    set file (curl $url/latest-releases.yaml | grep file: | head -n1 | cut -d\  -f4)
+    mkdir alpine; curl $url/$file | tar xf - -Calpine
+    cp /etc/resolv.conf alpine/etc
+    proot -r alpine
+end
+funcsave alpine

@@ -26,6 +26,8 @@ c.colors.webpage.darkmode.policy.images = 'never'
 
 c.aliases['re'] = 'restart'
 c.aliases['mpv'] = 'spawn -mdv mpv --ytdl-raw-options=sub-lang=en'
+c.aliases['css-reload'] = 'set content.user_stylesheets user.css'
+c.aliases['scss-reload'] = 'spawn -u /bin/sh -c "sassc $QUTE_CONFIG_DIR/user.{s,}css"'
 c.aliases['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'
 c.aliases['toggle-dark'] = 'reload;;jseval -q const meta=document.createElement("meta");meta.name="color-scheme";document.head.appendChild(meta).content="dark";;stop'
 
