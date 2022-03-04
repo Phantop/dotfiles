@@ -17,3 +17,8 @@ abp("https://github.com/brave/adblock-lists/raw/master/coin-miners.txt")
 abp("https://github.com/brave/adblock-lists/raw/master/brave-lists/brave-firstparty-cname.txt")
 abp("https://github.com/brave/adblock-lists/raw/master/brave-lists/brave-firstparty.txt")
 abp("https://github.com/brave/adblock-lists/raw/master/brave-lists/brave-social.txt")
+
+abp("https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt")
+abp("https://github.com/DandelionSprout/adfilt/raw/master/AnnoyancesList")
+abp("https://github.com/DandelionSprout/adfilt/raw/master/SocialShareList.txt")
+abp("https://github.com/DandelionSprout/adfilt/raw/master/ExtremelyCondensedList.txt")

@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 alias a 'alias -s'
 set -U fish_features 3.0
+rm -r ~/.config/fish/functions
 
 a acmus 'timeout --foreground (math 3600 - (date +%s) % 3600) mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%p|tr APM apm).ogg'
 a aliases 'v (env which aliases); command aliases'
@@ -46,6 +47,7 @@ a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.
 a temp 'curl temp.sh -T'
 a tldrl 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/master/pages/{common,linux}/$argv.md;:'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
+a twitch 'mpv https://twitch.tv/$argv & disown ;:'
 a twitch-dl 'ffmpeg -i (yt-dlp -e $argv[1]|tr / _) -c copy $argv[2..-1] "file:(yt-dlp -g $argv[1]).mkv"'
 a untar 'tar xf'
 a up 'se up --y'

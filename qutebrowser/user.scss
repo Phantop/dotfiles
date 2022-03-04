@@ -1,3 +1,5 @@
+@import url(https://github.com/panicsteve/shutup-css/raw/master/shutup.css);
+@import url(https://necolas.github.io/normalize.css/latest/normalize.css);
 #hnmain {
     zoom: 120%;
     background: #212121;
@@ -27,8 +29,9 @@ body.dracula {max-width: 777pt}
 body>nav:nth-child(1) {position: absolute}
 tbody>tr>[bgcolor="#CCCCCC"] {background: #000000}
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto}
+.qute-readability {margin: auto !important}
 
-p#javascript-warning {display: none}
+p#javascript-warning, [class^=nativead] {display: none}
 ul.work > li.download {
     font-size: 0;
     > ul {
@@ -37,3 +40,14 @@ ul.work > li.download {
         > li {font-size: small; &:not(:nth-child(2)) {display: none}}
    }
 }
+
+$class: ad-frame-container, ad-panel, ad-slot, adsbygoogle, 
+adbox, adunit, adunit-wrapper, b_ad, leaderboard;
+@each $i in $class {.#{$i} {display:none}}
+
+$div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
+'id^=div-gpt-ad', 'id^=google_ads_', 'id^=netboard_', 'id^=skyscraper';
+@each $i in $div {div[#{$i}] {display:none}}
+
+$id: ads, leaderboard, player-ads, rc-row-container;
+@each $i in $id {##{$i} {display:none}}

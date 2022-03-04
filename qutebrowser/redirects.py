@@ -2,7 +2,7 @@ from qutebrowser.api import interceptor
 import operator
 
 invid = 'vid.puffyan.us'
-nitter = 'nitter.net'
+nitter = 'nitter.pussthecat.org'
 reddit = 'libreddit.pussthecat.org'
 
 o = operator.methodcaller
@@ -28,8 +28,9 @@ MAP = {
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
         "discord.com" : o(s, 'canary.discord.com'),
         "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
-        "en.wikipedia.org" : o(s, 'wikiless.org')
-    }
+        "en.wikipedia.org" : o(s, 'wikiless.org'),
+        "translate.google.com" : o(s, 'simplytranslate.pussthecat.org')
+        }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or
             info.request_url.scheme() in {"data", "blob"}):

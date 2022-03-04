@@ -11,3 +11,4 @@ for site in sites:
     config.set('content.javascript.enabled', True, 'https://' + site)
 
 config.set('content.headers.user_agent', 'iPhone', 'docs.google.com')
+config.set('content.headers.user_agent', 'iPhone', 'drive.google.com')
