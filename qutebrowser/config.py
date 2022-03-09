@@ -8,19 +8,17 @@ config.source('redirects.py')
 import subprocess
 subprocess.run(["sass", config.configdir / 'user.scss', config.configdir / 'user.css'])
 
-c.url.default_page = 'feedly.com/i/my'
-c.url.start_pages = 'covid19.rpi.edu/dailycheckin'
-c.url.searchengines['y'] = 'vid.puffyan.us/search?q={}'
-
-c.url.open_base_url = True
-c.content.fullscreen.window = True
-c.colors.webpage.darkmode.enabled = True
+c.url.start_pages = c.url.default_page = 'fast-headland-67505.herokuapp.com'
+config.set('content.javascript.enabled', True, c.url.start_pages)
+c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
 
 c.tabs.show = 'multiple'
 c.confirm_quit = ['downloads']
 c.qt.force_platformtheme = 'gtk2'
+c.content.fullscreen.window = True
 c.content.user_stylesheets = 'user.css'
 c.content.cookies.accept = 'no-3rdparty'
+c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.policy.images = 'never'
 

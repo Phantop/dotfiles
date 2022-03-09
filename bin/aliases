@@ -13,7 +13,7 @@ a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUp
 a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off -R "index.html*"'
-a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -x16 -s16'
+a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
 a dot 'cd ~/.dotfiles'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git

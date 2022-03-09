@@ -13,7 +13,7 @@ bind = {
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
     'm': 'mpv {url}',
     's1': 'download-open',
-    'sa': 'open -t archive.is/?run=1&url={url}',
+    'sa': 'open -t archive.is/submit/?url={url}',
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',

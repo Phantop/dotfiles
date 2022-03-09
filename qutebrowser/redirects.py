@@ -1,35 +1,57 @@
 from qutebrowser.api import interceptor
+from urllib.parse import urljoin
+from PyQt5.QtCore import QUrl
 import operator
-
-invid = 'vid.puffyan.us'
-nitter = 'nitter.pussthecat.org'
-reddit = 'libreddit.pussthecat.org'
 
 o = operator.methodcaller
 s = 'setHost'
 i = interceptor
 
+def farside(url: QUrl, i) -> bool:
+    url.setHost('farside.link')
+    p = url.path().strip('/')
+    url.setPath(urljoin(i, p))
+    return True
+
+def nitter(url: QUrl) -> bool:
+    return farside(url, '/nitter/')
+def rimgo(url: QUrl) -> bool:
+    return farside(url, '/rimgo/')
+def scribe(url: QUrl) -> bool:
+    return farside(url, '/scribe/')
+def wikiless(url: QUrl) -> bool:
+    return farside(url, '/wikiless/')
+def invid(url: QUrl) -> bool:
+    return farside(url, '/invidious/')
+def reddit(url: QUrl) -> bool:
+    return farside(url, '/libreddit/')
+def bibliogram(url: QUrl) -> bool:
+    return farside(url, '/bibliogram/')
+def simplytranslate(url: QUrl) -> bool:
+    return farside(url, '/simplytranslate/')
+
 MAP = {
-        "reddit.com": o(s, reddit),
-        "www.reddit.com": o(s, reddit),
-        "old.reddit.com": o(s, reddit),
+        "reddit.com": reddit,
+        "www.reddit.com": reddit,
+        "old.reddit.com": reddit,
 
-        "twitter.com": o(s, nitter),
-        "mobile.twitter.com": o(s, nitter),
+        "youtu.be": invid,
+        "youtube.com": invid,
+        "www.youtube.com": invid,
 
-        "youtu.be": o(s, invid),
-        "youtube.com": o(s, invid),
-        "www.youtube.com": o(s, invid),
+        "twitter.com": nitter,
+        "mobile.twitter.com": nitter,
 
-        "www.instagram.com": o(s, 'bibliogram.pussthecat.org'),
-        "www.amazon.com": o(s, 'smile.amazon.com'),
-        "imgur.com" : o(s, 'i.bcow.xyz'),
-        "medium.com" : o(s, 'scribe.rip'),
+        "imgur.com" : rimgo,
+        "medium.com" : scribe,
+        "en.wikipedia.org" : wikiless,
+        "www.instagram.com": bibliogram,
+        "translate.google.com" : simplytranslate,
+
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
+        "www.amazon.com": o(s, 'smile.amazon.com'),
         "discord.com" : o(s, 'canary.discord.com'),
         "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
-        "en.wikipedia.org" : o(s, 'wikiless.org'),
-        "translate.google.com" : o(s, 'simplytranslate.pussthecat.org')
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or
