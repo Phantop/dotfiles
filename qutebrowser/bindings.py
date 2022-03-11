@@ -3,6 +3,8 @@ bind = {
     '<Ctrl-q>': 'close',
     '<Ctrl-r>': 'spawn -u readability',
     '<Ctrl-w>': 'tab-close',
+    '<Ctrl-Shift-a>': 'jseval -q c=document.getElementsByTagName(\'option\'); window.location.href = c[c.length-1].value',
+    '<Ctrl-Shift-x>': 'jseval -q window.location.href=document.getElementsByTagName(\'option\')[0].value',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
     ',': 'hint links run mpv {hint-url}',
     ';a': 'hint links run ' + kitdl + ' dl {hint-url}"',
