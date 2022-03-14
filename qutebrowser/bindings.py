@@ -19,6 +19,7 @@ bind = {
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',
+    'sm': 'spawn kitty fish -c "monolith {url} -o ~/Downloads/{url:domain}.html"',
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
     'st': 'config-cycle -p content.proxy socks://localhost:9050/ system',

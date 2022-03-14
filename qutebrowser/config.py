@@ -9,7 +9,7 @@ config.source('redirects.py')
 import subprocess
 subprocess.run(["sass", config.configdir / 'user.scss', config.configdir / 'user.css'])
 
-c.url.start_pages = c.url.default_page = 'fast-headland-67505.herokuapp.com'
+c.url.start_pages = c.url.default_page = 'megafocs.herokuapp.com'
 config.set('content.javascript.enabled', True, c.url.start_pages)
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
 

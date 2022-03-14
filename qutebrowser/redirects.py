@@ -52,6 +52,7 @@ MAP = {
         "www.amazon.com": o(s, 'smile.amazon.com'),
         "discord.com" : o(s, 'canary.discord.com'),
         "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
+        "tumblr.com" : o(s, 'tumblr-splash.herokuapp.com'),
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

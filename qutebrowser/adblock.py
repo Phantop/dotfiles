@@ -31,5 +31,6 @@ abp("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badwa
 abp("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt")
 abp("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt")
 abp("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt")
+abp("https://github.com/quenhus/uBlock-Origin-dev-filter/raw/main/dist/duckduckgo/global.txt")
 abp("https://raw.githubusercontent.com/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt")
 abp("https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=1&mimetype=plaintext")

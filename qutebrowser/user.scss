@@ -38,7 +38,7 @@ ul.work > li.download {
         border: none;
         position: unset;
         > li {font-size: small; &:not(:nth-child(2)) {display: none}}
-   }
+    }
 }
 
 $class: ad-frame-container, ad-panel, ad-slot, adsbygoogle, 
@@ -51,3 +51,20 @@ $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 
 $id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
+
+body {
+    --bg_color: #282a36;
+    --fg_color: #FFFFFF;
+    --fg_faded: #8899A6;
+    --bg_panel: #232531;
+    --bg_hover: #383a45;
+    --more_replies_dots: var(--accent_dark);
+    --darkest_grey: #1f212c;
+    --accent: #bd93f9;
+    --accent_light: #d7befb;
+    --accent_dark: #715895;
+    --background: #282a36;
+    --foreground: #3d4051;
+    --outside: #393c4d;
+    --post: #333544;
+}
