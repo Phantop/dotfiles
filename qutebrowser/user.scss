@@ -1,9 +1,12 @@
 @import url(https://nitter.net/css/themes/twitter_dark.css);
-@import url(https://necolas.github.io/normalize.css/latest/normalize.css);
+@import url(http://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css);
+
 #hnmain {
     zoom: 120%;
-    background: #212121;
-    td[bgcolor="#ff6600"] {background: #4b5762}
+    background: #212121 !important;
+    td[bgcolor="#ff6600"] {background: #4b5762 !important}
+    .title a:link, .c00, .c00 a:link {color: #FFF !important}
+    [action="comment"] {display:none}
 }
 
 #app-mount {
@@ -24,20 +27,19 @@
     "https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp"
 )}
 
-
 body.dracula {max-width: 777pt}
 body>nav:nth-child(1) {position: absolute}
-tbody>tr>[bgcolor="#CCCCCC"] {background: #000000}
+details:not([open]) > div.selftext {display:none}
+.thumbnail img.thumbnail{max-height:450px;width:auto!important;}
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto}
-.qute-readability {margin: auto !important}
 
 p#javascript-warning, [class^=nativead] {display: none}
 ul.work > li.download {
     font-size: 0;
     > ul {
-        border: none;
-        position: unset;
-        > li {font-size: small; &:not(:nth-child(2)) {display: none}}
+        border: none !important;
+        position: static !important;
+        > li {font-size: small; &:not(:nth-child(2)) {display: none !important}}
     }
 }
 
@@ -53,18 +55,18 @@ $id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 
 body {
+    --accent: #bd93f9;
+    --accent_dark: #715895;
+    --accent_light: #d7befb;
+    --background: #282a36;
     --bg_color: #282a36;
+    --bg_hover: #383a45;
+    --bg_panel: #232531;
+    --darkest_grey: #1f212c;
     --fg_color: #FFFFFF;
     --fg_faded: #8899A6;
-    --bg_panel: #232531;
-    --bg_hover: #383a45;
-    --more_replies_dots: var(--accent_dark);
-    --darkest_grey: #1f212c;
-    --accent: #bd93f9;
-    --accent_light: #d7befb;
-    --accent_dark: #715895;
-    --background: #282a36;
     --foreground: #3d4051;
+    --more_replies_dots: var(--accent_dark);
     --outside: #393c4d;
     --post: #333544;
 }

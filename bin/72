@@ -1,4 +1,0 @@
-#!/bin/sh
-xrandr --newmode $(cvt 1920 1080 72 | tail -n1 | cut -d' ' -f2-)
-xrandr --addmode $(xrandr --listactivemonitors | tail -n1 | cut -d' ' -f5- | awk '$1=$1') $(cvt 1920 1080 72 | tail -n1 | cut -d' ' -f2)
-xrandr --output $(xrandr --listactivemonitors | tail -n1 | cut -d' ' -f5- | awk '$1=$1') --mode $(cvt 1920 1080 72 | tail -n1 | cut -d' ' -f2)

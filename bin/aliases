@@ -1,14 +1,17 @@
 #!/usr/bin/fish
-alias a 'alias -s'
-set -U fish_features 3.0
-rm -r ~/.config/fish/functions
+rm -r ~/.config/fish/*
+ln -s ~/.dotfiles/fish/config.fish ~/.config/fish
 
-a acmus 'timeout --foreground (math 3600 - (date +%s) % 3600) mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%p|tr APM apm).ogg'
+curl -sL https://git.io/fisher | source
+fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
+set -U fish_features 3.{0,1,4}
+
+alias a 'alias -s'
+a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
 a aliases 'v (env which aliases); command aliases'
-a all2jxl 'fd -e{png,jpg} -x cjxl -e 8 -d 0 {} {.}.jxl && fd -e jxl -x rm {.}.{pn,jp}g'
-a ao3 'grep -Eo works/[0-9]+ $argv | uniq | tr -d a-z | parallel aria2c "https://ao3.org/downloads{}/\*.epub" -d ao3; rm'
+a all2jxl 'fd -e{pn,jp}g -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
+a ao3 'grep works/.\*/b $argv | cut -d/ -f3 | parallel curl -OJL ao3.org/downloads/{}/1.epub;:'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
-a bax 'source (which bax) && bax'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
 a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
@@ -18,43 +21,39 @@ a dot 'cd ~/.dotfiles'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
-a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} && fd -e pdf -x mv {}1 {}'
+a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -A'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
-a less 'eval $PAGER'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a ncdu 'ncdu --color off --graph-style hash'
-a nix 'bax . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
+a nix 'replay . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
+a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
+a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a off shutdown
-a offh 'off (math "60*"$argv);:'
 a open xdg-open
-a pagedl 'wget -H -k -p --no-clobber -e robots=off'
-a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp && fd -e webp -x rm {.}.png'
+a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
 a qutainer 'qutebrowser -B /tmp'
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
-a qbm 'qb (md2html $argv | psub -s .html);:'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
 a se 's eopkg'
-a spleet 'spleeter separate -o . -c flac'
 a tar bsdtar
-a tcsv 'curl -sL http://torrents-csv.ml/service/search?q="$argv"|jq ".[]|.name,.infohash,.seeders";:'
+a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
 a temp 'curl temp.sh -T'
-a tldrl 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/master/pages/{common,linux}/$argv.md;:'
+a tldrl 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a twitch 'mpv https://twitch.tv/$argv & disown ;:'
-a twitch-dl 'ffmpeg -i (yt-dlp -e $argv[1]|tr / _) -c copy $argv[2..-1] "file:(yt-dlp -g $argv[1]).mkv"'
-a untar 'tar xf'
+a uneopkg 'parallel "unzip -op {} install.tar.xz | tar xf -" ::: *.eopkg'
 a up 'se up --y'
 a v vi
+a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
-a warcdl 'pagedl --warc-file=(basename $argv)'
 a wm 'startx (which $argv[1]) $argv[2..-1]'
 a ydl 'while not yt-dlp $argv; end;:'
 

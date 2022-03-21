@@ -8,7 +8,7 @@ dev="arcanist ccache git-extras llvm-clang neovim parallel qt-creator solbuild"
 gui="caja gimp keepassxc kitty nicotine-plus qutebrowser syncthing zathura-mupdf"
 med="audaci{ty,ous{,-plugins}} avidemux mkvtoolnix mpv opus-tools spek yt-dlp"
 ric="ant-dracula-gtk-theme autojump font-ubuntu-ttf rofi starship stow"
-tui="advancecomp aria2 fd fish fzf innoextract jpegoptim most ncdu ripgrep tig"
+tui="advancecomp aria2 fd fish fzf innoextract jpegoptim ncdu ripgrep tig"
 sys="bleachbit corectrl ifuse linux-tools-cpupower p7zip tlp usbmuxd upx"
 se up; se it -c system.devel $dev $gui $med $ric $sys $tui
 
@@ -22,7 +22,6 @@ un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/release
       grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders
 un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
-wget https://adsbypasser.github.io/releases/adsbypasser.full.es7.user.js -P ~/.config/qutebrowser/greasemonkey/
 pip3 install adblock pipx-in-pipx readability-lxml
 
 chsh -s "$(which fish)"
