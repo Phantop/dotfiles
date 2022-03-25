@@ -47,6 +47,7 @@
     caa = ca -a
     ch = checkout
     cl = gc --aggressive --prune=now
+    d = difftool
     g = clone
     gr = clone --recursive
     l = log
@@ -62,3 +63,11 @@
     rebase = false
 [init]
     defaultBranch = main
+[diff]
+        tool = difftastic
+[difftool]
+        prompt = false
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+        difftool = true
