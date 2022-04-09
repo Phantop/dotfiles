@@ -1,6 +1,5 @@
 a=c.aliases
 a['re'] = 'restart'
-a['mpv'] = 'spawn -mdv mpv --ytdl-raw-options=sub-lang=en'
 a['css-reload'] = 'set content.user_stylesheets user.css'
 a['scss-reload'] = 'spawn -u /bin/bash -c "sassc $QUTE_CONFIG_DIR/user.{s,}css"'
 a['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'

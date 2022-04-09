@@ -1,0 +1,9 @@
+#!/bin/sh
+IFS=$(printf '\n\t')
+for i in $(fd -t f); do
+    if [ "$(du "$i" | cut -f1)" -lt "$(du "$1/$i" | cut -f1)" ]; then
+        echo "$i"
+        mv "$i" "$1/$i"
+    fi
+done
+
