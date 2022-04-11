@@ -45,3 +45,11 @@ cct.selected.even.fg            = 'black'
 cct.selected.odd.fg             = 'black'
 cc.messages.warning.bg          = 'red'
 cc.messages.warning.border      = 'red'
+
+cc.webpage.darkmode.enabled = True
+cc.webpage.preferred_color_scheme = 'dark'
+cc.webpage.darkmode.policy.images = 'never'
+
+c.tabs.show = 'multiple'
+c.qt.force_platformtheme = 'gtk2'
+c.completion.open_categories = ["bookmarks","history"]

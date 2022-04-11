@@ -39,6 +39,7 @@ ul.work > li.download {
     > ul {
         border: none !important;
         position: static !important;
+        display: inline;
         > li {font-size: small; &:not(:nth-child(2)) {display: none !important}}
     }
 }

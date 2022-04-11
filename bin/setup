@@ -7,9 +7,9 @@ se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 dev="arcanist ccache git-extras llvm-clang neovim parallel qt-creator solbuild"
 gui="caja gimp keepassxc kitty nicotine-plus qutebrowser syncthing zathura-mupdf"
 med="audaci{ty,ous{,-plugins}} avidemux mkvtoolnix mpv opus-tools spek yt-dlp"
-ric="ant-dracula-gtk-theme autojump font-ubuntu-ttf rofi starship stow"
+ric="ant-dracula-gtk-theme autojump font-ubuntu-ttf rofi starship sassc stow"
 tui="advancecomp aria2 fd fish fzf innoextract jpegoptim ncdu ripgrep tig"
-sys="bleachbit corectrl ifuse linux-tools-cpupower p7zip privoxy tlp usbmuxd upx"
+sys="bleachbit corectrl ifuse linux-tools-cpupower p7zip privoxy tlp usbmuxd upx tor"
 se up; se it -c system.devel $dev $gui $med $ric $sys $tui
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .
@@ -28,6 +28,7 @@ chsh -s "$(which fish)"
 fish -c "aliases;clean"
 s usermod -aG docker "$USER"
 s systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
+s systemctl enable --now privoxy
 
 g g p:appdwarf ~/.appdwarf
 g g p:solus-stuff ~/.solus

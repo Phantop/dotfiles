@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 rm -r ~/.config/fish/*
-ln -s ~/.dotfiles/fish/config.fish ~/.config/fish
+ln -s ../../.dotfiles/fish/config.fish ~/.config/fish
 
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
@@ -70,7 +70,7 @@ a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
-    a $i "qb \":open -t $i\""
+    a $i "qutebrowser-profile --load $i \":open $i\""
 end
 
 for i in deemix nsz scdl soundscrape spleeter
