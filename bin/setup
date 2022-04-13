@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+# shellcheck disable=SC2086
 alias s=sudo se="s eopkg -y" g=git
 
-gnome="$(echo eog gnome-{photos,mpv,terminal} nautilus rhythmbox)"
+gnome="eog gnome-photos gnome-mpv gnome-terminal nautilus rhythmbox"
 se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
 
 dev="arcanist ccache git-extras llvm-clang neovim parallel qt-creator solbuild"
@@ -18,6 +19,7 @@ mkdir -p ~/.parallel/will-cite
 echo source ~/.config/bashrc > ~/.bashrc
 ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 
+wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
       grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders
@@ -27,7 +29,7 @@ pip3 install adblock pipx-in-pipx readability-lxml
 chsh -s "$(which fish)"
 fish -c "aliases;clean"
 s usermod -aG docker "$USER"
-s systemctl mask tracker-{store,miner-{fs,rss,apps},extra,writeback}
+s systemctl mask tracker-store tracker-miner-fs tracker-miner-rss tracker-miner-apps tracker-extra tracker-writeback
 s systemctl enable --now privoxy
 
 g g p:appdwarf ~/.appdwarf

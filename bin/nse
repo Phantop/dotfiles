@@ -1,13 +1,13 @@
 #!/bin/sh
 d=$(mktemp -d)
-bsdtar xf "$@" -C$d
-t=$(fd -e ncx . $d)
-xml_grep content $t | uniq | grep content | cut -d\" -f2 |\
+bsdtar xf "$@" -C"$d"
+t=$(fd -e ncx . "$d")
+xml_grep content "$t" | uniq | grep content | cut -d\" -f2 |\
     sed -e 's#.*#<a href="&">&</a><br />#' -e 's#">[^/<]*/#">#'\
-    -e 's/\.xhtml/\.html/g' > $(dirname $t)/index.html
-fd -e xhtml . $d -x mv {} {.}.html
-if test -z $BROWSER; then
+    -e 's/\.xhtml/\.html/g' > "$(dirname "$t")"/index.html
+fd -e xhtml . "$d" -x mv {} '{.}'.html
+if test -z "$BROWSER"; then
     BROWSER=netsurf 
 fi
-eval $BROWSER $(dirname $t)/index.html
-rm -rf $d
+eval $BROWSER "$(dirname "$t")"/index.html
+rm -rf "$d"
