@@ -20,6 +20,8 @@ echo source ~/.config/bashrc > ~/.bashrc
 ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 
 wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
+wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
+    https://nitter.it/css/themes/dracula.css -P ~/.config/qutebrowser
 un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
       grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders

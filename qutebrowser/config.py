@@ -6,7 +6,7 @@ if socket.gethostname() == 'wheatley':
 
 c.content.fullscreen.window = True
 c.content.proxy = 'http://localhost:8118'
-c.content.user_stylesheets = 'user.css'
+c.content.user_stylesheets = ['adblock.css', 'dracula.css', 'user.css']
 
 c.confirm_quit = ['downloads']
 c.downloads.location.directory = '~/Downloads'

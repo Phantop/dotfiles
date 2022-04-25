@@ -1,5 +1,3 @@
-@import url(http://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css);
-
 #hnmain {
     zoom: 120%;
     background: #212121 !important;
@@ -55,34 +53,12 @@ $id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 
 body {
-    --accent: #bd93f9;
-    --accent_border: #bd93f9;
-    --accent_dark: #715895;
-    --accent_light: #d7befb;
-    --background: #282a36;
-    --bg_color: #282a36;
-    --bg_elements: var(--bg_panel);
-    --bg_hover: #383a45;
-    --bg_overlays: var(--bg_panel);
     --bg_panel: #232531;
-    --grey: var(--fg_faded);
-    --dark_grey: #38444D;
-    --darker_grey: #2A343C;
-    --darkest_grey: #1f212c;
-    --border_grey: #38444D;
-    --fg_color: #FFFFFF;
-    --fg_dark: var(--fg_faded);
-    --fg_faded: #8899A6;
-    --fg_nav: var(--accent);
-    --foreground: #3d4051;
-    --more_replies_dots: var(--accent_dark);
-    --outside: #393c4d;
-    --play_button: var(--accent);
-    --play_button_hover: var(--accent_light);
-    --tab: var(--grey);
-    --tab_selected: var(--accent);
+    --bg_overlays: var(--bg_panel);
+    --background: var(--bg_color);
+    --foreground: var(--bg_hover);
+    --green: var(--accent);
+    --highlighted: var(--bg_hover);
+    --outside: var(--post);
     --post: #333544;
-    --verified_blue: var(--accent);
-    --icon_text: var(--fg_color);
-    --profile_stat: var(--fg_color);
 }
