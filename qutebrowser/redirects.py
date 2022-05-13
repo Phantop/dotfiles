@@ -49,7 +49,6 @@ MAP = {
         "translate.google.com" : simplytranslate,
 
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
-        "www.amazon.com": o(s, 'smile.amazon.com'),
         "discord.com" : o(s, 'canary.discord.com'),
         "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
         "tumblr.com" : o(s, 'splashblr.herokuapp.com'),
