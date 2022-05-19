@@ -17,6 +17,7 @@ a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off -R "index.html*"'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
+a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a dot 'cd ~/.dotfiles'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
@@ -68,6 +69,8 @@ a foldwarf 'appdwarf -f $argv .;:'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
+a xcompress 'fxz -T0 -9 -k'
+a zipmount 'fuse-zip -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser-profile --load $i \":open $i\""
@@ -78,8 +81,8 @@ for i in deemix nsz scdl soundscrape spleeter
 end
 
 function alpine
-    set url https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64
-    set file (curl $url/latest-releases.yaml | grep file: | head -n1 | cut -d\  -f4)
+    set url https://dl-cdn.alpinelinux.org/alpine/edge/releases/x86_64/
+    set file (curl $url | grep s-2 | tac | sed -n 3p | cut -d\" -f2)
     mkdir alpine; curl $url/$file | tar xf - -Calpine
     cp /etc/resolv.conf alpine/etc
     proot -r alpine

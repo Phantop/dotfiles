@@ -1,5 +1,0 @@
-#!/bin/sh
-cook=$(mktemp)
-link="https://docs.google.com/uc?export=download&id=$(echo "$1"| cut -d/ -f6)"
-code=$(wget --save-cookies "$cook" "$link" -O- | grep -Eo "confirm=[0-9A-Za-z_]+")
-aria2c --load-cookies "$cook" "$link&$code" -c -x16 -s16

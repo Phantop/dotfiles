@@ -16,6 +16,7 @@ c.url.searchengines['DEFAULT'] = 'farside.link/searxng/search?q={}'
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
 c.url.searchengines['t'] = 'ao3.org/tags/{}'
 c.url.searchengines['!'] = 'duckduckgo.com/?q=!{}'
+c.url.searchengines['m'] = 'morty.ononoki.org/?mortyurl={}'
 c.url.start_pages = c.url.default_page = 'megafocs.herokuapp.com'
 
 config.source('adblock.py')
