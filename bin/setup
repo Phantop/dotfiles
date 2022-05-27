@@ -21,6 +21,7 @@ ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 
 wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 wget https://github.com/dracula/rofi/raw/master/theme/config2.rasi -P ~/.config/rofi
+wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
     https://nitter.it/css/themes/dracula.css -P ~/.config/qutebrowser
 un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
@@ -39,8 +40,7 @@ g g p:appdwarf ~/.appdwarf
 g g p:solus-stuff ~/.solus
 g g p:phantop.github.io ~/.site
 g g p:haiku-icons ~/.local/share/icons/Haiku
-g g h:junegunn/vim-plug ~/.config/nvim/autoload
-nvim +PlugUpdate +q +q
+nvim +PaqInstall +q
 
 parallel gsettings set org.gnome.desktop.interface {}-theme Haiku ::: cursor icon
 gsettings set org.gnome.desktop.interface gtk-theme Ant-Dracula
