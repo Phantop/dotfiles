@@ -49,7 +49,7 @@ $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 'id^=div-gpt-ad', 'id^=google_ads_', 'id^=netboard_', 'id^=skyscraper';
 @each $i in $div {div[#{$i}] {display:none}}
 
-$id: ads, comments, leaderboard, player-ads, rc-row-container;
+$id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 
 body {

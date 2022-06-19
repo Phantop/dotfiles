@@ -9,7 +9,7 @@ set -U fish_features 3.{0,1,4}
 alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
 a aliases 'v (env which aliases); command aliases'
-a all2jxl 'fd -e{pn,jp}g -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
+a all2jxl 'fd -e{png,jpg,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a ao3 'grep works/.\*/b $argv | cut -d/ -f3 | parallel curl -OJL ao3.org/downloads/{}/1.epub;:'
 a awall 'xwinwrap -ni -fdt -fs -- mpv -wid WID ~/Pictures/Awall/$argv* --profile=wallpaper'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
