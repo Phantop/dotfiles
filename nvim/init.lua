@@ -12,6 +12,7 @@ require "paq" {
     'RobertAudi/fish.vim';
     'tpope/vim-commentary';
     'tpope/vim-sensible';
+    'tpope/vim-sleuth';
     'tpope/vim-surround';
     'vim-airline/vim-airline';
 }
@@ -45,5 +46,5 @@ colorscheme dracula
 command Q q!
 filetype plugin indent on
 syntax enable
-PaqClean
+PaqSync
 ]]

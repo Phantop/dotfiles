@@ -38,7 +38,7 @@ bind = {
     'st': 'config-cycle -p content.proxy socks://localhost:9050 ' + c.content.proxy,
     'T' : 'tab-next',
     'td': 'config-unset -u {url:host} content.headers.user_agent',
-    'W': 'config-cycle -p -u *://*.{url:host}/* content.cookies.accept no-3rdparty never',
+    'W': 'config-cycle -p -u *://*.{url:host}/* content.cookies.accept no-3rdparty all never',
 }
 for a, b in bind.items():
     config.bind(a, b)

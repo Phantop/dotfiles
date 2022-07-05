@@ -3,7 +3,7 @@
 alias s=sudo se="s eopkg -y" g=git
 
 gnome="eog gnome-photos gnome-mpv gnome-terminal nautilus rhythmbox"
-se rm $gnome firefox hexchat libreoffice-common onboard thunderbird
+se rm $gnome firefox libreoffice-common onboard thunderbird
 
 dev="arcanist ccache git-extras llvm-clang neovim parallel qt-creator solbuild"
 gui="caja gimp keepassxc kitty nicotine-plus qutebrowser syncthing zathura-mupdf"

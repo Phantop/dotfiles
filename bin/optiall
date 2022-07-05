@@ -7,8 +7,8 @@ fd -e jpg -e jpeg -x jpegoptim
 fd -e png -e jpg -e jpeg g -X pingo -s9
 fd -e webp -x cwebp -z 9 -mt {} -o {}
 
-fd -e epub -e zip -e cbz -e jar -e docx -e odt -e apk -x advzip -z2
-fd -t f -x advdef -z2
+fd -t f -x advzip -z3
+fd -t f -x advdef -z3
 
 fd -e mp3 -x mp3packer
 fd -e mp3 -x rename -- -vbr ''

@@ -13,7 +13,7 @@ c.downloads.location.directory = '~/Downloads'
 c.qt.workarounds.remove_service_workers = True
 
 c.url.searchengines['DEFAULT'] = 'farside.link/searxng/search?q={}'
-c.url.searchengines['l'] = 'librex.elpengu.com/search.php?q={}'
+c.url.searchengines['l'] = 'search.davidovski.xyz/search.php?q={}'
 c.url.searchengines['m'] = 'morty.ononoki.org/?mortyurl={}'
 c.url.searchengines['t'] = 'ao3.org/tags/{}'
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
