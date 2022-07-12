@@ -1,32 +1,37 @@
 a=c.aliases
 a['re'] = 'restart'
-a['profile'] = 'spawn qutebrowser-profile'
 a['css-reload'] = 'set content.user_stylesheets user.css'
 a['scss-reload'] = 'spawn -u /bin/bash -c "sassc $QUTE_CONFIG_DIR/user.{s,}css"'
 a['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'
 a['toggle-dark'] = 'reload;;jseval -q const meta=document.createElement("meta");meta.name="color-scheme";document.head.appendChild(meta).content="dark";;stop'
-a['shutup'] = 'jseval -q document.head.appendChild(document.createElement("style")).innerHTML="@import url(https://rickyromero.com/shutup/updates/shutup.css)"'
 a['monolith-save'] = 'spawn kitty fish -c "monolith {url} -o'
 
-a['ao3-first']  = 'jseval -q window.location.href=document.getElementsByTagName(\'option\')[0].value'
-a['ao3-latest'] = 'jseval -q c=document.getElementsByTagName(\'option\'); window.location.href = c[c.length-1].value'
+a['ao3-first']  = 'jseval -q window.location = document.getElementsByTagName("option")[0].value'
+a['ao3-last'] = 'jseval -q c=document.getElementsByTagName("option"); window.location = c[c.length-1].value'
+a['ao3-next'] = 'jseval -q window.location = document.getElementsByClassName("next")[0].children[0]'
+a['ao3-prev'] = 'jseval -q window.location = document.getElementsByClassName("previous")[0].children[0]'
 
 kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
     '<Ctrl-q>': 'close',
-    '<Ctrl-r>': 'spawn -u readability',
     '<Ctrl-w>': 'tab-close',
-    '<Ctrl-Shift-a>': 'ao3-latest',
-    '<Ctrl-Shift-x>': 'ao3-first',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
+
+    '<Ctrl-Shift-x>': 'ao3-first',
+    '<Ctrl-Shift-a>': 'ao3-last',
+    'A': 'ao3-next',
+    'X': 'ao3-prev',
+
+    'm': 'spawn -mdv mpv {url}',
     ',': 'hint links run spawn -mdv mpv {hint-url}',
     ';a': 'hint links run ' + kitdl + ' dl {hint-url}"',
     ';v': 'hint links run ' + kitdl + ' ydl {hint-url}"',
     'aa': kitdl + ' dl {url}"',
     'av': kitdl + ' ydl {url}"',
+
+    '<Ctrl-r>': 'spawn -u readability',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
-    'm': 'spawn -mdv mpv {url}',
     's1': 'download-open',
     'sa': 'open -t archive.is/submit/?url={url}',
     'sc': 'toggle-dark',
