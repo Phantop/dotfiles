@@ -13,5 +13,5 @@ sudo solbuild delete-cache
 sudo rm -rf /var/lib/solbuild
 sudo solbuild init -p unstable-x86_64
 sudo journalctl --vacuum-size=1K
-bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|transmission|system.memory|cookies')
+bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|system.memory')
 sudo bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|system.memory')

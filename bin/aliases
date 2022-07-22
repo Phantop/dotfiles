@@ -16,7 +16,7 @@ a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
 a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
-a dirdl 'wget -r -k -p --no-parent --no-clobber -e robots=off -R "index.html*"'
+a dirdl 'wget -r -k -p -np -nc e robots=off'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
 a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a dot 'cd ~/.dotfiles'
