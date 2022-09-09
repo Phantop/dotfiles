@@ -44,6 +44,7 @@ bind = {
     'T' : 'tab-next',
     'td': 'config-unset -u {url:host} content.headers.user_agent',
     'W': 'config-cycle -p -u *://*.{url:host}/* content.cookies.accept no-3rdparty all never',
+    '<Alt+w>': 'config-cycle -p content.cookies.accept no-3rdparty never',
 }
 for a, b in bind.items():
     config.bind(a, b)

@@ -6,7 +6,7 @@ sites = [
         'archiveofourown.org',
         'canary.discord.com',
         '*.tutanota.com',
-        'megafocs.herokuapp.com',
+        c.url.default_page,
 
         '*.rpi.edu',
         'api-3e0243bb.duosecurity.com',

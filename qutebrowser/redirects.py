@@ -29,8 +29,12 @@ def bibliogram(url: QUrl) -> bool:
     return farside(url, '/bibliogram/')
 def simplytranslate(url: QUrl) -> bool:
     return farside(url, '/simplytranslate/')
+def proxitok(url: QUrl) -> bool:
+    return farside(url, '/proxitok/')
+def querte (url: QUrl) -> bool:
+    return farside(url, '/querte/')
 
-MAP = {
+map = {
         "reddit.com": reddit,
         "www.reddit.com": reddit,
         "old.reddit.com": reddit,
@@ -47,11 +51,12 @@ MAP = {
         "en.wikipedia.org" : wikiless,
         "www.instagram.com": bibliogram,
         "translate.google.com" : simplytranslate,
+        "vm.tiktok.com" : proxitok,
+        "www.quora.com": querte,
 
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
         "discord.com" : o(s, 'canary.discord.com'),
-        "vm.tiktok.com" : o(s, 'proxitok.herokuapp.com'),
-        "tumblr.com" : o(s, 'splashblr.herokuapp.com'),
+        "tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         }
 def f(info: i.Request):
@@ -59,7 +64,7 @@ def f(info: i.Request):
             info.request_url.scheme() in {"data", "blob"}):
         return
     url = info.request_url
-    redir = MAP.get(url.host())
+    redir = map.get(url.host())
     if redir is not None and redir(url) is not False:
         info.redirect(url)
 i.register(f)

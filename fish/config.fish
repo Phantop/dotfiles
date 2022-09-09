@@ -1,4 +1,4 @@
-fish_add_path -g ~/{.local,Games}/bin /usr/lib64/ccache/bin
+fish_add_path -g ~/.appdwarf/{,apps} ~/{.dotfiles,.local,,Games}/bin /usr/lib64/ccache/bin
 export EDITOR=nvim MANPAGER='nvim +Man!' USE_CCACHE=1
 
 set fish_greeting

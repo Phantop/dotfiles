@@ -30,7 +30,6 @@ a l ls
 a la 'l -A'
 a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
-a ncdu 'ncdu --color off --graph-style hash'
 a nix 'replay . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
@@ -57,7 +56,7 @@ a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a wm 'startx (which $argv[1]) $argv[2..-1]'
-a ydl 'while not yt-dlp $argv; end;:'
+a ydl 'yt-dlp'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
@@ -73,7 +72,7 @@ a xcompress 'fxz -T0 -9 -k'
 a zipmount 'fuse-zip -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
-    a $i "qutebrowser-profile --load $i \":open $i\""
+    a $i "qutebrowser / \":open $i\""
 end
 
 for i in deemix nsz scdl soundscrape spleeter
