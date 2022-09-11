@@ -1,10 +1,7 @@
 #!/bin/sh
-fd -e pdf -x cpdfsqueeze {} {}
 fd -e pdf -x qpdf --stream-data=compress --replace-input --compress-streams=y --recompress-flate --compression-level=9 --optimize-images {}
 
-fd -e png -x oxipng
 fd -e jpg -e jpeg -x jpegoptim
-fd -e png -e jpg -e jpeg g -X pingo -s9
 fd -e webp -x cwebp -z 9 -mt {} -o {}
 
 fd -t f -x advzip -z3

@@ -11,12 +11,11 @@ c.confirm_quit = ['downloads']
 c.downloads.location.directory = '~/Downloads'
 c.qt.workarounds.remove_service_workers = True
 
-c.url.searchengines['DEFAULT'] = 'farside.link/searxng/search?q={}'
 c.url.searchengines['l'] = 'farside.link/librex/search.php?q={}'
 c.url.searchengines['m'] = 'morty.ononoki.org/?mortyurl={}'
-c.url.searchengines['t'] = 'ao3.org/tags/{}'
+c.url.searchengines['s'] = 'farside.link/searxng/search?q={}'
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
-c.url.searchengines['!'] = 'duck.com/?q=!{}'
+c.url.searchengines['DEFAULT'] = c.url.searchengines['l']
 c.url.start_pages = c.url.default_page = 'megafocs.fly.dev'
 
 config.source('adblock.py')

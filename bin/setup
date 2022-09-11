@@ -5,12 +5,13 @@ alias s=sudo se="s eopkg -y" g=git
 gnome="gnome-photos gnome-mpv gnome-terminal nautilus rhythmbox"
 se rm $gnome firefox libreoffice-common onboard thunderbird
 
-a="advancecomp arcanist aria2 audacious audacity avidemux bleachbit caja ccache"
-b="corectrl fd fish fzf gimp git-extras ifuse innoextract jpegoptim keepassxc kitty"
-c="linux-tools-cpupower llvm-clang lrzip mkvtoolnix moreutils mpv ncdu neovim"
-d="nicotine-plus nnn opus-tools p7zip parallel qt-creator qutebrowser ripgrep"
-e="solbuild spek syncthing tig tlp tor upx usbmuxd yt-dlp zathura-mupdf"
-se up; se it -c system.devel $a $b $c $d $e
+a="advancecomp arcanist archivemount aria2 audacious audacity avidemux bleachbit"
+b="caja ccache corectrl fd fish fuse-zip fzf gifsicle gimp git-extras ifuse"
+c="innoextract jpegoptim keepassxc kitty linux-tools-cpupower llvm-clang lrzip lynx"
+d="mkvtoolnix moreutils mpv ncdu neovim nicotine-plus nnn opus-tools p7zip parallel"
+e="qt-creator qutebrowser ripgrep solbuild spek syncthing tig tlp tor upx usbmuxd"
+f="yt-dlp zathura-mupdf"
+se up; se it -c system.devel $a $b $c $d $e $f
 pip3 install adblock pipx-in-pipx readability-lxml
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .

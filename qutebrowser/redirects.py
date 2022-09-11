@@ -52,6 +52,7 @@ map = {
         "www.instagram.com": bibliogram,
         "translate.google.com" : simplytranslate,
         "vm.tiktok.com" : proxitok,
+        "www.tiktok.com" : proxitok,
         "www.quora.com": querte,
 
         "www.twitch.tv" : o(s, 'm.twitch.tv'),

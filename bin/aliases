@@ -20,6 +20,7 @@ a dirdl 'wget -r -k -p -np -nc e robots=off'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
 a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a dot 'cd ~/.dotfiles'
+a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
 a giveme 's chown $USER'
