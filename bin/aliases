@@ -64,8 +64,8 @@ a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs'
 a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap'
-a dwarfs2null 'dwarfsextract -o /dev/null -f ustar -i'
-a dwarfs2tar 'dwarfsextract -o dwarfs-root.tar -f ustar -i'
+a dwarfs2null 'dwarfsextract -o /dev/null -f gnutar -i'
+a dwarfs2tar 'dwarfsextract -o dwarfs-root.tar -f gnutar -i'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
@@ -76,7 +76,7 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix nsz scdl soundscrape spleeter
+for i in deemix nsz ratarmount scdl soundscrape spleeter
     a $i "pipx run $i"
 end
 

@@ -47,4 +47,6 @@ command Q q!
 filetype plugin indent on
 syntax enable
 PaqSync
+
+autocmd BufReadPost,FileReadPost *.bz3 call gzip#read("bzip3 -d")
 ]]
