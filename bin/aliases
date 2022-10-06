@@ -37,7 +37,7 @@ a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a off shutdown
 a open xdg-open
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
-a qutainer 'qutebrowser -B /tmp'
+a qutainer 'qutebrowser --temp-basedir'
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'

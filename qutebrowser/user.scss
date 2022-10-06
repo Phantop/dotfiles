@@ -12,7 +12,7 @@
 
     --background-floating: rgba(0, 0, 0, .6);
     --channeltextarea-background: transparent;
-    [class^="container"],.container-ZMc96U.themed-Hp1KC_ {background: transparent}
+    [class^="container"], section {background: transparent}
     #channels [class^="unread"] {background: #cfcdcf}
 
     $aria: gift, Help, Inbox, sidebar;
@@ -24,13 +24,7 @@
     "https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp"
 )}
 
-body.dracula {max-width: 777pt}
-body>nav:nth-child(1) {position: absolute}
-details:not([open]) > div.selftext {display:none}
-.thumbnail img.thumbnail{max-height:450px;width:auto!important;}
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto}
-
-p#javascript-warning, [class^=nativead] {display: none}
 ul.work > li.download {
     font-size: 0;
     > ul {
@@ -52,6 +46,7 @@ $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 $id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 
+body>nav:nth-child(1):not([class]) {position: absolute}
 body {
     --bg_panel: #232531;
     --bg_overlays: var(--bg_panel);
@@ -61,4 +56,9 @@ body {
     --highlighted: var(--bg_hover);
     --outside: var(--post);
     --post: #333544;
+    --panel-border: var(--post);
+    --shadow: 0 1px 3px #00000055;
 }
+
+[id^="streamEntryBody"] {display: none}
+.stream-grade.ng-hide { display: flex !important }
