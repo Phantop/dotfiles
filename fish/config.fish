@@ -22,4 +22,4 @@ bind \ef 'fzf | clip'
 bind \e\co 'open (_fzf_wrapper)'
 
 source /usr/share/autojump/autojump.fish
-tty -s && starship init fish --print-full-init | source
+tty -s && starship init fish --print-full-init | source && echo -en "\e[5 q"

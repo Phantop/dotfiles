@@ -86,3 +86,51 @@ function alpine
     proot -r alpine
 end
 funcsave alpine
+
+function record
+    set recfile /tmp/fish_$fish_pid\_$(date +%s.%N)
+    set -g --append recfiles $recfile
+    set -g --append reclines "$argv"
+    set -g --append recfolds $PWD
+
+    if test (type -t $argv[1]) = file
+        script -efq $recfile -c "$argv"
+    else
+        script -efq $recfile -c "fish -c '$argv'"
+    end
+
+    zstdmt -c $recfile &| sponge $recfile
+
+    function rmrec_(basename $recfile) --on-event fish_exit -V recfile
+        rm $recfile
+    end
+end
+funcsave record
+
+function listrecords
+    for i in (seq (count $recfiles))
+        echo $i: $recfiles[$i]
+        printf \t; date -d @(echo $recfiles[$i] | cut -d_ -f3)
+        echo \t$reclines[$i]
+        echo \t$recfolds[$i]
+    end
+end
+funcsave listrecords
+
+function viewrecord
+    if test $argv
+        set num $argv
+    else
+        listrecords
+        echo Input the number of the desired recording:
+        set num (read)
+    end
+
+    if test $KITTY_PID
+        kitty @ launch --type=tab --hold zstdcat $recfiles[$num]
+    else
+        clear
+        zstdcat $recfiles[$num]
+    end
+end
+funcsave viewrecord

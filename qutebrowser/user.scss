@@ -80,9 +80,9 @@ body>div#outer.wrapper {
     }
 
     dl.meta, li.blurb, li.comment {border-color: #555}
-    a:visited {color: #999}
+    a:visited, .work > li > div.header h4 a:visited {color: #999}
     #admin-banner, #header > ul.primary {display:none}
-    h1.heading a, .splash .module h3, a:hover {color: MediumPurple}
+    h1.heading a, .splash .module h3, a:hover, li > div.header h4 a {color: MediumPurple}
     .secondary {box-shadow:none;background: #000;}
     #dashboard {border:none; .navigation.actions {border-top:none}}
     .user.home h2 {border-bottom: none}
@@ -91,7 +91,7 @@ body>div#outer.wrapper {
     ul.work > li {
         &.share {display: none}
         a.collapsed {display: none}
-        ul {
+        ul.secondary {
             border: none !important;
             display: inline !important;
             position: static;
