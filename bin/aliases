@@ -16,7 +16,7 @@ a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
 a clip 'xclip -sel clip'
 a cpugov 's cpupower frequency-set -g performance'
-a dirdl 'wget -r -k -p -np -nc e robots=off'
+a dirdl 'wget -r -k -p -np -e robots=off'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
 a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a dot 'cd ~/.dotfiles'
@@ -47,9 +47,8 @@ a se 's eopkg'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
 a temp 'curl temp.sh -T'
-a tldrl 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
+a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
-a twitch 'mpv https://twitch.tv/$argv & disown ;:'
 a uneopkg 'parallel "unzip -op {} install.tar.xz | tar xf -" ::: *.eopkg'
 a up 'se up --y'
 a v vi
@@ -70,7 +69,6 @@ a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 a xcompress 'fxz -T0 -9 -k'
-a zipmount 'fuse-zip -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
