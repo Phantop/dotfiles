@@ -10,7 +10,6 @@ seat seat0 xcursor_theme Haiku
 
 # STARTUP APPS #
 exec wlsunset -t 3500
-exec syncthing-gtk
 exec nm-applet --indicator
 
 # IDLE AND LOCK #
@@ -112,9 +111,9 @@ bar {
     position top
     status_command i3status
     colors {
-        background #222D32
-        focused_workspace #00A5BA #5294E2 #FFFFFF
-        inactive_workspace #222D32 #222D32 #FFFFFF
+        background #282a36
+        focused_workspace #bd93f9 #bd93f9 #FFFFFF
+        inactive_workspace #282a36 #282a36 #FFFFFF
     }
     mode hide
     font Monospace 12
