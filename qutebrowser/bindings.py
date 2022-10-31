@@ -10,6 +10,8 @@ a['ao3-first']  = 'jseval -q window.location = document.getElementsByTagName("op
 a['ao3-last'] = 'jseval -q c=document.getElementsByTagName("option"); window.location = c[c.length-1].value'
 a['ao3-next'] = 'jseval -q window.location = document.getElementsByClassName("next")[0].children[0]'
 a['ao3-prev'] = 'jseval -q window.location = document.getElementsByClassName("previous")[0].children[0]'
+a['scrib-next'] = 'jseval -q window.location = document.getElementsByClassName("btn-next")[0]'
+a['scrib-prev'] = 'jseval -q window.location = document.getElementsByClassName("btn-prev")[0]'
 
 kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
@@ -21,6 +23,8 @@ bind = {
     '<Ctrl-Shift-a>': 'ao3-last',
     'A': 'ao3-next',
     'X': 'ao3-prev',
+    '<Alt+A>': 'scrib-next',
+    '<Alt+X>': 'scrib-prev',
 
     'm': 'spawn -mdv mpv {url}',
     ',': 'hint links run spawn -mdv mpv {hint-url}',
