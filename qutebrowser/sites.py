@@ -10,6 +10,7 @@ sites = [
 
         '*.rpi.edu',
         'api-3e0243bb.duosecurity.com',
+        'www.gradescope.com',
         ]
 for site in sites:
     config.set('content.javascript.enabled', True, 'https://' + site)

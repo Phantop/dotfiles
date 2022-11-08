@@ -5,7 +5,7 @@ sudo eopkg rmo -y
 sudo eopkg rdb -y
 sudo eopkg clean -y
 fc-cache -f
-rm -r ~/.cache
+rm -r ~/.cache ~/.wine ~/.local/pipx/.cache/
 fish -c "j --purge"
 docker system prune -f
 docker image prune -a
