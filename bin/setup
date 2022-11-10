@@ -18,11 +18,14 @@ ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 mkdir -p ~/.parallel/will-cite
 
 wget https://github.com/dracula/rofi/raw/master/theme/config2.rasi -P ~/.config/rofi
+wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
+wget https://github.com/dracula/musikcube/raw/master/dracula.json -P ~/.config/musikcube
+
 wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
-wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
     https://nitter.it/css/themes/dracula.css -P ~/.config/qutebrowser
+
 un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
       grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders
