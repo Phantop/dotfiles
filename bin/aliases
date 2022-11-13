@@ -6,6 +6,8 @@ curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
 set -U fish_features 3.{0,1,4}
 fish_update_completions
+ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
+starship init fish --print-full-init > ~/.config/fish/conf.d/starship.fish
 
 alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'

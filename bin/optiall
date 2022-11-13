@@ -7,7 +7,6 @@ fd -e webp -x cwebp -z 9 -mt {} -o {}
 fd -t f -x advzip -z3
 fd -t f -x advdef -z3
 
-fd -e mp3 -x mp3packer
-fd -e mp3 -x rename -- -vbr ''
+fd -e mp3 -x mp3packer \; -x rename -- -vbr ''
 
 fd -e so -x strip
