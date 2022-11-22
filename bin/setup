@@ -6,10 +6,11 @@ gnome="gnome-photos gnome-mpv gnome-terminal nautilus rhythmbox"
 se rm $gnome firefox libreoffice-common onboard thunderbird
 
 pkgs="advancecomp arcanist aria2 audacious audacity autojump avidemux bleachbit caja
-ccache corectrl fd fish fzf gifsicle gimp git-extras ifuse innoextract jpegoptim
-keepassxc kitty linux-tools-cpupower llvm-clang lrzip lynx mkvtoolnix moreutils mpv
-ncdu neovim nicotine-plus nnn opus-tools p7zip parallel qt-creator qutebrowser
-ripgrep solbuild spek starship syncthing tig tlp tor upx usbmuxd yt-dlp zathura-mupdf"
+ccache corectrl dolphin-emu fd fish fzf gifsicle gimp git-extras htop ifuse
+innoextract jpegoptim keepassxc kitty linux-tools-cpupower llvm-clang lrzip lynx
+mkvtoolnix moreutils mpv ncdu neovim nicotine-plus nnn opus-tools p7zip parallel
+qt-creator qutebrowser ripgrep solbuild spek starship syncthing tig tlp tor upx
+usbmuxd yt-dlp zathura-mupdf"
 se up; se it -c system.devel $pkgs
 pip3 install adblock pipx-in-pipx readability-lxml
 

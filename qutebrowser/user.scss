@@ -71,11 +71,12 @@ body>div#outer.wrapper {
         background: #000;
         color: #fff;
     }
-    fieldset, #user-bookmarks, .bookmark .user {
+    fieldset, #user-bookmarks, .bookmark .user, .listbox, .listbox.index {
         background: #000;
         border: 1px solid #555;
         box-shadow: none;
         ol.index.group {box-shadow: none}
+        ul.index.group {box-shadow: none; background: #000;}
         button, h3 {color: #fff}
     }
 
