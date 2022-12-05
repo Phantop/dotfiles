@@ -29,6 +29,8 @@ a g git
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
+a hlp '$argv --help | eval $MANPAGER'
+a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -A'
