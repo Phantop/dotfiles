@@ -1,0 +1,10 @@
+#!/bin/sh
+if mkdir objects; then
+    d=$(curl https://piston-meta.mojang.com/mc/game/version_manifest.json | jq -r .versions[0].url)
+    wget "$(curl "$d" | jq -r .assetIndex.url)" -P indexes
+    jq -r .objects[].hash < indexes/2.json | sed 's#^\(..\)#https://resources.download.minecraft.net/\1/\1#' | xargs aria2c -d objects -Z
+    ( echo "cd objects"; printf "mkdir %02x; mv %02x* %02x\n" $(seq 0 255 | sed 'p;p') ) | sh
+    curl "$d" | jq .libraries[].downloads.artifact.url,.downloads.client.url | grep -vE 'windows|macos' | xargs aria2c -d objects -Z
+fi
+java -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M\
+    -Xms1G -Xmx8G -cp 'objects/*' net.minecraft.client.main.Main --version . --assetsDir . --assetIndex 2 --accessToken 0 "$@"
