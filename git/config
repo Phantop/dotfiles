@@ -29,6 +29,9 @@
     insteadOf = "h:"
 [url "https://github.com/Phantop/"]
     insteadOf = "p:"
+[url "https://july.fly.dev/july/"]
+    insteadOf = "july:"
+    insteadOf = "j:"
 [url "https://gitlab.com/"]
     insteadOf = "gitlab:"
     insteadOf = "lab:"
@@ -64,10 +67,10 @@
 [init]
     defaultBranch = main
 [diff]
-        tool = difftastic
+    tool = difftastic
 [difftool]
-        prompt = false
+    prompt = false
 [difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
+    cmd = difft "$LOCAL" "$REMOTE"
 [pager]
-        difftool = true
+    difftool = true

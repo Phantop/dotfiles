@@ -34,7 +34,7 @@ a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -A'
-a launcher 'rofi -combi-modi "drun,run" -show combi -modi "combi,window"'
+a launcher 'rofi -combi-modi drun,run,window -modi combi -show'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a nix 'replay . ~/.nix-profile/etc/profile.d/nix.sh; command nix'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
