@@ -99,6 +99,15 @@ body>div#outer.wrapper {
             &:not(#chapter_index) > li:not(:nth-child(2)) {display: none}
         }
     }
+    #main > div.splash > div.module:not(.readings) {display: none}
+    #main > div.splash > div.module.readings {width:100%}
+    #bookmark-form > form > fieldset > fieldset:nth-child(4) {display:none}
+
+    .wrapper, .toggled, .toggled form {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
 }
 
 [data-csrf-token] {
