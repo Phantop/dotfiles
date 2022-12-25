@@ -44,3 +44,8 @@ nvim +PaqInstall +q
 
 parallel gsettings set org.gnome.desktop.interface {}-theme Haiku ::: cursor icon
 gsettings set org.gnome.desktop.interface gtk-theme Ant-Dracula
+
+for i in ~/.dotfiles/dconf/*; do
+    dconf reset -f "$(basename $i | sed 's/^/./;s#\.#/#g;s#.toml#/#')"
+    dconf load "$(basename $i | sed 's/^/./;s#\.#/#g;s#.toml#/#')" < "$i"
+done
