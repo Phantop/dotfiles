@@ -1,6 +1,7 @@
 set selection-clipboard clipboard
 set highlight-active-color '#FF79C6'
 set first-page-column 0
+set page-padding 0
 
 #set recolor
 set recolor-keephue
