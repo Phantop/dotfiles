@@ -63,8 +63,8 @@ a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath
 a wm 'startx (which $argv[1]) $argv[2..-1]'
 a ydl 'yt-dlp'
 
-a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
-a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=256m -ms=on (realpath $argv[1]).7z'
+a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
+a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs -f'
 a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
 a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap'
