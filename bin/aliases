@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 rm -r ~/.config/fish/*
-ln -s ../../.dotfiles/fish/config.fish ~/.config/fish
+stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
@@ -13,7 +13,6 @@ alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
 a aliases 'v (env which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
-a ao3 'grep works/.\*/b $argv | cut -d/ -f3 | parallel curl -OJL ao3.org/downloads/{}/1.epub;:'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
@@ -79,64 +78,7 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix diffoscope encodec git-sim lightnovel-crawler mandown mathicsscript nsz portablemc ratarmount scdl soundscrape spleeter
+for i in deemix diffoscope encodec git-sim lightnovel-crawler mandown mathicsscript nsz pdf2docx portablemc ratarmount scdl soundscrape spleeter
     a $i "pipx run $i"
 end
 a mathics 'pipx run --spec mathics-django mathicsserver'
-
-function alpine
-    set url https://dl-cdn.alpinelinux.org/alpine/edge/releases/x86_64/
-    set file (curl $url | grep s-2 | tac | sed -n 3p | cut -d\" -f2)
-    mkdir alpine; curl $url/$file | tar xf - -Calpine
-    cp /etc/resolv.conf alpine/etc
-    proot -r alpine
-end
-funcsave alpine
-
-function record
-    set recfile /tmp/fish_$fish_pid\_$(date +%s.%N)
-    set -g --append recfiles $recfile
-    set -g --append reclines "$argv"
-    set -g --append recfolds $PWD
-
-    if test (type -t $argv[1]) = file
-        script -efq $recfile -c "$argv"
-    else
-        script -efq $recfile -c "fish -c '$argv'"
-    end
-
-    zstdmt -c $recfile &| sponge $recfile
-
-    function rmrec_(basename $recfile) --on-event fish_exit -V recfile
-        rm $recfile
-    end
-end
-funcsave record
-
-function listrecords
-    for i in (seq (count $recfiles))
-        echo $i: $recfiles[$i]
-        printf \t; date -d @(echo $recfiles[$i] | cut -d_ -f3)
-        echo \t$reclines[$i]
-        echo \t$recfolds[$i]
-    end
-end
-funcsave listrecords
-
-function viewrecord
-    if test $argv
-        set num $argv
-    else
-        listrecords
-        echo Input the number of the desired recording:
-        set num (read)
-    end
-
-    if test $KITTY_PID
-        kitty @ launch --type=tab --hold zstdcat $recfiles[$num]
-    else
-        clear
-        zstdcat $recfiles[$num]
-    end
-end
-funcsave viewrecord
