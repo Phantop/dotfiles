@@ -6,7 +6,7 @@ test -f /usr/share/man/man3/Parallel::ForkManager.3pm || sudo eopkg it perl-para
 if test $# -eq 0; then
     mkdir "$LOFI"
     fusermount -u "$LOFI"
-    ifuse --documents com.foobar2000.mobile "$LOFI"
+    ifuse --documents com.foobar2000.mobile "$LOFI" || exit 1
 else
     LOFI=$1
 fi
@@ -18,7 +18,7 @@ if ! test -d "$LOFI"; then
 fi
 
 # https://github.com/smxi/acxi/raw/stable/acxi
-acxi -s "$HIFI" -d "$LOFI" -o opus -q 256 --clean sync -F 16 -c mp3,m4a,opus
+acxi -s "$HIFI" -d "$LOFI" -o opus -q 256 --clean sync -F 16 -c mp3,m4a,opus,ogg
 
 fusermount -u "$LOFI"
 rmdir "$LOFI"

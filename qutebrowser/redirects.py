@@ -19,8 +19,6 @@ def rimgo(url: QUrl) -> bool:
     return farside(url, '/rimgo/')
 def scribe(url: QUrl) -> bool:
     return farside(url, '/scribe/')
-def wikiless(url: QUrl) -> bool:
-    return farside(url, '/wikiless/')
 def invid(url: QUrl) -> bool:
     return farside(url, '/invidious/')
 def reddit(url: QUrl) -> bool:
@@ -48,7 +46,6 @@ map = {
 
         "imgur.com" : rimgo,
         "medium.com" : scribe,
-        "en.wikipedia.org" : wikiless,
         "www.instagram.com": bibliogram,
         "translate.google.com" : simplytranslate,
         "vm.tiktok.com" : proxitok,
