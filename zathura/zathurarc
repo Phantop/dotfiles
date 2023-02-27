@@ -9,3 +9,4 @@ set recolor-reverse-video
 set recolor-darkcolor '#FFFFFF'
 map <C-i> set recolor-reverse-video
 map <A-e> set 'default-bg \#EEE'
+map <A-v> set vertical-center

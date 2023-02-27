@@ -60,14 +60,14 @@ a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
-a wm 'startx (which $argv[1]) $argv[2..-1]'
+a wm 'startx (which $argv[1]) $argv[2..-1];:'
 a ydl 'yt-dlp'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a dwarf 'mkdwarfs -i . -o $PWD.dwarfs -f'
 a dwarfmount 'dwarfs -f $argv (mktemp -d | tee /dev/tty /dev/stderr 2>| clip);:'
-a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap'
+a dwarfs 'dwarfs -o offset=auto -o tidy_strategy=swap -o workers=(nproc)'
 a dwarfs2null 'dwarfsextract -o /dev/null -f gnutar -i'
 a dwarfs2tar 'dwarfsextract -o dwarfs-root.tar -f gnutar -i'
 a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'

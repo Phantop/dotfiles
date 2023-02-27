@@ -11,7 +11,7 @@ c.confirm_quit = ['downloads']
 c.downloads.location.directory = '~/Downloads'
 c.qt.workarounds.remove_service_workers = True
 
-c.url.searchengines['l'] = 'farside.link/librex/search.php?q={}'
+c.url.searchengines['l'] = 'lx.vern.cc/search.php?q={}'
 c.url.searchengines['m'] = 'morty.ononoki.org/?mortyurl={}'
 c.url.searchengines['s'] = 'farside.link/searxng/search?q={}'
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
