@@ -56,6 +56,10 @@ map = {
         "discord.com" : o(s, 'canary.discord.com'),
         "tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
+
+        "www.goodreads.com" : o(s, 'bl.vern.cc'),
+        "genius.com" : o(s, 'db.vern.cc'),
+        "stackoverflow.com" : o(s, 'ao.vern.cc'),
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

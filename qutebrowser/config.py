@@ -1,9 +1,4 @@
 config.load_autoconfig(False)
-
-import socket
-if socket.gethostname() == 'wheatley':
-    c.zoom.default = 125
-
 c.content.fullscreen.window = True
 c.content.user_stylesheets = ['adblock.css', 'dracula.css', 'user.css']
 
