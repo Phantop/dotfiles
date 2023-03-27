@@ -14,11 +14,11 @@ fi
 if ! test -d "$LOFI"; then
     cd "$HIFI" || exit 1
     fd -t d -x mkdir -p "$LOFI"/{}
-    fd -e flac -x opusenc --bitrate 256 {} "$LOFI"/'{.}'.opus
+    fd -e flac -x opusenc --bitrate 128 {} "$LOFI"/'{.}'.opus
 fi
 
 # https://github.com/smxi/acxi/raw/stable/acxi
-acxi -s "$HIFI" -d "$LOFI" -o opus -q 256 --clean sync -F 16 -c mp3,m4a,opus,ogg
+acxi -s "$HIFI" -d "$LOFI" -o opus -q 128 --clean sync -F 16 -c mp3,m4a,opus,ogg
 
 fusermount -u "$LOFI"
 rmdir "$LOFI"

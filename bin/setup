@@ -18,9 +18,9 @@ stow --no-folding -d ~/.dotfiles -t ~/.config .
 ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 mkdir -p ~/.parallel/will-cite
 
-wget https://github.com/dracula/rofi/raw/master/theme/config2.rasi -P ~/.config/rofi
+wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
 wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
-wget https://github.com/dracula/musikcube/raw/master/dracula.json -P ~/.config/musikcube
+wget https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube
 
 wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua

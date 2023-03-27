@@ -11,7 +11,7 @@ c.url.searchengines['s'] = 'farside.link/searxng/search?q={}'
 c.url.searchengines['y'] = 'farside.link/invidious/search?q={}'
 c.url.searchengines['m'] = 'morty.ononoki.org/?mortyurl={}'
 c.url.searchengines['a'] = 'annas-archive.org/search?q={}'
-c.url.searchengines['DEFAULT'] = c.url.searchengines['l']
+c.url.searchengines['DEFAULT'] = c.url.searchengines['s']
 c.url.start_pages = c.url.default_page = 'minifocs.fly.dev'
 
 config.source('adblock.py')
