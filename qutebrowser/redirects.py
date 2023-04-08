@@ -1,6 +1,6 @@
 from qutebrowser.api import interceptor
 from urllib.parse import urljoin
-from PyQt5.QtCore import QUrl
+from PyQt6.QtCore import QUrl
 import operator
 
 o = operator.methodcaller

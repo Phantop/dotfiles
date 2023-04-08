@@ -1,7 +1,7 @@
 a=c.aliases
 a['re'] = 'restart'
 a['css-reload'] = 'set content.user_stylesheets user.css'
-a['scss-reload'] = 'spawn -u /bin/bash -c "sassc $QUTE_CONFIG_DIR/user.{s,}css"'
+a['scss-reload'] = 'spawn -u /bin/bash -c "sass $QUTE_CONFIG_DIR/user.{s,}css"'
 a['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'
 a['toggle-dark'] = 'reload;;jseval -q const meta=document.createElement("meta");meta.name="color-scheme";document.head.appendChild(meta).content="dark";;stop'
 a['monolith-save'] = 'spawn kitty fish -c "monolith {url} -o'

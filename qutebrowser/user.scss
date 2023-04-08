@@ -19,7 +19,7 @@
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
     [class^="private"] [class^="search"], [href="/store"] {display: none}
 
-    font-family: "Ubuntu Mono";
+    font-family: "UbuntuMono Nerd Font";
     background: url(
     "https://cdn.discordapp.com/attachments/773556458234052608/929383713932992512/0dKbZO5-16-9.webp"
 )}

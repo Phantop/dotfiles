@@ -39,7 +39,7 @@ name='Gurk'
 
 [custom-keybindings/custom6]
 binding='<Super>n'
-command='netsurf'
+command='netsurf-gtk3'
 name='Netsurf'
 
 [custom-keybindings/custom7]

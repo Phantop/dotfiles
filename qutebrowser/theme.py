@@ -1,3 +1,6 @@
+c.fonts.default_family = "UbuntuMono Nerd Font"
+c.fonts.default_size = "11.5pt"
+c.zoom.default = "125%"
 cc  = c.colors
 ccc = cc.completion
 cct = cc.tabs
