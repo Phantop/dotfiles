@@ -1,24 +1,7 @@
 #!/bin/sh
-HIFI=~/Music/HiFi
-LOFI=/tmp/foo
-test -f /usr/share/man/man3/Parallel::ForkManager.3pm || sudo eopkg it perl-parallel-forkmanager
-
-if test $# -eq 0; then
-    mkdir "$LOFI"
-    fusermount -u "$LOFI"
-    ifuse --documents com.foobar2000.mobile "$LOFI" || exit 1
-else
-    LOFI=$1
-fi
-
-if ! test -d "$LOFI"; then
-    cd "$HIFI" || exit 1
-    fd -t d -x mkdir -p "$LOFI"/{}
-    fd -e flac -x opusenc --bitrate 128 {} "$LOFI"/'{.}'.opus
-fi
-
+mkdir foo
+ifuse --documents com.foobar2000.mobile foo || exit 1
 # https://github.com/smxi/acxi/raw/stable/acxi
-acxi -s "$HIFI" -d "$LOFI" -o opus -q 128 --clean sync -F 16 -c mp3,m4a,opus,ogg
-
-fusermount -u "$LOFI"
-rmdir "$LOFI"
+acxi -s ~/Music/HiFi -d "$PWD/foo" -o opus -q 128 --clean sync -F 16 -c mp3,m4a,opus,ogg
+fusermount -u foo
+rmdir foo

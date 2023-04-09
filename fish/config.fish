@@ -1,6 +1,6 @@
-fish_add_path -g ~/.appdwarf/{,apps/bin} ~/{.dotfiles,.local,,Games}/bin /usr/lib64/ccache /sbin
+fish_add_path -g ~/.appdwarf/{,apps/bin} ~/{.dotfiles,.local,,Games}/bin /usr/lib64/ccache/bin
 export EDITOR=nvim MANPAGER='nvim +Man!' USE_CCACHE=1
-export QT_QPA_PLATFORMTHEME=gtk2 GTK2_RC_FILES=$HOME/.local/share/themes/dracula/gtk-2.0/gtkrc
+export QT_QPA_PLATFORMTHEME=gtk2
 
 set fish_greeting
 set fish_color_command --bold

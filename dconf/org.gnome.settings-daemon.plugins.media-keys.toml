@@ -24,7 +24,7 @@ name='Settings'
 
 [custom-keybindings/custom3]
 binding='<Super>s'
-command='spectacle'
+command='org.buddiesofbudgie.BudgieScreenshot -i'
 name='Screenshot'
 
 [custom-keybindings/custom4]

@@ -1,9 +1,7 @@
 require "paq" {
-    'ackyshake/vimcompletesme';
     'ctrlpvim/ctrlp.vim';
     'dense-analysis/ale';
     'dracula/vim';
-    'easymotion/vim-easymotion';
     'godlygeek/tabular';
     'lervag/vimtex';
     'lewis6991/gitsigns.nvim';
@@ -13,7 +11,7 @@ require "paq" {
     'tpope/vim-commentary';
     'tpope/vim-sensible';
     'tpope/vim-sleuth';
-    'tpope/vim-surround';
+    'valloric/youcompleteme';
     'vim-airline/vim-airline';
 }
 require("nnn").setup()
@@ -41,11 +39,8 @@ vim.keymap.set('', '<F7>', 'mzgg=G`z')
 vim.keymap.set('', 'r', '"_d')
 
 vim.cmd [[
-autocmd FileType * se tw=0
 colorscheme dracula
 command Q q!
-filetype plugin indent on
-syntax enable
 PaqSync
 
 autocmd BufReadPost,FileReadPost *.bz3 call gzip#read("bzip3 -d")

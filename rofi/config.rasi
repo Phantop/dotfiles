@@ -4,4 +4,4 @@ configuration {
 	run-command: "fish -c '{cmd}'";
 	run-list-command: "'fish -c functions'";
 }
-* { font: "UbuntuMono Nerd Font 15"; }
+* { font: "Ubuntu Mono 15"; }

@@ -47,7 +47,6 @@ a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
-a se 's dnf'
 a sus 'systemctl suspend'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
@@ -55,7 +54,6 @@ a temp 'curl temp.sh -T'
 a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
 a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a uneopkg 'parallel "unzip -op {} install.tar.xz | tar xf -" ::: *.eopkg'
-a up 'se update -y'
 a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim

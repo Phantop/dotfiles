@@ -1,25 +1,26 @@
 #!/bin/sh
 # shellcheck disable=SC2086
 set -e
-alias s=sudo se="s dnf -y" g=git
+alias s=sudo g=git
 
-gnome="clapper gnome-photos gnome-mpv gnome-terminal nautilus rhythmbox"
-se remove $gnome firefox libreoffice onboard PackageKit-command-not-found thunderbird
+s pacman -Syu git
+git clone https://aur.archlinux.org/yay-bin.git ~/.yay
+cd ~/.yay && makepkg -si
 
-pkgs="advancecomp aria2 audacious audacity autojump avidemux bleachbit bsdtar bzip3
-caja ccache corectrl dolphin-emu engrampa fd-find fish fzf gifsicle gimp
-git-credential-libsecret git-extras htop ifuse innoextract intel-clear-sans-fonts
-jdupes jpegoptim keepassxc kernel-tools kitty libjxl-utils lynx megatools mkvtoolnix
-moreutils mpv ncdu netsurf neovim nicotine+ nnn opus-tools oxipng p7zip pandoc
-parallel pipx pngquant qt-creator qutebrowser python3-readability-lxml qrencode
-ripgrep rofi sass shellcheck spectacle starship stow sxiv syncthing tig tlp tor
-torsocks ubuntumono-nerd-fonts upx usbmuxd wimlib-utils yt-dlp zathura-pdf-mupdf
-zathura-plugins-all"
-se update; se install $pkgs
+pkgs="abiword arch-install-scripts aria2 audacious audacity autojump apparmor avidemux-qt
+bleachbit bzip3 ccache cpupower dolphin-emu dracula-gtk-theme dwarfs-git engrampa fd
+fish flyctl-bin fq fzf gifsicle gimp gnome-disk-utility gnome-keyring gnome-system-monitor gurk-bin
+hblock htop ifuse imagemagick innoextract intel-media-driver jdupes jpegoptim jq keepassxc
+kitty libjxl lynx man-db man-pages megatools mkvtoolnix-gui moreutils mpv musikcube
+ncdu netsurf neovim nicotine+ nnn noto-fonts noto-fonts-cjk noto-fonts-emoji opus-tools
+oxipng p7zip pandoc parallel pdfjs perl-parallel-forkmanager pngquant power-profiles-daemon
+proot pup-bin python-adblock python-pipx python-readability-lxml qrencode qt5-styleplugins
+qt6gtk2 qutebrowser ripgrep-all rofi sass shellcheck sof-firmware spek squashfs-tools
+squashfuse starship stow sxiv syncthing tig ttf-ubuntu-font-family torsocks tuc-bin
+upx usbmuxd wimlib wit xsel yt-dlp zathura-cb zathura-djvu zathura-pdf-mupdf"
+yay -S $pkgs
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .
-rm ~/.gtkrc-2.0
-ln -s ~/.config/gtk-3.0/gtkrc ~/.gtkrc-2.0
 mkdir -p ~/.parallel/will-cite
 
 wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
@@ -31,26 +32,25 @@ wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/l
 wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
     https://nitter.it/css/themes/dracula.css -P ~/.config/qutebrowser
 
-q=qutebrowser; wget https://github.com/$q/$q/raw/master/misc/userscripts/readability\
-    https://github.com/$q/$q/raw/master/misc/userscripts/qr -P ~/.config/$q/userscripts
-chmod +x ~/.config/qutebrowser/userscripts/*
-
 un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
       grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
 un bloc97/Anime4k ~/.config/mpv/shaders
-un mozilla/pdf.js ~/.local/share/qutebrowser/pdfjs
 
 chsh -s "$(which fish)"
-fish -c "aliases;clean"
+fish -c "aliases"
+
+echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | s tee -a /etc/modprobe.d/i915.conf
+echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | s tee -a /boot/loader/entries/*.conf
+echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
 
 g g p:appdwarf ~/.appdwarf
 g g p:phantop.github.io ~/.site
 g g p:haiku-icons ~/.local/share/icons/Haiku
-g g gh:dracula/gtk ~/.local/share/themes/dracula
 nvim +PaqInstall +q
 
 parallel gsettings set org.gnome.desktop.interface {}-theme Haiku ::: cursor icon
-gsettings set org.gnome.desktop.interface gtk-theme dracula
+gsettings set org.gnome.desktop.interface gtk-theme Dracula
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
 
 for i in ~/.dotfiles/dconf/*; do
     dconf reset -f "$(basename $i | sed 's/^/./;s#\.#/#g;s#.toml#/#')"
