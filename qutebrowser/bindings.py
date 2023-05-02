@@ -15,7 +15,7 @@ a['scrib-prev'] = 'jseval -q window.location = document.getElementsByClassName("
 
 kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
-    '<Ctrl-q>': 'close',
+    '<Ctrl-q>': 'history-clear -f ;; close',
     '<Ctrl-w>': 'tab-close',
     '<Alt+f>' : 'config-cycle hints.chars qwerasdf asdfghjkl',
 

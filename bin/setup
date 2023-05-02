@@ -8,11 +8,11 @@ git clone https://aur.archlinux.org/yay-bin.git ~/.yay
 cd ~/.yay && makepkg -si
 
 pkgs="abiword arch-install-scripts aria2 audacious audacity autojump apparmor avidemux-qt
-bleachbit bzip3 ccache cpupower dolphin-emu dracula-gtk-theme dwarfs-git engrampa fd
+bleachbit bzip3 ccache cpupower diffoscope difftastic dolphin-emu dracula-gtk-theme dwarfs-git engrampa fd
 fish flyctl-bin fq fzf gifsicle gimp gnome-disk-utility gnome-keyring gnome-system-monitor gurk-bin
 hblock htop ifuse imagemagick innoextract intel-media-driver jdupes jpegoptim jq keepassxc
 kitty libjxl lynx man-db man-pages megatools mkvtoolnix-gui moreutils mpv musikcube
-ncdu netsurf neovim nicotine+ nnn noto-fonts noto-fonts-cjk noto-fonts-emoji opus-tools
+ncdu netsurf neovim nicotine+ nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nsz opus-tools
 oxipng p7zip pandoc parallel pdfjs perl-parallel-forkmanager pngquant power-profiles-daemon
 proot pup-bin python-adblock python-pipx python-readability-lxml qrencode qt5-styleplugins
 qt6gtk2 qutebrowser ripgrep-all rofi sass shellcheck sof-firmware spek squashfs-tools

@@ -77,8 +77,8 @@ for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix diffoscope encodec gallery-dl git-sim html2text lightnovel-crawler\
-  mandown mangadex-downloader mathicsscript nsz pdf2docx portablemc ratarmount\
+for i in deemix encodec gallery-dl git-sim html2text lightnovel-crawler\
+  mandown mangadex-downloader mathicsscript pdf2docx portablemc ratarmount\
   scdl soundscrape spleeter
     a $i "pipx run $i"
 end
