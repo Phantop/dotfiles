@@ -39,7 +39,6 @@ a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a off shutdown
-a open xdg-open
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
 a qutainer 'qutebrowser --temp-basedir'
 a rmdirs 'ff -t d -x rmdir -p'
@@ -72,6 +71,8 @@ a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 a xcompress 'fxz -T0 -9 -k'
+
+a history_match 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""

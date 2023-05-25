@@ -31,6 +31,12 @@ def proxitok(url: QUrl) -> bool:
     return farside(url, '/proxitok/')
 def querte (url: QUrl) -> bool:
     return farside(url, '/querte/')
+def breezewiki (url: QUrl) -> bool:
+    return farside(url, '/breezewiki/')
+def dumb (url: QUrl) -> bool:
+    return farside(url, '/dumb/')
+def anonymousoverflow (url: QUrl) -> bool:
+    return farside(url, '/anonymousoverflow/')
 
 map = {
         "reddit.com": reddit,
@@ -51,15 +57,16 @@ map = {
         "vm.tiktok.com" : proxitok,
         "www.tiktok.com" : proxitok,
         "www.quora.com": querte,
+        "fandom.com": breezewiki,
+        "www.fandom.com": breezewiki,
+        "genius.com" : dumb,
+        "stackoverflow.com" : anonymousoverflow,
 
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
         "discord.com" : o(s, 'canary.discord.com'),
         "tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
-
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
-        "genius.com" : o(s, 'db.vern.cc'),
-        "stackoverflow.com" : o(s, 'ao.vern.cc'),
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

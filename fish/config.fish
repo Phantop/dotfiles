@@ -22,4 +22,6 @@ bind \ed 'ncdu'
 bind \ef '_fzf_wrapper | clip'
 bind \e\co 'open (_fzf_wrapper)'
 
+abbr -a !. -r '^!.*' -f history_match
+
 printf "\e[5 q"

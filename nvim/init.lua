@@ -11,11 +11,17 @@ require "paq" {
     'tpope/vim-commentary';
     'tpope/vim-sensible';
     'tpope/vim-sleuth';
-    'valloric/youcompleteme';
     'vim-airline/vim-airline';
+
+    'https://git.sr.ht/~ackyshake/VimCompletesMe.vim';
+    { 'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end };
+
 }
 require("nnn").setup()
 require("gitsigns").setup()
+require'nvim-treesitter.configs'.setup {
+    highlight = { enable = true, additional_vim_regex_highlighting = false }
+}
 
 vim.opt.background = "dark"
 vim.opt.clipboard = "unnamedplus"
