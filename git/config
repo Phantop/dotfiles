@@ -59,6 +59,7 @@
     pu = push
     puf = push -f
     r = reset --hard
+    root = rev-parse --show-toplevel
     s = status
     su = submodule update --init --recursive
     w = clean -fdx

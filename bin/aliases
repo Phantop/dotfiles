@@ -16,6 +16,7 @@ a all2jxl 'fd -e{png,jpg,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
+a cgr 'pushd (g root);:'
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p -np -e robots=off'
@@ -72,7 +73,11 @@ a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 a xcompress 'fxz -T0 -9 -k'
 
-a history_match 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
+a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
+a history_last 'history -n1;:'
+
+a junitc "javac -cp 'src/main/java:../cp/*'"
+a junit "java -cp 'src/test/java:src/main/java:../cp/*' org.junit.runner.JUnitCore"
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
