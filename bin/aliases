@@ -26,6 +26,7 @@ a dot 'cd ~/.dotfiles'
 a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
 a ff 'fd -HILi -Edosdevices -E.git'
 a g git
+a gittop 'cd (git root)'
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
@@ -77,8 +78,8 @@ a xcompress 'fxz -T0 -9 -k'
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-a junitc "javac -cp 'src/main/java:../cp/*'"
-a junit "java -cp 'src/test/java:src/main/java:../cp/*' org.junit.runner.JUnitCore"
+a junit "java -cp (git root)/src/main/java:(git root)/src/test/java:(git root)/../cp/\*`` org.junit.runner.JUnitCore"
+a junitc "javac -cp (git root)/src/main/java:(git root)/src/test/java:(git root)/../cp/\*"
 
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
