@@ -47,6 +47,7 @@ a rmlinks 'ff -t l -x rm'
 a qb 'qutebrowser --target auto'
 a re 'systemctl reboot -i'
 a s 'sudo env "PATH=$PATH"'
+a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
