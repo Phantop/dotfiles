@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-#shellcheck disable=SC2034
 set -e # exit on failure
 IFS=$(printf '\n\t') # smarter ifs
 
