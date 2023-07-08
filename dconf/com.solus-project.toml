@@ -45,7 +45,7 @@ spacing=0
 spacing=0
 
 [budgie-panel/instance/workspaces/{8e4a9598-7edc-11ec-93a3-a864f1bbee5f}]
-addbutton-visibility='never'
+addbutton-visibility='always'
 item-size-multiplier='1.0'
 
 [budgie-panel/panels/{9bab0f82-7375-11ec-bbff-a864f1bbee5f}]
