@@ -22,6 +22,7 @@ yay -S $pkgs
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 mkdir -p ~/.parallel/will-cite
+wine64 regedit ~/.dotfiles/dracula.reg
 
 wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
 wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
