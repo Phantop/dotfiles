@@ -56,4 +56,5 @@ let g:ale_fixers = {'cpp': ['clang-format']}
 let g:ale_linters_ignore = {'cpp': ['clangcheck', 'clangtidy']}
 let g:ale_cpp_cc_options = "-std=c++17 -Wall"
 let g:ale_cpp_clangd_options = "-std=c++17 -Wall"
+let g:ale_c_cc_options = "-Wall -lm"
 ]]

@@ -26,7 +26,7 @@
 
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // better docs mobiles
 .docs-gm > #sheets-viewport > div { display: unset !important; }
-.bridge-card { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
+.bridge-card, section[id^="bridge-"] { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
 #years-table { .detail-view-container { display: flex } td { background-image: unset } } //quatalog detailed view
 
 /* hide ads and invidious recommends */
