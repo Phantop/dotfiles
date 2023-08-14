@@ -46,6 +46,7 @@ map = {
         "youtu.be": invid,
         "youtube.com": invid,
         "www.youtube.com": invid,
+        "music.youtube.com": invid,
 
         "twitter.com": nitter,
         "mobile.twitter.com": nitter,
@@ -65,6 +66,7 @@ map = {
         "www.twitch.tv" : o(s, 'm.twitch.tv'),
         "discord.com" : o(s, 'canary.discord.com'),
         "tumblr.com" : o(s, 'splashblr.fly.dev'),
+        "www.tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         }

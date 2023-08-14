@@ -20,7 +20,12 @@ fi
 
 des_width=$(printf '1 k %f %u * p' "$des_ratio" "$imageh" | dc | cut -d. -f1)
 offset=$(printf '%u %u - 2 / p' "$des_width" "$imagew" | dc)
-jpegtran -crop "$des_width"f+"$offset" -outfile "tran_$1" "$1"
+
+if test "$REFLECT"; then
+    jpegtran -crop "$des_width"r+"$offset" -outfile "tran_$1" "$1"
+else
+    jpegtran -crop "$des_width"f+"$offset" -outfile "tran_$1" "$1"
+fi
 
 if [ "$wide" -gt 0 ] ; then
     mv ".$1_padjpegtmp.jpg" "$1"
