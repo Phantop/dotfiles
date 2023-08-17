@@ -1,12 +1,11 @@
 #!/bin/sh
-if mkdir objects; then
+if mkdir indexes; then
     d=$(curl https://piston-meta.mojang.com/mc/game/version_manifest.json | jq -r .versions[0].url)
-    wget "$(curl "$d" | jq -r .assetIndex.url)" -P indexes
-    cat indexes/*.json | jq -r .objects[].hash | sed 's#^\(..\)#https://resources.download.minecraft.net/\1/\1#' | xargs aria2c -d objects -Z
+    curl --output-dir indexes -O "$(curl "$d" | jq -r .assetIndex.url)"
+    cat indexes/*.json | jq -r '.objects[].hash|"https://resources.download.minecraft.net/\(.[:2])/\(.)"' | xargs aria2c -d objects -Z
     ( echo "cd objects"; printf "mkdir %02x; mv %02x* %02x\n" $(seq 0 255 | sed 'p;p') ) | sh
     curl "$d" | jq .libraries[].downloads.artifact.url,.downloads.client.url | grep -vE 'windows|macos' | xargs aria2c -d objects -Z
-    d="https://meta.fabricmc.net/v2/versions/loader/$(curl "$d" | jq -r .id)"
-    d=$(curl "$d/$(curl "$d" | jq -r .[0].loader.version)/profile/json" | jq -r .libraries[].name)
+    d=$(curl "https://meta.fabricmc.net/v2/versions/loader/$(curl "$d" | jq -r .id)" | jq -r '.[0]|.launcherMeta.libraries.common[].name,(.loader,.intermediary).maven')
     echo "$d" | sed -r ':b;s|^([^:]*)*\.|\1\/|;tb;s|(.*):(.*):(.*)|https://maven.fabricmc.net/\1/\2/\3/\2-\3.jar|g' | xargs aria2c -d objects -Z
 fi
 java -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Xms1G -Xmx8G\
