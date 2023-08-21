@@ -3,22 +3,14 @@
 set -e
 alias s=sudo g=git
 
-s pacman -Syu git
-git clone https://aur.archlinux.org/yay-bin.git ~/.yay
-cd ~/.yay && makepkg -si
-
-pkgs="abiword arch-install-scripts aria2 audacious audacity autojump apparmor avidemux-qt
-bleachbit bzip3 ccache cpupower diffoscope difftastic dolphin-emu dracula-gtk-theme dwarfs-git engrampa fd
-fish flyctl-bin fq fzf gifsicle gimp gnome-disk-utility gnome-keyring gnome-system-monitor gurk-bin
-hblock htop ifuse imagemagick innoextract intel-media-driver jdupes jpegoptim jq keepassxc
-kitty libjxl lynx man-db man-pages megatools mkvtoolnix-gui moreutils mpv musikcube
-ncdu netsurf neovim nicotine+ nnn noto-fonts noto-fonts-cjk noto-fonts-emoji nsz opus-tools
-oxipng p7zip pandoc parallel pdfjs perl-parallel-forkmanager pngquant power-profiles-daemon
-proot pup-bin python-adblock python-pipx python-readability-lxml qrencode qt5-styleplugins
-qt6gtk2 qutebrowser ripgrep-all rofi sass shellcheck sof-firmware spek squashfs-tools
-squashfuse starship stow sxiv syncthing tig ttf-ubuntu-font-family torsocks tuc-bin
-upx usbmuxd wimlib wit xsel yt-dlp zathura-cb zathura-djvu zathura-pdf-mupdf"
-yay -S $pkgs
+s pacman -Syu
+s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+s pacman-key --lsign-key 3056513887B78AEB
+s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | sudo tee -a /etc/pacman.conf
+s pacman -Syu
+s pacman -S $(cat ~/.dotfiles/archpkgs)
+yay -S dwarfs-git gurk-bin pandoc-bin proot shellcheck-bin spek
 
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 mkdir -p ~/.parallel/will-cite
@@ -30,11 +22,7 @@ wget https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/mus
 wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
-    https://nitter.it/css/themes/dracula.css -P ~/.config/qutebrowser
-
-un(){ F=$(mktemp); mkdir -p "$2"; curl https://api.github.com/repos/"$1"/releases |\
-      grep -om1 http.\*zip | wget -i- -O"$F"; unzip "$F" -d "$2";}
-un bloc97/Anime4k ~/.config/mpv/shaders
+    https://nitter.net/css/themes/dracula.css -P ~/.config/qutebrowser
 
 chsh -s "$(which fish)"
 fish -c "aliases"
