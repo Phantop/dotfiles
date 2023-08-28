@@ -35,7 +35,6 @@ a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
 a la 'l -A'
-a launcher 'rofi -combi-modi drun,run,window -modi combi -show'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
@@ -78,19 +77,12 @@ a xcompress 'fxz -T0 -9 -k'
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-set junit '(git root)/src/main/java:(git root)/src/test/java:(git root)/../cp/\*'
-a jacoco "javacp org.jacoco.cli.internal.Main report (git root)/report/coverage.exec --{class,source}files=(git root)/src/main/java --html report"
-a javacp "java -cp $junit"
-a junit "javacp -javaagent:(git root)/../cp/jacocoagent.jar=destfile=(git root)/report/coverage.exec org.junit.runner.JUnitCore"
-a junitc "javac -cp $junit"
-
 for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
     a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix encodec gallery-dl git-sim html2text lightnovel-crawler\
-  mandown mangadex-downloader mathicsscript pdf2docx portablemc ratarmount\
-  scdl soundscrape spleeter
+for i in deemix encodec git-sim html2text lightnovel-crawler mandown spleeter\
+  mangadex-downloader mathicsscript pdf2docx portablemc ratarmount scdl soundscrape
     a $i "pipx run $i"
 end
 a mathics 'pipx run --spec mathics-django mathicsserver'

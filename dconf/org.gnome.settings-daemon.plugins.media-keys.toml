@@ -9,7 +9,7 @@ name='Kitty'
 
 [custom-keybindings/custom1]
 binding='<Super>d'
-command='fish -c launcher'
+command='rofi -combi-modi drun,run,window -modi combi -show'
 name='Launcher'
 
 [custom-keybindings/custom10]
