@@ -17,6 +17,3 @@ format = "[$duration]($style) "
 
 [jobs]
 disabled = true
-
-[python]
-python_binary = "python3"

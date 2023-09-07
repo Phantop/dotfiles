@@ -69,6 +69,7 @@ map = {
         "www.tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
+        "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

@@ -4,7 +4,7 @@ stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
-set -U fish_features 3.{0,1,4}
+set -U fish_features all
 fish_update_completions
 ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
 starship init fish --print-full-init > ~/.config/fish/conf.d/starship.fish
@@ -15,8 +15,6 @@ a aliases 'v (env which aliases); command aliases'
 a all2jxl 'fd -e{png,jpg,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
-a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
-a cgr 'pushd (g root);:'
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p -np -e robots=off'
@@ -30,7 +28,6 @@ a gittop 'cd (git root)'
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
-a hlp '$argv --help | eval $MANPAGER'
 a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a l ls
@@ -52,15 +49,10 @@ a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
-a temp 'curl temp.sh -T'
-a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
-a transfer 'curl https://transfer.sh/(basename $argv) -T'
-a uneopkg 'parallel "unzip -op {} install.tar.xz | tar xf -" ::: *.eopkg'
 a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
-a wm 'startx (which $argv[1]) $argv[2..-1];:'
 a ydl 'yt-dlp'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
@@ -74,6 +66,11 @@ a redwarf 'mkdwarfs -o redwarf.dwarfs --recompress -i'
 a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 a xcompress 'fxz -T0 -9 -k'
+
+a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
+a temp 'curl temp.sh -T'
+a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
+a transfer 'curl https://transfer.sh/(basename $argv) -T'
 
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
