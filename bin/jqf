@@ -1,5 +1,5 @@
 #!/bin/sh
 in=$(mktemp)
-cat /dev/stdin > "$in"
+cat > "$in"
 fzf --preview-window='up:99%' --preview "jq --color-output -r {q} $in $1"
 rm -f "$in"

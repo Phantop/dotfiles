@@ -1,17 +1,8 @@
 #!/bin/sh
-sudo eopkg up -y
-sudo eopkg dc -y
-sudo eopkg rmo -y
-sudo eopkg rdb -y
-sudo eopkg clean -y
-fc-cache -f
+yay -Scc
+fc-cache -frvs
 rm -r ~/.cache ~/.wine ~/.local/pipx/.cache/
 fish -c "j --purge"
-docker system prune -f
-docker image prune -a
-sudo solbuild delete-cache
-sudo rm -rf /var/lib/solbuild
-sudo solbuild init -p unstable-x86_64
-sudo journalctl --vacuum-size=1K
+doas journalctl --vacuum-size=1K
 bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|system.memory')
-sudo bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|system.memory')
+doas bleachbit -c $(bleachbit -l|rg -v 'system.free_disk_space|system.memory')

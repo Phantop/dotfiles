@@ -18,7 +18,7 @@ a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
 a dirdl 'wget -r -k -p -np -e robots=off'
-a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16'
+a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16 --http-accept-gzip'
 a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a dot 'cd ~/.dotfiles'
 a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
@@ -54,6 +54,7 @@ a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a ydl 'yt-dlp'
+a ytflux 'eval curl (cat ~/.miniflux)/entries?status=unread | jq .entries[].url | grep watch?v | xargs yt-dlp'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
@@ -75,7 +76,7 @@ a transfer 'curl https://transfer.sh/(basename $argv) -T'
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-for i in (cat ~/.config/qutebrowser/quickmarks | cut -d ' ' -f1)
+for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
     a $i "qutebrowser / \":open $i\""
 end
 
