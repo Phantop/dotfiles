@@ -47,6 +47,7 @@ a re 'systemctl reboot -i'
 a s 'doas env "PATH=$PATH"'
 a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
+a svn 'git svn'
 a tar bsdtar
 a tcsv 'curl -sL http://torrents-csv.ml/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
 a v vi
@@ -54,7 +55,6 @@ a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a ydl 'yt-dlp'
-a ytflux "curl $(cat ~/.miniflux)/entries?status=unread | jq .entries[].url | grep watch?v | xargs yt-dlp"
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
