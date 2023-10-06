@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+set -e # exit on failure
+IFS=$(printf '\n\t') # smarter ifs
+
+jxl=0
+if file "$1" | grep 'JPEG XL'; then
+    jxl="$1"
+    out=$(mktemp --suffix=.jpg)
+    djxl "$1" "$out"
+    shift
+    set -- "$out" "$@"
+fi
+
+test "$RATIOW" || RATIOW=16
+test "$RATIOH" || RATIOH=9
+imagew=$(identify -format %w "$1")
+des_ratio=$(printf '3 k %u %u / p' "$RATIOW" "$RATIOH" | dc)
+
+des_height=$(printf '1 k %u %f / p' "$imagew" "$des_ratio" | dc | cut -d. -f1)
+outfile="$(dirname "$1")/tran_$(basename "$1")"
+
+jpegtran -crop "$imagew"x"$des_height" -outfile "$outfile" "$1"
+
+if [ "$jxl" != 0 ]; then
+    cjxl -e 8 "$outfile" "tran_$jxl"
+    rm "$outfile" "$1"
+fi
