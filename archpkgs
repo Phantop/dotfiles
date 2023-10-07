@@ -1,4 +1,3 @@
-abiword
 advancecomp
 android-tools
 anime4k
@@ -23,15 +22,13 @@ bzip3
 ccache
 chaotic-keyring
 chaotic-mirrorlist
-clang
 cmake
 cpupower
-cups
 dart-sass
 debootstrap
 dolphin-emu
 dracula-gtk-theme-git
-electron
+dracula-kde-theme-git
 expac
 fd
 fish
@@ -44,12 +41,12 @@ gamemode
 gdb
 ghex
 gifsicle
-gimp
 git
 gitui
 glow
 gnome-disk-utility
 gnome-keyring
+gnome-online-accounts
 gnome-power-manager
 gnome-system-monitor
 gvfs-gphoto2
@@ -71,6 +68,7 @@ jpegoptim
 jq
 keepassxc
 kitty
+kvantum
 lagrange
 libimobiledevice
 libplist
@@ -99,12 +97,9 @@ neovim
 netsurf
 network-manager-applet
 networkmanager
-networkmanager-openconnect
 nicotine+
 ninja
 nnn
-noto-fonts
-noto-fonts-cjk
 noto-fonts-emoji
 nsz
 opendoas
@@ -119,7 +114,6 @@ php
 picocom
 pipewire
 pngquant
-postgresql
 power-profiles-daemon
 powertop
 pulseaudio
@@ -137,15 +131,12 @@ python-tqdm
 qpdf
 qrencode
 qt5-base
-qt5-styleplugins
 qt6-svg
-qt6gtk2
 qutebrowser-git
 rclone
 ripgrep-all
 rofi
 rsync
-samba
 signal-desktop
 smartmontools
 sof-firmware
@@ -153,6 +144,7 @@ sof-tools
 squashfs-tools
 squashfuse
 starship
+stlink
 stow
 subversion
 sxiv
@@ -161,6 +153,8 @@ system-config-printer
 tig
 tk
 torsocks
+ttf-arphic-ukai
+ttf-dejavu
 ttf-ubuntu-font-family
 tuc
 upx
@@ -173,7 +167,6 @@ webp-pixbuf-loader
 wget
 wimlib
 wireless_tools
-wireshark-qt
 wit
 xdg-user-dirs
 xdg-utils
@@ -190,4 +183,5 @@ yt-dlp
 zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
+zeal-git
 zram-generator

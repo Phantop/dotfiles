@@ -51,5 +51,4 @@ cc.webpage.preferred_color_scheme = 'dark'
 cc.webpage.darkmode.policy.images = 'never'
 
 c.tabs.show = 'multiple'
-c.qt.force_platformtheme = 'gtk2'
 c.completion.open_categories = ["bookmarks","history"]
