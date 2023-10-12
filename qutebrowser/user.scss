@@ -31,7 +31,7 @@ div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // bet
 
 /* hide ads and invidious recommends */
 $class: ad-frame-container, ad-panel, ad-slot, adsbygoogle, adbox, adunit,
-adunit-wrapper, b_ad, leaderboard, "pure-u-lg-1-5:nth-child(3)";
+adunit-wrapper, b_ad, leaderboard, "pure-u-lg-1-5:nth-child(3)", verified-icon;
 @each $i in $class {.#{$i} {display:none}}
 
 $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
@@ -115,20 +115,20 @@ body>div#outer.wrapper { //ao3
     }
 }
 
-@media (prefers-color-scheme: dark) { [data-csrf-token] { // miniflux
-        background: #000;
-        color: #EEE;
-        --entry-content-color: #EEE;
-        --title-color: #EEE;
-        --link-color: #EEE;
+[data-csrf-token] { // miniflux
+    background: #000;
+    color: #EEE;
+    --entry-content-color: #EEE;
+    --title-color: #EEE;
+    --link-color: #EEE;
 
-        select, textarea, input{
-            background: #000 !important;
-            color: #fff !important;
-        }
+    select, textarea, input{
+        background: #000 !important;
+        color: #fff !important;
+    }
 
-        .item { border: 1px dotted #666}
-        a:link {color: rgb(221, 221, 221);}
-        .item-status-read .item-title > a:link {color: rgb(155, 148, 148);}
-        .logo a span, .logo a:hover { color: #c88aff; }
-} }
+    .item { border: 1px dotted #666}
+    a:link {color: rgb(221, 221, 221);}
+    .item-status-read .item-title > a:link {color: rgb(155, 148, 148);}
+    .logo a span, .logo a:hover { color: #c88aff; }
+} 

@@ -18,10 +18,6 @@
 [url "https://aur.archlinux.org/"] 
     insteadOf = "aur:" 
     insteadOf = "a:" 
-[url "https://dev.getsol.us/source/"]
-    insteadOf = "solus:"
-    insteadOf = "sol:"
-    insteadOf = "s:"
 [url "https://github.com/"]
     insteadOf = "github:"
     insteadOf = "hub:"
@@ -54,7 +50,6 @@
     g = clone
     gr = clone --recursive
     l = log
-    open = browse
     p = pull
     pu = push
     puf = push -f
