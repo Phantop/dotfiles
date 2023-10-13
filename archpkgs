@@ -29,6 +29,7 @@ debootstrap
 dolphin-emu
 dracula-gtk-theme-git
 dracula-kde-theme-git
+dwarfs-git
 expac
 fd
 fish
@@ -43,7 +44,6 @@ ghex
 gifsicle
 git
 gitui
-glow
 gnome-disk-utility
 gnome-keyring
 gnome-online-accounts
@@ -106,7 +106,6 @@ opendoas
 opus-tools
 oxipng
 p7zip
-papirus-icon-theme
 parallel
 perl-parallel-forkmanager
 pgbouncer
@@ -123,6 +122,7 @@ pulseaudio-jack
 pup
 pyenv
 python-adblock
+python-html2text
 python-pip
 python-pipx
 python-pyusb
