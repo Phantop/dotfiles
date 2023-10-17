@@ -1,4 +1,5 @@
 #!/bin/sh
+#shellcheck disable=SC2046
 yay -Scc
 fc-cache -frvs
 rm -r ~/.cache ~/.wine ~/.local/pipx/.cache/

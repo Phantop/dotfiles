@@ -1,5 +1,5 @@
 [budgie-panel]
-builtin-theme=false
+builtin-theme=true
 confirm-remove-applet=false
 dark-theme=true
 migration-level=1
@@ -30,10 +30,17 @@ alignment='start'
 name='Status Indicator'
 position=2
 
-[budgie-panel/applets/{c2dc2d46-57ab-11ed-b143-a864f1bbee5f}]
+[budgie-panel/applets/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
 alignment='start'
-name='User Indicator'
+name='Budgie Menu'
 position=4
+
+[budgie-panel/instance/budgie-menu/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
+menu-categories-hover=false
+menu-compact=true
+menu-headers=false
+menu-show-control-center-items=true
+use-default-menu-icon=true
 
 [budgie-panel/instance/status/{bee913aa-8256-11ec-83c0-a864f1bbee5f}]
 spacing=0
@@ -49,12 +56,13 @@ addbutton-visibility='always'
 item-size-multiplier='1.0'
 
 [budgie-panel/panels/{9bab0f82-7375-11ec-bbff-a864f1bbee5f}]
-applets=['bee913aa-8256-11ec-83c0-a864f1bbee5f', 'c2dc2d46-57ab-11ed-b143-a864f1bbee5f', '9be4a0da-7375-11ec-bbff-a864f1bbee5f', '8e4a9598-7edc-11ec-93a3-a864f1bbee5f', '7e3fdf9e-2f87-11ed-8771-a864f1bbee5f']
+applets=['bee913aa-8256-11ec-83c0-a864f1bbee5f', 'cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f', '9be4a0da-7375-11ec-bbff-a864f1bbee5f', '8e4a9598-7edc-11ec-93a3-a864f1bbee5f', '7e3fdf9e-2f87-11ed-8771-a864f1bbee5f']
 autohide='intelligent'
 dock-mode=true
-enable-shadow=true
+enable-shadow=false
 location='top'
 size=22
+spacing=0
 theme-regions=false
 transparency='none'
 
@@ -64,6 +72,9 @@ show-calendar-widget=false
 show-power-strip=true
 
 [budgie-wm]
+button-layout='appmenu:minimize,maximize,close'
+caffeine-mode=false
+center-windows=false
 clear-notifications=['<Shift><Super>c']
 toggle-notifications=@as []
 
@@ -74,3 +85,7 @@ use-custom-format=true
 [software-center]
 check-updates=false
 fetch-media=false
+
+[tray/{7e3fdf9e-2f87-11ed-8771-a864f1bbee5f}]
+scaling=true
+spacing=0

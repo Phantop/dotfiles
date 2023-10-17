@@ -1,46 +1,46 @@
 #!/bin/sh
-# shellcheck disable=SC2086
 set -e
 alias s=sudo g=git
 
-s pacman -Syu
-s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | s tee -a /etc/pacman.conf
+s pacman-key  --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
 s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | sudo tee -a /etc/pacman.conf
 s pacman -Syu
-s pacman -S $(cat ~/.dotfiles/archpkgs)
-yay -S dwarfs-git gurk-bin pandoc-bin proot shellcheck-bin spek
-
-stow --no-folding -d ~/.dotfiles -t ~/.config .
-mkdir -p ~/.parallel/will-cite
-
-wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
-wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
-wget https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
-
-wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
-wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
-wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css\
-    https://nitter.net/css/themes/dracula.css -P ~/.config/qutebrowser
-
+xargs -o sudo pacman -S --needed < ~/.dotfiles/archpkgs
+yay -S pandoc-bin shellcheck-bin
 chsh -s "$(which fish)"
-fish -c "aliases"
 
+echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
 echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | s tee -a /etc/modprobe.d/i915.conf
 echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | s tee -a /boot/loader/entries/*.conf
-echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
+
+stow --no-folding -d ~/.dotfiles -t ~/.config .
+fish -c "aliases"
+
+wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
+wget https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
+wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
+wget https://github.com/zedeus/nitter/raw/master/public/css/themes/dracula.css -P ~/.config/qutebrowser
+
+wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
+wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css -P ~/.config/qutebrowser
+
+wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
+nvim +PaqInstall +q
 
 g g p:appdwarf ~/.appdwarf
 g g p:phantop.github.io ~/.site
 g g p:haiku-icons ~/.local/share/icons/Haiku
-nvim +PaqInstall +q
 
+mkdir -p ~/.parallel/will-cite
 parallel gsettings set org.gnome.desktop.interface {}-theme Haiku ::: cursor icon
+
 gsettings set org.gnome.desktop.interface gtk-theme Dracula
 gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
 
 for i in ~/.dotfiles/dconf/*; do
-    dconf reset -f "$(basename $i | sed 's/^/./;s#\.#/#g;s#.toml#/#')"
-    dconf load "$(basename $i | sed 's/^/./;s#\.#/#g;s#.toml#/#')" < "$i"
+    dconf reset -f "$(basename "$i" | tr : /)"
+    #shellcheck disable=SC2094
+    dconf load "$(basename "$i" | tr : /)" < "$i"
 done

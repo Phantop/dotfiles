@@ -9,5 +9,5 @@ fd -e xhtml . "$d" -x mv {} '{.}'.html
 if test -z "$BROWSER"; then
     BROWSER=netsurf 
 fi
-eval $BROWSER "$(dirname "$t")"/index.html
+eval "$BROWSER" "$(dirname "$t")"/index.html
 rm -rf "$d"
