@@ -15,9 +15,11 @@
     [class^="container"], section {background: transparent}
     #channels [class^="unread"] {background: #cfcdcf}
 
-    $aria: gift, Help, Inbox, sidebar;
+    $aria: gift, Help, Inbox;
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
-    [class^="private"] [class^="search"], [href="/store"] {display: none}
+    [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
+
+    [aria-label="Servers"] + div { display: none; + div { display: none; + div + div { display: none; } } }
 
     font-family: "Ubuntu Mono";
     background: url("https://cdn.discordapp.com/attachments/773556458234052608/1140629357505826896/out.webp");

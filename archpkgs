@@ -14,14 +14,13 @@ bat
 bc
 bleachbit
 btop
-budgie-control-center
 budgie-desktop
-budgie-screensaver
 busybox
 bzip3
 ccache
 chaotic-keyring
 chaotic-mirrorlist
+clang
 cmake
 cpupower
 dart-sass
@@ -41,7 +40,6 @@ git
 gitui
 gnome-disk-utility
 gnome-keyring
-gnome-online-accounts
 gnome-power-manager
 gnome-system-monitor
 hblock
@@ -77,6 +75,7 @@ man-pages
 mandoc
 megatools
 meld
+meson
 moreutils
 mpv-mpris
 msitools
@@ -162,4 +161,5 @@ zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
 zeal-git
+zip
 zram-generator

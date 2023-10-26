@@ -23,6 +23,7 @@ a dot 'cd ~/.dotfiles'
 a drivedl 'dl https://docs.google.com/uc?export=download&id=(echo $argv | cut -d/ -f6)&confirm=t'
 a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
 a ff 'fd -HILi -Edosdevices -E.git'
+a fumount 'fusermount -u'
 a g git
 a gittop 'cd (git root)'
 a giveme 's chown $USER'

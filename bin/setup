@@ -8,7 +8,7 @@ s pacman-key --lsign-key 3056513887B78AEB
 s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 s pacman -Syu
 xargs -o sudo pacman -S --needed < ~/.dotfiles/archpkgs
-yay -S pandoc-bin shellcheck-bin
+yay -S pandoc-bin shellcheck-bin nvimpager
 chsh -s "$(which fish)"
 
 echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
