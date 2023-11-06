@@ -1,4 +1,4 @@
-fish_add_path -g ~/.appdwarf/{,apps/bin} ~/{.dotfiles,.local,,Games}/bin /usr/lib64/ccache/bin
+fish_add_path -g ~/{.dotfiles,.local{/appdwarf,},Games}/bin /usr/lib64/ccache/bin
 export EDITOR=nvim MANPAGER='nvim +Man!' USE_CCACHE=1 PAGER=nvimpager
 export QT_STYLE_OVERRIDE=kvantum
 export NNN_PLUG='f:fzcd;i:imgur;j:autojump;m:nmount;s:imgview'

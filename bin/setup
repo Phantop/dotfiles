@@ -29,7 +29,7 @@ wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css 
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
 
-g g p:appdwarf ~/.appdwarf
+g g p:appdwarf ~/.local/appdwarf
 g g p:haiku-icons ~/.local/share/icons/Haiku
 
 mkdir -p ~/.parallel/will-cite
