@@ -5,7 +5,7 @@ c.content.register_protocol_handler = False
 sites = [
         'archiveofourown.org',
         'canary.discord.com',
-        '*.tutanota.com',
+        'app.tuta.com',
         c.url.default_page,
 
         '*.rpi.edu',
