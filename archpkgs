@@ -25,6 +25,7 @@ clang
 cmake
 cpupower
 dart-sass
+doas-sudo-shim
 dolphin-emu
 dracula-gtk-theme-git
 dracula-kde-theme-git

@@ -1,7 +1,0 @@
-#!/bin/sh
-mkdir foo
-ifuse --documents com.foobar2000.mobile foo || exit 1
-# https://github.com/smxi/acxi/raw/stable/acxi
-acxi -s ~/Music/HiFi -d "$PWD/foo" -o opus -q 128 --clean sync -F 16 -c mp3,m4a,opus,ogg
-fusermount -u foo
-rmdir foo

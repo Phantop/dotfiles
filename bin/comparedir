@@ -6,4 +6,3 @@ for i in $(fd -t f); do
         mv "$i" "$1/$i"
     fi
 done
-
