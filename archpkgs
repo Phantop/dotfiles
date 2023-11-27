@@ -41,12 +41,9 @@ game-devices-udev
 gifsicle
 git
 gitui
-gnome-disk-utility
 gnome-keyring
 gnome-power-manager
-gnome-system-monitor
 hblock
-htop
 httrack
 ifuse
 imagemagick
@@ -93,6 +90,7 @@ nicotine+
 ninja
 nnn
 noto-fonts-emoji
+nss-mdns
 opendoas
 openssl-1.1
 opus-tools
@@ -123,7 +121,6 @@ qownnotes
 qpdf
 qrencode
 qt5-base
-qt6-svg
 qutebrowser-git
 rclone
 ripgrep-all
@@ -147,6 +144,7 @@ ttf-ubuntu-font-family
 tuc
 upx
 usbutils
+valgrind
 vulkan-intel
 vulkan-radeon
 w3m

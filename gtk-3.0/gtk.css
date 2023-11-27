@@ -1,2 +1,2 @@
-window.ssd * {margin: -99} window, headerbar {border-radius: 0}
+window.ssd * {margin: -99px} window, headerbar {border-radius: 0}
 headerbar, headerbar *, headerbar * * { min-height: 0; margin: 0; padding: 0; }
