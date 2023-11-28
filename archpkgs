@@ -92,7 +92,6 @@ nnn
 noto-fonts-emoji
 nss-mdns
 opendoas
-openssl-1.1
 opus-tools
 oxipng
 p7zip
@@ -151,7 +150,6 @@ w3m
 waifu2x-ncnn-vulkan
 webp-pixbuf-loader
 wget
-wimlib
 xdelta3
 xdg-utils
 xf86-input-evdev
