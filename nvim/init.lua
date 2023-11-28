@@ -12,22 +12,74 @@ require "paq" {
     'nvimtools/none-ls.nvim',
     'tpope/vim-sleuth',
     'vim-airline/vim-airline',
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+
+    "L3MON4D3/LuaSnip";
+    "hrsh7th/cmp-buffer";
+    "hrsh7th/cmp-cmdline";
+    "hrsh7th/cmp-nvim-lsp";
+    "hrsh7th/cmp-nvim-lsp-signature-help";
+    "hrsh7th/cmp-path";
+    "hrsh7th/nvim-cmp";
 
     --'tpope/vim-sensible',
-    --'williamboman/mason-lspconfig.nvim',
-    --{ 'williamboman/mason.nvim', build = ':MasonUpdate' },
-
-    'https://sr.ht/~ackyshake/VimCompletesMe.vim',
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    --'https://sr.ht/~ackyshake/VimCompletesMe.vim',
+    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason.nvim', build = ':MasonUpdate' },
 }
 
 require("gitsigns").setup()
 require("ibl").setup()
-require("lspconfig").clangd.setup{}
---require("mason").setup()
---require("mason-lspconfig").setup()
 require("nnn").setup()
-require("nvim-treesitter.configs").setup{ highlight = { enable = true } }
+require("nvim-treesitter.configs").setup({highlight = {enable = true}})
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+local null_ls = require("null-ls")
+null_ls.setup({sources = {
+    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.formatting.phpcbf,
+    null_ls.builtins.diagnostics.phpcs
+}})
+
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local cmp = require("cmp")
+cmp.setup({
+    mapping = {
+        ["<Tab>"] = cmp.mapping(
+        function (fallback)
+            if cmp.visible() then cmp.select_next_item()
+            elseif has_words_before() then cmp.complete()
+            else fallback() end
+        end, {"i"}),
+
+        ["<S-Tab>"] = cmp.mapping( cmp.mapping.select_prev_item(), {"i"}),
+        ["<Space>"] = cmp.mapping( cmp.mapping.confirm({select=true}), {"i"}),
+    },
+
+    completion = { autocomplete = false },
+    snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
+
+    sources = cmp.config.sources(
+    {{name = "nvim_lsp_signature_help"}},
+    {{name = "nvim_lsp"}},
+    {{name = "buffer"}},
+    {{name = "path"}}
+    )
+})
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require("lspconfig").clangd.setup{capabilities=capabilities}
+require("mason-lspconfig").setup_handlers {
+    function (server_name)
+        require("lspconfig")[server_name].setup {capabilities=capabilities}
+    end
+}
 
 vim.opt.background = "dark"
 vim.opt.clipboard = "unnamedplus"
@@ -59,6 +111,6 @@ vim.cmd [[
 PaqSync
 colorscheme dracula
 command Q q!
-let b:ale_linters = {'c': ['']}
+let b:ale_linters = {'c': [''], 'sh': [''], 'php': ['']}
 autocmd BufReadPost,FileReadPost *.bz3 call gzip#read("bzip3 -d")
 ]]
