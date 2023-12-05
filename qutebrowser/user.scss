@@ -44,6 +44,7 @@ $id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 /* --------------------------------- */
 
+div.container > div.conversation > div#r.replies { display: none } //nitter replies
 body>nav:nth-child(1):not([class]) {position: absolute} // nitter/libreddit/librex
 body {
     --bg_panel: #232531;

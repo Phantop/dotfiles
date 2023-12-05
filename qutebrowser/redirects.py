@@ -70,6 +70,7 @@ map = {
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
+        "news.ycombinator.com" : o(s, 'news.workers.tools')
         }
 def f(info: i.Request):
     if (info.resource_type != i.ResourceType.main_frame or

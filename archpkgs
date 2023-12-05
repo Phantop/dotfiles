@@ -1,6 +1,4 @@
 advancecomp
-alhp-keyring
-alhp-mirrorlist
 android-file-transfer
 anime4k
 apparmor
@@ -63,6 +61,7 @@ lagrange
 libheif
 libplist
 libpulse
+libreddit-git
 libusbmuxd
 libva-intel-driver
 linux-firmware
@@ -120,7 +119,7 @@ qownnotes
 qpdf
 qrencode
 qt5-base
-qutebrowser-git
+qutebrowser
 rclone
 ripgrep-all
 rofi
@@ -162,6 +161,6 @@ yt-dlp
 zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
-zeal-git
+zeal
 zip
 zram-generator
