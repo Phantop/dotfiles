@@ -9,7 +9,9 @@ sites = [
         c.url.default_page,
 
         '*.rpi.edu',
+        '*.albany.edu',
         'api-3e0243bb.duosecurity.com',
+        'api-71fc1511.duosecurity.com',
         'www.gradescope.com',
         ]
 for site in sites:
