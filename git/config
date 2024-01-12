@@ -46,7 +46,7 @@
     caa = ca -a
     ch = checkout
     cl = gc --aggressive --prune=now
-    d = difftool
+    d = diff
     g = clone
     gr = clone --recursive
     l = log

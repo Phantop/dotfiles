@@ -38,7 +38,7 @@ bind = {
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
     's1': 'download-open',
     'sa': 'open -t archive.is/submit/?url={url}',
-    'sb': 'open splashblr.fly.dev/?u={url}',
+    'sb': 'open tumblash.fly.dev/?u={url}',
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls -a | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',

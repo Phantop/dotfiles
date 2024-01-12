@@ -62,6 +62,8 @@ keepassxc
 kitty
 kvantum
 lagrange
+lib32-libpulse
+lib32-vulkan-icd-loader
 libheif
 libplist
 libpulse
@@ -71,7 +73,6 @@ libva-intel-driver
 linux-firmware
 linux-hardened
 lrzip
-lxqt-archiver
 ly
 lynx
 man-pages
@@ -99,13 +100,14 @@ opus-tools
 oxipng
 p7zip
 parallel
-pcmanfm-qt
+pcmanfm-gtk3
 perl-parallel-forkmanager
 php
 picocom
 pipewire
 pngquant
 poppler
+postgresql-libs
 power-profiles-daemon
 powertop
 pulseaudio
@@ -118,6 +120,7 @@ python-adblock
 python-html2text
 python-pip
 python-pipx
+python-pylint
 python-readability-lxml
 qownnotes
 qpdf
@@ -128,6 +131,7 @@ rclone
 ripgrep-all
 rofi
 rsync
+runc
 smartmontools
 sof-firmware
 squashfs-tools
@@ -143,6 +147,7 @@ torsocks
 ttf-dejavu
 ttf-ubuntu-font-family
 tuc
+typst
 unzip
 upx
 usbutils
@@ -153,13 +158,17 @@ w3m
 waifu2x-ncnn-vulkan
 webp-pixbuf-loader
 wget
+wine
+winetricks
 wqy-microhei
+xarchiver
 xdelta3
 xdg-utils
 xf86-input-evdev
 xf86-input-libinput
 xorg-server
 xorg-xinit
+xreader
 xsel
 yay
 yt-dlp

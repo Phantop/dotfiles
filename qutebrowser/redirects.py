@@ -50,6 +50,7 @@ map = {
 
         "twitter.com": nitter,
         "mobile.twitter.com": nitter,
+        "x.com": nitter,
 
         "imgur.com" : rimgo,
         "medium.com" : scribe,
@@ -63,10 +64,10 @@ map = {
         "genius.com" : dumb,
         "stackoverflow.com" : anonymousoverflow,
 
-        "www.twitch.tv" : o(s, 'm.twitch.tv'),
+        "www.twitch.tv" : o(s, 'twineo.deno.dev'),
         "discord.com" : o(s, 'canary.discord.com'),
-        "tumblr.com" : o(s, 'splashblr.fly.dev'),
-        "www.tumblr.com" : o(s, 'splashblr.fly.dev'),
+        "tumblr.com" : o(s, 'tumblash.fly.dev'),
+        "www.tumblr.com" : o(s, 'tumblash.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
