@@ -3,6 +3,7 @@ require "paq" {
     'dense-analysis/ale',
     'echasnovski/mini.nvim',
     'dracula/vim',
+    'kaarmu/typst.vim',
     'lervag/vimtex',
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
@@ -10,6 +11,7 @@ require "paq" {
     'neovim/nvim-lspconfig',
     'nvim-lua/plenary.nvim',
     'nvimtools/none-ls.nvim',
+    'stevearc/aerial.nvim',
     'tpope/vim-sleuth',
     'vim-airline/vim-airline',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -28,12 +30,14 @@ require "paq" {
     { 'williamboman/mason.nvim', build = ':MasonUpdate' },
 }
 
+vim.cmd("PaqSync")
+require("aerial").setup()
 require("gitsigns").setup()
 require("ibl").setup()
-require("nnn").setup()
-require("nvim-treesitter.configs").setup({highlight = {enable = true}})
 require("mason").setup()
 require("mason-lspconfig").setup()
+require("nnn").setup()
+require("nvim-treesitter.configs").setup({highlight = {enable = true}})
 
 local null_ls = require("null-ls")
 null_ls.setup({sources = {
@@ -103,12 +107,14 @@ vim.keymap.set('', '<F7>', 'mzgg=G`z')
 vim.keymap.set('', 'r', '"_d')
 vim.g.mapleader = " "
 
+vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+vim.keymap.set('n', '<leader>a', "<cmd>AerialToggle!<CR>")
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.code_action() end)
 vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end)
 vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end)
 
 vim.cmd [[
-PaqSync
 colorscheme dracula
 command Q q!
 let b:ale_linters = {'c': [''], 'sh': [''], 'php': ['']}
