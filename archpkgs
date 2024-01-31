@@ -28,12 +28,12 @@ dolphin-emu
 dolphin-emu-tool
 dracula-gtk-theme-git
 dracula-kde-theme-git
-dwarfs
 expac
 fd
 firejail
 fish
 flyctl-bin
+fuse-overlayfs
 fwupd
 fzf
 gallery-dl
@@ -62,8 +62,6 @@ keepassxc
 kitty
 kvantum
 lagrange
-lib32-libpulse
-lib32-vulkan-icd-loader
 libheif
 libplist
 libpulse
@@ -136,6 +134,7 @@ smartmontools
 sof-firmware
 squashfs-tools
 starship
+steam
 stlink
 stow
 sxiv
@@ -151,15 +150,12 @@ typst
 unzip
 upx
 usbutils
-valgrind
 vulkan-intel
 vulkan-radeon
 w3m
 waifu2x-ncnn-vulkan
 webp-pixbuf-loader
 wget
-wine
-winetricks
 wqy-microhei
 xarchiver
 xdelta3
