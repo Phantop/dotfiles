@@ -5,7 +5,6 @@ import operator
 
 o = operator.methodcaller
 s = 'setHost'
-i = interceptor
 
 def farside(url: QUrl, i) -> bool:
     url.setHost('farside.link')
@@ -13,72 +12,76 @@ def farside(url: QUrl, i) -> bool:
     url.setPath(urljoin(i, p))
     return True
 
-def nitter(url: QUrl) -> bool:
+def twitter(url: QUrl) -> bool:
     return farside(url, '/nitter/')
-def rimgo(url: QUrl) -> bool:
+def imgur(url: QUrl) -> bool:
     return farside(url, '/rimgo/')
-def scribe(url: QUrl) -> bool:
+def medium(url: QUrl) -> bool:
     return farside(url, '/scribe/')
-def invid(url: QUrl) -> bool:
+def youtube(url: QUrl) -> bool:
     return farside(url, '/invidious/')
 def reddit(url: QUrl) -> bool:
     return farside(url, '/libreddit/')
-def bibliogram(url: QUrl) -> bool:
-    return farside(url, '/bibliogram/')
-def simplytranslate(url: QUrl) -> bool:
+def instagram(url: QUrl) -> bool:
+    return farside(url, '/proxigram/')
+def translate(url: QUrl) -> bool:
     return farside(url, '/simplytranslate/')
-def proxitok(url: QUrl) -> bool:
+def tiktok(url: QUrl) -> bool:
     return farside(url, '/proxitok/')
-def querte (url: QUrl) -> bool:
+def quora (url: QUrl) -> bool:
     return farside(url, '/querte/')
-def breezewiki (url: QUrl) -> bool:
+def fandom(url: QUrl) -> bool:
     return farside(url, '/breezewiki/')
-def dumb (url: QUrl) -> bool:
+def genius(url: QUrl) -> bool:
     return farside(url, '/dumb/')
-def anonymousoverflow (url: QUrl) -> bool:
+def stackoverflow (url: QUrl) -> bool:
     return farside(url, '/anonymousoverflow/')
+def wikipedia(url: QUrl) -> bool:
+    return farside(url, '/wikiless/')
 
-map = {
+m = {
         "reddit.com": reddit,
         "www.reddit.com": reddit,
         "old.reddit.com": reddit,
 
-        "youtu.be": invid,
-        "youtube.com": invid,
-        "www.youtube.com": invid,
-        "music.youtube.com": invid,
+        "youtu.be": youtube,
+        "youtube.com": youtube,
+        "www.youtube.com": youtube,
+        "music.youtube.com": youtube,
 
-        "twitter.com": nitter,
-        "mobile.twitter.com": nitter,
-        "x.com": nitter,
+        "twitter.com": twitter,
+        "mobile.twitter.com": twitter,
+        "x.com": twitter,
 
-        "imgur.com" : rimgo,
-        "medium.com" : scribe,
-        "www.instagram.com": bibliogram,
-        "translate.google.com" : simplytranslate,
-        "vm.tiktok.com" : proxitok,
-        "www.tiktok.com" : proxitok,
-        "www.quora.com": querte,
-        "fandom.com": breezewiki,
-        "www.fandom.com": breezewiki,
-        "genius.com" : dumb,
-        "stackoverflow.com" : anonymousoverflow,
+        "imgur.com" : imgur,
+        "medium.com" : medium,
+        "www.instagram.com": instagram,
+        "translate.google.com" : translate,
+        "vm.tiktok.com" : tiktok,
+        "www.tiktok.com" : tiktok,
+        "www.quora.com": quora,
+        "fandom.com": fandom,
+        "www.fandom.com": fandom,
+        "genius.com" : genius,
+        "stackoverflow.com" : stackoverflow,
+        "en.wikipedia.org" : wikipedia,
 
-        "www.twitch.tv" : o(s, 'twineo.deno.dev'),
+        "www.twitch.tv" : o(s, 'twineo.exozy.me'),
         "discord.com" : o(s, 'canary.discord.com'),
         "tumblr.com" : o(s, 'tumblash.fly.dev'),
-        "www.tumblr.com" : o(s, 'tumblash.fly.dev'),
+        "www.tumblr.com" : o(s, 'priviblur.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
-        "news.ycombinator.com" : o(s, 'news.workers.tools')
+        "news.ycombinator.com" : o(s, 'news.workers.tools'),
+        "www.pixiv.net" : o(s, 'pixivfe.exozy.me'),
         }
-def f(info: i.Request):
-    if (info.resource_type != i.ResourceType.main_frame or
+def rewrite(info: interceptor.Request):
+    if (info.resource_type != interceptor.ResourceType.main_frame or
             info.request_url.scheme() in {"data", "blob"}):
         return
     url = info.request_url
-    redir = map.get(url.host())
+    redir = m.get(url.host())
     if redir is not None and redir(url) is not False:
         info.redirect(url)
-i.register(f)
+interceptor.register(rewrite)
