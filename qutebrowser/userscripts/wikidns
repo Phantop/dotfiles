@@ -1,0 +1,5 @@
+#!/bin/sh
+search=$(echo "$@" | tr ' ' +)
+query='https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch='
+wikiurl="https://en.wikipedia.org/wiki/$(curl "$query$search"| jq -r .query.search[0].title | sed 's/ /%20/')"
+echo open "$(curl -L "$wikiurl" | pup '.infobox .url a.external attr{href}' | tail -n1)" >> "$QUTE_FIFO"

@@ -23,6 +23,7 @@ clang
 cmake
 cpupower
 dart-sass
+dnsmasq
 doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
@@ -38,6 +39,7 @@ fwupd
 fzf
 gallery-dl
 game-devices-udev
+gdb
 gifsicle
 git
 gitui
@@ -46,6 +48,7 @@ gnome-power-manager
 gron
 hblock
 httrack
+hypnotix
 ifuse
 imagemagick
 innoextract
@@ -59,6 +62,7 @@ jless
 jpegoptim
 jq
 keepassxc
+kernel-headers-musl
 kitty
 kvantum
 lagrange
@@ -78,6 +82,7 @@ mandoc
 megatools
 meld
 meson
+miniflux
 moreutils
 mpv-mpris
 msitools
@@ -130,6 +135,7 @@ ripgrep-all
 rofi
 rsync
 runc
+rustup
 smartmontools
 sof-firmware
 squashfs-tools

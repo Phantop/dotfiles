@@ -1,5 +1,6 @@
 a=c.aliases
 a['re'] = 'restart'
+a['idk'] = 'spawn -u wikidns'
 a['css-reload'] = 'set content.user_stylesheets user.css'
 a['scss-reload'] = 'spawn -u /bin/bash -c "sass $QUTE_CONFIG_DIR/user.{s,}css"'
 a['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'

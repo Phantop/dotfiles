@@ -38,6 +38,8 @@ def stackoverflow (url: QUrl) -> bool:
     return farside(url, '/anonymousoverflow/')
 def wikipedia(url: QUrl) -> bool:
     return farside(url, '/wikiless/')
+def github(url: QUrl) -> bool:
+    return farside(url, '/gothub/')
 
 m = {
         "reddit.com": reddit,
@@ -65,6 +67,7 @@ m = {
         "genius.com" : genius,
         "stackoverflow.com" : stackoverflow,
         "en.wikipedia.org" : wikipedia,
+        "gothub.com" : github,
 
         "www.twitch.tv" : o(s, 'twineo.exozy.me'),
         "discord.com" : o(s, 'canary.discord.com'),
