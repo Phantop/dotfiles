@@ -23,12 +23,12 @@ clang
 cmake
 cpupower
 dart-sass
-dnsmasq
 doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
 dracula-gtk-theme-git
 dracula-kde-theme-git
+elvish
 expac
 fd
 firejail
@@ -56,7 +56,6 @@ intel-media-driver
 intel-ucode
 inxi
 jack2
-jaq
 jdupes
 jless
 jpegoptim
@@ -93,6 +92,7 @@ neovim
 netsurf
 network-manager-applet
 networkmanager
+networkmanager-openconnect
 nicotine+
 ninja
 nnn
@@ -106,7 +106,6 @@ parallel
 pcmanfm-gtk3
 perl-parallel-forkmanager
 php
-picocom
 pipewire
 pngquant
 poppler
@@ -141,7 +140,6 @@ sof-firmware
 squashfs-tools
 starship
 steam
-stlink
 stow
 sxiv
 syncthing

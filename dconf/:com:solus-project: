@@ -1,5 +1,5 @@
 [budgie-panel]
-builtin-theme=true
+builtin-theme=false
 confirm-remove-applet=false
 dark-theme=true
 migration-level=1
