@@ -16,6 +16,8 @@ require "paq" {
     'vim-airline/vim-airline',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
+    'gbprod/none-ls-shellcheck.nvim',
+
     "L3MON4D3/LuaSnip";
     "hrsh7th/cmp-buffer";
     "hrsh7th/cmp-cmdline";
@@ -41,11 +43,11 @@ require("nvim-treesitter.configs").setup({highlight = {enable = true}})
 
 local null_ls = require("null-ls")
 null_ls.setup({sources = {
-    null_ls.builtins.code_actions.shellcheck,
-    null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.formatting.phpcbf,
     null_ls.builtins.diagnostics.phpcs
 }})
+require("null-ls").register(require("none-ls-shellcheck.diagnostics"))
+require("null-ls").register(require("none-ls-shellcheck.code_actions"))
 
 local has_words_before = function()
     unpack = unpack or table.unpack
