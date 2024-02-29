@@ -41,6 +41,8 @@ def wikipedia(url: QUrl) -> bool:
 def github(url: QUrl) -> bool:
     return farside(url, '/gothub/')
 
+twitter = o(s, 'unrollnow.com')
+
 m = {
         "reddit.com": reddit,
         "www.reddit.com": reddit,

@@ -7,23 +7,17 @@
 }
 
 #app-mount { //discord
-    $back: primary, secondary, secondary-alt, tertiary;
-    @each $i in $back {--background-#{$i}: transparent}
+    --background-primary: #27212d;
+    --background-tertiary: var(--background-primary);
+    --background-secondary: var(--background-primary);
+    --channeltextarea-background: #4a3657;
+    --background-secondary-alt: var(--background-secondary);
 
-    --background-floating: rgba(0, 0, 0, .6);
-    --channeltextarea-background: transparent;
-    [class^="container"], section {background: transparent}
-    #channels [class^="unread"] {background: #cfcdcf}
-
+    font-family: "Ubuntu Mono";
     $aria: gift, Help, Inbox;
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
     [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
-
     [aria-label="Servers"] + div { display: none; + div { display: none; + div + div { display: none; } } }
-
-    font-family: "Ubuntu Mono";
-    background: url("https://cdn.discordapp.com/attachments/773556458234052608/1140629357505826896/out.webp");
-    background-size: cover;
 }
 
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // better docs mobiles
