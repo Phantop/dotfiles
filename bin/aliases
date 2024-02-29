@@ -17,6 +17,7 @@ a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
+a curlflux 'eval curl (cat ~/.config/miniflux)/$argv;:'
 a dirdl 'wget -r -k -p -np -e robots=off'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16 --http-accept-gzip'
 a dot 'cd ~/.dotfiles'
@@ -40,6 +41,7 @@ a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a off shutdown
+a pill 's powerpill -Syu'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
 a qb 'qutebrowser --target auto'
 a qutainer 'qutebrowser --temp-basedir'
@@ -50,6 +52,8 @@ a s 'doas env "PATH=$PATH"'
 a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
 a tar bsdtar
+a tcsv 'curl -sL https://torrents-csv.com/service/search?q=$argv | jq ".[]|.name,.infohash,.seeders";:'
+a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()))"'
 a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
