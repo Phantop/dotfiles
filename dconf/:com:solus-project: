@@ -5,10 +5,15 @@ dark-theme=true
 migration-level=1
 panels=['9bab0f82-7375-11ec-bbff-a864f1bbee5f']
 
+[budgie-panel/applets/{63556e48-d72d-11ee-b4ca-a864f1bbee5f}]
+alignment='start'
+name='Workspace Switcher'
+position=1
+
 [budgie-panel/applets/{7e3fdf9e-2f87-11ed-8771-a864f1bbee5f}]
 alignment='start'
 name='System Tray'
-position=3
+position=4
 
 [budgie-panel/applets/{8e4a9598-7edc-11ec-93a3-a864f1bbee5f}]
 alignment='start'
@@ -25,15 +30,20 @@ alignment='start'
 name='Clock'
 position=0
 
+[budgie-panel/applets/{ae12f1c6-d72d-11ee-b4ca-a864f1bbee5f}]
+alignment='start'
+name='Caffeine'
+position=2
+
 [budgie-panel/applets/{bee913aa-8256-11ec-83c0-a864f1bbee5f}]
 alignment='start'
 name='Status Indicator'
-position=2
+position=3
 
 [budgie-panel/applets/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
 alignment='start'
 name='Budgie Menu'
-position=4
+position=5
 
 [budgie-panel/instance/budgie-menu/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
 menu-categories-hover=false
@@ -56,7 +66,7 @@ addbutton-visibility='always'
 item-size-multiplier='1.0'
 
 [budgie-panel/panels/{9bab0f82-7375-11ec-bbff-a864f1bbee5f}]
-applets=['bee913aa-8256-11ec-83c0-a864f1bbee5f', 'cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f', '9be4a0da-7375-11ec-bbff-a864f1bbee5f', '8e4a9598-7edc-11ec-93a3-a864f1bbee5f', '7e3fdf9e-2f87-11ed-8771-a864f1bbee5f']
+applets=['bee913aa-8256-11ec-83c0-a864f1bbee5f', 'ae12f1c6-d72d-11ee-b4ca-a864f1bbee5f', '63556e48-d72d-11ee-b4ca-a864f1bbee5f', '9be4a0da-7375-11ec-bbff-a864f1bbee5f', '7e3fdf9e-2f87-11ed-8771-a864f1bbee5f', 'cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f']
 autohide='intelligent'
 dock-mode=true
 enable-shadow=false
@@ -74,6 +84,7 @@ show-power-strip=true
 [budgie-wm]
 button-layout='appmenu:minimize,maximize,close'
 caffeine-mode=false
+caffeine-mode-screen-brightness=95
 center-windows=false
 clear-notifications=['<Shift><Super>c']
 toggle-notifications=@as []
