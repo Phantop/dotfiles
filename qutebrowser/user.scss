@@ -57,8 +57,13 @@ body {
 .stream-grade.ng-hide { display: flex !important }
 
 body>div#outer.wrapper { //ao3
+    zoom: 110%;
     background: #000;
     color: #fff;
+    #workskin {
+        zoom: 125%;
+        max-width: 40em;
+    }
     #inner .actions, fieldset {
         a, select, input, span.current {
             background: #000;

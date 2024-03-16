@@ -15,7 +15,7 @@ echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
 echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | s tee -a /etc/modprobe.d/i915.conf
 echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | s tee -a /boot/loader/entries/*.conf
 
-mkdir -p ~/.parallel/will-cite
+mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 fish -c "aliases"
 
@@ -29,6 +29,9 @@ wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css 
 
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
+
+printf bt-tracker= > ~/.config/aria2/aria2.conf
+curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | tr "\n" , >> aria2.conf 
 
 g g p:appdwarf ~/.local/appdwarf
 g g p:haiku-icons ~/.local/share/icons/Haiku
