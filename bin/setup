@@ -31,7 +31,7 @@ wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/l
 nvim +PaqInstall +q
 
 printf bt-tracker= > ~/.config/aria2/aria2.conf
-curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | tr "\n" , >> aria2.conf 
+curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | tr "\n" , >> ~/.config/aria2/aria2.conf 
 
 g g p:appdwarf ~/.local/appdwarf
 g g p:haiku-icons ~/.local/share/icons/Haiku
