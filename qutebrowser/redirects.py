@@ -41,7 +41,8 @@ def wikipedia(url: QUrl) -> bool:
 def github(url: QUrl) -> bool:
     return farside(url, '/gothub/')
 
-twitter = o(s, 'unrollnow.com')
+#twitter = o(s, 'unrollnow.com')
+twitter = o(s, 'nitter.poast.org')
 
 m = {
         "reddit.com": reddit,
@@ -78,6 +79,7 @@ m = {
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
+        "avatar.wiki" : o(s, 'avatar.antifandom.com'),
         "news.ycombinator.com" : o(s, 'news.workers.tools'),
         "www.pixiv.net" : o(s, 'pixivfe.exozy.me'),
         }

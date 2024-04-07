@@ -64,6 +64,9 @@ body>div#outer.wrapper { //ao3
         zoom: 125%;
         max-width: 40em;
     }
+    p.kudos {
+        overflow-wrap: break-word;
+    }
     #inner .actions, fieldset {
         a, select, input, span.current {
             background: #000;
@@ -89,7 +92,7 @@ body>div#outer.wrapper { //ao3
 
     dl.meta, li.blurb, li.comment {border-color: #555}
     a:visited, .work > li > div.header h4 a:visited {color: #999}
-    #admin-banner, #header > ul.primary {display:none}
+    #admin-banner, #header > nav > ul.primary {display:none}
     h1.heading a, .splash .module h3, a:hover, li > div.header h4 a {color: MediumPurple}
     .secondary {box-shadow:none;background: #000;}
     #dashboard {border:none; .navigation.actions {border-top:none}}
@@ -133,4 +136,8 @@ body>div#outer.wrapper { //ao3
     a:link {color: rgb(221, 221, 221);}
     .item-status-read .item-title > a:link {color: rgb(155, 148, 148);}
     .logo a span, .logo a:hover { color: #c88aff; }
+
+    &:has(.entry-meta > .category > a[href="/category/74/entries"]) .entry-content {
+        font-size: 0;
+    }
 } 

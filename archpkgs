@@ -24,6 +24,7 @@ chaotic-mirrorlist
 clang
 cmake
 cpupower
+csvlens
 dart-sass
 devkitpro-keyring
 doas-sudo-shim
@@ -43,6 +44,7 @@ fzf
 gallery-dl
 game-devices-udev
 gdb
+ghostscript
 gifsicle
 git
 git-filter-repo
@@ -51,11 +53,11 @@ gitui
 gnome-disk-utility
 gnome-keyring
 gnome-power-manager
-graphicsmagick
 gron
 hblock
 httrack
 hypnotix
+i3lock
 ifuse
 imagemagick
 innoextract
@@ -109,6 +111,7 @@ nnn
 noto-fonts-emoji
 nss-mdns
 opendoas
+opensnitch
 opus-tools
 oxipng
 p7zip
@@ -171,6 +174,7 @@ typst
 unzip
 upx
 usbutils
+ventoy-bin
 vulkan-intel
 vulkan-radeon
 w3m
@@ -187,6 +191,7 @@ xorg-server
 xorg-xinit
 xreader
 xsel
+xss-lock
 yay
 yt-dlp
 zathura-cb
