@@ -2,6 +2,7 @@ c.content.cookies.accept = "never"
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
 c.content.register_protocol_handler = False
+c.url.start_pages = c.url.default_page = 'minifocs.fly.dev'
 sites = [
         'archiveofourown.org',
         'canary.discord.com',
@@ -12,7 +13,6 @@ sites = [
         '*.albany.edu',
         'api-3e0243bb.duosecurity.com',
         'api-71fc1511.duosecurity.com',
-        'www.gradescope.com',
         ]
 for site in sites:
     config.set('content.javascript.enabled', True, 'https://' + site)

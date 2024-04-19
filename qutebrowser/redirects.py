@@ -42,7 +42,6 @@ def github(url: QUrl) -> bool:
     return farside(url, '/gothub/')
 
 #twitter = o(s, 'unrollnow.com')
-twitter = o(s, 'nitter.poast.org')
 
 m = {
         "reddit.com": reddit,

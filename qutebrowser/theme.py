@@ -50,5 +50,8 @@ cc.webpage.darkmode.enabled = True
 cc.webpage.preferred_color_scheme = 'dark'
 cc.webpage.darkmode.policy.images = 'never'
 
-c.tabs.show = 'multiple'
 c.completion.open_categories = ["bookmarks","history"]
+c.content.fullscreen.window = True
+c.content.prefers_reduced_motion = True
+c.content.user_stylesheets = ['adblock.css', 'dracula.css', 'user.css']
+c.tabs.show = 'multiple'

@@ -120,5 +120,5 @@ vim.cmd [[
 colorscheme dracula
 command Q q!
 let b:ale_linters = {'c': [''], 'sh': [''], 'php': ['']}
-autocmd BufReadPost,FileReadPost *.bz3 call gzip#read("bzip3 -d")
+autocmd BufReadPost,FileReadPost *.bz3 call gzip#read("bzip3 -rd")
 ]]

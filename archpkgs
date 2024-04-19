@@ -31,7 +31,6 @@ doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
 dracula-gtk-theme-git
-dracula-kde-theme-git
 elvish
 expac
 fd
@@ -43,6 +42,7 @@ fwupd
 fzf
 gallery-dl
 game-devices-udev
+gamescope
 gdb
 ghostscript
 gifsicle
@@ -50,6 +50,7 @@ git
 git-filter-repo
 git-lfs
 gitui
+gmic
 gnome-disk-utility
 gnome-keyring
 gnome-power-manager
@@ -73,16 +74,16 @@ keepassxc
 kernel-headers-musl
 kitty
 kiwix-tools
-kvantum-qt5
+krita
 lagrange
 libheif
 libplist
 libpulse
-libresprite-git
 libusbmuxd
 libva-intel-driver
 linux-firmware
 linux-hardened
+love
 lrzip
 ly
 lynx
@@ -144,6 +145,7 @@ qownnotes
 qpdf
 qrencode
 qt5-base
+qt5ct
 qutebrowser
 rclone
 redlib
@@ -187,6 +189,7 @@ xdelta3
 xdg-utils
 xf86-input-evdev
 xf86-input-libinput
+xf86-input-wacom
 xorg-server
 xorg-xinit
 xreader
