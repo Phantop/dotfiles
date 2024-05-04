@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+import sys
+
+from PyQt6.QtCore import QUrl
+from PyQt6.QtWidgets import QApplication
+from PyQt6.QtWebEngineWidgets import QWebEngineView
+from PyQt6.QtGui import QPageLayout
+from PyQt6.QtGui import QPageSize
+from PyQt6.QtCore import QMarginsF
+
+def save_img():
+    #size = wv.page().contentsSize().toSize()
+    #wv.resize(size)
+    #wv.grab().save('dump.png', b'PNG')
+    #page_layout = QPageLayout(QPageSize(QPageSize.PageSizeId.A2), QPageLayout.Orientation.Portrait, QMarginsF())
+    wv.printToPdf("dump.pdf")
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    wv = QWebEngineView()
+
+    wv.loadFinished.connect(save_img)
+    wv.pdfPrintingFinished.connect(sys.exit)
+    wv.load(QUrl.fromUserInput(sys.argv[1]))
+    app.exec()
