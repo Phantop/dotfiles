@@ -20,3 +20,4 @@ for site in sites:
 
 config.set('content.headers.user_agent', 'iPhone', 'docs.google.com')
 config.set('content.headers.user_agent', 'iPhone', 'drive.google.com')
+config.set('colors.webpage.darkmode.enabled', False, 'canary.discord.com')
