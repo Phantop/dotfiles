@@ -1,4 +1,4 @@
-require "paq" {
+local paq = require "paq" {
     'ctrlpvim/ctrlp.vim',
     'dense-analysis/ale',
     'echasnovski/mini.nvim',
@@ -32,7 +32,6 @@ require "paq" {
     { 'williamboman/mason.nvim', build = ':MasonUpdate' },
 }
 
-vim.cmd("PaqSync")
 require("aerial").setup()
 require("gitsigns").setup()
 require("ibl").setup()
@@ -49,6 +48,7 @@ null_ls.setup({sources = {
 require("null-ls").register(require("none-ls-shellcheck.diagnostics"))
 require("null-ls").register(require("none-ls-shellcheck.code_actions"))
 
+-- makes cmp tab functionality work as expected
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
