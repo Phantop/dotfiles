@@ -1,18 +1,1 @@
-#!/usr/bin/env sh
-set -e # exit on failure
-IFS=$(printf '\n\t') # smarter ifs
-
-test "$RATIOW" || RATIOW=16
-test "$RATIOH" || RATIOH=9
-imageh=$(identify -format %h "$1")
-des_ratio=$(printf '3 k %u %u / p' "$RATIOW" "$RATIOH" | dc)
-des_width=$(printf '1 k %f %u * p' "$des_ratio" "$imageh" | dc | cut -d. -f1)
-
-convert "$1" -blur 0x7 -resize "$des_width"x tmp1.ppm
-cp "$1" tmp2.ppm
-[ "$BORDER" != "0" ] && convert "$1" -bordercolor black -border 10x0 tmp2.ppm
-composite -gravity center tmp2.ppm tmp1.ppm tmp3.ppm
-mogrify -gravity center -crop "x$imageh+0" tmp3.ppm
-outfile="$(dirname "$1")/tran_$(basename "$1" | tuc -d. -f:-2).jxl"
-cjxl -e 8 tmp3.ppm "$outfile"
-rm tmp*.ppm
+wallmanip

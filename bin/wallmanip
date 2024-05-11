@@ -1,0 +1,210 @@
+#!/bin/sh
+set -e # exit on failure
+IFS=$(printf '\n\t') # smarter ifs
+
+error() {
+    echo "$@" >&2
+    exit 1
+}
+
+help() {
+    echo "Usage: wallmanip [options...]"
+    echo '*defaults*: -a PAD -p CENTER -r 16:9'
+    echo "  -a, --action            One of {blurpad, crop, pad, reflect}"
+    echo "  -f, --filename          Specify file. Switch can be omitted."
+    echo "  -p, --position          One of {top, bottom, left, right}"
+    echo "  -r, --ratio             Specify aspect ratio, as W:H (e.g. 16:9)"
+    echo "  -s, --scale             Specify output resolution, as WxH (e.g. 1920x1080)"
+
+    echo "  -h, --help              Print this help text"
+    echo "  -v, --version           Print the wallmanip version"
+    exit
+}
+
+{ # block to initially set config vars
+    ACTION=PAD
+    FILE=''
+    POS=CENTER
+
+    RATIOW=16
+    RATIOH=9
+
+    RESIZE=0
+    SCALEW=1920
+    SCALEH=1080
+}
+
+# handle symlink names
+case "$(basename "$0")" in
+    blurborder ) 
+        ACTION=BLURPAD
+        ;;
+    croptop )
+        ACTION=CROP
+        POS=TOP
+        ;;
+    padjpeg ) ;;
+esac
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -a | --action )
+            ACTION=$(echo "$2" | tr "[:lower:]" "[:upper:]")
+            shift 2 ;;
+        -p | --position )
+            POS=$(echo "$2" | tr "[:lower:]" "[:upper:]")
+            shift 2 ;;
+        -r | --ratio )
+            RATIOW=$(echo "$2" | cut -d: -f1)
+            RATIOH=$(echo "$2" | cut -d: -f2)
+            shift 2 ;;
+        -s | --scale )
+            RESIZE=1
+            SCALEW=$(echo "$2" | cut -dx -f1)
+            SCALEH=$(echo "$2" | cut -dx -f2)
+            shift 2 ;;
+        --resize )
+            RESIZE=1
+            shift ;;
+        --version | -v )
+            printf '\e[32m'
+            echo 'wallmanip 2024.05.11'
+            printf '\e[36m'
+            echo Built by July 🏳️‍🌈
+            printf '\e[0m'
+            exit ;;
+        -h | --help)
+            help ;;
+        -f | --filename)
+            shift;;
+        *)
+            [ "$FILE" != '' ] && help # give helptext if already set
+            FILE=$1
+            shift 1 ;;
+    esac
+done
+
+{ # initial error/sanity checking blocking
+    test -f "$FILE" || error Invalid/missing filename
+    identify -format '' "$FILE" || error File is not an image
+
+    case "$ACTION" in
+        BLURPAD | CROP | SCALE | PAD | REFLECT) ;;
+        *) error Invalid action ;;
+    esac
+
+    case "$POS" in
+        BOTTOM | CENTER | LEFT | RIGHT | TOP ) ;;
+        *) error Invalid position ;;
+    esac
+
+    for i in "$RATIOW" "$RATIOH" "$SCALEW" "$SCALEH"; do
+        if [ -n "$i" ] && [ "$i" -eq "$i" ]; then
+            continue
+        fi
+        error Invalid numerical argument
+    done
+}
+
+divide() { # helper for precise division
+    printf '3k %s %s /p' "$1" "$2" | dc
+}
+truncate() { # specify truncation of floats where desired
+    cut -d. -f1
+}
+
+{ # build image information
+    img_height=$(identify -format %h "$FILE")
+    img_width=$(identify -format %w "$FILE")
+
+    des_ratio=$(divide "$RATIOW" "$RATIOH")
+    img_ratio=$(divide "$img_width" "$img_height")
+    wide="$(echo "$img_ratio > $des_ratio" | bc )"
+
+    jpg="$(file -bi "$FILE" | grep -q '^image/jpeg' && echo 1 || echo 0)"
+    jxl="$(file -bi "$FILE" | grep -q '^image/jxl'  && echo 1 || echo 0)"
+
+    out="$(dirname "$FILE")/tran_$(basename "$FILE")"
+    work=$(mktemp)
+}
+
+{ # build working jpeg file, for as needed
+    if [ "$jxl" -eq 1 ]; then 
+        djxl "$FILE" "$work" --output_format jpg
+    elif [ "$jpg" -eq 1 ]; then
+        cp "$FILE" "$work"
+    else
+        cjpegli "$FILE" "$work"
+    fi
+
+    if [ "$wide" -eq 1 ] && [ "$ACTION" != CROP ]; then
+        jpegtran -rotate 90 -outfile "$work" "$work"
+        img_height=$(identify -format %h "$work")
+        img_width=$(identify -format %w "$work")
+        des_ratio=$(divide 1 "$des_ratio")
+    fi
+}
+
+border() {
+    border=$(mktemp)
+    backdrop=$(mktemp)
+    des_width=$(echo "$des_ratio * $img_height" | bc | truncate)
+    gravity=center
+    convert "$work" -bordercolor black -border 10x0 PPM:"$border"
+    convert "$work" -blur 0x7 -resize "$des_width"x PPM:"$backdrop"
+    composite -gravity $gravity "$border" "$backdrop" PPM:"$backdrop"
+    convert -gravity center -crop "x$img_height+0" "$backdrop" JPEG:"$work"
+    rm -f "$border" "$backdrop"
+}
+
+crop() {
+    des_height=$(divide "$img_width" "$des_ratio" | truncate) 
+    offset=$(echo "$img_height - $des_height" | bc)
+    case $POS in
+        LEFT | TOP ) offset=0 ;;
+        CENTER ) offset=$(echo "$offset / 2" | bc) ;;
+        RIGHT | BOTTOM ) ;;
+    esac
+    jpegtran -crop "$img_width"x"$des_height"+0+"$offset" -outfile "$work" "$work"
+}
+
+pad() {
+    des_width=$(echo "$des_ratio * $img_height" | bc | truncate)
+    offset=$(echo "$des_width - $img_width" | bc)
+    case $POS in
+        LEFT | BOTTOM ) offset=0 ;;
+        CENTER ) offset=$(echo "$offset / 2" | bc) ;;
+        RIGHT | TOP ) ;;
+    esac
+    jpegtran -crop "$des_width$1+$offset" -outfile "$work" "$work"
+}
+
+case "$ACTION" in
+    BLURPAD )
+        border ;;
+    CROP )
+        crop ;;
+    REFLECT )
+        pad r;;
+    PAD )
+        pad f;;
+esac
+
+{ # transfer back to output file
+    if [ "$wide" -eq 1 ] && [ "$ACTION" != CROP ]; then
+        jpegtran -rotate 270 -outfile "$work" "$work"
+    fi
+    if [ "$RESIZE" -eq 1 ]; then
+        ffmpeg -i "$work" -vf zscale="$SCALEW":"$SCALEH":filter=spline36 -vcodec ppm -f image2pipe - | convert - JPEG:"$work"
+    fi
+
+    if [ "$jxl" -eq 1 ]; then 
+        cjxl "$work" "$out"
+    elif [ "$jpg" -eq 1 ]; then
+        cp "$work" "$out"
+    else
+        djpegli "$work" "$out"
+    fi
+}
+
+rm "$work" -f
