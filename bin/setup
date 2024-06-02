@@ -30,10 +30,6 @@ wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css 
 wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
 
-wget https://github.com/DonCanjas/mpv-visualizer/raw/master/visualizer.lua -P ~/.config/mpv/scripts
-wget https://github.com/elhirchek/copy-paste-url/raw/master/copy-paste-url.lua -P ~/.config/mpv/scripts
-wget https://gitlab.com/lvml/mpv-plugin-xrandr/-/raw/master/xrandr.lua -P ~/.config/mpv/scripts
-
 printf bt-tracker= > ~/.config/aria2/aria2.conf
 curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | tr "\n" , >> ~/.config/aria2/aria2.conf 
 

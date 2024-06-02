@@ -150,10 +150,10 @@ border() {
     backdrop=$(mktemp)
     des_width=$(echo "$des_ratio * $img_height" | bc | truncate)
     gravity=center
-    convert "$work" -bordercolor black -border 10x0 PPM:"$border"
-    convert "$work" -blur 0x7 -resize "$des_width"x PPM:"$backdrop"
+    magick "$work" -bordercolor black -border 10x0 PPM:"$border"
+    magick "$work" -blur 0x7 -resize "$des_width"x PPM:"$backdrop"
     composite -gravity $gravity "$border" "$backdrop" PPM:"$backdrop"
-    convert -gravity center -crop "x$img_height+0" "$backdrop" JPEG:"$work"
+    magick "$backdrop" -gravity center -crop "x$img_height+0" JPEG:"$work"
     rm -f "$border" "$backdrop"
 }
 
@@ -195,7 +195,7 @@ esac
         jpegtran -rotate 270 -outfile "$work" "$work"
     fi
     if [ "$RESIZE" -eq 1 ]; then
-        ffmpeg -i "$work" -vf zscale="$SCALEW":"$SCALEH":filter=spline36 -vcodec ppm -f image2pipe - | convert - JPEG:"$work"
+        ffmpeg -i "$work" -vf zscale="$SCALEW":"$SCALEH":filter=spline36 -vcodec ppm -f image2pipe - | magick - JPEG:"$work"
     fi
 
     if [ "$jxl" -eq 1 ]; then 

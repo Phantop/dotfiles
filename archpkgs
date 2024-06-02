@@ -5,6 +5,8 @@ apparmor
 arch-install-scripts
 aria2
 asciinema
+audacious
+audacity
 autojump
 avidemux-qt
 base
@@ -26,7 +28,6 @@ cmake
 cpupower
 csvlens
 dart-sass
-devkitpro-keyring
 doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
@@ -66,6 +67,7 @@ intel-media-driver
 intel-ucode
 inxi
 jack2
+jc
 jdupes
 jless
 jpegoptim
@@ -75,6 +77,7 @@ kernel-headers-musl
 kitty
 kiwix-tools
 krita
+labwc
 lagrange
 libheif
 libplist
@@ -105,14 +108,12 @@ neovim
 netsurf
 network-manager-applet
 networkmanager
-networkmanager-openconnect
 nicotine+
 ninja
 nnn
 noto-fonts-emoji
 nss-mdns
 opendoas
-opensnitch
 opus-tools
 oxipng
 p7zip
@@ -120,6 +121,7 @@ parallel
 pcmanfm-gtk3
 pdfjs
 perl-parallel-forkmanager
+perl-rename
 php
 pipewire
 pngquant
@@ -134,6 +136,7 @@ pulseaudio-bluetooth
 pulseaudio-jack
 pup
 pyenv
+pyside6
 python-adblock
 python-html2text
 python-pip
@@ -146,7 +149,7 @@ qpdf
 qrencode
 qt5-base
 qt5ct
-qutebrowser
+qutebrowser-git
 rclone
 redlib
 reflector
@@ -155,14 +158,19 @@ rofi
 rsync
 runc
 rustup
+samba
+slumber
 smartmontools
 sof-firmware
+spotdl
 sqlitebrowser
 squashfs-tools
 starship
 steam
 stow
+subliminal-git
 sxiv
+syncplay
 syncthing
 system-config-printer
 tig
@@ -173,6 +181,7 @@ ttf-dejavu
 ttf-ubuntu-font-family
 tuc
 typst
+uget
 unzip
 upx
 usbutils
@@ -192,6 +201,7 @@ xf86-input-libinput
 xf86-input-wacom
 xorg-server
 xorg-xinit
+xournalpp
 xreader
 xsel
 xss-lock
