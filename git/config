@@ -18,6 +18,8 @@
 [url "https://aur.archlinux.org/"] 
     insteadOf = "aur:" 
     insteadOf = "a:" 
+[url "https://gitlab.archlinux.org/archlinux/packaging/packages/"]
+    insteadOf = "al:"
 [url "https://github.com/"]
     insteadOf = "github:"
     insteadOf = "hub:"
