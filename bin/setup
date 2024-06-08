@@ -2,10 +2,10 @@
 set -e
 alias s=sudo g=git
 
-printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | s tee -a /etc/pacman.conf
 s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
 s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | s tee -a /etc/pacman.conf
 s pacman -Syu
 xargs -o sudo pacman -S --needed < ~/.dotfiles/archpkgs
 yay -S pandoc-bin shellcheck-bin nvimpager

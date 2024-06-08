@@ -1,7 +1,7 @@
 c.url.searchengines['!'] = 'farside.link/librey/search.php?q=!{}'
 c.url.searchengines['!'] = 'librey.fly.dev/search.php?q=!{}'
 c.url.searchengines['4'] = 'farside.link/4get/web?s={}'
-c.url.searchengines['4'] = '4get.fly.dev/web?scraper=qwant&s={}'
+c.url.searchengines['4'] = '4get.fly.dev/web?s={}'
 c.url.searchengines['a'] = 'annas-archive.org/search?q={}'
 c.url.searchengines['aw'] = 'wiki.archlinux.org/title/{}'
 c.url.searchengines['g'] = 'github.com/search?q={}'
