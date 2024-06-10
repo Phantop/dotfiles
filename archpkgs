@@ -3,7 +3,7 @@ android-file-transfer
 anime4k
 apparmor
 arch-install-scripts
-ares-emu
+ares-emu-avx-git
 aria2
 asciinema
 autojump
@@ -145,7 +145,7 @@ qpdf
 qrencode
 qt5-base
 qt5ct
-qutebrowser-git
+qutebrowser
 rclone
 redlib
 reflector
