@@ -31,6 +31,7 @@ a gittop 'cd (git root)'
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
+a htmldecode 'python3 -c "import html, sys; print(html.unescape(sys.stdin.read()))"'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
 a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a l ls
@@ -56,11 +57,13 @@ a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
 a tar bsdtar
 a tcsv 'curl https://torrents-csv.com/service/search?q=(echo $argv | tr " " +) | jless;:'
+a up 's pacman -Syu'
 a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()))"'
 a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
+a ya 'yay -a'
 a ydl 'yt-dlp'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'

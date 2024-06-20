@@ -77,6 +77,8 @@ krita
 labwc
 lagrange
 libheif
+libimobiledevice
+libimobiledevice-glue
 libplist
 libpulse
 libusbmuxd
