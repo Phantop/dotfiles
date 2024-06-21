@@ -73,7 +73,7 @@ m = {
 
         "www.twitch.tv" : o(s, 'twineo.exozy.me'),
         "discord.com" : o(s, 'canary.discord.com'),
-        "tumblr.com" : o(s, 'tumblash.fly.dev'),
+        "tumblr.com" : o(s, 'priviblur.fly.dev'),
         "www.tumblr.com" : o(s, 'priviblur.fly.dev'),
         "www.npr.org" : o(s, 'text.npr.org'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
