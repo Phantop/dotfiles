@@ -1,8 +1,11 @@
 #!/usr/bin/fish
 set json (trurl --json $QUTE_URL | jq .[].parts)
-set blog (echo $json | jq -r .host | cut -d. -f1)
+set blog /(echo $json | jq -r .host | cut -d. -f1)
 set page (echo $json | jq -r .path)
 set instances https://github.com/syeopite/priviblur/raw/master/instances.md
 set instances priviblur.fly.dev (curl -L $instances | grep https | awk -F'[][]' '{print $2}')
 set instance (random choice $instances)
-echo "open $instance/$blog$page" >> $QUTE_FIFO
+if string match '* - Priviblur' $QUTE_TITLE
+    set blog ''
+end
+echo "open $instance$blog$page" >> $QUTE_FIFO
