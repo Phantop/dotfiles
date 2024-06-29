@@ -77,7 +77,7 @@ body>div#outer.wrapper { //ao3
         }
     }
     a, fieldset, .comment, textarea, h4.byline, .navigation, #footer, .menu,
-    a:hover, [role="menu-item"] a, .bookmark, .reading h4.viewed, ol.index.group { 
+    a:hover, [role="menu-item"] a, .bookmark, .reading h4.viewed, ol.index.group {
         background: #000;
         color: #fff;
     }
@@ -137,7 +137,19 @@ body>div#outer.wrapper { //ao3
     .item-status-read .item-title > a:link {color: rgb(155, 148, 148);}
     .logo a span, .logo a:hover { color: #c88aff; }
 
+    // remove padding between webcomic images for comic category
     &:has(.entry-meta > .category > a[href="/category/74/entries"]) .entry-content {
         font-size: 0;
     }
-} 
+
+    h1, h2, h3, h4, h5, h6 {
+        #grease-anchor {
+            margin-inline-start: 4px;
+            color: var(--category-link-color);
+            display: none;
+        }
+        &:hover, &:active {
+            #grease-anchor { display: unset }
+        }
+    }
+}

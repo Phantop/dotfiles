@@ -25,6 +25,7 @@ for ($element of $elements) {
 function createAnchor(id) {
   var $link = document.createElement('a');
   $link.href = '#' + id;
-  $link.appendChild(document.createTextNode('♯'));
+  $link.id = 'grease-anchor';
+  $link.appendChild(document.createTextNode('#'));
   return $link;
 }
