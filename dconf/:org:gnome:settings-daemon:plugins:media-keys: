@@ -64,5 +64,5 @@ name='Open'
 
 [custom-keybindings/custom9]
 binding='<Super>c'
-command='kitty fish -c "exec nnn"'
+command='kitty fish -c "exec nnn -A"'
 name='Files'
