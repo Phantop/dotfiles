@@ -24,6 +24,7 @@ div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // bet
 .docs-gm > #sheets-viewport > div { display: unset !important; }
 // .bridge-card, section[id^="bridge-"] { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
 #years-table { .detail-view-container { display: flex } td { background-image: unset } } //quatalog detailed view
+ul.js-show-external { display: unset !important } // show annas external
 
 /* hide ads and invidious recommends */
 $class: ad-frame-container, ad-panel, ad-slot, adsbygoogle, adbox, adunit,
