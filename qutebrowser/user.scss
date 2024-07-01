@@ -54,9 +54,6 @@ body {
     --shadow: 0 1px 3px #00000055;
 }
 
-[id^="streamEntryBody"] {display: none} // lms show grades
-.stream-grade.ng-hide { display: flex !important }
-
 body>div#outer.wrapper { //ao3
     zoom: 110%;
     background: #000;

@@ -157,6 +157,7 @@ rsync
 runc
 rustup
 samba
+signal-desktop
 slumber
 smartmontools
 sof-firmware
@@ -192,6 +193,7 @@ wqy-microhei
 xarchiver
 xdelta3
 xdg-utils
+xdotool
 xf86-input-evdev
 xf86-input-libinput
 xf86-input-wacom
