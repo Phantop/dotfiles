@@ -80,16 +80,9 @@ a squash 'mksquashfs . $PWD.squashfs -comp zstd -b 1M -Xcompression-level 22'
 a undwarfs 'mkdir dwarfs-root; dwarfsextract -o dwarfs-root -i'
 a xcompress 'fxz -T0 -9 -k'
 
-set junit '(git root)/src/main/java:(git root)/src/test/java:(git root)/../cp/\*'
-a jacoco "javacp org.jacoco.cli.internal.Main report (git root)/report/coverage.exec --{class,source}files=(git root)/src/main/java --html report"
-a javacp "java -cp $junit"
-a junit "javacp -javaagent:(git root)/../cp/jacocoagent.jar=destfile=(git root)/report/coverage.exec org.junit.runner.JUnitCore"
-a junitc "javac -cp $junit"
-
 a catbox 'curl https://catbox.moe/user/api.php -F reqtype=fileupload -F fileToUpload=@$argv;:'
-a temp 'curl temp.sh -T'
+a temp 'curl https://temp.sh/upload -F file=@$argv;:'
 a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{common,linux}/$argv.md;:'
-a transfer 'curl https://transfer.sh/(basename $argv) -T'
 
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
