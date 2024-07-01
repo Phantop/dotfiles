@@ -71,16 +71,19 @@ m = {
         "en.wikipedia.org" : wikipedia,
         "gothub.com" : github,
 
-        "www.twitch.tv" : o(s, 'twineo.exozy.me'),
-        "discord.com" : o(s, 'canary.discord.com'),
         "tumblr.com" : o(s, 'priviblur.fly.dev'),
         "www.tumblr.com" : o(s, 'priviblur.fly.dev'),
-        "www.npr.org" : o(s, 'text.npr.org'),
-        "www.goodreads.com" : o(s, 'bl.vern.cc'),
-        "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
+
         "avatar.wiki" : o(s, 'avatar.antifandom.com'),
+        "tardis.fandom.com" : o(s, 'tardis.wiki'),
+        "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
+
+        "discord.com" : o(s, 'canary.discord.com'),
         "news.ycombinator.com" : o(s, 'news.workers.tools'),
+        "www.goodreads.com" : o(s, 'bl.vern.cc'),
+        "www.npr.org" : o(s, 'text.npr.org'),
         "www.pixiv.net" : o(s, 'pixivfe.exozy.me'),
+        "www.twitch.tv" : o(s, 'twineo.exozy.me'),
         }
 def rewrite(info: interceptor.Request):
     if (info.resource_type != interceptor.ResourceType.main_frame or

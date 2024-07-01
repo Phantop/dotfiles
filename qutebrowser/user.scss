@@ -107,12 +107,14 @@ body>div#outer.wrapper { //ao3
 
 [data-csrf-token] { // miniflux
     --body-background: #000;
+    --current-item-border-color: #c88aff;
     --text-color: #EEE;
-    --entry-content-color: var(--text-color);
-    --title-color: var(--text-color);
-    --link-color: var(--text-color);
 
-    .logo a span, .logo a:hover { color: #c88aff; }
+    --entry-content-color: var(--text-color);
+    --link-color: var(--text-color);
+    --title-color: var(--text-color);
+
+    .logo a span, .logo a:hover { color: var(--current-item-border-color) }
 
     // remove padding between webcomic images for comic category
     &:has(.entry-meta > .category > a[href="/category/74/entries"]) .entry-content {
