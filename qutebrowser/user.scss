@@ -17,7 +17,7 @@
     $aria: gift, Help, Inbox;
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
     [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
-    [aria-label="Servers"] + div { display: none; + div { display: none; + div + div { display: none; } } }
+    [aria-label="Servers"] ~ div { display: none }
 }
 
 div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // better docs mobiles
@@ -41,18 +41,6 @@ $id: ads, leaderboard, player-ads, rc-row-container;
 
 div.container > div.conversation > div#r.replies { display: none } //nitter replies
 body>nav:nth-child(1):not([class]) {position: absolute} // nitter/libreddit/librex
-body {
-    --bg_panel: #232531;
-    --bg_overlays: var(--bg_panel);
-    --background: var(--bg_color);
-    --foreground: var(--bg_hover);
-    --green: var(--accent);
-    --highlighted: var(--bg_hover);
-    --outside: var(--post);
-    --post: #333544;
-    --panel-border: var(--post);
-    --shadow: 0 1px 3px #00000055;
-}
 
 body>div#outer.wrapper { //ao3
     zoom: 110%;

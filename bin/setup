@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-alias s=sudo g=git
+alias g=git s=sudo w=wget
 
 s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
@@ -8,7 +8,7 @@ s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.z
 printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | s tee -a /etc/pacman.conf
 s pacman -Syu
 xargs -o sudo pacman -S --needed < ~/.dotfiles/archpkgs
-yay -S pandoc-bin shellcheck-bin nvimpager
+yay -S pandoc-bin shellcheck-bin
 chsh -s "$(which fish)"
 
 echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
@@ -19,15 +19,17 @@ mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 fish -c "aliases"
 
-wget https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
-wget https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
-wget https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
-wget https://github.com/zedeus/nitter/raw/master/public/css/themes/dracula.css -P ~/.config/qutebrowser
+w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
+w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
+w https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
 
-wget https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
-wget https://source.netsurf-browser.org/netsurf.git/plain/resources/adblock.css -P ~/.config/qutebrowser
+w https://github.com/redlib-org/redlib/raw/main/static/themes/laserwave.css -P ~/.config/qutebrowser
+sed -i s/laserwave/fixed_navbar/ ~/.config/qutebrowser/laserwave.css
+w https://github.com/zedeus/nitter/raw/master/public/css/themes/twitter_dark.css -P ~/.config/qutebrowser
+ln -s /usr/share/netsurf/adblock.css ~/.config/qutebrowser
 
-wget https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
+w https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
+w https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
 
 mkdir -p ~/.config/mpv/scripts

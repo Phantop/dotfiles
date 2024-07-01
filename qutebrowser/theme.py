@@ -53,5 +53,5 @@ cc.webpage.darkmode.policy.images = 'never'
 c.completion.open_categories = ["bookmarks","history"]
 c.content.fullscreen.window = True
 c.content.prefers_reduced_motion = True
-c.content.user_stylesheets = ['adblock.css', 'dracula.css', 'user.css']
+c.content.user_stylesheets = ['adblock.css', 'laserwave.css', 'twitter_dark.css', 'user.css']
 c.tabs.show = 'multiple'
