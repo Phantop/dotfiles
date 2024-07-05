@@ -23,10 +23,17 @@ w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
 w https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
 
+ln -s /usr/share/netsurf/adblock.css ~/.config/qutebrowser
 w https://github.com/redlib-org/redlib/raw/main/static/themes/laserwave.css -P ~/.config/qutebrowser
 sed -i s/laserwave/fixed_navbar/ ~/.config/qutebrowser/laserwave.css
 w https://github.com/zedeus/nitter/raw/master/public/css/themes/twitter_dark.css -P ~/.config/qutebrowser
-ln -s /usr/share/netsurf/adblock.css ~/.config/qutebrowser
+
+ao3=~/.config/qutebrowser/ao3.scss
+echo ":root:has(div#outer.wrapper) {" > "$ao3"
+curl https://archiveofourown.org/skins/929 | pup -p .css pre text{} >> "$ao3"
+sed -i -e '/232323/d' -e 's/#5998D6/MediumPurple/' -e 's/background:.*/background: #000;/' "$ao3"
+echo "}" >> "$ao3"
+sass "$ao3" ~/.config/qutebrowser/ao3.css
 
 w https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
 w https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
