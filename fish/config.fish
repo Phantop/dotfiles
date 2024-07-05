@@ -1,4 +1,5 @@
 fish_add_path -g ~/{.dotfiles,.local{/appdwarf,},Games}/bin /usr/lib64/ccache/bin
+fish_add_path -g ~/.local/appdwarf/apps
 export EDITOR=nvim MANPAGER='nvim +Man!' USE_CCACHE=1 PAGER=most
 export QT_QPA_PLATFORMTHEME=qt5ct GTK_THEME=Dracula
 export NNN_PLUG='f:fzcd;i:imgur;j:autojump;m:nmount;s:imgview'
