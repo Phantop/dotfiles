@@ -17,7 +17,7 @@ echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | s tee -a /boot/
 
 mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
-fish -c "aliases"
+~/.dotfiles/bin/setup.fish
 
 w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes

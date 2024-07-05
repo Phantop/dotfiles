@@ -1,32 +1,8 @@
-fish_add_path -g ~/{.dotfiles,.local{/appdwarf,},Games}/bin /usr/lib64/ccache/bin
-fish_add_path -g ~/.local/appdwarf/apps
-export EDITOR=nvim MANPAGER='nvim +Man!' USE_CCACHE=1 PAGER=most
-export QT_QPA_PLATFORMTHEME=qt5ct GTK_THEME=Dracula
-export NNN_PLUG='f:fzcd;i:imgur;j:autojump;m:nmount;s:imgview'
-
-set fish_greeting
-set fish_color_command --bold
-set fish_color_comment red
-set fish_color_end brmagenta
-set fish_color_error brred
-set fish_color_escape 'bryellow' '--bold'
-set fish_color_match --background=brblue
-set fish_color_operator bryellow
-set fish_color_param cyan
-set fish_color_quote yellow
-set fish_color_redirection brblue
-set fish_color_status red
-set fish_color_user brgreen
-set fish_color_valid_path --underline
-set fish_pager_color_prefix 'white' '--bold' '--underline'
-
-bind \ed 'ncdu'
-bind \ef '_fzf_wrapper | clip'
-bind \e\co 'open (_fzf_wrapper)'
-
 abbr !. --position anywhere -f history_find -r '^!.*'
 abbr !! --position anywhere -f history_last
 abbr do ''
 abbr done end
-
+bind \ed 'ncdu'
+bind \ef '_fzf_wrapper | clip'
+bind \e\co 'open (_fzf_wrapper)'
 printf "\e[5 q"

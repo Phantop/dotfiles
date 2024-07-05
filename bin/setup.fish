@@ -2,16 +2,45 @@
 rm -r ~/.config/fish/*
 stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
+fish_add_path -U ~/{.dotfiles,.local,Games}/bin /usr/lib64/ccache/bin
+fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
+
+set -Ux EDITOR nvim
+set -Ux GTK_THEME Dracula
+set -Ux MANPAGER 'nvim +Man!'
+set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;s:imgview'
+set -Ux PAGER most
+set -Ux QT_QPA_PLATFORMTHEME qt5ct
+set -Ux USE_CCACHE 1
+
+set -U fish_features all
+set -U fish_greeting
+set -U fish_color_command --bold
+set -U fish_color_comment red
+set -U fish_color_end brmagenta
+set -U fish_color_error brred
+set -U fish_color_escape 'bryellow' '--bold'
+set -U fish_color_match --background=brblue
+set -U fish_color_operator bryellow
+set -U fish_color_param cyan
+set -U fish_color_quote yellow
+set -U fish_color_redirection brblue
+set -U fish_color_status red
+set -U fish_color_user brgreen
+set -U fish_color_valid_path --underline
+set -U fish_pager_color_prefix 'white' '--bold' '--underline'
+
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
-fish_update_completions
+
 ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
-set -U fish_features all
 starship init fish --print-full-init > ~/.config/fish/conf.d/starship.fish
+
+fish_update_completions
 
 alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
-a aliases 'v (env which aliases); command aliases'
+a aliases 'v (which setup.fish); command setup.fish'
 a all2jxl 'fd -e{png,jpg,ppm,gif} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
