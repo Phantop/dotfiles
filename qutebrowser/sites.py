@@ -8,11 +8,6 @@ sites = [
         'canary.discord.com',
         'app.tuta.com',
         c.url.default_page,
-
-        '*.rpi.edu',
-        '*.albany.edu',
-        'api-3e0243bb.duosecurity.com',
-        'api-71fc1511.duosecurity.com',
         ]
 for site in sites:
     config.set('content.javascript.enabled', True, 'https://' + site)

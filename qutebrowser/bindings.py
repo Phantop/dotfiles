@@ -1,11 +1,9 @@
 a=c.aliases
 a['re'] = 'restart'
 a['idk'] = 'spawn -u wikidns'
-a['css-reload'] = 'set content.user_stylesheets css/user.css'
-a['scss-reload'] = 'spawn -u /bin/bash -c "sass $QUTE_CONFIG_DIR/user.scss $QUTE_CONFIG_DIR/css/user.css"'
+a['scss-reload'] = 'spawn -u /bin/bash -c "sass $QUTE_CONFIG_DIR/css/user.{s,}css"'
 a['remove-sticky'] = 'jseval -q document.querySelectorAll("*").forEach(e=>{["sticky","fixed"].includes(getComputedStyle(e).position)&&e.parentNode.removeChild(e)})'
 a['toggle-dark'] = 'reload;;jseval -q const meta=document.createElement("meta");meta.name="color-scheme";document.head.appendChild(meta).content="dark";;stop'
-a['monolith-save'] = 'spawn kitty fish -c "monolith {url} -o'
 
 a['ao3-first']  = 'jseval -q window.location = document.getElementsByTagName("option")[0].value'
 a['ao3-last'] = 'jseval -q c=document.getElementsByTagName("option"); window.location = c[c.length-1].value'
@@ -24,8 +22,8 @@ bind = {
     '<Ctrl-Shift-a>': 'ao3-last',
     'A': 'ao3-next',
     'X': 'ao3-prev',
-    '<Alt+A>': 'scrib-next',
-    '<Alt+X>': 'scrib-prev',
+    '<Alt+a>': 'scrib-next',
+    '<Alt+x>': 'scrib-prev',
 
     'm': 'spawn -mdv mpv {url}',
     ',': 'hint links run spawn -mdv mpv {hint-url}',
@@ -43,7 +41,6 @@ bind = {
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls -a | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',
-    'sm': 'monolith-save ~/Downloads/dump.html"',
     'sp': 'open ldrproxy.fly.dev/{url}',
     'sP': 'open morty.ononoki.org/?mortyurl={url}',
     'sq': 'spawn -u qr',

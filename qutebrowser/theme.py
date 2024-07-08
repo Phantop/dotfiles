@@ -49,9 +49,3 @@ cc.messages.warning.border      = 'red'
 cc.webpage.darkmode.enabled = True
 cc.webpage.preferred_color_scheme = 'dark'
 cc.webpage.darkmode.policy.images = 'never'
-
-c.completion.open_categories = ["bookmarks","history"]
-c.content.fullscreen.window = True
-c.content.prefers_reduced_motion = True
-c.content.user_stylesheets = ['css/adblock.css', 'css/ao3.css', 'css/laserwave.css', 'css/twitter_dark.css', 'css/user.css']
-c.tabs.show = 'multiple'
