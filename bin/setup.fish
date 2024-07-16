@@ -120,8 +120,8 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix encodec git-sim lightnovel-crawler mandown mangadex-downloader\
-    mathicsscript pdf2docx portablemc ratarmount scdl soundscrape spleeter
+for i in bandcamp-downloader deemix encodec git-sim lightnovel-crawler mandown\
+         mangadex-downloader mathicsscript pdf2docx portablemc ratarmount scdl spleeter
     a $i "pipx run $i"
 end
 a in2csv 'pipx run --spec csvkit in2csv'

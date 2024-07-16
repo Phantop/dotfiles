@@ -52,6 +52,7 @@
     g = clone
     gr = clone --recursive
     l = log
+    open = remote -v
     p = pull
     pu = push
     puf = push -f

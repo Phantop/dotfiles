@@ -1,7 +1,7 @@
 #hnmain {  // hacker news
-    zoom: 120%;
-    .title a:link, .c00, .c00 a:link {color: #FFF }
+    .title a:link, .c00, .c00 a:link {color: #FFF}
     [action="comment"] {display:none}
+    zoom: 120%;
 }
 
 #app-mount { //discord
@@ -12,43 +12,55 @@
     --background-secondary-alt: var(--background-primary);
     --channeltextarea-background: var(--background-primary);
 
-    font-family: "Ubuntu Mono";
     $aria: gift, Help, Inbox;
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
-    [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
     [aria-label="Servers"] ~ div { display: none }
+    [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
+    font-family: "Ubuntu Mono";
 }
 
-div.doc-container div.doc div {max-width: 666pt !important; margin: auto} // better docs mobile
 .docs-gm > #sheets-viewport > div { display: unset !important; }
-// .bridge-card { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
-#years-table { .detail-view-container { display: flex } td { background-image: unset } } //quatalog detailed view
+.doc-content {max-width: 666pt !important; margin: auto} // better docs mobile
+body>nav:nth-child(1), .docs-ml-header {position: absolute} // lock sticky navbars
 ul.js-show-external { display: unset } // show annas external
+// .bridge-card { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
 
-/* hide ads and invidious recommends */
-$class: ad-frame-container, ad-panel, ad-slot, adsbygoogle, adbox, adunit,
-adunit-wrapper, b_ad, leaderboard, "pure-u-lg-1-5:nth-child(3)", verified-icon;
-@each $i in $class {.#{$i} {display:none}}
-
+/* hide ads */
+$class: -frame-container, -panel, -slot, sbygoogle, box, unit, unit-wrapper;
+$id: ads, leaderboard, player-ads, rc-row-container;
 $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 'id^=div-gpt-ad', 'id^=google_ads_', 'id^=netboard_', 'id^=skyscraper';
+@each $i in $class {.ad#{$i} {display:none}}
 @each $i in $div {div[#{$i}] {display:none}}
-
-$id: ads, leaderboard, player-ads, rc-row-container;
 @each $i in $id {##{$i} {display:none}}
 /* --------------------------------- */
 
-div.container > div.conversation > div#r.replies { display: none } //nitter replies
-body>nav:nth-child(1):not([class]) {position: absolute} // nitter/libreddit/librex
+
+// arista aids
+body:has(> p.author) { max-width: 60em; margin: auto; zoom: 110%; }
+
+div#outer.wrapper { //ao3
+    #admin-banner, #header ul.primary, #bookmark-form fieldset > dl {display:none}
+    #workskin {zoom: 125%; max-width: 40em;}
+    p.kudos {overflow-wrap: break-word}
+    select { background: none; color: #FFF; }
+    zoom: 110%;
+    ul.work { // modified work header w/ nav and epub
+        .download li:not(:nth-child(2)), a.collapsed, li.share {display: none}
+        ul.secondary { border: none; display: unset; position: static; }
+    }
+}
 
 [data-csrf-token] { // miniflux
-    --body-background: #000;
-    --current-item-border-color: #c88aff;
-    --text-color: #EEE;
+    @media (prefers-color-scheme: dark) {
+        --body-background: #000;
+        --current-item-border-color: #c88aff;
+        --text-color: #EEE;
 
-    --entry-content-color: var(--text-color);
-    --link-color: var(--text-color);
-    --title-color: var(--text-color);
+        --entry-content-color: var(--text-color);
+        --link-color: var(--text-color);
+        --title-color: var(--text-color);
+    }
 
     .logo a span, .logo a:hover { color: var(--current-item-border-color) }
 
@@ -58,32 +70,9 @@ body>nav:nth-child(1):not([class]) {position: absolute} // nitter/libreddit/libr
     }
 
     #grease-anchor {
-        margin-inline-start: 4px;
         color: var(--category-link-color);
         display: none;
+        margin-inline-start: 4px;
     }
-    h1, h2, h3, h4, h5, h6 {
-        &:hover {
-            #grease-anchor { display: unset }
-        }
-    }
-}
-
-div#outer.wrapper { //ao3
-    #admin-banner, #header > nav > ul.primary {display:none}
-    #bookmark-form fieldset > dl {display:none}
-    #workskin {zoom: 125%; max-width: 40em;}
-    p.kudos {overflow-wrap: break-word}
-    select {background: none }
-    zoom: 110%;
-    ul.work {
-        .download li:not(:nth-child(2)) {display: none}
-        a.collapsed {display: none}
-        li.share {display: none}
-        ul.secondary {
-            border: none;
-            display: unset;
-            position: static;
-        }
-    }
+    h1, h2, h3, h4, h5, h6 { &:hover #grease-anchor {display: unset}}
 }

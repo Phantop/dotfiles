@@ -1,96 +1,82 @@
 from qutebrowser.api import interceptor
-from urllib.parse import urljoin
 from PyQt6.QtCore import QUrl
-import operator
 
-o = operator.methodcaller
-s = 'setHost'
+basic = {
+    'tumblr.com' : 'priviblur.fly.dev',
+    'www.tumblr.com' : 'priviblur.fly.dev',
 
-def farside(url: QUrl, i) -> bool:
-    url.setHost('farside.link')
-    p = url.path().strip('/')
-    url.setPath(urljoin(i, p))
-    return True
+    'avatar.wiki' : 'avatar.antifandom.com',
+    'portal.wiki' : 'theportalwiki.com',
+    'tardis.fandom.com' : 'tardis.wiki',
+    'zelda.fandom.com' : 'zeldawiki.wiki',
 
-def twitter(url: QUrl) -> bool:
-    return farside(url, '/nitter/')
-def imgur(url: QUrl) -> bool:
-    return farside(url, '/rimgo/')
-def medium(url: QUrl) -> bool:
-    return farside(url, '/scribe/')
-def youtube(url: QUrl) -> bool:
-    return farside(url, '/invidious/')
-def reddit(url: QUrl) -> bool:
-    return farside(url, '/libreddit/')
-def instagram(url: QUrl) -> bool:
-    return farside(url, '/proxigram/')
-def translate(url: QUrl) -> bool:
-    return farside(url, '/simplytranslate/')
-def tiktok(url: QUrl) -> bool:
-    return farside(url, '/proxitok/')
-def quora (url: QUrl) -> bool:
-    return farside(url, '/querte/')
-def fandom(url: QUrl) -> bool:
-    return farside(url, '/breezewiki/')
-def genius(url: QUrl) -> bool:
-    return farside(url, '/dumb/')
-def stackoverflow (url: QUrl) -> bool:
-    return farside(url, '/anonymousoverflow/')
-def wikipedia(url: QUrl) -> bool:
-    return farside(url, '/wikiless/')
-def github(url: QUrl) -> bool:
-    return farside(url, '/gothub/')
+    'discord.com' : 'canary.discord.com',
+    'news.ycombinator.com' : 'news.workers.tools',
+    'www.goodreads.com' : 'bl.vern.cc',
+    'www.npr.org' : 'text.npr.org',
+    'www.pixiv.net' : 'pixivfe.exozy.me',
+    'www.twitch.tv' : 'twineo.exozy.me',
+}
+farside = {
+    'music.youtube.com': 'invidious',
+    'www.youtube.com': 'invidious',
+    'youtu.be': 'invidious',
+    'youtube.com': 'invidious',
 
-#twitter = o(s, 'unrollnow.com')
+    'old.reddit.com': 'redlib',
+    'reddit.com': 'redlib',
+    'www.reddit.com': 'redlib',
 
-m = {
-        "reddit.com": reddit,
-        "www.reddit.com": reddit,
-        "old.reddit.com": reddit,
+    'mobile.twitter.com': 'nitter',
+    'twitter.com': 'nitter',
+    'x.com': 'nitter',
 
-        "youtu.be": youtube,
-        "youtube.com": youtube,
-        "www.youtube.com": youtube,
-        "music.youtube.com": youtube,
+    'vm.tiktok.com' : 'proxitok',
+    'www.tiktok.com' : 'proxitok',
 
-        "twitter.com": twitter,
-        "mobile.twitter.com": twitter,
-        "x.com": twitter,
+    'en.wikipedia.org' : 'wikiless',
+    'genius.com' : 'dumb',
+    'gothub.com' : 'gothub',
+    'imgur.com' : 'rimgo',
+    'medium.com' : 'scribe',
+    'stackoverflow.com' : 'anonymousoverflow',
+    'translate.google.com' : 'simplytranslate',
+    'www.instagram.com': 'proxigram',
+    'www.quora.com': 'querte',
+}
 
-        "imgur.com" : imgur,
-        "medium.com" : medium,
-        "www.instagram.com": instagram,
-        "translate.google.com" : translate,
-        "vm.tiktok.com" : tiktok,
-        "www.tiktok.com" : tiktok,
-        "www.quora.com": quora,
-        "fandom.com": fandom,
-        "www.fandom.com": fandom,
-        "genius.com" : genius,
-        "stackoverflow.com" : stackoverflow,
-        "en.wikipedia.org" : wikipedia,
-        "gothub.com" : github,
+def dosub(url: QUrl, host, sub):
+    url.setHost(host)
+    url.setPath('/' + sub + url.path())
+def fandom(url: QUrl, sub):
+    dosub(url, 'farside.link', 'breezewiki/' + sub)
+def tumblr(url: QUrl, sub):
+    dosub(url, 'priviblur.fly.dev', sub)
 
-        "tumblr.com" : o(s, 'priviblur.fly.dev'),
-        "www.tumblr.com" : o(s, 'priviblur.fly.dev'),
+subs = {
+    'fandom.com' : fandom,
+    'tumblr.com' : tumblr,
+}
 
-        "avatar.wiki" : o(s, 'avatar.antifandom.com'),
-        "tardis.fandom.com" : o(s, 'tardis.wiki'),
-        "zelda.fandom.com" : o(s, 'zeldawiki.wiki'),
-
-        "discord.com" : o(s, 'canary.discord.com'),
-        "news.ycombinator.com" : o(s, 'news.workers.tools'),
-        "www.goodreads.com" : o(s, 'bl.vern.cc'),
-        "www.npr.org" : o(s, 'text.npr.org'),
-        "www.pixiv.net" : o(s, 'pixivfe.exozy.me'),
-        "www.twitch.tv" : o(s, 'twineo.exozy.me'),
-        }
 def rewrite(info: interceptor.Request):
-    if (info.resource_type != interceptor.ResourceType.main_frame or
-            info.request_url.scheme() in {"data", "blob"}):
-        return
     url = info.request_url
-    redir = m.get(url.host())
-    if redir is not None and redir(url) is not False:
+    host = url.host()
+    base = '.'.join(host.split('.')[-2:])
+
+    bredir = basic.get(host)
+    fredir = farside.get(host)
+    sredir = subs.get(base)
+
+    if bredir is not None:
+        url.setHost(bredir)
         info.redirect(url)
+    elif fredir is not None:
+        url.setHost('farside.link')
+        url.setPath('/' + fredir + url.path())
+        info.redirect(url)
+    elif sredir is not None:
+        sub = host.split('.')[0]
+        sredir(url, sub)
+        info.redirect(url)
+
 interceptor.register(rewrite)
