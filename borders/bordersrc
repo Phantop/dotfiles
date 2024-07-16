@@ -1,0 +1,2 @@
+#!/bin/bash
+borders style=square width=3.0 active_color=0xff777777
