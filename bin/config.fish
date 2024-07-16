@@ -2,6 +2,7 @@
 rm -r ~/.config/fish/*
 stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
+fish_add_path -U /opt/homebrew/{opt/file-formula/,coreutils/libexec/gnu,}bin
 fish_add_path -U ~/{.dotfiles,.local,Games}/bin /usr/lib64/ccache/bin
 fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
 
@@ -34,13 +35,14 @@ curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
 
 ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
+ln -s /opt/homebrew/share/autojump/autojump.fish ~/.config/fish/conf.d/autojump.mac.fish
 starship init fish --print-full-init > ~/.config/fish/conf.d/starship.fish
 
 fish_update_completions
 
 alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
-a aliases 'v (which setup.fish); command setup.fish'
+a aliases 'v (which config.fish); config.fish'
 a all2jxl 'fd -e{png,jpg,ppm,gif} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
