@@ -57,6 +57,7 @@ a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
 a ff 'fd -HILi -Edosdevices -E.git'
 a fichub 'lynx -dump https://fichub.net/legacy/epub_export?q=$argv | grep epub? | cut -d. -f2- | dl -i-;:'
 a fumount 'fusermount -u'
+a fwhich 'file (which $argv);;'
 a g git
 a gittop 'cd (git root)'
 a giveme 's chown $USER'
@@ -78,6 +79,8 @@ a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a off shutdown
 a pill 's powerpill -Syu'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
+a py3 python3
+a py py3
 a qb 'qutebrowser --target auto'
 a qutainer 'qutebrowser --temp-basedir'
 a re 'systemctl reboot -i'
@@ -95,6 +98,7 @@ a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unq
 a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
+a vwhich 'v (which $argv);:'
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a ya 'yay -a'
 a ydl 'yt-dlp'
