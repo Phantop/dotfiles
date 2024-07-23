@@ -57,7 +57,6 @@ a epubpack 'cd $argv && zip -0rX ../(basename $argv).epub mimetype *; cd ..;:'
 a ff 'fd -HILi -Edosdevices -E.git'
 a fichub 'lynx -dump https://fichub.net/legacy/epub_export?q=$argv | grep epub? | cut -d. -f2- | dl -i-;:'
 a fumount 'fusermount -u'
-a fwhich 'file (which $argv);;'
 a g git
 a gittop 'cd (git root)'
 a giveme 's chown $USER'
@@ -121,6 +120,8 @@ a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{co
 
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
+
+a amk 'a ws make -p (basename $PWD)'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
