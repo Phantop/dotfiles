@@ -1,43 +1,39 @@
 local paq = require "paq" {
-    'ctrlpvim/ctrlp.vim',
     'dense-analysis/ale',
-    'echasnovski/mini.nvim',
     'dracula/vim',
+    'ibhagwan/fzf-lua',
     'kaarmu/typst.vim',
-    'lervag/vimtex',
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
-    'luukvbaal/nnn.nvim',
     'neovim/nvim-lspconfig',
+    'nmac427/guess-indent.nvim',
     'nvim-lua/plenary.nvim',
     'nvimtools/none-ls.nvim',
     'stevearc/aerial.nvim',
-    'tpope/vim-sleuth',
+
     'vim-airline/vim-airline',
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
     'gbprod/none-ls-shellcheck.nvim',
 
-    "L3MON4D3/LuaSnip";
-    "hrsh7th/cmp-buffer";
-    "hrsh7th/cmp-cmdline";
-    "hrsh7th/cmp-nvim-lsp";
-    "hrsh7th/cmp-nvim-lsp-signature-help";
-    "hrsh7th/cmp-path";
-    "hrsh7th/nvim-cmp";
+    "L3MON4D3/LuaSnip",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
 
-    --'tpope/vim-sensible',
-    --'https://sr.ht/~ackyshake/VimCompletesMe.vim',
     'williamboman/mason-lspconfig.nvim',
     { 'williamboman/mason.nvim', build = ':MasonUpdate' },
 }
 
 require("aerial").setup()
+require('guess-indent').setup()
 require("gitsigns").setup()
 require("ibl").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("nnn").setup()
 require("nvim-treesitter.configs").setup({highlight = {enable = true}})
 
 local null_ls = require("null-ls")
@@ -118,6 +114,12 @@ vim.keymap.set('n', '<leader>d', function() vim.lsp.buf.definition() end)
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.code_action() end)
 vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end)
 vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end)
+
+vim.keymap.set("n", "<C-p>", require('fzf-lua').files)
+vim.keymap.set("n", "<leader>\\", require('fzf-lua').buffers)
+vim.keymap.set("n", "<leader>k", require('fzf-lua').builtin)
+vim.keymap.set("n", "<leader>l", require('fzf-lua').live_grep_glob)
+vim.keymap.set("n", "<leader>g", require('fzf-lua').grep_project)
 
 vim.cmd [[
 colorscheme dracula
