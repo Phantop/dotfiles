@@ -1,7 +1,8 @@
 c.url.searchengines['aid'] = 'http://aid/{}'
 c.url.searchengines['go'] = 'http://go/{}'
 c.url.searchengines['group'] = 'http://groups/{}'
-c.url.searchengines['tacnav'] = 'tacnav.infra.corp.arista.io/tacnav?version=eos-trunk&targets={}'
+c.url.searchengines['nav'] = 'tacnav.infra.corp.arista.io/tacnav?version=eos-trunk&targets={}'
+c.url.searchengines['gcs'] = 'cloudsearch.google.com/cloudsearch?={}'
 
 config.bind('A', ':cmd-set-text -s :open -t aid')
 config.bind('a', ':cmd-set-text -s :open aid')

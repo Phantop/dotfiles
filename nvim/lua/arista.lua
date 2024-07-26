@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('FileType', {
       name = 'tacc',
       root_dir = '/src',
     })
-    vim.treesitter.language.add("tac", { path = "/usr/lib64/libtree-sitter-tac.so" })
+    vim.treesitter.language.add('tac', { path = '/usr/lib64/libtree-sitter-tac.so' })
     vim.treesitter.start()
   end,
 })

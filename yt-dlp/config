@@ -7,3 +7,4 @@
 -S lang,quality,res,fps,hdr:12,acodec,size,br,vcodec,asr,proto,ext,hasaud,source,id 
 -o "%(title)s.%(ext)s"
 --sponsorblock-remove all
+--embed-chapters

@@ -122,6 +122,7 @@ a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
 a amk 'a ws make -p (basename $PWD)'
+a lint 'a git lint'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
