@@ -14,7 +14,7 @@ local has_words_before = function()
 end
 
 local cmp = require('cmp')
-cmp.setup({
+cmp.setup{
     mapping = {
         ['<Tab>'] = cmp.mapping(
         function (fallback)
@@ -36,10 +36,11 @@ cmp.setup({
     {{name = 'buffer'}},
     {{name = 'path'}}
     )
-})
+}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig').clangd.setup{capabilities=capabilities}
-require('mason-lspconfig').setup_handlers {
+require('mason-lspconfig').setup_handlers{
     function (server_name)
         require('lspconfig')[server_name].setup {capabilities=capabilities}
     end

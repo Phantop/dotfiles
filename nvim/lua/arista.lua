@@ -1,11 +1,11 @@
-vim.filetype.add({
+vim.filetype.add{
   extension = {
     qb = 'python',
     tac = 'tac',
     tin = 'cpp',
     itin = 'cpp',
   }
-})
+}
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'tac',
   callback = function(args)

@@ -1,10 +1,12 @@
+vim.g.mapleader = ' '
+
 vim.keymap.set('', '<F7>', 'mzgg=G`z')
 vim.keymap.set('', 'r', '"_d')
-vim.g.mapleader = ' '
 
 vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
 vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+
 vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end)
 vim.keymap.set('n', 'gD', function() vim.lsp.buf.type_definition() end)
 vim.keymap.set('n', '<leader>d', function() vim.lsp.buf.definition() end)
