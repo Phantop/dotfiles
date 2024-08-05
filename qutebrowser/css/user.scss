@@ -21,23 +21,19 @@
 
 .docs-gm > #sheets-viewport > div { display: unset !important; }
 .doc-content {max-width: 666pt !important; margin: auto} // better docs mobile
+body:has(> p.author) { max-width: 60em; margin: auto; zoom: 110%; } // arista aids
 body>nav:nth-child(1), .docs-ml-header {position: absolute} // lock sticky navbars
 ul.js-show-external { display: unset } // show annas external
 // .bridge-card { form, h5 {display:revert} .showmore {display:none} } // show rss-bridges
 
-/* hide ads */
-$class: -frame-container, -panel, -slot, sbygoogle, box, unit, unit-wrapper;
+// hide ads
+$class: -container, -frame-container, -panel, -slot, sbygoogle, box, unit, unit-wrapper;
 $id: ads, leaderboard, player-ads, rc-row-container;
 $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 'id^=div-gpt-ad', 'id^=google_ads_', 'id^=netboard_', 'id^=skyscraper';
 @each $i in $class {.ad#{$i} {display:none}}
 @each $i in $div {div[#{$i}] {display:none}}
 @each $i in $id {##{$i} {display:none}}
-/* --------------------------------- */
-
-
-// arista aids
-body:has(> p.author) { max-width: 60em; margin: auto; zoom: 110%; }
 
 div#outer.wrapper { //ao3
     #admin-banner, #header ul.primary, #bookmark-form fieldset > dl {display:none}
@@ -61,18 +57,11 @@ div#outer.wrapper { //ao3
         --link-color: var(--text-color);
         --title-color: var(--text-color);
     }
-
-    .logo a span, .logo a:hover { color: var(--current-item-border-color) }
+    .logo a span:not(:hover), .logo a:hover { color: mediumpurple }
 
     // remove padding between webcomic images for comic category
-    &:has(.entry-meta > .category > a[href="/category/74/entries"]) .entry-content {
-        font-size: 0;
-    }
+    &:has(.entry-meta [href="/category/74/entries"]) article { font-size: 0 }
 
-    #grease-anchor {
-        color: var(--category-link-color);
-        display: none;
-        margin-inline-start: 4px;
-    }
-    h1, h2, h3, h4, h5, h6 { &:hover #grease-anchor {display: unset}}
+    #grease-anchor { color: var(--counter-color); margin-inline-start: 4px; }
+    h1, h2, h3, h4, h5, h6 { &:not(:hover) #grease-anchor {display: none}}
 }
