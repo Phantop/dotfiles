@@ -1,7 +1,7 @@
 #hnmain {  // hacker news
+    zoom: 120%;
     .title a:link, .c00, .c00 a:link {color: #FFF}
     [action="comment"] {display:none}
-    zoom: 120%;
 }
 
 #app-mount { //discord
@@ -12,11 +12,11 @@
     --background-secondary-alt: var(--background-primary);
     --channeltextarea-background: var(--background-primary);
 
+    font-family: "Ubuntu Mono";
     $aria: gift, Help, Inbox;
     @each $i in $aria {[aria-label$="#{$i}"] {display: none}}
     [aria-label="Servers"] ~ div { display: none }
     [class^="private"] [class^="search"], [href="/store"], [href="/shop"] {display: none}
-    font-family: "Ubuntu Mono";
 }
 
 .docs-gm > #sheets-viewport > div { display: unset !important; }
@@ -36,11 +36,11 @@ $div: 'class*=-ad-container', 'class*=ad-wrapper', 'id*=_ad_native',
 @each $i in $id {##{$i} {display:none}}
 
 div#outer.wrapper { //ao3
+    zoom: 110%;
     #admin-banner, #header ul.primary, #bookmark-form fieldset > dl {display:none}
     #workskin {zoom: 125%; max-width: 40em;}
     p.kudos {overflow-wrap: break-word}
     select { background: none; color: #FFF; }
-    zoom: 110%;
     ul.work { // modified work header w/ nav and epub
         .download li:not(:nth-child(2)), a.collapsed, li.share {display: none}
         ul.secondary { border: none; display: unset; position: static; }
