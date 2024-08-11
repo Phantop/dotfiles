@@ -40,7 +40,7 @@ w https://github.com/mrzool/bash-sensible/raw/master/sensible.bash -O ~/.bashrc
 w https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
 
-mkdir -p ~/.config/mpv/scripts
+w https://github.com/4ndrs/PureMPV/raw/main/main.js -P ~/.config/mpv/scripts
 ln -s /usr/share/mpv/scripts/autocrop.lua ~/.config/mpv/scripts
 ln -s /usr/share/mpv/scripts/autodeint.lua ~/.config/mpv/scripts
 
