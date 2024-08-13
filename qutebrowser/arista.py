@@ -1,14 +1,23 @@
-c.url.searchengines['aid'] = 'http://aid/{}'
+c.url.searchengines['a'] = 'http://aid/{}'
+c.url.searchengines['aid'] = c.url.searchengines['a']
+c.url.searchengines['bb'] = 'http://bb/{}'
+c.url.searchengines['gcs'] = 'cloudsearch.google.com/cloudsearch?={}'
 c.url.searchengines['go'] = 'http://go/{}'
+c.url.searchengines['grok'] = 'http://opengrok/source/search?project=eos-trunk&full={}'
 c.url.searchengines['group'] = 'http://groups/{}'
 c.url.searchengines['nav'] = 'tacnav.infra.corp.arista.io/tacnav?version=eos-trunk&targets={}'
-c.url.searchengines['gcs'] = 'cloudsearch.google.com/cloudsearch?={}'
 
-config.bind('A', ':cmd-set-text -s :open -t aid')
-config.bind('a', ':cmd-set-text -s :open aid')
-config.bind('E', ':cmd-set-text -s :open -t go')
-config.bind('e', ':cmd-set-text -s :open go')
+search = {
+    'a': 'aid',
+    'b': 'bb',
+    'e': 'go',
+    'tn': 'nav',
+    'z': 'grok',
+    '<Ctrl-g>': 'grok',
+}
+for a, b in search.items():
+    config.bind(a, ':cmd-set-text -s :open ' + b)
+    config.bind(a.upper(), ':cmd-set-text -s :open -t ' + b)
 
-c.content.user_stylesheets = ['css/user.css']
 c.fonts.default_size = '13pt'
-c.url.default_page = 'https://docs.google.com/document/d/1LGHPp5h5lu-aCFSSZHOZkz5OZrJv5xd7jtq6Wsa3ZKU/mobilebasic'
+c.url.default_page = 'http://go/cal'

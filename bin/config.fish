@@ -2,7 +2,7 @@
 rm -r ~/.config/fish/*
 stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
-fish_add_path -U /opt/homebrew/{opt/file-formula/,coreutils/libexec/gnu,}bin
+fish_add_path -U /opt/homebrew/{opt/{file-formula/,coreutils/libexec/gnu},}bin
 fish_add_path -U ~/{.dotfiles,.local,Games}/bin /usr/lib64/ccache/bin
 fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
 
