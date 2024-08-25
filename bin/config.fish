@@ -32,7 +32,7 @@ set -U fish_color_valid_path --underline
 set -U fish_pager_color_prefix 'white' '--bold' '--underline'
 
 curl -sL https://git.io/fisher | source
-fisher install {jorgebucaran/replay,PatrickF1/fzf}.fish
+fisher install {jorgebucaran/replay,PatrickF1/fzf,mattmc3/dict}.fish
 
 ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
 ln -s /opt/homebrew/share/autojump/autojump.fish ~/.config/fish/conf.d/autojump.mac.fish
@@ -101,6 +101,7 @@ a vwhich 'v (which $argv);:'
 a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
 a ya 'yay -a'
 a ydl 'yt-dlp'
+a ydlh 'ydl -S height:$argv[1] $argv[2..-1];:'
 
 a 7zstd '7z a -m0=zstd -mx22 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'
 a compress '7z a -m0=flzma2 -mx9 -mmt=8 -mfb=273 -md=1536m -ms=on (realpath $argv[1]).7z'

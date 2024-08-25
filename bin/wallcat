@@ -1,0 +1,27 @@
+#!/usr/bin/fish
+set offset 0
+set 1 $argv[1]
+set 2 $argv[2]
+if test $argv[3]
+    set offset $argv[3]
+end
+
+set h1 (identify -format %h "$1")
+set h2 (identify -format %h "$2")
+
+if test $h1 -ne $h2
+    exit
+end
+
+
+set w1 (identify -format %w "$1")
+set w2 (identify -format %w "$2")
+set drop (math $w1+$offset)
+set width (math $drop+$w2)
+
+set out "$(dirname "$1")/tran_$(basename "$1")"
+set work (mktemp)
+
+jpegtran -outfile $work -crop $width $1
+jpegtran -outfile $out -drop +$drop $2 $work
+rm $work
