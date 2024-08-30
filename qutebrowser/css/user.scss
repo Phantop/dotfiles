@@ -39,6 +39,7 @@ div#outer.wrapper { //ao3
     zoom: 110%;
     #admin-banner, #header ul.primary, #bookmark-form fieldset > dl {display:none}
     #workskin {zoom: 125%; max-width: 40em;}
+    div.preface { margin: unset; padding: unset; }
     p.kudos {overflow-wrap: break-word}
     select { background: none; color: #FFF; }
     ul.work { // modified work header w/ nav and epub
