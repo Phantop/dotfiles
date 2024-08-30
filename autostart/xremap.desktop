@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=xremap
+Description=
+Exec=xremap --mouse /home/glados/.config/xremap.yml

@@ -1,0 +1,22 @@
+keymap:
+  - name: global
+    remap:
+      alt-h: left
+      alt-l: right
+      alt-k: up
+      alt-j: down
+      alt-shift-h: alt-left
+      alt-shift-l: alt-right
+      alt-shift-k: alt-up
+      alt-shift-j: alt-down
+      alt-comma: apostrophe
+      alt-shift-d: pagedown
+      alt-u: pageup
+      btn_extra: pageup
+      btn_side: pagedown
+modmap:
+  - name: global
+    remap:
+      alt_r:
+        held: super_r
+        alone: scrolllock
