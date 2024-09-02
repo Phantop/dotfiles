@@ -13,7 +13,15 @@ for ($element of $elements) {
     // Check if heading has any nested elements with id
     var $innerElement = $element.querySelector('[id]');
     if ($innerElement) { id = $innerElement.id; }
-    else { continue; }
+    else {
+      id = $element.tagName + '-' + $element.textContent
+      .replace(/\s+/g, '-')   // Replace spaces with hyphens
+      .replace(/[^\w-]/g, '') // Remove non-word chars (except hyphens)
+      .replace(/--+/g, '-')   // Replace multiple hyphens with single hyphen
+      .replace(/^-+/, '')     // Trim hyphens from start
+      .replace(/-+$/, '');    // Trim hyphens from end
+      $element.id = id;
+    }
   }
 
   // Create anchor if not already present
