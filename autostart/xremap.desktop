@@ -2,4 +2,4 @@
 Type=Application
 Name=xremap
 Description=
-Exec=xremap --mouse /home/glados/.config/xremap.yml
+Exec=fish -c remap

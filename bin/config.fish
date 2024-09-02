@@ -83,6 +83,7 @@ a py py3
 a qb 'qutebrowser --target auto'
 a qutainer 'qutebrowser --temp-basedir'
 a re 'systemctl reboot -i'
+a remap 'xremap --mouse --ignore "ELAN0676:00 04F3:3195 Touchpad" ~/.config/xremap.yml'
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a rssb 'curl rss-bridge.github.io/rss-bridge/General/Public_Hosts | pup text{} | grep https | shuf -n1 | clip'
@@ -122,7 +123,9 @@ a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{co
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-a amk 'a ws make -p (basename $PWD)'
+a ag 'a git'
+a amk 'a ws make -p (basename (git root || pwd))'
+a dt 'a dt'
 a lint 'a git lint'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
