@@ -11,6 +11,7 @@ a['ao3-next'] = 'jseval -q window.location = document.getElementsByClassName("ne
 a['ao3-prev'] = 'jseval -q window.location = document.getElementsByClassName("previous")[0].children[0]'
 a['scrib-next'] = 'jseval -q window.location = document.getElementsByClassName("btn-next")[0]'
 a['scrib-prev'] = 'jseval -q window.location = document.getElementsByClassName("btn-prev")[0]'
+a['priviblur-reverse'] = 'jseval -q c=document.querySelector(".blog-posts");if(c)[...c.children].reverse().forEach(e=>c.appendChild(e));'
 
 kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
@@ -35,9 +36,10 @@ bind = {
     '<Ctrl-r>': 'spawn -u readability',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
+    'pb': 'spawn -u priviblur',
+    'pr': 'priviblur-reverse',
     's1': 'download-open',
     'sa': 'open -t archive.is/submit/?url={url}',
-    'pb': 'spawn -u priviblur',
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls -a | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',
