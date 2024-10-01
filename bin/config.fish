@@ -49,6 +49,7 @@ a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
 a curlflux 'eval curl (cat ~/.config/miniflux)/$argv[1] $argv[2..-1];:'
+a def 'curl dict://dict.org/d:$argv;:'
 a dirdl 'wget -r -k -p -np -e robots=off'
 a dl 'not test "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16 --http-accept-gzip'
 a dot 'cd ~/.dotfiles'
@@ -125,6 +126,7 @@ a history_last 'history -n1;:'
 
 a ag 'a git'
 a amk 'a ws make -p (basename (git root || pwd))'
+a assh 'arista-ssh login -p google'
 a dt 'a dt'
 a lint 'a git lint'
 
@@ -132,7 +134,7 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
 end
 
-for i in bandcamp-downloader deemix encodec git-sim lightnovel-crawler mandown\
+for i in bandcamp-downloader deemix encodec eventeditor git-sim lightnovel-crawler mandown\
          mangadex-downloader mathicsscript pdf2docx portablemc ratarmount scdl spleeter
     a $i "pipx run $i"
 end
