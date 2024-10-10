@@ -11,7 +11,7 @@ a['ao3-next'] = 'jseval -q window.location = document.getElementsByClassName("ne
 a['ao3-prev'] = 'jseval -q window.location = document.getElementsByClassName("previous")[0].children[0]'
 a['scrib-next'] = 'jseval -q window.location = document.getElementsByClassName("btn-next")[0]'
 a['scrib-prev'] = 'jseval -q window.location = document.getElementsByClassName("btn-prev")[0]'
-a['priviblur-reverse'] = 'jseval -q c=document.querySelector(".blog-posts");if(c)[...c.children].reverse().forEach(e=>c.appendChild(e));'
+a['priviblur-reverse'] = 'jseval -q c=document.querySelector(".blog-posts");[...c.children].forEach(e=>c.prepend(e))'
 
 kitdl = 'spawn kitty fish -c "dl &&'
 bind = {
