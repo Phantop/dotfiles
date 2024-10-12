@@ -18,11 +18,6 @@ basic = {
     'www.twitch.tv' : 'twineo.exozy.me',
 }
 farside = {
-    'music.youtube.com': 'invidious',
-    'www.youtube.com': 'invidious',
-    'youtu.be': 'invidious',
-    'youtube.com': 'invidious',
-
     'old.reddit.com': 'redlib',
     'reddit.com': 'redlib',
     'www.reddit.com': 'redlib',
@@ -58,6 +53,17 @@ subs = {
     'tumblr.com' : tumblr,
 }
 
+def youtube(info: interceptor.Request, url: QUrl):
+    url = url.toString()
+    nurl = url.replace("watch?v=", "embed/")
+
+    if nurl != url:
+        info.redirect(QUrl(nurl))
+
+custom = {
+    'www.youtube.com' : youtube,
+}
+
 def rewrite(info: interceptor.Request):
     url = info.request_url
     host = url.host()
@@ -66,6 +72,7 @@ def rewrite(info: interceptor.Request):
     bredir = basic.get(host)
     fredir = farside.get(host)
     sredir = subs.get(base)
+    credir = custom.get(host)
 
     if bredir is not None:
         url.setHost(bredir)
@@ -78,5 +85,7 @@ def rewrite(info: interceptor.Request):
         sub = host.split('.')[0]
         sredir(url, sub)
         info.redirect(url)
+    elif credir is not None:
+        credir(info, url)
 
 interceptor.register(rewrite)
