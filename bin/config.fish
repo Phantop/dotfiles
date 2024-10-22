@@ -72,6 +72,7 @@ a launcher 'rofi -combi-modi drun,run,window -modi combi -show'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a lock 'budgie-screensaver-command -l'
 a magdl 'dl --seed-time=0 magnet:?xt=urn:btih:$argv;:'
+a mvd mullvad
 a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nnn 'nnn -A'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
@@ -131,6 +132,7 @@ a assh 'arista-ssh login -p google'
 a dt 'a dt'
 a gb 'a git'
 a lint 'a git lint'
+a pb 'curl -F c=@- pb.infra.corp.arista.io'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
