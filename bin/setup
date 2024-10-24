@@ -1,19 +1,26 @@
 #!/bin/sh
 set -e
-alias g=git s=sudo w=wget
+alias g=git l='ln -s' s=sudo t='s tee -a' w=wget
 
 s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
 s pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | s tee -a /etc/pacman.conf
+printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | t /etc/pacman.conf
+s pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com
+s pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0
+s pacman -U 'https://pkg.devkitpro.org/devkitpro-keyring.pkg.tar.xz'
+printf '[dkp-libs]\nServer = https://pkg.devkitpro.org/packages\n' | t /etc/pacman.conf
+printf "[dkp-linux]\nServer = https://pkg.devkitpro.org/packages/linux/\$arch/\n" | t /etc/pacman.conf
+
+echo permit :wheel | t /etc/doas.conf
 s pacman -Syu
 xargs -o sudo pacman -S --needed < ~/.dotfiles/archpkgs
 yay -S pandoc-bin shellcheck-bin
-chsh -s "$(which fish)"
+chsh -s "$(grep -m1 bin/fish /etc/shells)"
 
-echo kernel.core_pattern=/dev/null | s tee -a /etc/sysctl.d/50-coredump.conf
-echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | s tee -a /etc/modprobe.d/i915.conf
-echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | s tee -a /boot/loader/entries/*.conf
+echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf
+echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | t /etc/modprobe.d/i915.conf
+echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | t /boot/loader/entries/*.conf
 
 mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
@@ -23,7 +30,7 @@ w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
 w https://github.com/dracula/rofi/raw/main/theme/config2.rasi -P ~/.config/rofi
 
-ln -s /usr/share/netsurf/adblock.css ~/.config/qutebrowser/css
+l /usr/share/netsurf/adblock.css ~/.config/qutebrowser/css
 w https://github.com/redlib-org/redlib/raw/main/static/themes/laserwave.css -P ~/.config/qutebrowser/css
 sed -i s/laserwave/fixed_navbar/ ~/.config/qutebrowser/css/laserwave.css
 w https://github.com/zedeus/nitter/raw/master/public/css/themes/twitter_dark.css -P ~/.config/qutebrowser/css
@@ -41,8 +48,9 @@ w https://github.com/savq/paq-nvim/raw/master/lua/paq.lua -P ~/.config/nvim/lua
 nvim +PaqInstall +q
 
 w https://github.com/4ndrs/PureMPV/raw/main/main.js -P ~/.config/mpv/scripts
-ln -s /usr/share/mpv/scripts/autocrop.lua ~/.config/mpv/scripts
-ln -s /usr/share/mpv/scripts/autodeint.lua ~/.config/mpv/scripts
+l /usr/share/mpv/scripts/autocrop.lua ~/.config/mpv/scripts
+l /usr/share/mpv/scripts/autodeint.lua ~/.config/mpv/scripts
+l /usr/share/nnn/plugins/ ~/.config/nnn
 
 printf bt-tracker= > ~/.config/aria2/aria2.conf
 curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | tr "\n" , >> ~/.config/aria2/aria2.conf 
@@ -55,3 +63,6 @@ for i in ~/.dotfiles/dconf/*; do
     #shellcheck disable=SC2094
     dconf load "$(basename "$i" | tr : /)" < "$i"
 done
+
+s usermod -aG docker "$USER"
+s usermod -aG input "$USER"
