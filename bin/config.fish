@@ -9,7 +9,8 @@ fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
 set -Ux EDITOR nvim
 set -Ux GTK_THEME Dracula
 set -Ux MANPAGER 'nvim +Man!'
-set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;s:imgview'
+set -Ux NNN_FIFO /tmp/nnn.fifo
+set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;p:preview-tui;s:imgview'
 set -Ux PAGER most
 set -Ux QT_QPA_PLATFORMTHEME qt5ct
 set -Ux USE_CCACHE 1
