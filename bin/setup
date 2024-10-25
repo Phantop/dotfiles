@@ -1,30 +1,38 @@
 #!/bin/sh
 set -e
 alias g=git l='ln -s' p='s pacman --noconfirm' s=sudo t='s tee -a' w=wget
+if command -v doas; then
+    alias s='doas'
+fi
 
 s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
 p -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-printf '[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' | t /etc/pacman.conf
 s pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com
 s pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0
 p -U 'https://pkg.devkitpro.org/devkitpro-keyring.pkg.tar.xz'
-printf '[dkp-libs]\nServer = https://pkg.devkitpro.org/packages\n' | t /etc/pacman.conf
-printf "[dkp-linux]\nServer = https://pkg.devkitpro.org/packages/linux/\$arch/\n" | t /etc/pacman.conf
+t /etc/pacman.conf < ~/.dotfiles/arch/pacman.conf
 
-echo permit :wheel | t /etc/doas.conf
+echo permit nopass :wheel | t /etc/doas.conf
 p -Syu
-xargs sudo pacman --noconfirm -S --needed < ~/.dotfiles/archpkgs
+#shellcheck disable=SC2046
+p -S --needed $(grep -v devkit ~/.dotfiles/arch/packages)
 yay -S pandoc-bin shellcheck-bin --noconfirm
-chsh -s "$(grep -m1 bin/fish /etc/shells)"
+cp ~/.dotfiles/arch/dwarfs-universal /tmp/PKGBUILD
+makepkg -srD /tmp 
+p -U /tmp/*.tar.zst
+t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 
 echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf
 echo options i915 enable_rc6=1 enable_fbc=1 lvds_downclock=1 enable__psr=1 | t /etc/modprobe.d/i915.conf
-echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | t /boot/loader/entries/*.conf
+if bootctl status | grep systemd-boot; then
+    echo options lsm=landlock,lockdown,yama,integrity,apparmor,bpf | t /boot/loader/entries/*.conf
+fi
 
 mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 ~/.dotfiles/bin/config.fish
+s chsh -s "$(grep -m1 bin/fish /etc/shells)" "$USER"
 
 w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
@@ -58,11 +66,10 @@ curl -L https://github.com/ngosang/trackerslist/raw/master/trackers_best.txt | t
 g g p:appdwarf ~/.local/appdwarf
 g g p:haiku-icons ~/.local/share/icons/Haiku
 
-for i in ~/.dotfiles/dconf/*; do
-    dconf reset -f "$(basename "$i" | tr : /)"
-    #shellcheck disable=SC2094
-    dconf load "$(basename "$i" | tr : /)" < "$i"
-done
-
-s usermod -aG docker "$USER"
-s usermod -aG input "$USER"
+if test "$DBUS_SESSION_BUS_ADDRESS"; then
+    for i in ~/.dotfiles/dconf/*; do
+        dconf reset -f "$(basename "$i" | tr : /)"
+        #shellcheck disable=SC2094
+        dconf load "$(basename "$i" | tr : /)" < "$i"
+    done
+fi

@@ -1,4 +1,6 @@
 advancecomp
+android-tools
+anime4k-git
 apparmor
 arch-install-scripts
 ares-emu-avx-git
@@ -28,7 +30,6 @@ cpupower
 csvlens
 dart-sass
 devkitpro-keyring
-discord
 doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
@@ -153,6 +154,7 @@ python-html2text
 python-lxml-html-clean
 python-pip
 python-pipx
+python-playsound
 python-pylint
 python-readability-lxml
 qbittorrent
@@ -181,12 +183,12 @@ squashfs-tools
 starship
 steam
 stow
-subliminal-git
 sxiv
 syncplay
 syncthing
 system-config-printer
 tig
+tk
 tldr
 tmux
 torsocks

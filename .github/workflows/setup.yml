@@ -1,0 +1,33 @@
+name: Test dotfiles run
+
+on:
+  workflow_dispatch: # allow manual trigger
+  push:
+    branches:
+      - main
+
+
+jobs:
+  setup: # try setting up user with setup script
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+
+    steps:
+      - name: Install git on container and add user
+        run: |
+          pacman -Sy --noconfirm git opendoas
+          pacman-key --init
+          useradd -m glados -G wheel
+          echo permit nopass :wheel > /etc/doas.conf
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Run setup
+        run: |
+          cp -r /__w/dotfiles/dotfiles /home/glados/.dotfiles
+          su glados -c /home/glados/.dotfiles/bin/setup
+          mkdwarfs -i /home/glados -o /home.dwarfs
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: home.dwarfs
+          path: /home.dwarfs
