@@ -17,7 +17,7 @@ echo permit nopass :wheel | t /etc/doas.conf
 p -Syu
 #shellcheck disable=SC2046
 p -S --needed $(grep -v devkit ~/.dotfiles/arch/packages)
-yay -S pandoc-bin shellcheck-bin --noconfirm
+yay -S pandoc-bin shellcheck-bin xremap-x11-bin --noconfirm
 cp ~/.dotfiles/arch/dwarfs-universal /tmp/PKGBUILD
 makepkg -srD /tmp 
 p -U /tmp/*.tar.zst
