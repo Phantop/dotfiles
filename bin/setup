@@ -33,6 +33,7 @@ mkdir -p ~/.parallel/will-cite ~/.config/aria2
 stow --no-folding -d ~/.dotfiles -t ~/.config .
 ~/.dotfiles/bin/config.fish
 s chsh -s "$(grep -m1 bin/fish /etc/shells)" "$USER"
+s usermod -aG input "$USER"
 
 w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes
