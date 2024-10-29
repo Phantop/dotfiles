@@ -127,13 +127,16 @@ a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{co
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-a ag 'a git'
 a amk 'a ws make -p (basename (git root || pwd))'
 a assh 'arista-ssh login -p google'
+a copen 'code -r'
 a dt 'a dt'
+a freshen 'sudo swi freshen /images/EOS.swi'
 a gb 'a git'
 a lint 'a git lint'
 a pb 'curl -F c=@- pb.infra.corp.arista.io'
+a san 'dt sa -p eos-trunk'
+a rebase 'gb update --sync --rebase'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
