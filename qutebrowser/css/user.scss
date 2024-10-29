@@ -61,8 +61,8 @@ div#outer.wrapper { //ao3
     }
     .logo a span:not(:hover), .logo a:hover { color: mediumpurple }
 
-    // remove padding between webcomic images for comic category
-    &:has(.entry-meta [href="/category/74/entries"]) article { font-size: 0 }
+    // remove padding between webcomic images for atla comic
+    &:has(.entry-website [href="/feed/1237/entries"]) article { font-size: 0 }
 
     #grease-anchor { color: var(--counter-color); margin-inline-start: 4px; }
     h1, h2, h3, h4, h5, h6 { &:not(:hover) #grease-anchor {display: none}}
