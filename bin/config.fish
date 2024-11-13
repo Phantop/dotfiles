@@ -129,16 +129,22 @@ a history_last 'history -n1;:'
 
 a amk 'a ws make -p (basename (git root || pwd))'
 a assh 'arista-ssh login -p google'
+a bump 'gb commit -a --amend --no-edit'
 a copen 'code -r'
 a dt 'a dt'
 a freshen 'sudo swi freshen /images/EOS.swi'
 a gb 'a git'
 a lake 'nvim (curl -L dashboard/get_tests.py?id=$argv | jq -r .tests[0].logUrl).gz;:'
 a lint 'a git lint'
+a lunch 'gb launch --schedule build --testing full'
 a pb 'curl -F c=@- pb/'
+a pydt 'dt pyshell'
+a reagent 'echo "edut.restartAgent(\'$argv\')" | pydt'
 a revfiles 'curl -L reviewboard/r/$argv/diff | grep dest_ | sed -e "s/ /{/" -e "s/,$/}/" | jq -r .files[].dest_filename;:'
 a san 'dt sa -p eos-trunk'
 a rebase 'gb update --sync --rebase'
+a san 'dt sa -p eos-trunk'
+a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
