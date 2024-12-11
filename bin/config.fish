@@ -139,12 +139,12 @@ a lint 'a git lint'
 a lunch 'gb launch --schedule build --testing full'
 a pb 'curl -F c=@- pb/'
 a pydt 'dt pyshell'
-a reagent 'echo "edut.restartAgent(\'$argv\')" | pydt'
-a revfiles 'curl -L reviewboard/r/$argv/diff | grep dest_ | sed -e "s/ /{/" -e "s/,$/}/" | jq -r .files[].dest_filename;:'
+a reagent 'echo "edut.restartAgent(\'$argv\')" | pydt;:'
+a revfiles 'curl -L reviewboard/r/$argv/diff/raw | cut -f1 | sed -n "s|+++ |/|p";:'
 a san 'dt sa -p eos-trunk'
 a rebase 'gb update --sync --rebase'
 a san 'dt sa -p eos-trunk'
-a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt'
+a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt;:'
 
 for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
@@ -156,3 +156,4 @@ for i in bandcamp-downloader deemix encodec eventeditor git-sim lightnovel-crawl
 end
 a in2csv 'pipx run --spec csvkit in2csv'
 a mathics 'pipx run --spec mathics-django mathicsserver'
+a jitios 'sudo pipx run SideJITServer'

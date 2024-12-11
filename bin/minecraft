@@ -1,13 +1,12 @@
 #!/bin/sh
-if mkdir indexes; then
+if mkdir objects indexes; then
     d=$(curl https://piston-meta.mojang.com/mc/game/version_manifest.json | jq -r .versions[0].url)
-    curl --output-dir indexes -O "$(curl "$d" | jq -r .assetIndex.url)"
-    cat indexes/*.json | jq -r '.objects[].hash|"https://resources.download.minecraft.net/\(.[:2])/\(.)"' | xargs aria2c -d objects -Z
+    curl "$(curl "$d" | jq -r .assetIndex.url)" > indexes/index.json
+    jq -r '.objects[].hash|"https://resources.download.minecraft.net/\(.[:2])/\(.)"' indexes/index.json | xargs aria2c -d objects -Z
     ( echo "cd objects"; printf "mkdir %02x; mv %02x* %02x\n" $(seq 0 255 | sed 'p;p') ) | sh
-    curl "$d" | jq .libraries[].downloads.artifact.url | grep -vE 'windows|macos' | xargs aria2c -d objects -Z
-    curl "$d" | jq .downloads.client.url | xargs aria2c -d objects -Z
+    curl "$d" | jq .libraries[].downloads.artifact.url,.downloads.client.url | xargs aria2c -d objects -Z
     d=$(curl "https://meta.fabricmc.net/v2/versions/loader/$(curl "$d" | jq -r .id)" | jq -r '.[0]|.launcherMeta.libraries.common[].name,(.loader,.intermediary).maven')
     echo "$d" | sed -E ':b;s|\.(.*:)|/\1|;tb; s|(.*):(.*):(.*)|https://maven.fabricmc.net/\1/\2/\3/\2-\3.jar|' | xargs aria2c -d objects -Z
 fi
 java -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Xms1G -Xmx8G\
-    -cp 'objects/*' net.fabricmc.loader.impl.launch.knot.KnotClient --version . --assetsDir . --assetIndex "$(basename indexes/*.json .json)" --accessToken 0 "$@"
+    -cp 'objects/*' net.fabricmc.loader.impl.launch.knot.KnotClient --assetsDir . --assetIndex index --accessToken 0 "$@"
