@@ -73,6 +73,7 @@ a launcher 'rofi -combi-modi drun,run,window -modi combi -show'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a lock 'budgie-screensaver-command -l'
 a magdl 'dl --seed-time=0 magnet:?xt=urn:btih:$argv;:'
+a manga 'gallery-dl --chapter-filter "language == \'English\'"'
 a mvd mullvad
 a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nnn 'nnn -A'
@@ -132,16 +133,20 @@ a assh 'arista-ssh login -p google'
 a bump 'gb commit -a --amend --no-edit'
 a copen 'code -r'
 a dt 'a dt'
+a dut 'dt gd | head -n1 | cut -d/ -f3'
 a freshen 'sudo swi freshen /images/EOS.swi'
 a gb 'a git'
 a lake 'nvim (curl -L dashboard/get_tests.py?id=$argv | jq -r .tests[0].logUrl).gz;:'
 a lint 'a git lint'
 a lunch 'gb launch --schedule build --testing full'
+a oc 'gnmi -addr (dut):6030 -username admin get / | tail -n+2'
 a pb 'curl -F c=@- pb/'
 a pydt 'dt pyshell'
 a reagent 'echo "edut.restartAgent(\'$argv\')" | pydt;:'
-a revfiles 'curl -L reviewboard/r/$argv/diff/raw | cut -f1 | sed -n "s|+++ |/|p";:'
+a revdiff 'curl -L reviewboard/r/$argv/diff/raw'
+a revfiles 'revdiff $argv | cut -f1 | sed -n "s|+++ |/|p";:'
 a san 'dt sa -p eos-trunk'
+a startoc 'dt ssh run "en ; conf ; management api gnmi ; transport grpc default"'
 a rebase 'gb update --sync --rebase'
 a san 'dt sa -p eos-trunk'
 a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt;:'
@@ -150,8 +155,7 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
 end
 
-for i in bandcamp-downloader deemix encodec eventeditor git-sim lightnovel-crawler mandown\
-         mangadex-downloader mathicsscript pdf2docx portablemc ratarmount scdl spleeter
+for i in deemix encodec eventeditor git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter
     a $i "pipx run $i"
 end
 a in2csv 'pipx run --spec csvkit in2csv'
