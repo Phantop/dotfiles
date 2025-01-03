@@ -1,0 +1,36 @@
+#!/usr/bin/fish
+set url $argv[1]
+
+set base (qtcurl $url)
+
+set author (echo $base | pup .auth_name_fic text{})
+set chaps (echo $base | pup .toc_a attr{href})
+set cover (echo $base | pup .fic_image img attr{src})
+set title (echo $base | pup .fic_title text{})
+
+set dir $author - $title
+mkdir -- "$dir"
+
+for i in $chaps
+    while true
+        set page (qtcurl $i)
+        if test -z "$page"
+            continue
+        end
+        if test (echo $page | pup title text{}) = "Just a moment...\n"
+            open $i
+            echo "Solve captcha in browser, then press enter."
+            read
+        else
+            break
+        end
+    end
+    set num (echo $i | rev | cut -d/ -f2 | rev)
+    set ch_title (echo $page | pup title text{})
+    set h1_title "<h1>$ch_title</h1>"
+    echo $h1_title (echo $page | pup .chp_raw) > "$dir/$num. $ch_title.html"
+end
+
+wget $cover -O "$dir/cover"
+pandoc --metadata title="$title" --metadata author="$author" --epub-cover-image="$dir/cover" "$dir"/*.html -o "$dir.epub"
+rm -r -- "$dir"
