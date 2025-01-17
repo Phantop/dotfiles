@@ -1,73 +1,52 @@
 [/]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/']
+custom-keybindings=[ '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/' ]
 www=['<Super>q']
 
 [custom-keybindings/custom0]
 binding='<Super>Return'
 command='kitty'
-name='Kitty'
 
 [custom-keybindings/custom1]
 binding='<Super>d'
 command='fish -c launcher'
-name='Launcher'
 
-[custom-keybindings/custom10]
+[custom-keybindings/custom5]
 binding='<Super>k'
 command='keepassxc'
-name='KeepassXC'
 
-[custom-keybindings/custom11]
-binding='<Shift><Super>l'
-command='Ladybird'
-name='Ladybird'
-
-[custom-keybindings/custom12]
+[custom-keybindings/custom4]
 binding='<Super>p'
 command='pcmanfm'
-name='PCManFM'
 
 [custom-keybindings/custom2]
 binding='<Shift><Super>s'
 command='budgie-control-center'
-name='Settings'
 
 [custom-keybindings/custom3]
 binding='<Super>s'
 command='org.buddiesofbudgie.BudgieScreenshot -i'
-name='Screenshot'
-
-[custom-keybindings/custom4]
-binding='<Shift><Super>d'
-command='kitty discordo'
-name='Discord'
-
-[custom-keybindings/custom5]
-binding='<Super>g'
-command='kitty gurk'
-name='Gurk'
 
 [custom-keybindings/custom6]
 binding='<Super>n'
 command='netsurf-gtk3'
-name='Netsurf'
 
 [custom-keybindings/custom7]
 binding='<Super>m'
 command='kitty musikcube'
-name='Musikcube'
 
 [custom-keybindings/custom8]
 binding='<Shift><Super>o'
 command="fish -c 'open (fd | rofi -dmenu -i)'"
-name='Open'
 
 [custom-keybindings/custom9]
 binding='<Super>c'
 command='kitty fish -c "exec nnn -A"'
-name='Files'
-
-[custom-keybindings/custom13]
-binding='<Super>space'
-command='fish -c launcher'
-name='Launcher'

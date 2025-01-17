@@ -69,9 +69,5 @@ g g p:appdwarf ~/.local/appdwarf
 g g p:haiku-icons ~/.local/share/icons/Haiku
 
 if test "$DBUS_SESSION_BUS_ADDRESS"; then
-    for i in ~/.dotfiles/dconf/*; do
-        dconf reset -f "$(basename "$i" | tr : /)"
-        #shellcheck disable=SC2094
-        dconf load "$(basename "$i" | tr : /)" < "$i"
-    done
+    fish -c rebind
 fi
