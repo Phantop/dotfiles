@@ -74,3 +74,5 @@
     cmd = difft "$LOCAL" "$REMOTE"
 [pager]
     difftool = true
+[help]
+	autocorrect = prompt
