@@ -54,6 +54,7 @@
     l = log
     open = remote -v
     p = pull
+    pop = stash pop
     pu = push
     puf = push -f
     r = reset --hard
