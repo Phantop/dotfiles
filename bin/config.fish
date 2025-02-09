@@ -44,7 +44,7 @@ fish_update_completions
 alias a 'alias -s'
 a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/static/$argv/sunny/(date +%-I%P).ogg'
 a aliases 'v (which config.fish); config.fish'
-a all2jxl 'fd -e{png,jpg,ppm,gif} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
+a all2jxl 'fd -e{gif,jpeg,jpg,png,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a clip 'xsel -ib'
@@ -129,7 +129,7 @@ a tldr 'curl -s https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/{co
 a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
-if type arista-python
+if type arista-python || type arista-ssh
   a adef 'a grok -d'
   a amk 'a ws make -p (basename (git root || pwd))'
   a assh 'arista-ssh login -p google'
@@ -140,7 +140,8 @@ if type arista-python
   a expire 'a mts supersede -R "Tests scheduled by MATT have expired."'
   a freshen 'sudo swi freshen /images/EOS.swi'
   a gb 'a git'
-  a lake 'nvim (curl -L dashboard/get_tests.py?id=$argv | jq -r .tests[0].logUrl).gz;:'
+  a job 'a job reproduce -j'
+  a lake 'v https://joblog.infra.corp.arista.io/$argv;:'
   a lint 'a git lint'
   a lunch 'gb launch --schedule build --testing full'
   a oc 'gnmi -addr (dut):6030 -username admin get / | tail -n+2'
@@ -163,7 +164,7 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
 end
 
 for i in deemix encodec eventeditor git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter
-    a $i "pipx run $i"
+    a $i "uvx $i"
 end
 a in2csv 'pipx run --spec csvkit in2csv'
 a mathics 'pipx run --spec mathics-django mathicsserver'
