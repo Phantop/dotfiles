@@ -10,3 +10,4 @@ set recolor-darkcolor '#FFFFFF'
 map <C-i> set recolor-reverse-video
 map <A-e> set 'default-bg \#EEE'
 map <A-v> set vertical-center
+map <A-r> set page-right-to-left

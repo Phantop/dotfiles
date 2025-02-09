@@ -1,6 +1,6 @@
 #hnmain {  // hacker news
     zoom: 120%;
-    .title a:link, .c00, .c00 a:link {color: #FFF}
+    .title a:link, .c00, .c00 a:link {color: white}
     [action="comment"] {display:none}
 }
 
@@ -42,7 +42,7 @@ div#outer.wrapper { //ao3
     #workskin {zoom: 125%; max-width: 40em;}
     div.preface { margin: unset; padding: unset; }
     p.kudos {overflow-wrap: break-word}
-    select { background: none; color: #FFF; }
+    select { background: none; color: white; }
     ul.work { // modified work header w/ nav and epub
         .download li:not(:nth-child(2)), a.collapsed, li.share {display: none}
         ul.secondary { border: none; display: unset; position: static; }
@@ -51,8 +51,8 @@ div#outer.wrapper { //ao3
 
 [data-csrf-token] { // miniflux
     @media (prefers-color-scheme: dark) {
-        --body-background: #000;
-        --current-item-border-color: #c88aff;
+        --body-background: black;
+        --current-item-border-color: mediumpurple;
         --text-color: #EEE;
 
         --entry-content-color: var(--text-color);
@@ -60,9 +60,6 @@ div#outer.wrapper { //ao3
         --title-color: var(--text-color);
     }
     .logo a span:not(:hover), .logo a:hover { color: mediumpurple }
-
-    // remove padding between webcomic images for atla comic
-    &:has(.entry-website [href="/feed/1237/entries"]) article { font-size: 0 }
 
     #grease-anchor { color: var(--counter-color); margin-inline-start: 4px; }
     h1, h2, h3, h4, h5, h6 { &:not(:hover) #grease-anchor {display: none}}

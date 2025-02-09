@@ -1,3 +1,4 @@
+7zip
 advancecomp
 android-tools
 anime4k-git
@@ -16,6 +17,7 @@ bc
 bcachefs-tools
 binwalk
 bleachbit
+browserpass-firefox
 btop
 budgie-desktop
 busybox
@@ -30,6 +32,7 @@ cpupower
 csvlens
 dart-sass
 devkitpro-keyring
+discord
 doas-sudo-shim
 dolphin-emu
 dolphin-emu-tool
@@ -39,9 +42,19 @@ elvish
 erofs-utils
 expac
 fd
+firefox-adblock-plus
+firefox-dark-reader
+firefox-decentraleyes
+firefox-extension-mailvelope
+firefox-extension-passff
+firefox-noscript
+firefox-tree-style-tab
+firefox-tridactyl
+firefox-ublock-origin
 firejail
 fish
 flatpak
+flips
 fq
 fuse-overlayfs
 fwupd
@@ -62,6 +75,8 @@ gnome-keyring
 gnome-power-manager
 grex
 gron
+gtk3-classic
+gurk
 gvfs-mtp
 hblock
 httrack
@@ -76,6 +91,7 @@ inxi
 iwd
 jack2
 jc
+jdk21-openjdk
 jdupes
 jless
 jpegoptim
@@ -85,6 +101,7 @@ kernel-headers-musl
 kitty
 kiwix-tools
 krita
+ladybird
 lagrange
 libheif
 libimobiledevice-git
@@ -95,17 +112,19 @@ linux-firmware
 linux-hardened
 love
 lrzip
+luanti
 lynx
 magic-wormhole
 mame-tools
 man-pages
+mandarine-git
 mandoc
 megatools
 meld
 melonds-git
 meson
-minetest
 miniflux
+monolith
 moreutils
 most
 mpv-mpris
@@ -128,9 +147,9 @@ nss-mdns
 nvme-cli
 obs-studio
 opendoas
+openssl-1.1
 opus-tools
 oxipng
-p7zip
 pandoc-bin
 parallel
 pcmanfm-gtk3
@@ -172,7 +191,9 @@ rofi
 rsync
 runc
 rustup
+ryujinx
 samba
+sassc
 signal-desktop
 slumber
 smartmontools
@@ -201,7 +222,9 @@ uget
 unzip
 upx
 usbutils
+uv
 ventoy-bin
+vmpk
 vulkan-intel
 vulkan-radeon
 w3m
@@ -223,6 +246,7 @@ xournalpp
 xreader
 xsel
 xss-lock
+xsv
 yay
 yq
 yt-dlp
