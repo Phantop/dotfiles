@@ -49,8 +49,7 @@
     ch = checkout
     cl = gc --aggressive --prune=now
     d = diff
-    g = clone
-    gr = clone --recursive
+    g = clone --recursive
     l = log
     open = remote -v
     p = pull

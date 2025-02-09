@@ -5,6 +5,6 @@
 --ignore-errors
 --no-overwrite
 --sponsorblock-remove all
---sub-lang=en
+--sub-langs en.*
 --write-auto-sub
 --write-sub
