@@ -130,6 +130,7 @@ a history_find 'history -p (string sub -s 2 $argv[1]) | head -n1;:'
 a history_last 'history -n1;:'
 
 if type arista-python || type arista-ssh
+  a abuild 'a4c build --platform x86_64_el9 --service workspace'
   a adef 'a grok -d'
   a amk 'a ws make -p (basename (git root || pwd))'
   a assh 'arista-ssh login -p google'
@@ -140,7 +141,7 @@ if type arista-python || type arista-ssh
   a expire 'a mts supersede -R "Tests scheduled by MATT have expired."'
   a freshen 'sudo swi freshen /images/EOS.swi'
   a gb 'a git'
-  a job 'a job reproduce -j'
+  a job 'a reproduce -j'
   a lake 'v https://joblog.infra.corp.arista.io/$argv;:'
   a lint 'a git lint'
   a lunch 'gb launch --schedule build --testing full'
