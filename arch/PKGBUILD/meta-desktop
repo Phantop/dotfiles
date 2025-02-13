@@ -1,0 +1,28 @@
+pkgname=meta-desktop
+pkgver=2025.02.11
+pkgrel=1
+pkgdesc="Metapackage for desktop stuff"
+arch=('any')
+url="https://phantop.github.io"
+license=('GPL3')
+depends=(
+    budgie-desktop dracula-gtk-theme-git gtk3-classic qt5ct
+    kitty pcmanfm-gtk3 gvfs-mtp rofi
+    adobe-source-code-pro-fonts cantarell-fonts noto-fonts-emoji
+    ttf-ubuntu-font-family ttf-dejavu ttf-liberation
+
+    discord signal-desktop
+    keepassxc sqlitebrowser zeal
+    ladybird lagrange netsurf
+    nicotine+ qbittorrent uget
+    qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
+
+    audacity avidemux-qt obs-studio sonic-visualiser
+    mpv mpv-mpris anime4k-git sxiv libheif webp-pixbuf-loader
+    krita qownnotes vmpk xournalpp
+    zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver
+
+    ares-emu dolphin-emu mandarine-git melonds-git ryujinx
+    love luanti steam
+    gamescope game-devices-udev
+)

@@ -15,12 +15,15 @@ p -U 'https://pkg.devkitpro.org/devkitpro-keyring.pkg.tar.xz'
 t /etc/pacman.conf < ~/.dotfiles/arch/pacman.conf
 
 p -Syu
-#shellcheck disable=SC2046
-p -S --needed $(grep -v devkit ~/.dotfiles/arch/packages)
-yay -S pandoc-bin shellcheck-bin xremap-x11-bin --noconfirm
-cp ~/.dotfiles/arch/dwarfs-universal /tmp/PKGBUILD
-makepkg -srD /tmp 
+p -S base-devel
+cp ~/.dotfiles/arch/PKGBUILD/* /tmp
+makepkg -D /tmp -dp /tmp/meta-cli
+makepkg -D /tmp -dp /tmp/meta-desktop
 p -U /tmp/*.tar.zst
+makepkg -sr -D /tmp -p /tmp/dwarfs-universal
+makepkg -sr -D /tmp -p /tmp/ly-nozig
+p -U /tmp/*.tar.zst
+yay -S shellcheck-bin xremap-x11-bin --noconfirm --sudo doas
 t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 
 echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf

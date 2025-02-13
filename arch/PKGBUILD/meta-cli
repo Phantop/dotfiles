@@ -1,0 +1,34 @@
+pkgname=meta-cli
+pkgver=2025.02.11
+pkgrel=1
+pkgdesc="Metapackage for cli stuff"
+arch=('any')
+url="https://phantop.github.io"
+license=('GPL3')
+depends=(
+    7zip bcachefs-tools bzip3 lrzip innoextract msitools squashfs-tools upx zip
+    advancecomp gifsicle jpegoptim oxipng pngquant qpdf
+    arch-install-scripts expac hblock reflector yay
+    aria2 gallery-dl httrack lynx megatools monolith wget yt-dlp
+    asciinema btop musikcube ncdu nnn tmux
+    base-devel busybox ccache mandoc man-pages moreutils opendoas parallel
+    bat fd fzf ripgrep ripgrep-all
+    bc gron jless jq
+    bleachbit jdupes
+    composer perl-parallel-forkmanager perl-rename php
+    cpupower power-profiles-daemon
+    dolphin-emu-tool flips mame-tools nsz xdelta3
+    ffmpeg imagemagick poppler
+    firejail nss-mdns
+    fish autojump starship stow xsel
+    git github-cli tig
+    hurl pup trurl tuc
+    ifuse rclone rsync mullvad-vpn-cli torsocks syncthing
+    inxi smartmontools ventoy-bin
+    mupdf-tools pandoc-bin tesseract-data-eng typst
+    neovim most
+    rustup pyenv python-html2text python-pylint uv
+
+    # Tools to check out
+    binwalk csvlens elvish fq grex jc magic-wormhole ouch runc slumber yq
+)

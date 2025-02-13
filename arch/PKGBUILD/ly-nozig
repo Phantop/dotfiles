@@ -1,0 +1,52 @@
+# Maintainer: Christian Heusel <gromit@archlinux.org>
+# Contributor: éclairevoyant
+# Contributor: nullgemm <nullgemm@mailbox.org>
+
+pkgname=ly-nozig
+pkgver=0.6.0
+pkgrel=1
+_tag=1c2be475ad09af18e632609c779d508e7fb866f9
+pkgdesc="TUI display manager"
+arch=(x86_64)
+url="https://github.com/fairyglade/ly"
+license=('custom:WTFPL')
+depends=(pam)
+conflicts=(ly)
+makedepends=(git libxcb)
+optdepends=('xorg-xauth: for X server sessions'
+            'libxcb: for X server sessions')
+backup=(etc/ly/{config.ini,wsetup.sh,xsetup.sh})
+source=("git+$url.git#tag=$_tag"
+        "git+https://github.com/nullgemm/argoat.git"
+        "git+https://github.com/nullgemm/configator.git"
+        "git+https://github.com/nullgemm/dragonfail.git"
+        "git+https://github.com/nullgemm/termbox_next.git")
+b2sums=('SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP')
+
+prepare() {
+    cd "ly"
+    git submodule init
+
+    git config submodule.sub/argoat.url "$srcdir/argoat"
+    git config submodule.sub/configator.url "$srcdir/configator"
+    git config submodule.sub/dragonfail.url "$srcdir/dragonfail"
+    git config submodule.sub/termbox_next.url "$srcdir/termbox_next"
+
+    git -c protocol.file.allow=always submodule update
+}
+
+build() {
+    make -C "ly"
+}
+
+package() {
+    cd "ly"
+    # we install the binary as ly-dm because of the conflict with python-ly
+    make DESTDIR="$pkgdir" NAME=ly-dm install installsystemd
+    sed -i "s;/usr/bin/ly;/usr/bin/ly-dm;g" "$pkgdir/usr/lib/systemd/system/ly.service"
+    install -Dm644 license.md "$pkgdir/usr/share/licenses/ly/WTFPL"
+}
