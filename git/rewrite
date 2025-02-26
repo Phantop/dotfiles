@@ -1,0 +1,16 @@
+[url "https://aur.archlinux.org/"]
+    insteadOf = "aur:"
+[url "https://git.sr.ht"]
+    insteadOf = "https://sr.ht"
+[url "https://github.com/"]
+    insteadOf = "gh:"
+    insteadOf = "github:"
+    insteadOf = "hub:"
+[url "https://github.com/Phantop/"]
+    insteadOf = "p:"
+[url "https://gitlab.archlinux.org/archlinux/packaging/packages/"]
+    insteadOf = "arch:"
+[url "https://gitlab.com/"]
+    insteadOf = "gitlab:"
+    insteadOf = "gl:"
+    insteadOf = "lab:"

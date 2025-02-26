@@ -1,0 +1,23 @@
+[alias]
+    a = commit -a
+    ad = add
+    b = branch
+    c = commit
+    ca = commit --amend
+    caa = ca -a
+    ch = checkout
+    cl = gc --aggressive --prune=now
+    d = diff
+    g = clone --recursive
+    l = log
+    open = remote -v
+    p = pull
+    pop = stash pop
+    pu = push
+    puf = push -f
+    r = reset --hard
+    root = rev-parse --show-toplevel
+    s = status
+    sd = submodule deinit --all -f
+    su = submodule update --init --recursive
+    w = clean -fdx
