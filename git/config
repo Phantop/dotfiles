@@ -5,3 +5,5 @@
     path = alias
     path = butler
     path = rewrite
+[credential "https://github.com"]
+	helper = !/usr/bin/env gh auth git-credential
