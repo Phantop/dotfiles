@@ -30,5 +30,5 @@ depends=(
     rustup pyenv python-html2text python-pylint uv
 
     # Tools to check out
-    binwalk csvlens elvish fq grex jc magic-wormhole ouch runc slumber yq
+    binwalk csvlens elvish fq grex jc magic-wormhole ouch runc slumber yq incus
 )
