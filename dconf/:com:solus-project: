@@ -1,102 +1,43 @@
 [budgie-panel]
 builtin-theme=false
-confirm-remove-applet=false
-dark-theme=true
 migration-level=1
-panels=['9bab0f82-7375-11ec-bbff-a864f1bbee5f']
+panels=['1']
 
-[budgie-panel/applets/{63556e48-d72d-11ee-b4ca-a864f1bbee5f}]
-alignment='start'
-name='Workspace Switcher'
-position=1
-
-[budgie-panel/applets/{7e3fdf9e-2f87-11ed-8771-a864f1bbee5f}]
-alignment='start'
-name='System Tray'
-position=4
-
-[budgie-panel/applets/{8e4a9598-7edc-11ec-93a3-a864f1bbee5f}]
-alignment='start'
-name='Workspace Switcher'
-position=1
-
-[budgie-panel/applets/{9bd3c364-7375-11ec-bbff-a864f1bbee5f}]
-alignment='center'
-name='System Tray'
-position=3
-
-[budgie-panel/applets/{9be4a0da-7375-11ec-bbff-a864f1bbee5f}]
-alignment='start'
-name='Clock'
-position=0
-
-[budgie-panel/applets/{ae12f1c6-d72d-11ee-b4ca-a864f1bbee5f}]
-alignment='start'
-name='Caffeine'
-position=2
-
-[budgie-panel/applets/{bee913aa-8256-11ec-83c0-a864f1bbee5f}]
-alignment='start'
-name='Status Indicator'
-position=3
-
-[budgie-panel/applets/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
-alignment='start'
-name='Budgie Menu'
-position=5
-
-[budgie-panel/instance/budgie-menu/{cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f}]
-menu-categories-hover=false
-menu-compact=true
-menu-headers=false
-menu-show-control-center-items=true
-use-default-menu-icon=true
-
-[budgie-panel/instance/status/{bee913aa-8256-11ec-83c0-a864f1bbee5f}]
-spacing=0
-
-[budgie-panel/instance/tray/{7e3fdf9e-2f87-11ed-8771-a864f1bbee5f}]
-spacing=0
-
-[budgie-panel/instance/tray/{9bd3c364-7375-11ec-bbff-a864f1bbee5f}]
-spacing=0
-
-[budgie-panel/instance/workspaces/{8e4a9598-7edc-11ec-93a3-a864f1bbee5f}]
-addbutton-visibility='always'
-item-size-multiplier='1.0'
-
-[budgie-panel/panels/{9bab0f82-7375-11ec-bbff-a864f1bbee5f}]
-applets=['bee913aa-8256-11ec-83c0-a864f1bbee5f', 'ae12f1c6-d72d-11ee-b4ca-a864f1bbee5f', '63556e48-d72d-11ee-b4ca-a864f1bbee5f', '9be4a0da-7375-11ec-bbff-a864f1bbee5f', '7e3fdf9e-2f87-11ed-8771-a864f1bbee5f', 'cffbc7b0-6a9d-11ee-a69b-a864f1bbee5f']
+[budgie-panel/panels/{1}]
+applets=['6', '5', '4', '3', '2', '1']
 autohide='intelligent'
 dock-mode=true
-enable-shadow=false
 location='top'
 size=22
-spacing=0
-theme-regions=false
-transparency='none'
 
 [budgie-raven]
 allow-volume-overdrive=true
-show-calendar-widget=false
-show-power-strip=true
 
 [budgie-wm]
-button-layout='appmenu:minimize,maximize,close'
-caffeine-mode=false
-caffeine-mode-screen-brightness=95
-center-windows=false
-clear-notifications=['<Shift><Super>c']
+clear-notifications=@as []
 toggle-notifications=@as []
 
-[clock/instance/clock/{9be4a0da-7375-11ec-bbff-a864f1bbee5f}]
-custom-format='%-d|%-I:%M'
+[budgie-panel/applets/{1}]
+name='Clock'
+[clock/instance/clock/{1}]
+custom-format=' %-d|%-I:%M'
 use-custom-format=true
 
-[software-center]
-check-updates=false
-fetch-media=false
+[budgie-panel/applets/{2}]
+name='Workspace Switcher'
 
-[tray/{7e3fdf9e-2f87-11ed-8771-a864f1bbee5f}]
-scaling=true
-spacing=0
+[budgie-panel/applets/{3}]
+name='Caffeine'
+
+[budgie-panel/applets/{4}]
+name='Status Indicator'
+[budgie-panel/instance/status/{4}]
+spacing=2
+
+[budgie-panel/applets/{5}]
+name='System Tray'
+
+[budgie-panel/applets/{6}]
+name='Budgie Menu'
+[budgie-panel/instance/budgie-menu/{6}]
+use-default-menu-icon=true

@@ -5,4 +5,4 @@ enable-animations=false
 gtk-theme='Dracula'
 icon-theme='Haiku'
 show-battery-percentage=true
-text-scaling-factor=1.25
+text-scaling-factor=1.35
