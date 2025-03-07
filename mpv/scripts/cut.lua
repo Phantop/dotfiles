@@ -18,8 +18,7 @@ function mouse()
     if x1 then
         dx = x - x1
         dy = y - y1
-        s = ':'
-        c = dx .. s .. dy .. s .. x1 .. s .. y1
+        c = dx .. ':' .. dy .. ':' .. x1 .. ':' .. y1
 
         p = mp.get_property("path")
         w = mp.get_property("working-directory")

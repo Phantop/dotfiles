@@ -1,5 +1,3 @@
-import platform
-
 config.load_autoconfig(False)
 config.source('include/adblock.py')
 config.source('include/bindings.py')
