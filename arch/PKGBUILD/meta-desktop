@@ -19,7 +19,7 @@ depends=(
 
     audacity avidemux-qt obs-studio sonic-visualiser
     mpv mpv-mpris anime4k-git sxiv libheif webp-pixbuf-loader
-    krita qownnotes vmpk xournalpp
+    gimp krita qownnotes vmpk xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver
 
     ares-emu dolphin-emu mandarine-git melonds-git ryujinx

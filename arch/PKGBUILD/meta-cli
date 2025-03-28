@@ -21,7 +21,7 @@ depends=(
     ffmpeg imagemagick poppler
     firejail nss-mdns
     fish autojump starship stow xsel
-    git github-cli tig
+    git git-delta github-cli tig
     hurl pup trurl tuc
     ifuse rclone rsync mullvad-vpn-cli torsocks syncthing
     inxi smartmontools ventoy-bin
@@ -30,5 +30,5 @@ depends=(
     rustup pyenv python-html2text python-pylint uv
 
     # Tools to check out
-    binwalk csvlens elvish fq grex jc magic-wormhole ouch runc slumber yq incus
+    binwalk csvlens dagger elvish fq grex incus jc magic-wormhole ouch runc slumber yq
 )
