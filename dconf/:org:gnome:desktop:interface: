@@ -2,7 +2,9 @@
 color-scheme='prefer-dark'
 cursor-theme='Haiku'
 enable-animations=false
+font-name='Cantarell 11'
 gtk-theme='Dracula'
 icon-theme='Haiku'
+monospace-font-name='Ubuntu Mono 11'
 show-battery-percentage=true
 text-scaling-factor=1.35
