@@ -2,8 +2,10 @@
 import sys
 
 from PyQt6.QtCore import QUrl
-from PyQt6.QtWidgets import QApplication
+from PyQt6.QtNetwork import QNetworkCookie
+from PyQt6.QtWebEngineCore import QWebEngineProfile, QWebEngineCookieStore
 from PyQt6.QtWebEngineWidgets import QWebEngineView
+from PyQt6.QtWidgets import QApplication
 
 def save_html(html):
     if len(sys.argv) > 2 and sys.argv[2] == '-f':
@@ -15,8 +17,16 @@ def save_html(html):
     sys.exit()
 
 if __name__ == '__main__':
+    url = QUrl.fromUserInput(sys.argv[1])
+
     app = QApplication(sys.argv)
-    wv = QWebEngineView()
+    profile = QWebEngineProfile()
+    cookiestore = profile.cookieStore()
+    cookies = ['toc_show=999']
+    for i in cookies:
+        cookie = QNetworkCookie.parseCookies(i.encode('utf-8'))[0]
+        cookiestore.setCookie(cookie, url)
+    wv = QWebEngineView(profile)
 
     wv.loadFinished.connect(lambda: wv.page().toHtml(save_html))
     wv.load(QUrl.fromUserInput(sys.argv[1]))

@@ -15,15 +15,17 @@ for i in $chaps
     while true
         set page (qtcurl $i)
         if test -z "$page"
-            continue
+            echo "Invalid url: $i"
+            exit
         end
-        if test (echo $page | pup title text{}) = "Just a moment...\n"
+        if test (echo $page | pup title text{}) = "Just a moment..."
             open $i
             echo "Solve captcha in browser, then press enter."
             read
-        else
-            break
+            sleep 5
+            continue
         end
+        break
     end
     set num (echo $i | rev | cut -d/ -f2 | rev)
     set ch_title (echo $page | pup title text{})
