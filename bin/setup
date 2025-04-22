@@ -23,7 +23,7 @@ p -U /tmp/*.tar.zst
 makepkg -sr -D /tmp -p /tmp/dwarfs-universal
 makepkg -sr -D /tmp -p /tmp/ly-nozig
 p -U /tmp/*.tar.zst
-yay -S shellcheck-bin xremap-x11-bin --noconfirm --sudo doas
+yay -S intel-lpmd shellcheck-bin xremap-x11-bin --noconfirm --sudo doas
 t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 
 echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf

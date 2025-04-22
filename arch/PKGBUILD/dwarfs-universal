@@ -1,11 +1,11 @@
 # Maintainer: phantop <phantop@tuta.io>
 pkgname=dwarfs-universal
-pkgver=0.11.0
+pkgver=0.12.3
 pkgrel=1
 pkgdesc='A fast high compression read-only file system (pre-compiled binaries)'
 url='https://github.com/mhx/dwarfs'
-source=("https://github.com/mhx/dwarfs/releases/download/v${pkgver}/dwarfs-${pkgver}-Linux-${CARCH}-clang.tar.xz"
-  "https://github.com/mhx/dwarfs/releases/download/v${pkgver}/dwarfs-universal-${pkgver}-Linux-${CARCH}-clang"
+source=("https://github.com/mhx/dwarfs/releases/download/v${pkgver}/dwarfs-${pkgver}-Linux-${CARCH}.tar.xz"
+  "https://github.com/mhx/dwarfs/releases/download/v${pkgver}/dwarfs-universal-${pkgver}-Linux-${CARCH}"
   "https://github.com/mhx/dwarfs/raw/main/scripts/extract_blocks.py")
 arch=('x86_64' 'aarch64')
 license=('GPL3')
@@ -14,7 +14,7 @@ conflicts=('dwarfs')
 provides=('dwarfs')
 
 package() {
-  install -Dm755 "${srcdir}/dwarfs-universal-${pkgver}-Linux-${CARCH}-clang" "${pkgdir}/usr/bin/dwarfsuniversal"
+  install -Dm755 "${srcdir}/dwarfs-universal-${pkgver}-Linux-${CARCH}" "${pkgdir}/usr/bin/dwarfsuniversal"
   install -Dm755 "${srcdir}/extract_blocks.py" "${pkgdir}/usr/bin/dwarfsblocks"
   ln -s dwarfsuniversal "${pkgdir}/usr/bin/dwarfsck"
   ln -s dwarfsuniversal "${pkgdir}/usr/bin/dwarfsextract"
@@ -25,7 +25,7 @@ package() {
   printf '#!/bin/sh\ndwarfs "$@"' > "${pkgdir}/usr/bin/mount.dwarfs"
   chmod 755 "${pkgdir}/usr/bin/mount.dwarfs"
 
-  cd "${srcdir}/dwarfs-${pkgver}-Linux-${CARCH}-clang"
+  cd "${srcdir}/dwarfs-${pkgver}-Linux-${CARCH}"
   install -Dm644 share/man/man1/dwarfs.1 "$pkgdir/usr/share/man/man1/dwarfs.1"
   install -Dm644 share/man/man1/dwarfsck.1 "$pkgdir/usr/share/man/man1/dwarfsck.1"
   install -Dm644 share/man/man1/dwarfsextract.1 "$pkgdir/usr/share/man/man1/dwarfsextract.1"

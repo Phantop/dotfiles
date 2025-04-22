@@ -25,4 +25,7 @@ depends=(
     ares-emu dolphin-emu mandarine-git melonds-git ryujinx
     love luanti steam
     gamescope game-devices-udev
+
+    # Stuff to check out
+    kate performous
 )
