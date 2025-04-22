@@ -1,6 +1,7 @@
 require 'paq' {
     'dense-analysis/ale',
     'ibhagwan/fzf-lua',
+    'ibhagwan/smartyank.nvim',
     'kaarmu/typst.vim',
     'lewis6991/gitsigns.nvim',
     'lukas-reineke/indent-blankline.nvim',
@@ -36,5 +37,6 @@ require('ibl').setup()
 require('mason').setup()
 require('mason-lspconfig').setup()
 require('nvim-treesitter.configs').setup{highlight = {enable = true}}
+require('smartyank').setup()
 
 require('lsp')
