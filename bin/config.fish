@@ -3,8 +3,9 @@ rm -r ~/.config/fish/*
 stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 
 fish_add_path -U /opt/homebrew/{opt/{file-formula/,coreutils/libexec/gnu},}bin
-fish_add_path -U ~/{.dotfiles,.local,Games}/bin /usr/lib64/ccache/bin
+fish_add_path -U ~/.cargo/bin /go/bin /usr/lib64/ccache/bin
 fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
+fish_add_path -U ~/{.dotfiles,.local,Games}/bin
 
 set -Ux EDITOR nvim
 set -Ux GTK_THEME Dracula
@@ -96,6 +97,7 @@ a rmlinks 'ff -t l -x rm'
 a rssb 'curl rss-bridge.github.io/rss-bridge/General/Public_Hosts | pup text{} | grep https | shuf -n1 | clip'
 a s 'doas env "PATH=$PATH"'
 a scale 'dconf write /org/gnome/desktop/interface/text-scaling-factor'
+a smt 'echo on | s tee /sys/devices/system/cpu/smt/control'
 a sre 'systemctl soft-reboot'
 a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
@@ -143,11 +145,13 @@ if type arista-python || type arista-ssh
   a dt 'a dt'
   a dut 'dt gd | head -n1 | cut -d/ -f3'
   a expire 'a mts supersede -R "Tests scheduled by MATT have expired."'
+  a expireall 'ow curl -L aboard/api/v1/user/get_muts_brief/$USER | jq -r .[].name | parallel expire -p'
   a freshen 'sudo swi freshen /images/EOS.swi'
   a gb 'a git'
   a job 'a reproduce -j'
   a lake 'v http://joblog/$argv;:'
   a lunch 'gb launch --schedule build --testing none'
+  a logscan 'a job logscan --jobId'
   a mock 'gb mock --schedule now'
   a oc 'gnmi -addr (dut):6030 -username admin get / | tail -n+2'
   a pb 'curl -F c=@- pb/'
@@ -158,6 +162,7 @@ if type arista-python || type arista-ssh
   a redt 'dt off $argv && dt on'
   a revdiff 'curl -L reviewboard/r/$argv/diff/raw'
   a revfiles 'revdiff $argv | cut -f1 | sed -n "s|+++ |/|p";:'
+  a rmspec 'pushd /src; fgit status | grep untracked | string escape | cut -d\\ -f5 | xargs rm; popd'
   a san 'echo "edut.cleanconfig()" | pydt'
   a startoc 'dt ssh run "en ; conf ; management api gnmi ; transport grpc default"'
   a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt;:'
