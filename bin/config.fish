@@ -76,7 +76,7 @@ a launcher 'rofi -combi-modi drun,run,window -modi combi -show'
 a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopback'
 a lock 'budgie-screensaver-command -l'
 a magdl 'dl --seed-time=0 magnet:?xt=urn:btih:$argv;:'
-a manga 'gdl --chapter-filter "language == \'English\'"'
+a mangadex 'gdl --chapter-filter "language == \'English\'"'
 a mvd mullvad
 a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nnn 'nnn -A'
@@ -173,7 +173,7 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix encodec eventeditor git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter
+for i in deemix encodec eventeditor getjump git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter
     a $i "uvx $i"
 end
 a in2csv 'uvx --from csvkit in2csv'

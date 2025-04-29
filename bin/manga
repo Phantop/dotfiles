@@ -1,0 +1,46 @@
+#!/usr/bin/env fish
+# For Hatena GigaViewer sites: https://hatena.co.jp/solutions/gigaviewer
+set page $argv[1]
+set rss (curl $page | yq -rp xml -o json .rss.channel)
+set limit 999
+set links (echo $rss | jq -rc .item[] | head -n$limit)
+
+for i in $links
+    set link (echo $i | jq -r .link)
+    set name (echo $i | jq -r .title)
+    set html (curl $link)
+    set list (echo $html | pup -p '#episode-json attr{data-value}' | jq -r .readableProduct.pageStructure.pages[].src | grep cdn)
+    
+    parallel '
+    wget {} -O {#}.jpg
+
+    set height (identify -format %h {#}.jpg)
+    set width (identify -format %w {#}.jpg)
+    set x (math "floor($width/32)*8")
+    set y (math "floor($height/32)*8")
+    set block "$x"x"$y"
+    
+    for i in (seq 0 3)
+        for j in (seq 0 3)
+            jpegtran -crop $block+(math $x\*$i)+(math $y\*$j) -outfile {#}.jpg-$i-$j.jpg {#}.jpg &
+        end
+    end
+    wait
+    for i in (seq 0 3)
+        for j in (seq 0 3)
+            jpegtran -drop +(math $x\*$j)+(math $y\*$i) {#}.jpg-$i-$j.jpg -outfile {#}.jpg {#}.jpg
+            rm {#}.jpg-$i-$j.jpg
+        end
+    end
+    cjxl -e 8 -d 0 {#}.jpg {#}.jxl
+    rm {#}.jpg
+    ' ::: $list
+
+    # wget (echo $html | pup '.link-slot > img attr{data-src}') -O 0.jpg
+    # cjxl -e 8 -d 0 0.jpg 0.jxl
+    
+    parallel 'mv {} (string pad -w6 -c0 {})' ::: *.jxl
+    mkdir $name
+    mv *.jxl $name
+    rmdir $name
+end
