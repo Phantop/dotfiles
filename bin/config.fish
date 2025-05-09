@@ -83,6 +83,7 @@ a nnn 'nnn -A'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a off shutdown
+a outfox 'firejail --private=~/Games/outfox --noprofile ./OutFox'
 a pbdl 'gdl (trurl -s host=www.tumblr.com $argv);:'
 a pill 's powerpill -Syu'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'

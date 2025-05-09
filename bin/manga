@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 # For Hatena GigaViewer sites: https://hatena.co.jp/solutions/gigaviewer
 set page $argv[1]
-set rss (curl $page | yq -rp xml -o json .rss.channel)
-set limit 999
+set rss (curl $page | xq .rss.channel)
+set limit 3
 set links (echo $rss | jq -rc .item[] | head -n$limit)
 
 for i in $links
