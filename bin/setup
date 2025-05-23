@@ -1,29 +1,24 @@
 #!/bin/sh
 set -e
 alias g=git l='ln -s' p='s pacman --noconfirm' s=sudo t='s tee -a' w=wget
-if command -v doas; then
-    alias s='doas'
-fi
 
-echo permit nopass :wheel | s tee /etc/doas.conf
 s pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 s pacman-key --lsign-key 3056513887B78AEB
-p -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+p -U --asdeps 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 s pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com
 s pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0
 p -U 'https://pkg.devkitpro.org/devkitpro-keyring.pkg.tar.xz'
 t /etc/pacman.conf < ~/.dotfiles/arch/pacman.conf
 
 p -Syu
-p -S base-devel
+p -S --asdeps base-devel
 cp ~/.dotfiles/arch/PKGBUILD/* /tmp
 makepkg -D /tmp -dp /tmp/meta-cli
 makepkg -D /tmp -dp /tmp/meta-desktop
-p -U /tmp/*.tar.zst
 makepkg -sr -D /tmp -p /tmp/dwarfs-universal
 makepkg -sr -D /tmp -p /tmp/ly-nozig
 p -U /tmp/*.tar.zst
-yay -S megatools intel-lpmd shellcheck-bin xremap-x11-bin --noconfirm --sudo doas
+yay -S megatools intel-lpmd xremap-x11-bin --noconfirm
 t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 
 echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf
@@ -37,7 +32,6 @@ stow --no-folding -d ~/.dotfiles -t ~/.config .
 ~/.dotfiles/bin/config.fish
 s chsh -s "$(grep -m1 bin/fish /etc/shells)" "$USER"
 s usermod -aG input "$USER"
-echo permit :wheel | s tee /etc/doas.conf
 
 w https://github.com/dracula/kitty/raw/master/dracula.conf -P ~/.config/kitty
 w https://github.com/dracula/musikcube/raw/main/dracula.json -P ~/.config/musikcube/themes

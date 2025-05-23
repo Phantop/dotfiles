@@ -12,7 +12,6 @@ set -Ux GTK_THEME Dracula
 set -Ux MANPAGER 'nvim +Man!'
 set -Ux NNN_FIFO /tmp/nnn.fifo
 set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;p:preview-tui;s:imgview'
-set -Ux PACMAN_AUTH doas
 set -Ux PAGER most
 set -Ux QT_QPA_PLATFORMTHEME qt5ct
 set -Ux USE_CCACHE 1
@@ -96,11 +95,10 @@ a remap 'xremap --mouse --ignore "ELAN0676:00 04F3:3195 Touchpad" ~/.config/xrem
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a rssb 'curl rss-bridge.github.io/rss-bridge/General/Public_Hosts | pup text{} | grep https | shuf -n1 | clip'
-a s 'doas env "PATH=$PATH"'
+a s sudo
 a scale 'dconf write /org/gnome/desktop/interface/text-scaling-factor'
 a smt 'echo on | s tee /sys/devices/system/cpu/smt/control'
 a sre 'systemctl soft-reboot'
-a ssh 'kitty +kitten ssh'
 a sus 'systemctl suspend'
 a tar bsdtar
 a tcsv 'curl https://torrents-csv.com/service/search?q=(echo $argv | tr " " +) | jless;:'
@@ -174,7 +172,7 @@ for i in (cut -d ' ' -f1 < ~/.config/qutebrowser/quickmarks)
   a $i "qutebrowser / \":open $i\""
 end
 
-for i in deemix encodec eventeditor getjump git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter
+for i in deemix encodec eventeditor getjump git-sim mathicsscript pdf2docx portablemc ratarmount scdl spleeter trafilatura
     a $i "uvx $i"
 end
 a in2csv 'uvx --from csvkit in2csv'

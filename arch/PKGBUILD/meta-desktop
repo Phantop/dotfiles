@@ -1,15 +1,19 @@
 pkgname=meta-desktop
-pkgver=2025.02.11
+pkgver=2025
 pkgrel=1
 pkgdesc="Metapackage for desktop stuff"
 arch=('any')
 url="https://phantop.github.io"
 license=('GPL3')
 depends=(
-    budgie-desktop dracula-gtk-theme-git gtk3-classic qt5ct
-    kitty pcmanfm-gtk3 gvfs-mtp rofi
-    adobe-source-code-pro-fonts cantarell-fonts noto-fonts-emoji
-    ttf-ubuntu-font-family ttf-dejavu ttf-liberation
+    budgie-backgrounds budgie-desktop ly network-manager-applet
+    dracula-gtk-theme-git gtk3-classic qt5ct
+    gnome-disk-utility kitty pcmanfm-gtk3 gvfs-mtp rofi
+    adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
+
+    intel-media-driver libva-intel-driver xf86-video-amdgpu xorg-server xorg-xinit
+    pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire
+    vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
     discord signal-desktop
     keepassxc sqlitebrowser zeal
@@ -17,15 +21,15 @@ depends=(
     nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
 
-    audacity avidemux-qt obs-studio sonic-visualiser
+    audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git sxiv libheif webp-pixbuf-loader
     gimp krita qownnotes vmpk xournalpp
-    zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver
+    zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu dolphin-emu mandarine-git melonds-git ryujinx
-    love luanti steam
+    ares-emu cemu-git dolphin-emu mandarine-git melonds-git ryujinx
+    love luanti steam-native-runtime
     gamescope game-devices-udev
 
     # Stuff to check out
-    kate performous zed
+    kate kdeconnect musescore performous zed
 )

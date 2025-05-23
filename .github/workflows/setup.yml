@@ -6,7 +6,6 @@ on:
     branches:
       - main
 
-
 jobs:
   setup: # try setting up user with setup script
     runs-on: ubuntu-latest
@@ -15,10 +14,10 @@ jobs:
     steps:
       - name: Install git on container and add user
         run: |
-          pacman -Sy --noconfirm git opendoas
+          pacman -Sy --noconfirm git
           pacman-key --init
           useradd -m glados -G wheel
-          echo permit nopass :wheel > /etc/doas.conf
+          echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Run setup

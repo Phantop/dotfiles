@@ -12,6 +12,7 @@ url="https://github.com/fairyglade/ly"
 license=('custom:WTFPL')
 depends=(pam)
 conflicts=(ly)
+provides=(ly)
 makedepends=(git libxcb)
 optdepends=('xorg-xauth: for X server sessions'
             'libxcb: for X server sessions')
