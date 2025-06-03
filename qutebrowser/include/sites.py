@@ -10,9 +10,11 @@ sites = [
         c.url.default_page,
         ]
 for site in sites:
-    config.set('content.javascript.enabled', True, 'https://' + site)
     config.set('content.cookies.accept', 'no-3rdparty', 'https://' + site)
+    config.set('content.javascript.enabled', True, 'https://' + site)
 
+config.set('content.cookies.accept', 'all', 'file:///*')
+config.set('content.javascript.enabled', True, 'file:///*')
 config.set('content.headers.user_agent', 'iPhone', 'docs.google.com')
 config.set('content.headers.user_agent', 'iPhone', 'drive.google.com')
 config.set('colors.webpage.darkmode.enabled', False, 'canary.discord.com')
