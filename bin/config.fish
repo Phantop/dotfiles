@@ -100,6 +100,7 @@ a scale 'dconf write /org/gnome/desktop/interface/text-scaling-factor'
 a smt 'echo on | s tee /sys/devices/system/cpu/smt/control'
 a sre 'systemctl soft-reboot'
 a sus 'systemctl suspend'
+a sxiv nsxiv
 a tar bsdtar
 a tcsv 'curl https://torrents-csv.com/service/search?q=(echo $argv | tr " " +) | jless;:'
 a up 's pacman -Syu'

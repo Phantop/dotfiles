@@ -22,12 +22,12 @@ depends=(
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
 
     audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
-    mpv mpv-mpris anime4k-git sxiv libheif webp-pixbuf-loader
+    mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
     gimp krita qownnotes vmpk xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu cemu-git dolphin-emu mandarine-git melonds-git ryujinx
-    love luanti steam-native-runtime
+    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
+    legendary love luanti proton-ge-custom-bin steam-native-runtime
     gamescope game-devices-udev
 
     # Stuff to check out
