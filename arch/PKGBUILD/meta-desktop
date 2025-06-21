@@ -8,14 +8,14 @@ license=('GPL3')
 depends=(
     budgie-backgrounds budgie-desktop ly network-manager-applet
     dracula-gtk-theme-git gtk3-classic qt5ct
-    gnome-disk-utility kitty pcmanfm-gtk3 gvfs-mtp rofi
+    gnome-disk-utility kitty pcmanfm-gtk3 gvfs-mtp rofi ttyd
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 
     intel-media-driver libva-intel-driver xf86-video-amdgpu xorg-server xorg-xinit
     pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire
     vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
-    discord signal-desktop
+    discord signal-desktop thunderbird
     keepassxc sqlitebrowser zeal
     ladybird-git lagrange netsurf
     nicotine+ qbittorrent uget
@@ -23,12 +23,14 @@ depends=(
 
     audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
-    gimp krita qownnotes vmpk xournalpp
+    gimp krita qownnotes scrot vmpk xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
     ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
-    legendary love luanti proton-ge-custom-bin steam-native-runtime
-    gamescope game-devices-udev
+    gamescope proton-ge-custom-bin steam-native-runtime umu-launcher
+    legendary luanti lutris 
+    dotnet-runtime game-devices-udev love jre-openjdk
+    wine-gecko wine-mono wine-staging
 
     # Stuff to check out
     kate kdeconnect musescore performous zed

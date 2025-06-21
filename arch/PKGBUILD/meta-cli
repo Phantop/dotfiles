@@ -20,7 +20,7 @@ depends=(
     cpupower power-profiles-daemon
     dolphin-emu-tool flips mame-tools nsz xdelta3
     efibootmgr firejail fwupd nss-mdns iwd wireless_tools
-    ffmpeg imagemagick poppler
+    ffmpeg imagemagick opus-tools poppler
     fish autojump shellcheck starship stow xsel
     flyctl-bin git git-delta github-cli tig
     hurl pup trurl tuc
@@ -31,8 +31,10 @@ depends=(
     neovim most
     rustup pyenv python-html2text python-pylint uv
     tesseract-data-eng
+    tldr vt-cli
     zram-generator bcachefs-tools f2fs-tools 
 
     # Tools to check out
-    binwalk csvlens dagger elvish fq grex helix incus jc magic-wormhole ouch runc slumber yq
+    binwalk csvlens curlie dagger elvish fq grex helix httpie incus jc jo
+    magic-wormhole msedit ouch runc slumber xh yq
 )
