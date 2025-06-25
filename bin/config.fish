@@ -47,6 +47,7 @@ a acmus 'timeout (math 60 - (date +%M))m mpv --loop https://acmusicext.com/stati
 a aliases 'v (which config.fish); config.fish'
 a all2jxl 'fd -e{gif,jpeg,jpg,png,ppm} -x cjxl -e 8 -d 0 {} {.}.jxl \; -x rm'
 a awall 'xwinwrap -fdt -fs -- mpv -wid WID ~/Pictures/Wall/Anim/$argv* --loop --no-osc'
+a avg 'jq -s add/length'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'

@@ -8,7 +8,7 @@ license=('GPL3')
 depends=(
     7zip  bzip3 lrzip innoextract msitools squashfs-tools upx zip
     advancecomp gifsicle jpegoptim oxipng pngquant qpdf
-    arch-install-scripts expac hblock reflector yay
+    arch-install-scripts expac hblock flatpak reflector yay
     aria2 gallery-dl httrack lynx monolith wget yt-dlp
     asciinema btop musikcube ncdu nnn tmux
     base base-devel busybox ccache mandoc man-pages moreutils parallel
@@ -16,6 +16,7 @@ depends=(
     bc gron jless jq
     bleachbit jdupes
     chaotic-keyring chaotic-mirrorlist
+    clang cmake ninja
     composer perl-parallel-forkmanager perl-rename php
     cpupower power-profiles-daemon
     dolphin-emu-tool flips mame-tools nsz xdelta3
@@ -23,18 +24,17 @@ depends=(
     ffmpeg imagemagick opus-tools poppler
     fish autojump shellcheck starship stow xsel
     flyctl-bin git git-delta github-cli tig
+    ghostscript mupdf-tools pandoc tesseract-data-eng typst whisper-cpp-git
     hurl pup trurl tuc
     ifuse rclone rsync mullvad-vpn-cli torsocks sshfs syncthing
     inxi smartmontools ventoy-bin
     linux-hardened linux-firmware amd-ucode intel-ucode
-    mupdf-tools pandoc tesseract-data-eng typst
     neovim most
     rustup pyenv python-html2text python-pylint uv
-    tesseract-data-eng
     tldr vt-cli
     zram-generator bcachefs-tools f2fs-tools 
 
     # Tools to check out
     binwalk csvlens curlie dagger elvish fq grex helix httpie incus jc jo
-    magic-wormhole msedit ouch runc slumber xh yq
+    magic-wormhole msedit ouch runc slumber tabiew xh yq
 )
