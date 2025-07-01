@@ -158,7 +158,7 @@ if type arista-python || type arista-ssh
   a logscan 'a job logscan --jobId'
   a mock 'gb mock --schedule now'
   a muts 'a mut status -u --json | jq -r .[].name[]'
-  a oc 'gnmi -addr (dut):6030 -username admin get /$argv | tail -n+2;:'
+  a oc 'gnmi -addr (dut) -username admin get /$argv | tail -n+2;:'
   a pb 'curl -F c=@- pb/'
   a prop 'ART_DISPLAY_PROPERTIES=$argv[1] dt info -s $argv[2] | grep $argv[1];:'
   a pydt 'dt pyshell'
