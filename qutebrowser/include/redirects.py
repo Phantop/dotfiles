@@ -29,7 +29,7 @@ farside = {
     'vm.tiktok.com' : 'proxitok',
     'www.tiktok.com' : 'proxitok',
 
-    'en.wikipedia.org' : 'wikiless',
+    # 'en.wikipedia.org' : 'wikiless',
     'genius.com' : 'dumb',
     'gothub.com' : 'gothub',
     'imgur.com' : 'rimgo',

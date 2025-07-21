@@ -7,12 +7,14 @@ fish_add_path -U ~/.cargo/bin /go/bin /usr/lib64/ccache/bin
 fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
 fish_add_path -U ~/{.dotfiles,.local,Games}/bin
 
+set -Ux DOTNET_BUNDLE_EXTRACT_BASE_DIR /tmp
 set -Ux EDITOR nvim
 set -Ux GTK_THEME Dracula
 set -Ux MANPAGER 'nvim +Man!'
 set -Ux NNN_FIFO /tmp/nnn.fifo
 set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;p:preview-tui;s:imgview'
 set -Ux PAGER most
+set -Ux PROTONPATH /usr/share/steam/compatibilitytools.d/proton-ge-custom
 set -Ux QT_QPA_PLATFORMTHEME qt5ct
 set -Ux USE_CCACHE 1
 
@@ -62,7 +64,7 @@ a ff 'fd -HILi -Edosdevices -E.git'
 a fichub 'lynx -dump https://fichub.net/legacy/epub_export?q=$argv | grep epub? | cut -d. -f2- | dl -i-;:'
 a fumount 'fusermount -u'
 a g git
-a gdl gallery-dl
+a gdl gallery-dl --exec-after 'fish -c all2jxl'
 a gittop 'cd (git root)'
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
@@ -104,6 +106,7 @@ a sus 'systemctl suspend'
 a sxiv nsxiv
 a tar bsdtar
 a tcsv 'curl https://torrents-csv.com/service/search?q=(echo $argv | tr " " +) | jless;:'
+a umu umu-run
 a up 's pacman -Syu'
 a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()))"'
 a v vi

@@ -29,7 +29,7 @@ depends=(
     ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
     gamemode gamescope proton-ge-custom-bin steam-native-runtime umu-launcher
     legendary luanti lutris 
-    dotnet-runtime game-devices-udev love jre-openjdk
+    dotnet-runtime game-devices-udev love jdk-openjdk
     wine-gecko wine-mono wine-staging
 
     # Stuff to check out
