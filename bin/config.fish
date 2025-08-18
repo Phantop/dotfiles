@@ -17,6 +17,7 @@ set -Ux PAGER most
 set -Ux PROTONPATH /usr/share/steam/compatibilitytools.d/proton-ge-custom
 set -Ux QT_QPA_PLATFORMTHEME qt5ct
 set -Ux USE_CCACHE 1
+set -Ux WINEDEBUG -all
 
 set -U fish_features all
 set -U fish_greeting
@@ -38,7 +39,6 @@ set -U fish_pager_color_prefix 'white' '--bold' '--underline'
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf,mattmc3/dict}.fish
 
-ln -s /usr/share/autojump/autojump.fish ~/.config/fish/conf.d
 ln -s /opt/homebrew/share/autojump/autojump.fish ~/.config/fish/conf.d/autojump.mac.fish
 starship init fish --print-full-init > ~/.config/fish/conf.d/starship.fish
 
@@ -84,6 +84,7 @@ a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nnn 'nnn -A'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
+a nsw 'parallel "curl -L nswgame.com/{}-nintendo-switch-nsp-xci-nsz-download-free | pup .su-spoiler-content a attr{href}" :::'
 a off shutdown
 a outfox 'firejail --private=~/Games/outfox --noprofile ./OutFox'
 a pbdl 'gdl (trurl -s host=www.tumblr.com $argv);:'
@@ -157,23 +158,21 @@ if type arista-python || type arista-ssh
   a gbc 'gb create eos-trunk -n (date +%Y-%m-%d)'
   a job 'bug -j'
   a lake 'curl -sL http://joblog/$argv;:'
-  a lunch 'gb launch --schedule build --testing none'
   a logscan 'a job logscan --jobId'
   a mock 'gb mock --schedule now'
   a muts 'a mut status -u --json | jq -r .[].name[]'
   a oc 'gnmi -addr (dut) -username admin get /$argv | tail -n+2;:'
   a pb 'curl -F c=@- pb/'
   a prop 'ART_DISPLAY_PROPERTIES=$argv[1] dt info -s $argv[2] | grep $argv[1];:'
-  a pydt 'dt pyshell'
-  a reagent 'echo "edut.restartAgent(\'$argv\')" | pydt;:'
+  a reagent 'echo "edut.restartAgent(\'$argv\')" | dt py;:'
   a rebase 'gb update --sync --rebase-topics'
   a redt 'dt off $argv && dt on'
   a rejects 'muts | parallel a mts show -s rejected -p'
   a revdiff 'curl -L reviewboard/r/$argv/diff/raw'
   a revfiles 'revdiff $argv | cut -f1 | sed -n "s|+++ |/|p";:'
-  a san 'echo "edut.cleanconfig()" | pydt'
+  a san 'echo "edut.cleanconfig()" | dt py'
   a startoc 'dt ssh run "en ; conf ; management api gnmi ; transport grpc default"'
-  a tcam 'echo "edut.setTcamProfile(\'$argv\')" | pydt;:'
+  a tcam 'echo "edut.setTcamProfile(\'$argv\')" | dt py;:'
   a trace 'lake $argv | trace.awk;:'
   a topic 'gb checkout'
   a vlake 'v http://joblog/$argv;:'

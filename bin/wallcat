@@ -2,7 +2,7 @@
 set offset 0
 set 1 $argv[1]
 set 2 $argv[2]
-if test $argv[3]
+if test -n $argv[3]
     set offset $argv[3]
 end
 
