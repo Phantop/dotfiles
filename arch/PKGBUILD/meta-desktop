@@ -15,23 +15,25 @@ depends=(
     pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire
     vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
-    discord signal-desktop thunderbird
+    discord signal-desktop
     keepassxc sqlitebrowser zeal
     ladybird-git lagrange netsurf
     nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
+    ungoogled-chromium-bin firefox thunderbird
 
     audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
     gimp krita qownnotes scrot vmpk xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
+    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx torzu-qt6-git
     gamemode gamescope proton-ge-custom-bin steam-native-runtime umu-launcher
     legendary luanti lutris 
     dotnet-runtime game-devices-udev love jdk-openjdk
     wine-gecko wine-mono wine-staging
 
     # Stuff to check out
-    kate kdeconnect musescore performous zed
+    kate kdeconnect lact musescore performous zed
+    krathalans-apparmor-profiles-git
 )

@@ -101,7 +101,7 @@ a rmlinks 'ff -t l -x rm'
 a rssb 'curl rss-bridge.github.io/rss-bridge/General/Public_Hosts | pup text{} | grep https | shuf -n1 | clip'
 a s sudo
 a scale 'dconf write /org/gnome/desktop/interface/text-scaling-factor'
-a smt 'echo on | s tee /sys/devices/system/cpu/smt/control'
+a smt 'echo $argv | s tee /sys/devices/system/cpu/smt/control;:'
 a sre 'systemctl soft-reboot'
 a sus 'systemctl suspend'
 a sxiv nsxiv
