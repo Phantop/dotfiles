@@ -140,6 +140,7 @@ a history_last 'history -n1;:'
 
 if type arista-python || type arista-ssh
   a abuild 'a4c build --platform x86_64_el9 --service workspace'
+  a acons 'dt ssh run en \; ba python -m Acons'
   a adef 'a grok -d'
   a amk 'a ws make -p (basename (git root || pwd))'
   a artic 'gb artic --schedule now'
