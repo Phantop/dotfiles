@@ -18,7 +18,7 @@ makepkg -D /tmp -dp /tmp/meta-desktop
 makepkg --noconfirm -sr -D /tmp -p /tmp/dwarfs-universal
 makepkg --noconfirm -sr -D /tmp -p /tmp/ly-nozig
 p -U /tmp/*.tar.zst
-yay -S megatools intel-lpmd units xremap-x11-bin --noconfirm
+yay -S dracula-gtk-theme megatools intel-lpmd units xremap-x11-bin --noconfirm
 t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 
 echo kernel.core_pattern=/dev/null | t /etc/sysctl.d/50-coredump.conf
