@@ -13,11 +13,10 @@ t /etc/pacman.conf < ~/.dotfiles/arch/pacman.conf
 p -Syu
 p -S --asdeps base-devel
 cp ~/.dotfiles/arch/PKGBUILD/* /tmp
-makepkg -D /tmp -dp /tmp/meta-cli
-makepkg -D /tmp -dp /tmp/meta-desktop
+makepkg -D /tmp -dp /tmp/meta
 makepkg --noconfirm -sr -D /tmp -p /tmp/dwarfs-universal
 makepkg --noconfirm -sr -D /tmp -p /tmp/ly-nozig
-p -U /tmp/*.tar.zst
+p -U /tmp/*.tar.zst --noconfirm
 yay -S dracula-gtk-theme megatools intel-lpmd units xremap-x11-bin --noconfirm
 t /etc/pacman.conf < ~/.dotfiles/arch/devkitpro.conf
 

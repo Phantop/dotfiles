@@ -22,6 +22,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Run setup
         run: |
+          # Some stuff needed to avoid manual intervention
+          pacman -Rdd --noconfirm iptables
+          pacman -Sy --noconfirm pipewire-jack iptables-nft
+
           cp -r /__w/dotfiles/dotfiles /home/glados/.dotfiles
           su glados -c /home/glados/.dotfiles/bin/setup
           mkdwarfs -i /home/glados -o /home.dwarfs
