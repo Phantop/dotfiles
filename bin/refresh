@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 gcc (curl -L https://github.com/kevinlekiller/cvt_modeline_calculator_12/raw/refs/heads/master/cvt12.c | psub -s .c) -lm
-set line (xrandr | head -n2 | tail -n1)
+set line (xrandr | grep $argv[1])
 set display (echo $line | cut -d\  -f1)
 set res (echo $line | grep -Eo '[0-9]{4}' | tr \n \ )
 echo $res
-set line (eval ./a.out $res $argv -b | tail -n1 | sed 's/Modeline/xrandr --newmode/')
+set line (eval ./a.out $res $argv[2] -b | tail -n1 | sed 's/Modeline/xrandr --newmode/')
 set name (echo $line | cut -d\" -f2)
 rm a.out
 echo $line
