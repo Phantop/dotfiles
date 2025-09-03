@@ -34,6 +34,7 @@ bind = {
     'av': kitdl + ' ydl {url}"',
 
     '<Ctrl-r>': 'spawn -u readability',
+    'ba': 'set -u {url:host} content.headers.user_agent Browser',
     'e': 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload',
     'E': 'config-cycle -p content.javascript.enabled ;; reload',
     'pb': 'spawn -u priviblur',

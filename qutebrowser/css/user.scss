@@ -63,4 +63,5 @@ div#outer.wrapper { //ao3
 
     #grease-anchor { color: var(--counter-color); margin-inline-start: 4px; }
     h1, h2, h3, h4, h5, h6 { &:not(:hover) #grease-anchor {display: none}}
+    .entry-external-link {display: none}
 }
