@@ -2,8 +2,8 @@ from qutebrowser.api import interceptor
 from PyQt6.QtCore import QUrl
 
 basic = {
-    'tumblr.com' : 'priviblur.fly.dev',
-    'www.tumblr.com' : 'priviblur.fly.dev',
+    'tumblr.com' : 'prvblr.fly.dev',
+    'www.tumblr.com' : 'prvblr.fly.dev',
 
     'avatar.wiki' : 'avatar.antifandom.com',
     'portal.wiki' : 'theportalwiki.com',
