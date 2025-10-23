@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 set url $argv[1]
 
-set base (qtcurl $url)
+set base (curli -b toc_show=999 $url)
 
 set author (echo $base | pup .auth_name_fic text{})
 set chaps (echo $base | pup .toc_a attr{href})
@@ -13,7 +13,7 @@ mkdir -- "$dir"
 
 for i in $chaps
     while true
-        set page (qtcurl $i)
+        set page (curli $i)
         if test -z "$page"
             echo "Invalid url: $i"
             exit
