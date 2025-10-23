@@ -42,7 +42,7 @@ depends=(
 
     # GUI
     budgie-backgrounds budgie-desktop ly network-manager-applet
-    gtk3-classic qt5ct
+    gtk3-classic qt6ct
     gnome-disk-utility kitty pcmanfm-gtk3 gvfs-mtp rofi ttyd
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 

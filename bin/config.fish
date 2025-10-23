@@ -15,7 +15,7 @@ set -Ux NNN_FIFO /tmp/nnn.fifo
 set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;p:preview-tui;s:imgview'
 set -Ux PAGER most
 set -Ux PROTONPATH /usr/share/steam/compatibilitytools.d/proton-ge-custom
-set -Ux QT_QPA_PLATFORMTHEME qt5ct
+set -Ux QT_QPA_PLATFORMTHEME qt6ct
 set -Ux USE_CCACHE 1
 set -Ux WINEDEBUG -all
 
