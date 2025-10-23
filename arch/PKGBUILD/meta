@@ -43,7 +43,7 @@ depends=(
     # GUI
     budgie-backgrounds budgie-desktop ly network-manager-applet
     gtk3-classic qt6ct
-    gnome-disk-utility kitty pcmanfm-gtk3 gvfs-mtp rofi ttyd
+    gnome-disk-utility kitty pcmanfm gvfs-mtp rofi ttyd
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 
     intel-media-driver libva-intel-driver xf86-video-amdgpu xorg-server xorg-xinit
@@ -62,7 +62,7 @@ depends=(
     gimp krita qownnotes scrot vmpk xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx torzu-qt6-git
+    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
     gamemode gamescope proton-ge-custom-bin steam-native-runtime umu-launcher
     legendary luanti lutris 
     dotnet-runtime game-devices-udev love jdk-openjdk
