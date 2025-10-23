@@ -20,4 +20,5 @@
     s = status
     sd = submodule deinit --all -f
     su = submodule update --init --recursive
+    unstash = pop
     w = clean -fdx
