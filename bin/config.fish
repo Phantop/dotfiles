@@ -64,7 +64,7 @@ a ff 'fd -HILi -Edosdevices -E.git'
 a fichub 'lynx -dump https://fichub.net/legacy/epub_export?q=$argv | grep epub? | cut -d. -f2- | dl -i-;:'
 a fumount 'fusermount -u'
 a g git
-a gdl gallery-dl --exec-after 'fish -c all2jxl'
+a gdl 'gallery-dl --exec-after "fish -c all2jxl"'
 a gittop 'cd (git root)'
 a giveme 's chown $USER'
 a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x mv {}1 {}'
