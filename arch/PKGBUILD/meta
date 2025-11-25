@@ -16,6 +16,7 @@ depends=(
     bat fd fzf ripgrep ripgrep-all
     bc gron jless jq
     bleachbit jdupes
+    bluetui inxi smartmontools ventoy-bin
     chaotic-keyring chaotic-mirrorlist
     clang cmake ninja
     composer perl-parallel-forkmanager perl-rename php
@@ -29,7 +30,6 @@ depends=(
     ghostscript mupdf-tools pandoc tesseract-data-eng typst whisper-cpp-git
     hurl pup trurl tuc
     ifuse rclone rsync mullvad-vpn-cli torsocks sshfs syncthing
-    inxi smartmontools ventoy-bin
     linux-hardened linux-firmware amd-ucode intel-ucode
     neovim most
     rustup pyenv python-html2text python-pylint uv
@@ -37,8 +37,8 @@ depends=(
     zram-generator bcachefs-tools f2fs-tools 
 
     # CLI tools to check out
-    binwalk csvlens curlie dagger elvish fq grex helix httpie incus jc jo
-    magic-wormhole msedit ouch runc slumber tabiew xh yq
+    binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo
+    magic-wormhole msedit ouch runc slumber tabiew xh yazi yq
 
     # GUI
     budgie-backgrounds budgie-desktop ly network-manager-applet
@@ -63,7 +63,7 @@ depends=(
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
     ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
-    gamemode gamescope proton-ge-custom-bin steam-native-runtime umu-launcher
+    gamemode gamescope proton-ge-custom-bin steam umu-launcher
     legendary luanti lutris 
     dotnet-runtime game-devices-udev love jdk-openjdk
     wine-gecko wine-mono wine-staging
