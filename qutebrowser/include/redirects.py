@@ -46,7 +46,7 @@ def dosub(url: QUrl, host, sub):
 def fandom(url: QUrl, sub):
     dosub(url, 'farside.link', 'breezewiki/' + sub)
 def tumblr(url: QUrl, sub):
-    dosub(url, 'priviblur.fly.dev', sub)
+    dosub(url, 'prvblr.fly.dev', sub)
 
 subs = {
     'fandom.com' : fandom,
