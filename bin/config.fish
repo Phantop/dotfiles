@@ -7,6 +7,7 @@ fish_add_path -U ~/.cargo/bin /go/bin /usr/lib64/ccache/bin
 fish_add_path -U ~/.local/appdwarf/{,apps{,/bin}}
 fish_add_path -U ~/{.dotfiles,.local,Games}/bin
 
+set -U fish_features all
 set -Ux DOTNET_BUNDLE_EXTRACT_BASE_DIR /tmp
 set -Ux EDITOR nvim
 set -Ux GTK_THEME Dracula
@@ -18,23 +19,6 @@ set -Ux PROTONPATH /usr/share/steam/compatibilitytools.d/proton-ge-custom
 set -Ux QT_QPA_PLATFORMTHEME qt6ct
 set -Ux USE_CCACHE 1
 set -Ux WINEDEBUG -all
-
-set -U fish_features all
-set -U fish_greeting
-set -U fish_color_command --bold
-set -U fish_color_comment red
-set -U fish_color_end brmagenta
-set -U fish_color_error brred
-set -U fish_color_escape 'bryellow' '--bold'
-set -U fish_color_match --background=brblue
-set -U fish_color_operator bryellow
-set -U fish_color_param cyan
-set -U fish_color_quote yellow
-set -U fish_color_redirection brblue
-set -U fish_color_status red
-set -U fish_color_user brgreen
-set -U fish_color_valid_path --underline
-set -U fish_pager_color_prefix 'white' '--bold' '--underline'
 
 curl -sL https://git.io/fisher | source
 fisher install {jorgebucaran/replay,PatrickF1/fzf,mattmc3/dict}.fish
@@ -90,6 +74,7 @@ a outfox 'firejail --private=~/Games/outfox --noprofile ./OutFox'
 a pbdl 'gdl (trurl -s host=www.tumblr.com $argv);:'
 a pill 's powerpill -Syu'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
+a print 'string collect'
 a py3 python3
 a py py3
 a qb 'qutebrowser --target auto'
@@ -103,6 +88,7 @@ a s sudo
 a scale 'dconf write /org/gnome/desktop/interface/text-scaling-factor'
 a smt 'echo $argv | s tee /sys/devices/system/cpu/smt/control;:'
 a sre 'systemctl soft-reboot'
+a sum 'jq -s add'
 a sus 'systemctl suspend'
 a sxiv nsxiv
 a tar bsdtar
@@ -168,7 +154,7 @@ if type arista-python || type arista-ssh
   a mut 'gb topic show'
   a muts 'a mut status -u --json | jq -r .[].name[]'
   a oc 'gnmi -addr (dut) -username admin get /$argv | tail -n+2;:'
-  a pb 'curl -F c=@- pb/'
+  a pb 'curl -F t=$USER@arista.com -F c=@- pb/'
   a prop 'ART_DISPLAY_PROPERTIES=$argv[1] dt info -s $argv[2] | grep $argv[1];:'
   a prune 'gb prune (topics)'
   a reagent 'echo "edut.restartAgent(\'$argv\')" | dt py;:'
@@ -180,9 +166,10 @@ if type arista-python || type arista-ssh
   a san 'echo "edut.cleanconfig()" | dt py'
   a startoc 'dt ssh run "en ; conf ; management api gnmi ; transport grpc default"'
   a tcam 'echo "edut.setTcamProfile(\'$argv\')" | dt py;:'
-  a trace 'lake $argv | trace.awk;:'
+  a toggle 'dt toggle --featureToggle=$argv=true;:'
   a topic 'gb checkout'
   a topics 'gb topics --name-only'
+  a trace 'lake $argv | trace.awk;:'
   a vlake 'v http://joblog/$argv;:'
 end
 
