@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
 vim.keymap.set('', '<F7>', 'mzgg=G`z')
-vim.keymap.set('', 'r', '"_d')
+vim.keymap.set('', '<A-r>', '"_d')
 
 vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
 vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
