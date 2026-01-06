@@ -29,46 +29,44 @@ depends=(
     flyctl-bin git git-delta github-cli tig
     ghostscript mupdf-tools pandoc tesseract-data-eng typst whisper-cpp-git
     hurl pup trurl tuc
-    ifuse rclone rsync mullvad-vpn-cli torsocks sshfs syncthing
+    ifuse pv rclone rsync mullvad-vpn-cli torsocks sshfs syncthing
     linux-hardened linux-firmware amd-ucode intel-ucode
     neovim most
     rustup pyenv python-html2text python-pylint uv
-    tldr vt-cli
-    zram-generator bcachefs-tools f2fs-tools 
+    tldr vt-cli krathalans-apparmor-profiles-git clamav
+    zram-generator bcachefs-dkms bcachefs-tools f2fs-tools 
 
     # CLI tools to check out
     binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo
-    magic-wormhole msedit ouch runc slumber tabiew xh yazi yq
+    magic-wormhole msedit ouch runc slumber tabiew ttyd xh yazi yq
 
     # GUI
     budgie-backgrounds budgie-desktop ly network-manager-applet
-    gtk3-classic qt6ct
-    gnome-disk-utility kitty pcmanfm gvfs-mtp rofi ttyd
+    gtk3-classic qt5ct qt6ct
+    gnome-disk-utility kitty pcmanfm gvfs-mtp rofi
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 
     intel-media-driver libva-intel-driver xf86-video-amdgpu xorg-server xorg-xinit
     pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire
     vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
-    discord signal-desktop
+    signal-desktop vesktop
     keepassxc sqlitebrowser zeal
-    ladybird-git lagrange netsurf
     nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
-    ungoogled-chromium-bin firefox thunderbird
+    ungoogled-chromium-bin firefox lagrange netsurf
 
     audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
-    gimp krita qownnotes scrot vmpk xournalpp
+    gimp krita qownnotes scrot xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu azahar-git cemu-git dolphin-emu melonds-git ryujinx
-    gamemode gamescope proton-ge-custom-bin steam umu-launcher
+    ares-emu azahar-git cemu-git dolphin-emu melonds-git
+    gamemode gamescope proton-ge-custom-bin protontricks-git steam umu-launcher
     legendary luanti lutris 
     dotnet-runtime game-devices-udev love jdk-openjdk
-    wine-gecko wine-mono wine-staging
+    wine-gecko wine-mono wine-staging winetricks
 
     # GUI stuff to check out
-    kate kdeconnect lact musescore performous zed
-    krathalans-apparmor-profiles-git
+    kate kdeconnect lact musescore niri opensnitch
 )
