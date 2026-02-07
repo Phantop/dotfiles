@@ -80,7 +80,7 @@ a py py3
 a qb 'qutebrowser --target auto'
 a qutainer 'qutebrowser --temp-basedir'
 a re 'systemctl reboot -i'
-a remap 'xremap --mouse --ignore "ELAN0676:00 04F3:3195 Touchpad" ~/.config/xremap.yml'
+a remap 'xremap --mouse --watch --ignore "ELAN0676:00 04F3:3195 Touchpad" ~/.config/xremap.yml'
 a rmdirs 'ff -t d -x rmdir -p'
 a rmlinks 'ff -t l -x rm'
 a rssb 'curl rss-bridge.github.io/rss-bridge/General/Public_Hosts | pup text{} | grep https | shuf -n1 | clip'

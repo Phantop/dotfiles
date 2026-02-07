@@ -1,0 +1,6 @@
+<labwc_config>
+	<windowRules>
+		<windowRule identifier="*" serverDecoration="no" />
+	</windowRules>
+	<core decoration="server" />
+</labwc_config>

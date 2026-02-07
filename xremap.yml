@@ -14,9 +14,10 @@ keymap:
       alt-u: pageup
       btn_extra: pageup
       btn_side: pagedown
+      super-tab : alt-tab
 modmap:
   - name: global
     remap:
       alt_r:
         held: super_r
-        alone: scrolllock
+        alone: alt_r

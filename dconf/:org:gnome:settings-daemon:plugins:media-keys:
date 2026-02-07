@@ -8,8 +8,8 @@ custom-keybindings=[ '/org/gnome/settings-daemon/plugins/media-keys/custom/0/',
 '/org/gnome/settings-daemon/plugins/media-keys/custom/6/',
 '/org/gnome/settings-daemon/plugins/media-keys/custom/7/',
 '/org/gnome/settings-daemon/plugins/media-keys/custom/8/',
-'/org/gnome/settings-daemon/plugins/media-keys/custom/9/' ]
-www=['<Super>q']
+'/org/gnome/settings-daemon/plugins/media-keys/custom/9/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom/10/' ]
 
 [custom/0]
 binding='<Super>Return'
@@ -50,3 +50,7 @@ command="fish -c 'open (fd | rofi -dmenu -i)'"
 [custom/9]
 binding='<Super>c'
 command='kitty fish -c "exec nnn -A"'
+
+[custom/10]
+binding='<Super>q'
+command='qutebrowser'

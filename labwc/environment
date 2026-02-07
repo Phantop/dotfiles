@@ -1,0 +1,4 @@
+XKB_DEFAULT_LAYOUT=us
+XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle,compose:ralt
+XCURSOR_THEME=Haiku
+XCURSOR_SIZE=24
