@@ -1,6 +1,6 @@
 # Maintainer: phantop <phantop@tuta.io>
 pkgname=dwarfs-universal
-pkgver=0.13.0
+pkgver=0.14.1
 pkgrel=1
 pkgdesc='A fast high compression read-only file system (pre-compiled binaries)'
 url='https://github.com/mhx/dwarfs'
