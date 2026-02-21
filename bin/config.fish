@@ -10,13 +10,11 @@ fish_add_path -U ~/{.dotfiles,.local,Games}/bin
 set -U fish_features all
 set -Ux DOTNET_BUNDLE_EXTRACT_BASE_DIR /tmp
 set -Ux EDITOR nvim
-set -Ux GTK_THEME Dracula
 set -Ux MANPAGER 'nvim +Man!'
 set -Ux NNN_FIFO /tmp/nnn.fifo
 set -Ux NNN_PLUG 'f:fzcd;i:imgur;j:autojump;m:nmount;p:preview-tui;s:imgview'
 set -Ux PAGER most
 set -Ux PROTONPATH /usr/share/steam/compatibilitytools.d/proton-ge-custom
-set -Ux QT_QPA_PLATFORMTHEME qt6ct
 set -Ux USE_CCACHE 1
 set -Ux WINEDEBUG -all
 
@@ -100,7 +98,7 @@ a v vi
 a venv 'python3 -m venv venv && source venv/bin/activate.fish && pip3 install -r requirements.txt'
 a vi nvim
 a vwhich 'v (which $argv);:'
-a wallp 'gsettings set org.gnome.desktop.background picture-uri file://(realpath $argv);:'
+a wallp 'plasma-apply-wallpaperimage (realpath $argv);:'
 a ya 'yay -a'
 a ydl 'yt-dlp'
 a ydlh 'ydl -S height:$argv[1] $argv[2..-1];:'

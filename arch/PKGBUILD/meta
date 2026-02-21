@@ -37,12 +37,11 @@ depends=(
     zram-generator bcachefs-dkms bcachefs-tools f2fs-tools 
 
     # CLI tools to check out
-    binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo
+    binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo keyd
     magic-wormhole msedit ouch runc slumber tabiew ttyd xh yazi yq
 
     # GUI
-    budgie-backgrounds budgie-desktop ly network-manager-applet
-    gtk3-classic qt5ct qt6ct
+    plasma-meta gdm gtk3-classic
     gnome-disk-utility kitty pcmanfm gvfs-mtp rofi
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 
@@ -54,7 +53,7 @@ depends=(
     keepassxc sqlitebrowser zeal
     nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
-    ungoogled-chromium-bin firefox lagrange netsurf
+    ungoogled-chromium-bin firefox lagrange netsurf ladybird-git
 
     audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
@@ -68,5 +67,5 @@ depends=(
     wine-gecko wine-mono wine-staging winetricks
 
     # GUI stuff to check out
-    kate kdeconnect lact musescore niri opensnitch
+    kate kdeconnect lact musescore opensnitch
 )
