@@ -5,7 +5,7 @@ c.content.register_protocol_handler = False
 c.url.start_pages = c.url.default_page = 'minifocs.fly.dev'
 sites = [
         'archiveofourown.org',
-        'canary.discord.com',
+        'discord.com',
         'app.tuta.com',
         c.url.default_page,
         ]
@@ -17,4 +17,4 @@ config.set('content.cookies.accept', 'all', 'file:///*')
 config.set('content.javascript.enabled', True, 'file:///*')
 config.set('content.headers.user_agent', 'iPhone', 'docs.google.com')
 config.set('content.headers.user_agent', 'iPhone', 'drive.google.com')
-config.set('colors.webpage.darkmode.enabled', False, 'canary.discord.com')
+config.set('colors.webpage.darkmode.enabled', False, 'discord.com')

@@ -1,7 +1,6 @@
 host = c.content.blocking.hosts.lists.append
 host("https://www.github.developerdan.com/hosts/lists/facebook-extended.txt")
 
-c.content.blocking.adblock.lists = []
 abp = c.content.blocking.adblock.lists.append
 abp("https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt")
 abp("https://easylist-downloads.adblockplus.org/antiadblockfilters.txt")

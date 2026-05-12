@@ -44,8 +44,6 @@ bind = {
     'sc': 'toggle-dark',
     'sd': "spawn fish -c 'dl; open (ls -a | rofi -dmenu -b -i || exit 0)'",
     'sg': 'debug-dump-page ~/Downloads/dump.html',
-    'sp': 'open ldrproxy.fly.dev/{url}',
-    'sP': 'open morty.ononoki.org/?mortyurl={url}',
     'sq': 'spawn -u qr',
     'sr': 'remove-sticky',
     'st': 'config-cycle -p content.proxy socks://localhost:9050 ' + c.content.proxy,

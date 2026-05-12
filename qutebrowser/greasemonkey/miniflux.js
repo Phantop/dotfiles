@@ -4,9 +4,7 @@
 // @include       https://minifocs.fly.dev/share/*
 // ==/UserScript==
 const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join();
-const elements = document.querySelectorAll(headings);
-
-for (const element of elements) {
+for (const element of document.querySelectorAll(headings)) {
   let id = element.id;
 
   if (!id) {
