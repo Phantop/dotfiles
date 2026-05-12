@@ -1,7 +1,5 @@
 vim.opt.background = 'dark'
-vim.opt.clipboard = 'unnamedplus'
 vim.opt.colorcolumn = '85'
-vim.opt.mouse = 'a'
 
 vim.opt.shiftwidth = 4
 vim.opt.textwidth = 0

@@ -1,3 +1,23 @@
+require 'paq' {
+    'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-path',
+    'hrsh7th/nvim-cmp',
+
+    'nvim-lua/plenary.nvim',
+    'nvimtools/none-ls.nvim',
+    'gbprod/none-ls-shellcheck.nvim',
+
+    'neovim/nvim-lspconfig',
+    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason.nvim', build = ':MasonUpdate' },
+}
+
+require("mason").setup()
+require("mason-lspconfig").setup()
 local null_ls = require('null-ls')
 null_ls.setup({sources = {
     null_ls.builtins.formatting.phpcbf,
