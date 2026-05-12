@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 rm -r ~/.config/fish/*
 stow --no-folding -d ~/.dotfiles -t ~/.config/fish fish
 

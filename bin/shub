@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 set url $argv[1]
 
 set base (curli -b toc_show=999 $url)

@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 set offset 0
 set 1 $argv[1]
 set 2 $argv[2]
