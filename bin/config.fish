@@ -35,7 +35,6 @@ a avg 'jq -s add/length'
 a base64d 'echo (echo $argv | base64 -d 2>/dev/null) | tee /dev/stderr 2>| clip;:'
 a clip 'xsel -ib'
 a cpugov 's cpupower frequency-set -g performance'
-a curlflux 'eval curl (cat ~/.config/miniflux)/$argv[1] $argv[2..-1];:'
 a def 'curl dict://dict.org/d:$argv;:'
 a dirdl 'wget -r -k -p -np -e robots=off'
 a dl 'test -z "$argv" && cd ~/Downloads || aria2c -c -{j,s,x}16 --http-accept-gzip'
@@ -53,6 +52,7 @@ a gsopti 'fd -e pdf -x gs -sDEVICE=pdfwrite -dNOPAUSE -sOutputFile={}1 {} \; -x 
 a hardinfo 'inxi -SPARM -GCDN -v1 -xGCRS -Fxz'
 a htmldecode 'python3 -c "import html, sys; print(html.unescape(sys.stdin.read()))"'
 a imgsum 'printf "$argv: " && identify -format "%#\n"'
+a json 'xh -p B --offline _ '
 a kittab 'kitty @ launch --type=tab --cwd $PWD'
 a l ls
 a la 'l -A'
@@ -68,7 +68,6 @@ a nsmd 'netsurf (md2html $argv | psub -s .html);:'
 a nsp 'netsurf (pandoc $argv -s -t html | psub -s .html);:'
 a nsw 'parallel "curl -L nswgame.com/{}-nintendo-switch-nsp-xci-nsz-download-free | pup .su-spoiler-content a attr{href}" :::'
 a off shutdown
-a outfox 'firejail --private=~/Games/outfox --noprofile ./OutFox'
 a pbdl 'gdl (trurl -s host=www.tumblr.com $argv);:'
 a pill 's powerpill -Syu'
 a png2webp 'fd -e png -x cwebp -z 9 -mt {} -o {.}.webp \; -x rm'
@@ -91,6 +90,7 @@ a sus 'systemctl suspend'
 a sxiv nsxiv
 a tar bsdtar
 a tcsv 'curl https://torrents-csv.com/service/search?q=(echo $argv | tr " " +) | jless;:'
+a tm trash
 a umu umu-run
 a up 's pacman -Syu'
 a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()))"'
@@ -124,7 +124,7 @@ a history_last 'history -n1;:'
 
 if type arista-python || type arista-ssh
   a abuild 'a4c build --platform x86_64_el9 --service workspace'
-  a acons 'dt ssh run en \; ba python -m Acons'
+  a acons 'dt ssh -t run "en ; ba python -m Acons $argv[1] -- cd -q /$argv[2]";:'
   a adef 'a grok -d'
   a amk 'a ws make -p (basename (git root || pwd))'
   a artic 'gb artic --schedule now'

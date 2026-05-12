@@ -38,7 +38,7 @@ depends=(
 
     # CLI tools to check out
     binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo keyd
-    magic-wormhole msedit ouch runc slumber tabiew ttyd xh yazi yq
+    magic-wormhole msedit ouch runc slumber tabiew trash-cli ttyd xh yazi yq
 
     # GUI
     plasma-meta gdm gtk3-classic
