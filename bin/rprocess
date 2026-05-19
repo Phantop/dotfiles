@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+import os
+import argparse
+import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def parse_exts(ext_str):
+    return {e.lower().strip().lstrip('.') for e in ext_str.split(',') if e.strip()}
+
+def relpath(path, base):
+    return os.path.relpath(path, base)
+
+def should_process(src, dst):
+    if not os.path.exists(dst):
+        return True
+    s = os.stat(src)
+    d = os.stat(dst)
+    return (s.st_mtime > d.st_mtime)
+
+def collect_files(src_root, exts):
+    files = []
+    for root, _, filenames in os.walk(src_root):
+        for name in filenames:
+            if exts:
+                if name.lower().split('.')[-1] not in exts:
+                    continue
+            full = os.path.join(root, name)
+            files.append(full)
+    return files
+
+def map_dest(src_file, src_root, dst_root, out_ext=None):
+    rel = relpath(src_file, src_root)
+    if out_ext:
+        rel = os.path.splitext(rel)[0] + "." + out_ext
+    return os.path.join(dst_root, rel)
+
+def run_cmd(cmd, src, dst):
+    subprocess.run([cmd, src, dst], check=False)
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--src", required=True)
+    ap.add_argument("--dst", required=True)
+    ap.add_argument("--ext", default="")
+    ap.add_argument("--out-ext", default="")  # e.g. opus
+    ap.add_argument("--cmd", required=True)
+    ap.add_argument("--delete", action="store_true")
+    ap.add_argument("--jobs", type=int, default=1)
+    args = ap.parse_args()
+
+    exts = parse_exts(args.ext) if args.ext else None
+
+    src_files = collect_files(args.src, exts)
+    expected_outputs = set()
+
+    with ThreadPoolExecutor(max_workers=args.jobs) as ex:
+        futures=[]
+        for src in src_files:
+            dst = map_dest(src, args.src, args.dst, args.out_ext or None)
+            expected_outputs.add(os.path.normpath(dst))
+
+            if should_process(src, dst):
+                print(f"Processing {src}")
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                future = ex.submit(run_cmd, args.cmd, src, dst)
+                futures.append(future)
+
+
+    if args.delete:
+        for root, _, files in os.walk(args.dst):
+            for name in files:
+                full = os.path.normpath(os.path.join(root, name))
+                if full not in expected_outputs:
+                    print(f"Deleting {full}")
+                    os.remove(full)
+
+    print("Done.")
+
+if __name__ == "__main__":
+    main()
