@@ -12,6 +12,8 @@ redirs = {
     'news.ycombinator.com' : 'news.workers.tools',
     'www.npr.org' : 'text.npr.org',
     # 'www.youtube.com' : youtube,
+
+    'gethub.com' : 'diffshub.com',
 }
 farside = [
     'fandom.com',
@@ -44,7 +46,8 @@ def rewrite(info: interceptor.Request):
         if isinstance(redir, str):
             url.setHost(redir)
             info.redirect(url)
-        redir(info, url)
+        else:
+            redir(info, url)
     elif host in farside or base in farside:
         surl = url.toString()
         url.setHost('farside.link')
