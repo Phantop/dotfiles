@@ -49,7 +49,7 @@ depends=(
     pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire
     vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
-    signal-desktop vesktop
+    signal-desktop discord
     keepassxc sqlitebrowser zeal
     nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
