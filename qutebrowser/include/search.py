@@ -1,9 +1,9 @@
-c.url.searchengines['!'] = 'duckduckgo.com/?q=!{}'
 c.url.searchengines['4'] = 'farside.link/4get/web?s={}'
 c.url.searchengines['4'] = '4get.fly.dev/web?s={}'
 c.url.searchengines['a'] = 'annas-archive.gd/search?q={}'
 c.url.searchengines['aur'] = 'aur.archlinux.org/packages?K={}'
 c.url.searchengines['aw'] = 'wiki.archlinux.org/title/{}'
+c.url.searchengines['ddg'] = 'duckduckgo.com/?q={}'
 c.url.searchengines['g'] = 'github.com/search?q={}'
 c.url.searchengines['m'] = 'search.marginalia.nu/search?query={}'
 c.url.searchengines['mf'] = 'minifocs.fly.dev/search?q={}'
@@ -12,4 +12,4 @@ c.url.searchengines['stract'] = 'stract.com/search?q={}'
 c.url.searchengines['w'] = 'en.wikipedia.com/wiki/{}?lang=en'
 c.url.searchengines['y'] = 'youtube.com/search?q={}'
 c.url.searchengines['z'] = 'zeldawiki.wiki/wiki/{}'
-c.url.searchengines['DEFAULT'] = c.url.searchengines['4']
+c.url.searchengines['DEFAULT'] = c.url.searchengines['ddg']

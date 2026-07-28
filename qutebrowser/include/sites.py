@@ -7,6 +7,7 @@ sites = [
         'archiveofourown.org',
         'discord.com',
         'app.tuta.com',
+        'duckduckgo.com',
         c.url.default_page,
         ]
 for site in sites:
