@@ -142,6 +142,7 @@ if type arista-python || type arista-ssh
   a freshen 'sudo swi freshen /images/EOS.swi'
   a gb 'a git'
   a gbc 'gb create eos-trunk -n (date +%m%d)'
+  a gd 'a dt ls -u $USER'
   a job 'bug -j'
   a jobscan logscan
   a lake 'curl -sL http://joblog/$argv;:'
@@ -163,6 +164,7 @@ if type arista-python || type arista-ssh
   a revfiles 'revdiff $argv | cut -f1 | sed -n "s|+++ |/|p";:'
   a san 'echo "edut.cleanconfig()" | dt py'
   a startoc 'dt ssh run "en ; conf ; management api gnmi ; transport grpc default"'
+  a tamper 'echo "edut.tamper(\'$argv\')" | dt py;:'
   a tcam 'echo "edut.setTcamProfile(\'$argv\')" | dt py;:'
   a toggle 'dt toggle --featureToggle=$argv=true;:'
   a topic 'gb checkout'
