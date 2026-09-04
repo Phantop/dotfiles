@@ -2,9 +2,9 @@
 --continue
 --embed-chapters
 --embed-subs
+--embed-thumbnail
 --ignore-errors
 --no-overwrite
 --sponsorblock-remove all
 --sub-langs en.*
 --write-auto-sub
---write-sub
