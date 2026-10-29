@@ -9,6 +9,7 @@
     cl = gc --aggressive --prune=now
     d = diff
     g = clone --recursive
+    grab = clone --depth 1
     l = log
     open = remote -v
     p = pull
