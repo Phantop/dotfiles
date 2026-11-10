@@ -61,7 +61,7 @@ a listen 'pactl list | grep loop && set t un; pactl "$t"load-module module-loopb
 a lock 'budgie-screensaver-command -l'
 a magdl 'dl --seed-time=0 magnet:?xt=urn:btih:$argv;:'
 a mangadex 'gdl --chapter-filter "language == \'English\'"'
-a mvd mullvad
+a mvd protonvpn
 a nix '. ~/.nix-profile/etc/profile.d/nix.fish; command nix'
 a nnn 'nnn -A'
 a nsmd 'netsurf (md2html $argv | psub -s .html);:'

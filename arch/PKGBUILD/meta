@@ -1,6 +1,6 @@
 pkgname=meta
-pkgver=2025
-pkgrel=1
+pkgver=2026
+pkgrel=11
 pkgdesc="Julie's fun metapackage"
 arch=('any')
 url="https://phantop.github.io"
@@ -26,23 +26,24 @@ depends=(
     efibootmgr firejail fwupd nss-mdns iwd wireless_tools
     ffmpeg imagemagick opus-tools poppler waifu2x-ncnn-vulkan
     fish autojump shellcheck starship stow xsel
-    flyctl-bin git git-delta github-cli tig
+    flyctl-bin git git-absorb git-delta github-cli tig
     ghostscript mupdf-tools pandoc tesseract-data-eng typst whisper-cpp-git
     hurl pup trurl tuc
-    ifuse pv rclone rsync mullvad-vpn-cli torsocks sshfs syncthing
-    linux-hardened linux-firmware amd-ucode intel-ucode
+    ifuse pv rclone rsync proton-vpn-cli proton-vpn-gtk-app torsocks sshfs syncthing
+    kernel-modules-hook linux-hardened linux-firmware amd-ucode intel-ucode
     neovim most
     rustup pyenv python-html2text python-pylint uv
     tldr vt-cli krathalans-apparmor-profiles-git clamav
-    zram-generator bcachefs-dkms bcachefs-tools f2fs-tools 
+    bcachefs-tools f2fs-tools zram-generator
+    bcachefs-dkms linux-headers linux-hardened-headers
 
     # CLI tools to check out
     binwalk csvlens curlie dagger doxx elvish fq grex helix httpie incus jc jo keyd
     magic-wormhole msedit ouch runc slumber tabiew trash-cli ttyd xh yazi yq
 
     # GUI
-    plasma-meta gdm gtk3-classic
-    gnome-disk-utility kitty pcmanfm gvfs-mtp rofi
+    plasma-meta gdm gtk3-classic papirus-icon-theme
+    dolphin gnome-disk-utility kitty rofi
     adobe-source-code-pro-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-ubuntu-font-family
 
     intel-media-driver libva-intel-driver xf86-video-amdgpu xorg-server xorg-xinit
@@ -50,20 +51,20 @@ depends=(
     vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon
 
     signal-desktop discord
-    keepassxc sqlitebrowser zeal
-    nicotine+ qbittorrent uget
+    keepassxc ollama sqlitebrowser zeal
+    mitmproxy nicotine+ qbittorrent uget
     qutebrowser dart-sass qrencode pdfjs python-adblock python-readability-lxml
     ungoogled-chromium-bin firefox lagrange netsurf ladybird-git
 
-    audacity avidemux-qt obs-studio sof-firmware sonic-visualiser
+    audacity avidemux-qt easyeffects obs-studio sof-firmware sonic-visualiser
     mpv mpv-mpris anime4k-git nsxiv libheif webp-pixbuf-loader
     gimp krita qownnotes scrot xournalpp
     zathura zathura-cb zathura-djvu zathura-pdf-mupdf xreader xarchiver calibre
 
-    ares-emu azahar-git cemu-git dolphin-emu melonds-git
+    ares-emu azahar-git cemu-git eden-git dolphin-emu melonds-git
     gamemode gamescope proton-ge-custom-bin protontricks-git steam umu-launcher
     legendary luanti lutris 
-    dotnet-runtime game-devices-udev love jdk-openjdk
+    dotnet-runtime game-devices-udev love jdk-openjdk wit
     wine-gecko wine-mono wine-staging winetricks
 
     # GUI stuff to check out
