@@ -1,6 +1,7 @@
 --compat-options no-keep-subs
 --continue
 --embed-chapters
+--embed-info-json
 --embed-subs
 --embed-thumbnail
 --ignore-errors
