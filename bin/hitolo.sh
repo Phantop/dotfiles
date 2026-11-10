@@ -22,7 +22,7 @@ if [[ "$ext" == "flac" ]]; then
     opusenc --bitrate "$BITRATE" --quiet "$in" "$tmp"
 else
     # Decode via ffmpeg, pipe raw audio into opusenc
-    ffmpeg -v error -i "$in" -map_metadata 0:s:a:0 -f flac - | \
+    ffmpeg -v error -i "$in" -map_metadata 0 -f flac - | \
         opusenc --bitrate "$BITRATE" --quiet - "$tmp"
 fi
 
